@@ -1,0 +1,11 @@
+﻿<h3>Register</h3>
+
+<input type="text" @bind="_user.Id" class="form-control"/>
+<select @bind="_user.CompanyId" class="form-control">
+    @foreach(CompanyDto company in _companies)
+    {
+        <option value="@company.Id">@company.Name</option>
+    }
+</select>
+<input type="text" @bind="_user.Password" class="form-control"/>
+<button @onclick="async() => await OnRegister()" class="btn btn-primary"></button>
