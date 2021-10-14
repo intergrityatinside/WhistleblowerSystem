@@ -13,6 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhistleblowerSystem.Busines
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhistleblowerSystem.Database", "WhistleblowerSystem.Database\WhistleblowerSystem.Database.csproj", "{3262FA47-5654-46B8-B76A-C11037F15540}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhistleblowerSystem.Initialization", "Initialization\WhistleblowerSystem.Initialization.csproj", "{522CC669-9C76-4311-B7CA-8822027A459D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3262FA47-5654-46B8-B76A-C11037F15540} = {3262FA47-5654-46B8-B76A-C11037F15540}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +44,10 @@ Global
 		{3262FA47-5654-46B8-B76A-C11037F15540}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3262FA47-5654-46B8-B76A-C11037F15540}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3262FA47-5654-46B8-B76A-C11037F15540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{522CC669-9C76-4311-B7CA-8822027A459D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{522CC669-9C76-4311-B7CA-8822027A459D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{522CC669-9C76-4311-B7CA-8822027A459D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{522CC669-9C76-4311-B7CA-8822027A459D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

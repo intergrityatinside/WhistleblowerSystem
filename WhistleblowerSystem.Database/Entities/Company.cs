@@ -1,13 +1,9 @@
 ﻿using MongoDB.Bson;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace WhistleblowerSystem.Database.Entities
 {
-    public class Company
+    public class Company : IIdentifiable
     {
         public Company(string? id, string name, string address, string zipcode)
         {
@@ -20,7 +16,8 @@ namespace WhistleblowerSystem.Database.Entities
             Zipcode = zipcode;
         }
 
-        public ObjectId? Id { get; set; }
+        [BsonId]
+        public ObjectId Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public string Zipcode { get; set; }

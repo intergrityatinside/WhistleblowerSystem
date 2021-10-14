@@ -27,11 +27,15 @@ namespace WhistleblowerSystem.Server.DependencyInjection
         private static void ConfigureBusinessServices(IServiceCollection services)
         {
             services.AddScoped<UserService>();
+            services.AddScoped<CompanyService>();
+
         }
 
         private static void ConfigureRepositories(IServiceCollection services)
         {
             services.AddScoped<UserRepository>();
+            services.AddScoped<CompanyRepository>();
+
         }
 
         private static void ConfigureDbContext(IServiceCollection services, string dbName, string dbConnection)

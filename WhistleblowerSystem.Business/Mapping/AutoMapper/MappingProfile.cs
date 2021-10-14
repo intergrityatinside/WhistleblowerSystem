@@ -76,7 +76,9 @@ namespace WhistleblowerSystem.Business.Mapping.AutoMapper
             CreateMap<Form, FormDto>()
                 .ConstructUsing((x, ctx) => new FormDto(x.Id.ToString(), x.UserId.ToString(), x.CompanyId.ToString(), x.TopicId.ToString(), x.FormTemplateId.ToString(),
                  ctx.Mapper.Map<List<FormFieldDto>>(x.FormFields),
-                 ctx.Mapper.Map<List<AttachementMetaDataDto>>(x.Attachements)))
+                 ctx.Mapper.Map<List<AttachementMetaDataDto>>(x.Attachements),
+                 ctx.Mapper.Map<List<FormMessageDto>>(x.Messages),
+                 x.State))
                 .ForAllMembers(opt => opt.Ignore());
 
             CreateMap<FormDto, Form>()
@@ -144,11 +146,21 @@ namespace WhistleblowerSystem.Business.Mapping.AutoMapper
         private void CreateUserMap()
         {
             CreateMap<User, UserDto>()
-                .ConstructUsing((x, _) => new UserDto(x.Id.ToString(), x.CompanyId.ToString(), x.PasswordHash))
+                .ConstructUsing((x, _) => new UserDto(x.Id.ToString(),
+                x.CompanyId.ToString(),
+                string.Empty, //do not map the (hashed) pw
+                x.Name,
+                x.FirstName,
+                x.Email))
                 .ForAllMembers(opt => opt.Ignore());
 
             CreateMap<UserDto, User>()
-                .ConstructUsing((x, ctx) => new User(x.Id, x.CompanyId, x.Password))
+                .ConstructUsing((x, ctx) => new User(x.Id,
+                x.CompanyId,
+                x.Password ?? throw new Exception($"{nameof(x.Password)} can not be null"),
+                 x.Name,
+                x.FirstName,
+                x.Email))
                 .ForAllMembers(opt => opt.Ignore());
         }
     }

@@ -8,6 +8,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using WhistleblowerSystem.Business.DTOs;
 using WhistleblowerSystem.Business.Services;
+using WhistleblowerSystem.Server.Models;
 
 namespace WhistleblowerSystem.Server.Authentication
 {
@@ -21,12 +22,12 @@ namespace WhistleblowerSystem.Server.Authentication
             _userService = userService;
         }
 
-        public async Task<UserDto?> SignInAsync(HttpContext httpContext, string id, string pw)
+        public async Task<UserDto?> SignInAsync(HttpContext httpContext, string email, string pw)
         {
             UserDto? userDto = null;
-            if (await _userService.Authenticate(id, pw))
+            if (await _userService.Authenticate(email, pw))
             {
-                userDto = await _userService.FindOneByIdAsync(id);
+                userDto = await _userService.FindOneByEmailAsync(email);
                 if (userDto == null) throw new ArgumentNullException(nameof(userDto));
                 ClaimsIdentity identity = new ClaimsIdentity(GetUserClaims(userDto), CookieAuthenticationDefaults.AuthenticationScheme);
                 ClaimsPrincipal principal = new ClaimsPrincipal(identity);
@@ -41,20 +42,19 @@ namespace WhistleblowerSystem.Server.Authentication
             await httpContext.SignOutAsync();
         }
 
-        public UserDto? GetUser(IHttpContextAccessor httpContextAccessor)
+        public HttpContextUser? GetUser(IHttpContextAccessor httpContextAccessor)
         {
             var httpContext = httpContextAccessor.HttpContext;
             if (httpContext == null) return null;
-            UserDto? userDto = null;
+            HttpContextUser? user = null;
             if (httpContext.User != null
                 && httpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier) != null)
             {
                 string id = httpContext.User.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value;
                 string companyId = httpContext.User.Claims.First(x => x.Type == ClaimTypeCompanyId).Value;
-
-                userDto = new UserDto(id, companyId, null);
+                user = new HttpContextUser(id, companyId);
             }
-            return userDto;
+            return user;
         }
 
         private IEnumerable<Claim> GetUserClaims(UserDto user)

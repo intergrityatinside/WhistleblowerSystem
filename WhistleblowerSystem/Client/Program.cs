@@ -1,12 +1,9 @@
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
+using WhistleblowerSystem.Client.Services;
 
 namespace WhistleblowerSystem.Client
 {
@@ -17,9 +14,14 @@ namespace WhistleblowerSystem.Client
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            var currentAccountService = new CurrentAccountService(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            await currentAccountService.InitAsync();
 
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddSingleton(sp => currentAccountService);
+            builder.Services.AddSingleton<ICurrentAccountService>(sp => sp.GetRequiredService<CurrentAccountService>());
             await builder.Build().RunAsync();
         }
     }
 }
+

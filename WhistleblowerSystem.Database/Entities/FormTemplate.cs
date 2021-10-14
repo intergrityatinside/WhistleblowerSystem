@@ -1,13 +1,11 @@
 ﻿using MongoDB.Bson;
-using System;
+using MongoDB.Bson.Serialization.Attributes;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace WhistleblowerSystem.Database.Entities
 {
-    public class FormTemplate
+    public class FormTemplate : IIdentifiable
     {
         public FormTemplate(string? id, List<FormFieldTemplate> fields)
         {
@@ -18,7 +16,8 @@ namespace WhistleblowerSystem.Database.Entities
             Fields = fields;
         }
 
-        public ObjectId? Id { get; set; }
+        [BsonId]
+        public ObjectId Id { get; set; }
         public List<FormFieldTemplate> Fields { get; set; }
     }
 }

@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace WhistleblowerSystem.Shared.Enums
 {
-    public enum ControlType
+    public enum ViolationState
     {
-        Text,
-        Textbox,
-        Textarea,
-        Dropdown,
-        Radiobutton,
-        Checkbox
+        Undefined = 0,
+        Accepted = 1,
+        InProgress = 2,
+        Done = 3
     }
 }

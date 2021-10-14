@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,21 +13,21 @@ namespace WhistleblowerSystem.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UserController : BaseController
+    public class CompanyController : BaseController
     {
-        private readonly UserService _userService;
+        private readonly CompanyService _companyService;
 
-        public UserController(UserManager userManager,
+        public CompanyController(UserManager userManager,
             IHttpContextAccessor httpContextAccessor,
-            UserService userService) : base(httpContextAccessor, userManager)
+            CompanyService companyService) : base(httpContextAccessor, userManager)
         {
-            _userService = userService;
+            _companyService = companyService;
         }
 
-        [HttpPost]
-        public async Task<UserDto> Post(UserDto user)
+        [HttpGet]
+        public async Task<List<CompanyDto>> Get()
         {
-            return await _userService.CreateUserAsync(user);
+            return await _companyService.GetAllCompaniesAsync();
         }
     }
 }

@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Initialization\WhistleblowerSystem.Initialization.csproj" />
     <ProjectReference Include="..\..\WhistleblowerSystem.Business\WhistleblowerSystem.Business.csproj" />
     <ProjectReference Include="..\..\WhistleblowerSystem.Database\WhistleblowerSystem.Database.csproj" />
     <ProjectReference Include="..\Client\WhistleblowerSystem.Client.csproj" />

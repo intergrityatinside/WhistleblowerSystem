@@ -1,17 +1,11 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WhistleblowerSystem.Database.Entities;
 
 namespace WhistleblowerSystem.Database.Entities
 {
-    public class User
+    public class User : IIdentifiable
     {
-        public User(string? id, string companyId, string? passwordHash)
+        public User(string? id, string companyId, string passwordHash, string name, string firstName, string email)
         {
             if (!string.IsNullOrEmpty(id))
             {
@@ -22,11 +16,17 @@ namespace WhistleblowerSystem.Database.Entities
                 CompanyId = ObjectId.Parse(companyId);
             }
             PasswordHash = passwordHash;
+            Name = name;
+            FirstName = firstName;
+            Email = email;
         }
 
         [BsonId]
-        public ObjectId? Id { get; set; }
+        public ObjectId Id { get; set; }
         public ObjectId CompanyId { get; set; }
-        public string? PasswordHash { get; set; }
+        public string Name { get; set; }
+        public string FirstName { get; set; }
+        public string Email { get; set; }
+        public string PasswordHash { get; set; }
     }
 }

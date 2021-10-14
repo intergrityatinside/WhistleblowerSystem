@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WhistleblowerSystem.Shared.Enums;
 
 namespace WhistleblowerSystem.Business.DTOs
 {
     public class FormDto
     {
-        public FormDto(string? id, string userId, string companyId, string topicId, string formTemplateId, List<FormFieldDto> formFields, List<AttachementMetaDataDto>? attachements)
+        public FormDto(string? id, string userId, string companyId, string topicId, string formTemplateId, List<FormFieldDto> formFields, List<AttachementMetaDataDto>? attachements, List<FormMessageDto>? messages, ViolationState state)
         {
             Id = id;
             UserId = userId;
@@ -18,6 +19,8 @@ namespace WhistleblowerSystem.Business.DTOs
             FormTemplateId = formTemplateId;
             FormFields = formFields;
             Attachements = attachements;
+            Messages = messages;
+            State = state;
         }
 
         public string? Id { get; set; }
@@ -27,6 +30,8 @@ namespace WhistleblowerSystem.Business.DTOs
         public string FormTemplateId { get; set; }
         public List<FormFieldDto> FormFields { get; set; }
         public List<AttachementMetaDataDto>? Attachements { get; set; }
+        public List<FormMessageDto>? Messages { get; set; }
+        public ViolationState State { get; set; }
 
     }
 }

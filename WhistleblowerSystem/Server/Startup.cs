@@ -1,5 +1,8 @@
+using AutoMapper;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
@@ -7,6 +10,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
+using WhistleblowerSystem.Business.Services;
+using WhistleblowerSystem.Database.DB;
+using WhistleblowerSystem.Database.Interfaces;
+using WhistleblowerSystem.Database.Repositories;
+using WhistleblowerSystem.Initialization;
 using WhistleblowerSystem.Shared.Exceptions;
 
 namespace WhistleblowerSystem.Server
@@ -28,13 +37,26 @@ namespace WhistleblowerSystem.Server
         {
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddHttpContextAccessor();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie((options) =>
+            {
+                options.Cookie.HttpOnly = false;
+                options.Events.OnRedirectToLogin = context =>
+                {
+                    context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                    return Task.CompletedTask;
+                };
+            });
+
             DependencyInjection.DependencyInjection.Init(services,
                 GetConfigValue("DBNAME"),
                 GetConfigValue("MONGODBCONNECTION", true));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -53,6 +75,8 @@ namespace WhistleblowerSystem.Server
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
@@ -60,6 +84,18 @@ namespace WhistleblowerSystem.Server
                 endpoints.MapControllers();
                 endpoints.MapFallbackToFile("index.html");
             });
+
+            InitializeDb(serviceProvider.GetRequiredService<DbContext>(),
+                serviceProvider.GetRequiredService<UserService>(),
+                serviceProvider.GetRequiredService<CompanyService>(),
+                //serviceProvider.GetRequiredService<FormTemplateService>(),
+                serviceProvider.GetRequiredService<IMapper>()).GetAwaiter().GetResult();
+        }
+
+        private async Task InitializeDb(DbContext dbContext, UserService userService, CompanyService companyService, /*FormTemplateService formTemplateService,*/ IMapper mapper)
+        {
+           await new Initializer(dbContext, companyService, userService,/*, formTemplateService,*/ mapper)
+                .Init(InitializingMode.DeleteAndCreate);
         }
 
         private string GetConfigValue(string name, bool isConnectionString = false)
