@@ -23,19 +23,19 @@ namespace WhistleblowerSystem.Initialization
 
         CompanyService _companyService;
         UserService _userService;
-        //FormTemplateService _formTemplateService;
+        FormTemplateService _formTemplateService;
         IDbContext _dbContext;
         IMapper _mapper;
 
         public Initializer(IDbContext unitOfWork,
             CompanyService companyService,
             UserService userService,
-            //FormTemplateService formTemplateService,
+            FormTemplateService formTemplateService,
             IMapper mapper)
         {
             _companyService = companyService;
             _userService = userService;
-            //_formTemplateService = formTemplateService;
+            _formTemplateService = formTemplateService;
             _dbContext = unitOfWork;
             _mapper = mapper;
         }
@@ -89,7 +89,7 @@ namespace WhistleblowerSystem.Initialization
                 throw new FileNotFoundException($"File {UsersFileName} not found");
             }
 
-            //await _formTemplateService.CreateFormTemplateAsync(InitalizeFormFields());
+            await _formTemplateService.CreateFormTemplateAsync(InitalizeFormFields());
 
             await _dbContext.CreateCollectionsAsync();
         }
@@ -308,7 +308,7 @@ namespace WhistleblowerSystem.Initialization
                 formField9
             };
 
-            FormTemplateDto formTemplate = new FormTemplateDto("", formFields);
+            FormTemplateDto formTemplate = new FormTemplateDto("",  formFields);
             return formTemplate;
         }
     }

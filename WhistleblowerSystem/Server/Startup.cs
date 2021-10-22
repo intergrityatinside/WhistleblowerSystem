@@ -88,13 +88,13 @@ namespace WhistleblowerSystem.Server
             InitializeDb(serviceProvider.GetRequiredService<DbContext>(),
                 serviceProvider.GetRequiredService<UserService>(),
                 serviceProvider.GetRequiredService<CompanyService>(),
-                //serviceProvider.GetRequiredService<FormTemplateService>(),
+                serviceProvider.GetRequiredService<FormTemplateService>(),
                 serviceProvider.GetRequiredService<IMapper>()).GetAwaiter().GetResult();
         }
 
-        private async Task InitializeDb(DbContext dbContext, UserService userService, CompanyService companyService, /*FormTemplateService formTemplateService,*/ IMapper mapper)
+        private async Task InitializeDb(DbContext dbContext, UserService userService, CompanyService companyService, FormTemplateService formTemplateService, IMapper mapper)
         {
-           await new Initializer(dbContext, companyService, userService,/*, formTemplateService,*/ mapper)
+           await new Initializer(dbContext, companyService, userService, formTemplateService, mapper)
                 .Init(InitializingMode.DeleteAndCreate);
         }
 

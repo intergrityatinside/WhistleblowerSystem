@@ -11,19 +11,11 @@ namespace WhistleblowerSystem.Database.Entities
 {
     public class Form : IIdentifiable
     {
-        public Form(string? id, string userId, string companyId, string topicId, string formTemplateId, List<FormField> formFields, List<AttachementMetaData>? attachements)
+        public Form(string? id, string topicId, string formTemplateId, List<FormField> formFields, List<AttachementMetaData>? attachements)
         {
             if (!string.IsNullOrEmpty(id))
             {
                 Id = ObjectId.Parse(id);
-            }
-            if (!string.IsNullOrEmpty(userId))
-            {
-                UserId = ObjectId.Parse(userId);
-            }
-            if (!string.IsNullOrEmpty(companyId))
-            {
-                CompanyId = ObjectId.Parse(companyId);
             }
             if (!string.IsNullOrEmpty(topicId))
             {
@@ -40,8 +32,6 @@ namespace WhistleblowerSystem.Database.Entities
 
         [BsonId]
         public ObjectId Id { get; set; }
-        public ObjectId UserId { get; set; }
-        public ObjectId CompanyId { get; set; }
         public ObjectId TopicId { get; set; }
         public ObjectId FormTemplateId { get; set; }
         public List<FormField> FormFields { get; set; }

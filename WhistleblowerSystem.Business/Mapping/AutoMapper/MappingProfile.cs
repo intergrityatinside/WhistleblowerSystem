@@ -21,6 +21,8 @@ namespace WhistleblowerSystem.Business.Mapping.AutoMapper
             CreateCompanyMap();
             CreateFormMap();
             CreateFormFieldMap();
+            CreateFormFieldTemplateMap();
+            CreateFormMessageMap();
             CreateFormTemplateMap();
             CreateSelectionValueMap();
             CreateTopicMap();
@@ -74,7 +76,7 @@ namespace WhistleblowerSystem.Business.Mapping.AutoMapper
         private void CreateFormMap()
         {
             CreateMap<Form, FormDto>()
-                .ConstructUsing((x, ctx) => new FormDto(x.Id.ToString(), x.UserId.ToString(), x.CompanyId.ToString(), x.TopicId.ToString(), x.FormTemplateId.ToString(),
+                .ConstructUsing((x, ctx) => new FormDto(x.Id.ToString(), x.TopicId.ToString(), x.FormTemplateId.ToString(),
                  ctx.Mapper.Map<List<FormFieldDto>>(x.FormFields),
                  ctx.Mapper.Map<List<AttachementMetaDataDto>>(x.Attachements),
                  ctx.Mapper.Map<List<FormMessageDto>>(x.Messages),
@@ -82,7 +84,7 @@ namespace WhistleblowerSystem.Business.Mapping.AutoMapper
                 .ForAllMembers(opt => opt.Ignore());
 
             CreateMap<FormDto, Form>()
-                .ConstructUsing((x, ctx) => new Form(x.Id, x.UserId, x.CompanyId, x.TopicId, x.FormTemplateId,
+                .ConstructUsing((x, ctx) => new Form(x.Id, x.TopicId!, x.FormTemplateId,
                  ctx.Mapper.Map<List<FormField>>(x.FormFields),
                  ctx.Mapper.Map<List<AttachementMetaData>>(x.Attachements)))
                 .ForAllMembers(opt => opt.Ignore());
@@ -107,6 +109,17 @@ namespace WhistleblowerSystem.Business.Mapping.AutoMapper
 
             CreateMap<FormFieldTemplateDto, FormFieldTemplate>()
                 .ConstructUsing((x, ctx) => new FormFieldTemplate(x.Id, ctx.Mapper.Map<List<LanguageEntry>>(x.Text), x.Type, ctx.Mapper.Map<List<SelectionValue>>(x.SelectionValues)))
+                .ForAllMembers(opt => opt.Ignore());
+        }
+
+        private void CreateFormMessageMap()
+        {
+            CreateMap<FormMessage, FormMessageDto>()
+                .ConstructUsing((x, ctx) => new FormMessageDto(x.Id.ToString(), x.Text, ctx.Mapper.Map<UserDto>(x.User), x.Timestamp))
+                .ForAllMembers(opt => opt.Ignore());
+
+            CreateMap<FormMessageDto, FormMessage>()
+                .ConstructUsing((x, ctx) => new FormMessage(x.Id, x.Text, ctx.Mapper.Map<User>(x.User), x.Timestamp))
                 .ForAllMembers(opt => opt.Ignore());
         }
 

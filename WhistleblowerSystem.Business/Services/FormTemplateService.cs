@@ -25,17 +25,5 @@ namespace WhistleblowerSystem.Business.Services
             await _formTemplateRepository.InsertOneAsync(form);
             return _mapper.Map<FormTemplateDto>(form);
         }
-
-        public async Task<List<FormTemplateDto>> GetAllFormTemplatesAsync()
-        {
-            var forms = await _formTemplateRepository.GetAllAsync();
-            return _mapper.Map<List<FormTemplateDto>>(forms);
-        }
-
-        public async Task<FormTemplateDto?> GetFormTemplateByIdAsync(string id)
-        {
-            var form = await _formTemplateRepository.FindOneAsync(id);
-            return _mapper.Map<FormTemplateDto>(form);
-        }
     }
 }

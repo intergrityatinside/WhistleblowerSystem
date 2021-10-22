@@ -9,7 +9,7 @@ namespace WhistleblowerSystem.Business.DTOs
 {
     public class FormMessageDto
     {
-        public FormMessageDto(string? id, string text, User user, DateTime timestamp)
+        public FormMessageDto(string? id, string text, UserDto user, DateTime timestamp)
         {
             Id = id;
             Text = text;
@@ -19,7 +19,7 @@ namespace WhistleblowerSystem.Business.DTOs
 
         public string? Id { get; set; }
         public string Text { get; set; }
-        public User? User { get; set; }
+        public UserDto? User { get; set; }
         public DateTime Timestamp { get; set; }
     }
 }

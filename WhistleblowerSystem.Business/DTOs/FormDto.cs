@@ -10,11 +10,9 @@ namespace WhistleblowerSystem.Business.DTOs
 {
     public class FormDto
     {
-        public FormDto(string? id, string userId, string companyId, string topicId, string formTemplateId, List<FormFieldDto> formFields, List<AttachementMetaDataDto>? attachements, List<FormMessageDto>? messages, ViolationState state)
+        public FormDto(string? id, string? topicId, string formTemplateId, List<FormFieldDto> formFields, List<AttachementMetaDataDto>? attachements, List<FormMessageDto>? messages, ViolationState state)
         {
             Id = id;
-            UserId = userId;
-            CompanyId = companyId;
             TopicId = topicId;
             FormTemplateId = formTemplateId;
             FormFields = formFields;
@@ -24,9 +22,7 @@ namespace WhistleblowerSystem.Business.DTOs
         }
 
         public string? Id { get; set; }
-        public string UserId { get; set; }
-        public string CompanyId { get; set; }
-        public string TopicId { get; set; }
+        public string? TopicId { get; set; }
         public string FormTemplateId { get; set; }
         public List<FormFieldDto> FormFields { get; set; }
         public List<AttachementMetaDataDto>? Attachements { get; set; }

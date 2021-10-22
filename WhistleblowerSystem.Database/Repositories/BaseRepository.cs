@@ -31,6 +31,11 @@ namespace WhistleblowerSystem.Database.Repositories
             //   .FirstOrDefault();
         }
 
+        public async Task<T> GetFirstAsync()
+        {
+            return (await _dbContext.GetCollection<T>().FindAsync(x => true))
+                .FirstOrDefault();
+        }
         public async Task InsertOneAsync(T item)
         {
             await _dbContext.GetCollection<T>().InsertOneAsync(item);

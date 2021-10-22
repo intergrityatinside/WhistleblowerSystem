@@ -28,6 +28,7 @@ namespace WhistleblowerSystem.Server.DependencyInjection
         {
             services.AddScoped<UserService>();
             services.AddScoped<CompanyService>();
+            services.AddScoped<FormTemplateService>();
 
         }
 
@@ -35,6 +36,7 @@ namespace WhistleblowerSystem.Server.DependencyInjection
         {
             services.AddScoped<UserRepository>();
             services.AddScoped<CompanyRepository>();
+            services.AddScoped<FormTemplateRepository>();
 
         }
 

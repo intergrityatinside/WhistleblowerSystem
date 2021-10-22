@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -41,6 +42,7 @@ namespace WhistleblowerSystem.Server.Controllers
             return user;
         }
 
+        [Authorize]
         [HttpPost("logout")]
         public async Task Logout()
         {
