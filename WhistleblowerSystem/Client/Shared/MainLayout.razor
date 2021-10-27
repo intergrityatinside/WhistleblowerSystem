@@ -6,16 +6,35 @@
     </div>
 
     <div class="main">
-    
-      @if (_currentUser != null)
-      {
-        <div  class="top-row px-4">
-            <spam>  Hi, @_userName</spam>
-            <a @onclick="LogoutClicked" target="_blank" class="ml-md-auto">Logout</a>
+
+        @if (_currentUser != null)
+        {
+            <div class="top-row px-4">
+                <spam>  Hi, @_userName</spam>
+                <a @onclick="LogoutClicked" target="_blank" class="ml-md-auto">Logout</a>
+            </div>
+        }
+        <div class="top-row px-4">
+            <!-- TODO ersetzen durch Flaggen-->
+            <select class="form-control" @onchange="OnSelect" style="width:150px">
+                @foreach (var language in languages)
+                {
+                    <option value=@language>@language</option>
+                }
+            </select>
         </div>
-      }
         <div class="content px-4">
             @Body
         </div>
     </div>
 </div>
+
+@code {
+    List<string> languages = new List<string>() { "Deutsch", "Englisch" };
+
+    void OnSelect(ChangeEventArgs e)
+    {
+        Console.WriteLine("Selected language: " + e?.Value?.ToString());
+    }
+
+    }
