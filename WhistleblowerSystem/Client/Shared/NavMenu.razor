@@ -6,38 +6,69 @@
 </div>
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Create Report
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> My Reports
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> How it works
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="login" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Login
-            </NavLink>
-        </li>
-    </ul>
+    @if (roleType != RoleType.Company)
+    {
+        <ul class="nav flex-column">
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    <span class="oi oi-home" aria-hidden="true"></span> Create Report
+                </NavLink>
+            </li>
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="counter">
+                    <span class="oi oi-plus" aria-hidden="true"></span> My Reports
+                </NavLink>
+            </li>
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="fetchdata">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> How it works
+                </NavLink>
+            </li>
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="login" Match="NavLinkMatch.All">
+                    <span class="oi oi-home" aria-hidden="true"></span> Login
+                </NavLink>
+            </li>
+        </ul>
+    }
 </div>
 
 @code {
 
-    private bool collapseNavMenu = true;
+    [Inject] NavigationManager NavigationManager { get; set; } = null!;
 
+    private bool collapseNavMenu = true;
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : "null";
+    private RoleType roleType = RoleType.Undefined;
+
+    protected override void OnInitialized()
+    {
+        SetRoleType(NavigationManager.Uri);
+        NavigationManager.LocationChanged += (e, args) =>
+        {
+            SetRoleType(args.Location);
+        };
+
+    }
+
+    private void SetRoleType(string uri)
+    {
+        string relativePath = uri.Replace(NavigationManager.BaseUri, "");
+        roleType = string.IsNullOrEmpty(relativePath) ? RoleType.Undefined :
+            relativePath.StartsWith("company") || relativePath.StartsWith("/company") ? RoleType.Company :
+            RoleType.Whistleblower;
+        StateHasChanged();
+    }
 
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+    private enum RoleType
+    {
+        Undefined = 0,
+        Whistleblower = 1,
+        Company = 2
     }
 }
