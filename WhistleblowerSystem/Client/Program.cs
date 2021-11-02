@@ -4,6 +4,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using WhistleblowerSystem.Client.Services;
+using MudBlazor.Services;
 
 namespace WhistleblowerSystem.Client
 {
@@ -20,6 +21,7 @@ namespace WhistleblowerSystem.Client
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddSingleton(sp => currentAccountService);
             builder.Services.AddSingleton<ICurrentAccountService>(sp => sp.GetRequiredService<CurrentAccountService>());
+            builder.Services.AddMudServices();
             await builder.Build().RunAsync();
         }
     }

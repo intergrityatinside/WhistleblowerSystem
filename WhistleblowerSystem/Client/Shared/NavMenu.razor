@@ -1,14 +1,8 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">INTEGRITY@INSIDE</a>
-    <button class="navbar-toggler" @onclick="ToggleNavMenu">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</div>
-
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+﻿<div class="@NavMenuCssClass">
     @if (roleType != RoleType.Company)
     {
-        <ul class="nav flex-column">
+        <ul class="nav-menu">
+            <!--class="nav flex-column"-->
             <li class="nav-item px-3">
                 <NavLink class="nav-link" href="newreport">
                     <span class="oi oi-plus" aria-hidden="true"></span> Meldung erfassen
@@ -35,16 +29,19 @@
                 </NavLink>
             </li>
         </ul>
+        <image class="nav-image" src="/images/integrityAtInside_logo.svg" height="116" width="150"></image>
+
     }
 </div>
 
+
 @code {
-
     [Inject] NavigationManager NavigationManager { get; set; } = null!;
+    [Parameter] public bool IsNavMenuCollapsed { get; set; } = false;
 
-    private bool collapseNavMenu = true;
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : "null";
+    private string NavMenuCssClass => IsNavMenuCollapsed ? "menu-collapsed" : "menu";
     private RoleType roleType = RoleType.Undefined;
+
 
     protected override void OnInitialized()
     {
@@ -63,11 +60,6 @@
             relativePath.StartsWith("company") || relativePath.StartsWith("/company") ? RoleType.Company :
             RoleType.Whistleblower;
         StateHasChanged();
-    }
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
     }
 
     private enum RoleType
