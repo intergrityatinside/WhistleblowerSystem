@@ -13,7 +13,7 @@ namespace WhistleblowerSystem.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CompanyController : BaseController
+    public class CompanyController : UserBaseController
     {
         private readonly CompanyService _companyService;
 

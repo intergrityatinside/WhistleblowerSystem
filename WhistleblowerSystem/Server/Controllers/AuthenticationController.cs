@@ -11,13 +11,13 @@ namespace WhistleblowerSystem.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class Authentication : Controller
+    public class AuthenticationController : Controller
     {
         readonly UserManager _userManager;
         readonly IHttpContextAccessor _httpContextAccessor;
         readonly UserService _userService;
 
-        public Authentication(UserManager userManager,
+        public AuthenticationController(UserManager userManager,
                         IHttpContextAccessor httpContextAccessor,
                         UserService userService)
         {

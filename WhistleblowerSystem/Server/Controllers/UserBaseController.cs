@@ -8,12 +8,12 @@ using WhistleblowerSystem.Server.Models;
 namespace WhistleblowerSystem.Server.Controllers
 {
     [Authorize]
-    public class BaseController : ControllerBase
+    public class UserBaseController : ControllerBase
     {
         protected IHttpContextAccessor _httpContextAccessor;
         protected UserManager _userManager;
         protected HttpContextUser _currentUser;
-        public BaseController(IHttpContextAccessor httpContextAccessor, UserManager userManager)
+        public UserBaseController(IHttpContextAccessor httpContextAccessor, UserManager userManager)
         {
             _httpContextAccessor = httpContextAccessor;
             _userManager = userManager;

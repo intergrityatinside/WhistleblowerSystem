@@ -27,6 +27,7 @@ namespace WhistleblowerSystem.Business.Mapping.AutoMapper
             CreateSelectionValueMap();
             CreateTopicMap();
             CreateUserMap();
+            CreateWhistleblowerMap();
         }
 
         private void CreateLanguageEntryMap()
@@ -174,6 +175,20 @@ namespace WhistleblowerSystem.Business.Mapping.AutoMapper
                  x.Name,
                 x.FirstName,
                 x.Email))
+                .ForAllMembers(opt => opt.Ignore());
+        }
+        private void CreateWhistleblowerMap()
+        {
+            CreateMap<Whistleblower, WhistleblowerDto>()
+                .ConstructUsing((x, _) => new WhistleblowerDto(x.Id.ToString(),
+                x.FormId.ToString(),
+                string.Empty))
+                .ForAllMembers(opt => opt.Ignore());
+
+            CreateMap<WhistleblowerDto, Whistleblower>()
+                .ConstructUsing((x, ctx) => new Whistleblower(x.Id,
+                x.FormId,
+                x.Password ?? throw new Exception($"{nameof(x.Password)} can not be null")))
                 .ForAllMembers(opt => opt.Ignore());
         }
     }
