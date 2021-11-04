@@ -19,7 +19,7 @@
                 <a @onclick="LogoutClicked" target="_blank" class="ml-md-auto">Logout</a>
             </div>
         }
-        <div class="top-row px-4">
+        <div class="language-container">
             <!-- TODO ersetzen durch Flaggen-->
             <select class="btn btn-secondary dropdown-toggle" value="@((int)LanguageService.Language)" @onchange="OnLanguageChanged" style="width:150px">
                 @foreach ((int, string) language in languages)
