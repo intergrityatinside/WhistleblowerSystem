@@ -2,11 +2,15 @@
 @using WhistleblowerSystem.Client.Services;
 
 <div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
-
-    <div class="main">
+    <div class="top-row">
+        <div class="navbar">
+            <button class="navbar-toggler" @onclick="OnToggleMenuClicked">
+                <span class="oi oi-menu"></span>
+            </button>
+            <a href="">
+                <image class="navbar-brand" src="/images/fhnw_logo.svg" height="32" width="140"></image>
+            </a>
+        </div>
 
         @if (_currentUser != null)
         {
@@ -16,16 +20,46 @@
             </div>
         }
         <div class="top-row px-4">
-            <select class="form-control" value="@((int)LanguageService.Language)" @onchange="OnLanguageChanged" style="width:150px">
+            <!-- TODO ersetzen durch Flaggen-->
+            <select class="btn btn-secondary dropdown-toggle" value="@((int)LanguageService.Language)" @onchange="OnLanguageChanged" style="width:150px">
                 @foreach ((int, string) language in languages)
                 {
                     <option value=@language.Item1>@language.Item2</option>
                 }
             </select>
         </div>
-        <div class="content px-4">
-            @Body
+    </div>
+    <div class="main-container">
+        <div class="@SidebarClass">
+            <NavMenu IsNavMenuCollapsed=@IsNavMenuCollapsed />
+        </div>
+        <div class="main">
+            <div class="px-4">
+                @Body
+            </div>
         </div>
     </div>
 </div>
 
+@code {
+    private string SidebarClass => IsNavMenuCollapsed ? "sidebar-menu-collapsed" : "sidebar sidebar-menu";
+    private bool IsNavMenuCollapsed { get; set; } = false;
+    List<string> languages = new List<string>() { "Deutsch", "Englisch" };
+
+    private void ToggleMenu(bool value)
+    {
+        IsNavMenuCollapsed = value;
+    }
+
+    void OnSelect(ChangeEventArgs e)
+    {
+        Console.WriteLine("Selected language: " + e?.Value?.ToString());
+    }
+
+
+    private void OnToggleMenuClicked()
+    {
+        IsNavMenuCollapsed = !IsNavMenuCollapsed;
+    }
+
+}

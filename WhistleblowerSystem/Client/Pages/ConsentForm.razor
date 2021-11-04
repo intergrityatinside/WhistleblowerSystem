@@ -1,0 +1,37 @@
+﻿@page "/consent/form"
+@inject NavigationManager UriHelper
+
+<div class="content-container">
+    <div class="content">
+        <h1>Einverständniserklärung</h1>
+        <h3>
+            Integrity@Inside bietet technischen Schutz für die von Ihnen übermittelten Inhalte und Ihre Identität.
+            <br />
+        </h3>
+        <p>
+            Um Ihre Sicherheit weiter zu erhöhen, beachten Sie bitte die folgenden Punkte :     <br />
+        </p>
+        <ul>
+            <li>Wenn Sie anonym bleiben möchten, geben Sie in Ihrer Meldung keine persönlichen Informationen an</li>
+            <li>Geben Sie keine Daten mit Ihren persönlichen Informationen</li>
+            <li>Verwenden Sie kein von Ihrem Arbeitgeber bereitgestelltes Gerät, um Ihren Fall zu melden</li>
+        </ul>
+        <div class="checkbox-container">
+            <input type="checkbox" @bind="CheckedValue" />
+            <span> Ich habe die Sicherheitshinweise gelesen und bin damit einverstanden </span>
+        </div>
+    </div>
+    <div class="footer">
+        <button class="btn btn-primary" disabled="@(CheckedValue? false: true)" @onclick=@Navigate>Weiter</button>
+    </div>
+</div>
+
+
+@code {
+    private bool CheckedValue { get; set; } = false;
+
+    void Navigate()
+    {
+        UriHelper.NavigateTo("newreport");
+    }
+}

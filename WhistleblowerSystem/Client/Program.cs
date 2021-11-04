@@ -9,6 +9,7 @@ using WhistleblowerSystem.Client.Services;
 using WhistleblowerSystem.Shared.Enums;
 using System.Linq;
 using Microsoft.JSInterop;
+using MudBlazor.Services;
 
 namespace WhistleblowerSystem.Client
 {
