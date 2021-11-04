@@ -7,6 +7,7 @@
 
 .main {
     flex: 2;
+    height: 90vh;
 }
 
 .main-container {
@@ -41,7 +42,7 @@
     display: flex;
     background-color: rgba(237,237,237,0.5);
     padding-left: 5px;
-    padding-right: 5px;
+    padding-right: 15px;
 }
 
     .top-row ::deep a, .top-row .btn-link {
@@ -70,6 +71,11 @@
     .main-container {
         flex-direction: column
     }
+
+    .main > div {
+        padding-left: 5vh !important;
+        padding-right: 5vh !important;
+    }
 }
 
 @media (min-width: 641px) {
@@ -87,7 +93,7 @@
     }
 
     .main > div {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
+        padding-left: 15vh !important;
+        padding-right: 15vh !important;
     }
 }

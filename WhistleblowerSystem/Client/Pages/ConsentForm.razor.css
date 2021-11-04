@@ -1,0 +1,11 @@
+﻿ul li {
+    margin: 10px;
+    list-style-type: disc;
+    list-style-position: inside;
+    padding: 15px;
+}
+
+.checkbox-container {
+    background-color: #E3E3E3;
+    padding: 20px;
+}
