@@ -44,16 +44,10 @@
 @code {
     private string SidebarClass => IsNavMenuCollapsed ? "sidebar-menu-collapsed" : "sidebar sidebar-menu";
     private bool IsNavMenuCollapsed { get; set; } = false;
-    List<string> languages = new List<string>() { "Deutsch", "Englisch" };
 
     private void ToggleMenu(bool value)
     {
         IsNavMenuCollapsed = value;
-    }
-
-    void OnSelect(ChangeEventArgs e)
-    {
-        Console.WriteLine("Selected language: " + e?.Value?.ToString());
     }
 
 
