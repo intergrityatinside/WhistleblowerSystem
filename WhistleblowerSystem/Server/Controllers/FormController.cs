@@ -15,10 +15,10 @@ namespace WhistleblowerSystem.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class Form : BaseController
+    public class FormController : UserBaseController
     {
         private readonly FormService _formService;
-        public Form(UserManager userManager,
+        public FormController(UserManager userManager,
             IHttpContextAccessor httpContextAccessor,
             FormService formService) : base(httpContextAccessor, userManager)
         {
