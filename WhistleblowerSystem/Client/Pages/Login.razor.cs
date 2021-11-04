@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.Extensions.Localization;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace WhistleblowerSystem.Client.Pages
         [Inject] HttpClient Http { get; set; } = null!;
         [Inject] private ICurrentAccountService CurrentAccountService { get; set; } = null!;
         [Inject] private NavigationManager NavigationManager { get; set; } = null!;
-
+        [Inject] IStringLocalizer<App> L { get; set; } = null!;
         private async Task OnLogin()
         {
             try

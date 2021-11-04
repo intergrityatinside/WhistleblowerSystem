@@ -1,17 +1,41 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using WhistleblowerSystem.Business.DTOs;
 using WhistleblowerSystem.Client.Services;
+using WhistleblowerSystem.Shared.Enums;
 
 namespace WhistleblowerSystem.Client.Shared
 {
     public partial class MainLayout
     {
+        [Inject] IJSRuntime JSRuntime { get; set; } = null!;
+        [Inject] NavigationManager Navigation { get; set; } = null!;
+
         private string _userName = "";
         private UserDto? _currentUser;
+        List<(int, string)> languages = new() { 
+            ((int)Language.German , "Deutsch"), 
+            ((int)Language.English, "English")
+        };
+
+        async Task OnLanguageChanged(ChangeEventArgs e)
+        {
+            var language = (Language)Convert.ToInt32(e.Value);
+            string cultureCode = language switch
+            {
+                Language.English => "en-US",
+                Language.German => "de-DE",
+                _ => throw new NotImplementedException()
+            };
+
+            await JSRuntime.InvokeVoidAsync("app.setToLocalStorage", "culture_code", cultureCode);
+            Navigation.NavigateTo(Navigation.Uri, forceLoad: true);
+        }
 
         [Inject] private NavigationManager NavigationManager { get; set; } = null!;
         [Inject] private ICurrentAccountService CurrentAccountService { get; set; } = null!;

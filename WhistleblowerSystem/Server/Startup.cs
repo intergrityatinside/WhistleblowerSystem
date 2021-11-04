@@ -36,6 +36,7 @@ namespace WhistleblowerSystem.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
             services.AddRazorPages();
             services.AddHttpContextAccessor();
 
