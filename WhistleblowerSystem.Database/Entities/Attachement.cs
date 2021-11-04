@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace WhistleblowerSystem.Database.Entities
 {
-    public class Attachement
+    public class Attachement : IIdentifiable
     {
         public Attachement(string? id, ContentType name, byte[] bytes)
         {
@@ -20,7 +21,8 @@ namespace WhistleblowerSystem.Database.Entities
             Bytes = bytes;
         }
 
-        public ObjectId? Id { get; set; }
+        [BsonId]
+        public ObjectId Id { get; set; }
         public ContentType Name { get; set; }
         public Byte[] Bytes { get; set; }
     }
