@@ -59,7 +59,7 @@
     flex-direction: column;
     align-content: space-between;
     min-height: 90vh;
-    min-width: 250 px;
+    min-width: 250px;
 }
 
 @media (max-width: 640.98px) {
