@@ -10,5 +10,7 @@ namespace WhistleblowerSystem.Client.Services
     {
         public Task Load(FormDto formDto);
         public Task<FormDto> Save();
+        public Task GetForm();
+
     }
 }

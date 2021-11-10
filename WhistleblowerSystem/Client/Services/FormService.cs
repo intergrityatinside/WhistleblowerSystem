@@ -1,30 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 using WhistleblowerSystem.Business.DTOs;
 
 namespace WhistleblowerSystem.Client.Services
 {
-    public class FormService //: IFormService
+    public class FormService : IFormService
     {
         private readonly HttpClient _http;
-        //private FormDto? _currentForm;
+        private FormDto? _currentForm;
 
         public FormService(HttpClient http)
         {
             _http = http;
         }
 
-        //public async Task InitAsync()
-        //{
-        //    var response = await _http.GetAsync("Authentication");
-        //    if (!string.IsNullOrEmpty(await response.Content.ReadAsStringAsync()))
-        //    {
-        //        _currentForm = await response.Content.ReadFromJsonAsync<UserDto>();
-        //    }
-        //}
+        public async Task GetForm()
+        {
+            var response = await _http.GetAsync("Form/get");
+            if (!string.IsNullOrEmpty(value: await response.Content.ReadAsStringAsync()))
+            {
+
+                _currentForm = await response.Content.ReadFromJsonAsync<FormDto>();
+            } 
+        }
+
+        public Task Load(FormDto formDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<FormDto> Save()
+        {
+            throw new NotImplementedException();
+        }
 
         //public async Task Load(FormDto formDto)
         //{
@@ -40,9 +50,5 @@ namespace WhistleblowerSystem.Client.Services
         //    CurrentUserChanged?.Invoke(this, new CurrentUserChangedEventArgs(null));
         //}
 
-        //public UserDto? GetCurrentUser()
-        //{
-        //    return _currentUser;
-        //}
     }
 }

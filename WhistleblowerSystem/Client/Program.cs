@@ -23,9 +23,13 @@ namespace WhistleblowerSystem.Client
             var currentAccountService = new CurrentAccountService(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             await currentAccountService.InitAsync();
 
+            var formService = new FormService(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddSingleton(sp => currentAccountService);
             builder.Services.AddSingleton<ICurrentAccountService>(sp => sp.GetRequiredService<CurrentAccountService>());
+            builder.Services.AddSingleton( sp => formService);
+            builder.Services.AddSingleton<IFormService>(sp => sp.GetRequiredService<FormService>());
             builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
             builder.Services.AddScoped<IStringLocalizer<App>, StringLocalizer<App>>();
             var build = builder.Build();
