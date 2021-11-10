@@ -18,12 +18,12 @@ namespace WhistleblowerSystem.Client.Services
 
         public async Task GetForm()
         {
-            var response = await _http.GetAsync("Form/get");
+            var response = await _http.GetAsync("Form");
             if (!string.IsNullOrEmpty(value: await response.Content.ReadAsStringAsync()))
             {
 
                 _currentForm = await response.Content.ReadFromJsonAsync<FormDto>();
-            } 
+            }
         }
 
         public Task Load(FormDto formDto)

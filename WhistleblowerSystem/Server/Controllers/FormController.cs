@@ -25,7 +25,7 @@ namespace WhistleblowerSystem.Server.Controllers
             _formService = formService;
         }
 
-        [HttpGet("get")]
+        [HttpGet]
         public async Task<FormDto> Get()
         {
             return await _formService.CreateFormFromTemplateAsync();
