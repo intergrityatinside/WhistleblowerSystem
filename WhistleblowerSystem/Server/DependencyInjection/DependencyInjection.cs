@@ -42,7 +42,7 @@ namespace WhistleblowerSystem.Server.DependencyInjection
             services.AddScoped<FormRepository>();
             services.AddScoped<FormTemplateRepository>();
             services.AddScoped<UserRepository>();
-            services.AddScoped<WhistleblowerService>();
+            services.AddScoped<WhistleblowerRepository>();
 
         }
 
