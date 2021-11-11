@@ -26,19 +26,23 @@ namespace WhistleblowerSystem.Server.DependencyInjection
 
         private static void ConfigureBusinessServices(IServiceCollection services)
         {
-            services.AddScoped<UserService>();
+            services.AddScoped<AttachementService>();
             services.AddScoped<CompanyService>();
             services.AddScoped<FormService>();
             services.AddScoped<FormTemplateService>();
+            services.AddScoped<UserService>();
+            services.AddScoped<WhistleblowerService>();
 
         }
 
         private static void ConfigureRepositories(IServiceCollection services)
         {
-            services.AddScoped<UserRepository>();
+            services.AddScoped<AttachementRepository>();
             services.AddScoped<CompanyRepository>();
             services.AddScoped<FormRepository>();
             services.AddScoped<FormTemplateRepository>();
+            services.AddScoped<UserRepository>();
+            services.AddScoped<WhistleblowerService>();
 
         }
 
