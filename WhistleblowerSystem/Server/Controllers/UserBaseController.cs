@@ -12,12 +12,12 @@ namespace WhistleblowerSystem.Server.Controllers
     {
         protected IHttpContextAccessor _httpContextAccessor;
         protected UserManager _userManager;
-        protected HttpContextUser _currentUser;
+        protected HttpContextUser? _currentUser;
         public UserBaseController(IHttpContextAccessor httpContextAccessor, UserManager userManager)
         {
             _httpContextAccessor = httpContextAccessor;
             _userManager = userManager;
-            _currentUser = userManager.GetUser(httpContextAccessor) ?? throw new Exception("Not Authenticated - please Login");
+            _currentUser = userManager.GetUser(httpContextAccessor);
         }
     }
 }
