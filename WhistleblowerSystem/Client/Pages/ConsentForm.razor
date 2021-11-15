@@ -1,5 +1,5 @@
 ﻿@page "/consent/form"
-@inject NavigationManager UriHelper
+@inject NavigationManager NavigationManager
 
 <div class="content-container">
     <div class="content">
@@ -17,12 +17,11 @@
             <li>Verwenden Sie kein von Ihrem Arbeitgeber bereitgestelltes Gerät, um Ihren Fall zu melden</li>
         </ul>
         <div class="checkbox-container">
-            <input type="checkbox" @bind="CheckedValue" />
-            <span> Ich habe die Sicherheitshinweise gelesen und bin damit einverstanden </span>
+            <MudCheckBox @bind-Checked="CheckedValue" Label="Ich habe die Sicherheitshinweise gelesen und bin damit einverstanden "></MudCheckBox>
         </div>
     </div>
     <div class="footer">
-        <button class="btn btn-primary" disabled="@(CheckedValue? false: true)" @onclick=@Navigate>Weiter</button>
+        <MudButton OnClick="Navigate" Disabled="@(CheckedValue? false: true)" Color="Color.Dark" Variant="Variant.Filled">Weiter</MudButton>
     </div>
 </div>
 
@@ -32,6 +31,6 @@
 
     void Navigate()
     {
-        UriHelper.NavigateTo("newreport");
+        NavigationManager.NavigateTo("newreport");
     }
 }

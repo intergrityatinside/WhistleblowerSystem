@@ -94,11 +94,11 @@ namespace WhistleblowerSystem.Business.Mapping.AutoMapper
         private void CreateFormFieldMap()
         {
             CreateMap<FormField, FormFieldDto>()
-                .ConstructUsing((x, ctx) => new FormFieldDto(x.Id.ToString(), ctx.Mapper.Map<List<LanguageEntryDto>>(x.Texts), x.Type, ctx.Mapper.Map<List<SelectionValueDto>>(x.SelectedValues), ctx.Mapper.Map<List<SelectionValueDto>>(x.SelectionValues)))
+                .ConstructUsing((x, ctx) => new FormFieldDto(x.Id.ToString(), ctx.Mapper.Map<List<LanguageEntryDto>>(x.Texts), x.Type, x.SelectedValues, ctx.Mapper.Map<List<SelectionValueDto>>(x.SelectionValues)))
                 .ForAllMembers(opt => opt.Ignore());
 
             CreateMap<FormFieldDto, FormField>()
-                .ConstructUsing((x, ctx) => new FormField(x.Id, ctx.Mapper.Map<List<LanguageEntry>>(x.Texts), x.Type, ctx.Mapper.Map<List<SelectionValue>>(x.SelectedValues), ctx.Mapper.Map<List<SelectionValue>>(x.SelectionValues)))
+                .ConstructUsing((x, ctx) => new FormField(x.Id, ctx.Mapper.Map<List<LanguageEntry>>(x.Texts), x.Type, x.SelectedValues, ctx.Mapper.Map<List<SelectionValue>>(x.SelectionValues)))
                 .ForAllMembers(opt => opt.Ignore());
         }
 

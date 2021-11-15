@@ -262,8 +262,8 @@ namespace WhistleblowerSystem.Initialization
             SelectionValueDto selectionValue8_2 = new SelectionValueDto("", languageEntries8_2, "2");
 
             List<SelectionValueDto> selectionValues8 = new List<SelectionValueDto>();
-            selectionValues7.Add(selectionValue8_1);
-            selectionValues7.Add(selectionValue8_2);
+            selectionValues8.Add(selectionValue8_1);
+            selectionValues8.Add(selectionValue8_2);
 
             FormFieldTemplateDto formField8 = new FormFieldTemplateDto("", languageEntries8, Shared.Enums.ControlType.Radiobutton, selectionValues8);
 

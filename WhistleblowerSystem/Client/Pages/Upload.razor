@@ -1,0 +1,134 @@
+﻿@page "/upload"
+@inject ISnackbar Snackbar
+@inject AppStateService AppStateService
+@inject FormService FormService
+@inject NavigationManager NavigationManager
+@using WhistleblowerSystem.Business.DTOs;
+@using WhistleblowerSystem.Client.Services;
+
+<style>
+    .drag-drop-zone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all .4s;
+        min-height: 300px;
+        border: dotted;
+        margin-bottom: 10px;
+        border-color: #FDE70E;
+    }
+
+    .drag-drop-input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
+        width: inherit;
+        height: 300px;
+    }
+
+    .drag-enter {
+        box-shadow: var(--mud-elevation-10);
+    }
+
+    .list {
+        padding: 2em;
+        min-width: 100%;
+    }
+</style>
+
+<div class="content-container">
+    <div class="content">
+        <h1>
+            Dokumente hochladen
+        </h1>
+        <p>
+            Beweise sind wichtig, um die Situation in Ihrem Bericht genau zu verstehen und analysieren. Wenn Sie relevante Dateien hochladen möchten, nutzen Sie bitte den unten stehenden Upload-Bereich.
+            Dies wird uns helfen, Ihren Fall effektiver und effizienter zu bearbeiten.
+            <br />
+        </p>
+        <p>
+            Hinweis zum Versand von Anhängen: Dateien können versteckte personenbezogene Daten enthalten, die Ihre Anonymität
+            gefährden. Bitte entfernen Sie diese Daten vor dem Versenden.
+            <br />
+        </p>
+        <p>
+            Besten Dank für Ihre Mitarbeit!
+        </p>
+
+        <MudPaper @ondragenter="@(()=>_dragEnterStyle="drag-enter")"
+                  @ondragleave="@(()=>_dragEnterStyle=null)"
+                  @ondragend="@(()=>_dragEnterStyle=null)"
+                  Class=@("drag-drop-zone "+ _dragEnterStyle)>
+
+            <InputFile OnChange="OnInputFileChanged" multiple class="drag-drop-input" />
+
+            @if (fileNames.Count() == 0)
+            {
+                <MudText Typo="Typo.h5">Dokumente hierher ziehen oder klicken</MudText>
+            }
+            else
+            {
+                <MudList Style="padding:2em;width:100%;" Dense="true">
+                    @foreach (var file in fileNames)
+                    {
+                        <MudListItem @key="@file">
+                            <MudChip Color="Color.Dark"
+                                     Style="width:60px; overflow:hidden;"
+                                     Text="@(file.Split(".").Last())" />
+                            @file
+                        </MudListItem>}
+                </MudList>
+            }
+        </MudPaper>
+    </div>
+    <div class="footer">
+        <div>
+            <MudButton OnClick="Back" Color="Color.Dark" Variant="Variant.Filled">Zurück</MudButton>
+            <MudButton OnClick="UploadDocs" Color="Color.Dark" Variant="Variant.Filled">Einreichen</MudButton>
+
+        </div>
+    </div>
+</div>
+
+@code {
+    string? _dragEnterStyle;
+    IList<string> fileNames = new List<string>();
+    private FormDto? _form;
+
+
+    protected override void OnInitialized()
+    {
+        _form = AppStateService.CurrentForm;
+    }
+
+    void OnInputFileChanged(InputFileChangeEventArgs e)
+    {
+        var files = e.GetMultipleFiles();
+        fileNames = files.Select(f => f.Name).ToList();
+    }
+
+    public async Task UploadDocs()
+    {
+        //TODO check if form is valid after validation is implemented
+        if (_form != null)
+        {
+            FormDto? savedForm = await FormService.Save(_form);
+            if (savedForm != null)
+            {
+                AppStateService.SetForm(savedForm);
+                Console.WriteLine("Form saved");
+                NavigationManager.NavigateTo("/confirmation");
+
+            }
+        }
+    }
+
+
+    void Back()
+    {
+        NavigationManager.NavigateTo("/newReport");
+
+    }
+}
+

@@ -1,0 +1,96 @@
+﻿@page "/confirmation"
+@inject NavigationManager NavigationManager
+@inject WhistleblowerService WhistleblowerService
+@inject AppStateService AppStateService
+@using System.Text.RegularExpressions
+@using WhistleblowerSystem.Business.DTOs;
+@using WhistleblowerSystem.Client.Services;
+
+
+<div class="content-container">
+    <div class="content">
+        <h1>
+            Abschluss
+        </h1>
+        <p>
+            Vielen Dank für Ihre Meldung!
+            <br />
+        </p>
+        <p>
+            Ihre Case ID lautet: @_form?.Id
+            <br />
+        </p>
+        <div>
+            Aus Sicherheitsgründen verschlüsseln Sie Ihre CaseID zusätzlich mit einem Passwort:
+            <br />
+            <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
+                <MudTextField T="string" Label="Passwort" HelperText="Wählen Sie ein starkes Passwort" @ref="pwField1"
+                              InputType="InputType.Password"
+                              Validation="@(new Func<string, IEnumerable<string>>(PasswordStrength))" Required="true"
+                              RequiredError="Bitte geben Sie ein Passwort ein!"
+                              @bind-Value="_whistleblower.Password" />
+                <MudTextField T="string"
+                              Label="Passwort" HelperText="Wiederholen Sie das Passwort" InputType="InputType.Password"
+                              Validation="@(new Func<string, string>(PasswordMatch))" />
+            </MudForm>
+        </div>
+
+    </div>
+    <div class="footer">
+        <div>
+            <MudButton OnClick="Close" Color="Color.Dark" Variant="Variant.Filled">Passwort speichern und Schliessen</MudButton>
+        </div>
+    </div>
+</div>
+
+@code {
+    bool success;
+    string[] errors = { };
+    MudTextField<string>? pwField1;
+    MudForm? form;
+    private FormDto? _form;
+    private WhistleblowerDto _whistleblower = new WhistleblowerDto("", "", "");
+
+
+    private IEnumerable<string> PasswordStrength(string pw)
+    {
+        if (string.IsNullOrWhiteSpace(pw))
+        {
+            yield return "Bitte geben Sie ein Passwort ein!";
+            yield break;
+        }
+        if (pw.Length < 8)
+            yield return "Password must be at least of length 8";
+        if (!Regex.IsMatch(pw, @"[A-Z]"))
+            yield return "Password must contain at least one capital letter";
+        if (!Regex.IsMatch(pw, @"[a-z]"))
+            yield return "Password must contain at least one lowercase letter";
+        if (!Regex.IsMatch(pw, @"[0-9]"))
+            yield return "Password must contain at least one digit";
+    }
+
+
+    private string PasswordMatch(string arg)
+    {
+        if (pwField1?.Value != arg)
+            return "Passwörter stimmen nicht überein";
+        return "";
+    }
+
+    public async Task Close()
+    {
+        // TODO: reset form state AppStateService.SetForm(null);
+
+
+        _whistleblower.Id = _form?.Id;
+        await WhistleblowerService.Save(_whistleblower);
+
+        NavigationManager.NavigateTo("/home");
+    }
+
+    protected override void OnInitialized()
+    {
+        _form = AppStateService.CurrentForm;
+    }
+}
+
