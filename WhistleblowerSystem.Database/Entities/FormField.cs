@@ -7,7 +7,7 @@ namespace WhistleblowerSystem.Database.Entities
 {
     public class FormField
     {
-        public FormField(string? id, List<LanguageEntry> texts, ControlType type, List<SelectionValue> selectedValues, List<SelectionValue>? selectionValues)
+        public FormField(string? id, List<LanguageEntry> texts, ControlType type, List<string> selectedValues, List<SelectionValue>? selectionValues)
         {
             if (!string.IsNullOrEmpty(id))
             {
