@@ -7,7 +7,6 @@ using WhistleblowerSystem.Server.Models;
 
 namespace WhistleblowerSystem.Server.Controllers
 {
-    [Authorize]
     public class WhistleblowerBaseController : ControllerBase
     {
         protected IHttpContextAccessor _httpContextAccessor;

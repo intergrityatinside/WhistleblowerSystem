@@ -39,7 +39,6 @@ namespace WhistleblowerSystem.Server.Controllers
             return form;
         }
 
-        [Authorize]
         [HttpGet("getAll")]
         public async Task<List<FormDto>> GetAll()
         {
@@ -54,7 +53,6 @@ namespace WhistleblowerSystem.Server.Controllers
             await _formService.AddMessage(user.Id!, formMessageDto);
         }
 
-        [Authorize]
         [HttpPost("changeState")]
         public async Task ChangeState(UserDto user, ViolationState state)
         {

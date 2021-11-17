@@ -42,7 +42,6 @@ namespace WhistleblowerSystem.Server.Controllers
             return user;
         }
 
-        [Authorize]
         [HttpPost("logout")]
         public async Task Logout()
         {
