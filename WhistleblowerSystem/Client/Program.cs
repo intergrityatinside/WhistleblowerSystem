@@ -16,26 +16,32 @@ namespace WhistleblowerSystem.Client
     public class Program
     {
         public static async Task Main(string[] args)
-        {            
+        {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
             var currentAccountService = new CurrentAccountService(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             await currentAccountService.InitAsync();
-
+            var whistleblowerService = new WhistleblowerService(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             var formService = new FormService(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            var appStateService = new AppStateService();
+
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddSingleton(sp => currentAccountService);
             builder.Services.AddSingleton<ICurrentAccountService>(sp => sp.GetRequiredService<CurrentAccountService>());
-            builder.Services.AddSingleton( sp => formService);
+            builder.Services.AddSingleton(sp => whistleblowerService);
+            builder.Services.AddSingleton<IWhistleblowerService>(sp => sp.GetRequiredService<WhistleblowerService>());
+            builder.Services.AddSingleton(sp => formService);
             builder.Services.AddSingleton<IFormService>(sp => sp.GetRequiredService<FormService>());
             builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
             builder.Services.AddScoped<IStringLocalizer<App>, StringLocalizer<App>>();
+            builder.Services.AddMudServices();
+            builder.Services.AddSingleton(sp => appStateService);
             var build = builder.Build();
 
             //set the default language
-            LanguageService.Language = Language.English; 
+            LanguageService.Language = Language.English;
             CultureInfo.CurrentCulture = CultureInfo.GetCultures(CultureTypes.AllCultures)
            .First(c => CultureInfo.CreateSpecificCulture(c.Name).Name == "en-US");
 
@@ -56,7 +62,7 @@ namespace WhistleblowerSystem.Client
                 };
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"Language setting error {ex.Message}, set the default language (en-US)");
             }

@@ -1,12 +1,7 @@
-﻿using MongoDB.Bson;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using WhistleblowerSystem.Business.DTOs.Config;
-using WhistleblowerSystem.Database.Entities.Config;
 using WhistleblowerSystem.Shared.Enums;
+
 
 namespace WhistleblowerSystem.Business.DTOs
 {

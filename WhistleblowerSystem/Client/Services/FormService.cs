@@ -16,14 +16,15 @@ namespace WhistleblowerSystem.Client.Services
             _http = http;
         }
 
-        public async Task GetForm()
+        public async Task<FormDto?> GetForm()
         {
-            var response = await _http.GetAsync("Form");
+            HttpResponseMessage? response = await _http.GetAsync("Form");
             if (!string.IsNullOrEmpty(value: await response.Content.ReadAsStringAsync()))
             {
-
+                Console.WriteLine(response);
                 _currentForm = await response.Content.ReadFromJsonAsync<FormDto>();
             }
+            return _currentForm;
         }
 
         public Task Load(FormDto formDto)
@@ -31,24 +32,15 @@ namespace WhistleblowerSystem.Client.Services
             throw new NotImplementedException();
         }
 
-        public Task<FormDto> Save()
+        public async Task<FormDto?> Save(FormDto formDto)
         {
-            throw new NotImplementedException();
+            HttpResponseMessage? response = await _http.PostAsJsonAsync("Form/save", formDto);
+            if (!string.IsNullOrEmpty(value: await response.Content.ReadAsStringAsync()))
+            {
+                Console.WriteLine(response);
+                _currentForm = await response.Content.ReadFromJsonAsync<FormDto>();
+            }
+            return _currentForm;
         }
-
-        //public async Task Load(FormDto formDto)
-        //{
-        //    var response = await _http.PostAsJsonAsync("Authentication/login", userDto);
-        //    _currentForm = !response.IsSuccessStatusCode ? null : await response.Content.ReadFromJsonAsync<UserDto?>();
-        //    CurrentUserChanged?.Invoke(this, new CurrentUserChangedEventArgs(_currentUser));
-        //}
-
-        //public async Task<FormDto> Save()
-        //{
-        //    await _http.PostAsJsonAsync("Authentication/logout", _currentUser);
-        //    _currentUser = null;
-        //    CurrentUserChanged?.Invoke(this, new CurrentUserChangedEventArgs(null));
-        //}
-
     }
 }

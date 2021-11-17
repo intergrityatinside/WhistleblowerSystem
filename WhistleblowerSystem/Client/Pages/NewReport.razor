@@ -1,12 +1,94 @@
 ﻿@page "/newreport"
+@using WhistleblowerSystem.Business.DTOs;
+@using WhistleblowerSystem.Shared.Enums;
 
-    <div class="content-container">
-        <div class="content">
-            <h1>Form</h1>
-            <p>Hier kommt das Meldeformular</p>
+
+<div class="content-container">
+    <div class="content">
+        <h1>Meldung erfassen</h1>
+
+        @if (_formFields != null)
+        {
+            <EditForm Model="@_formFields">
+                @foreach (FormFieldDto formField in _formFields)
+                {
+                    @switch (formField.Type)
+                    {
+                        case (ControlType.Checkbox):
+                            @*<div class="control-title">@formField.Texts[0].Text</div>
+                            @if (formField.SelectionValues != null)
+                            {
+                                @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
+                                {
+                                    <MudCheckBox @bind-Checked="@formField.SelectedValues" Label="@selectionValue.Text[0].Text"></MudCheckBox>
+                                }
+                            }*@
+                            break;
+
+                        case (ControlType.Dropdown):
+                            <div class="form-group control">
+                                <div class="control-title">@formField.Texts[0].Text</div>
+
+                                @if (formField.SelectionValues != null)
+                                {
+                                    <MudSelect @bind-Value="formField.SelectedValues" T="string" Placeholder="Bitte Auswählen" Strict="true" Variant="Variant.Outlined" Format="F2">
+                                        @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
+                                        {
+                                            <MudSelectItem T="string" Value="@selectionValue.Text[0].Text" />
+                                        }
+                                    </MudSelect>
+                                }
+                            </div>
+                            break;
+
+                        case (ControlType.Radiobutton):
+                            <div class="form-group control">
+                                <div class="control-title">@formField.Texts[0].Text</div>
+
+                                @if (formField.SelectionValues != null)
+                                {
+                                    <MudRadioGroup @bind-SelectedOption="@formField.SelectedValues">
+                                        @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
+                                                            {
+                                            <MudRadio Option="@(selectionValue.Text[0].Value)"> @selectionValue.Text[0].Value </MudRadio>
+                                                            }
+                                    </MudRadioGroup>
+                                }
+
+                            </div>
+                            break;
+
+                        case (ControlType.Textarea):
+                            <div class="form-group control">
+                                <div class="control-title">@(formField.Texts[0].Text): </div>
+                                <MudTextField class="control-textarea" T="string" Placeholder="Text eingeben..." Label="" Variant="Variant.Outlined" Text="@formField.SelectedValues" Lines="8" @bind-Value="@formField.SelectedValues" />
+                            </div>
+                            break;
+
+                        case (ControlType.Text):
+                            <div class="form-group control">
+                                <label>@formField.Texts[0].Text</label>
+                            </div>
+                            break;
+
+                        case (ControlType.Textbox):
+                            <div class="form-group control">
+                                <div class="control-title">@(formField.Texts[0].Text): </div>
+                                <MudTextField Placeholder="Text eingeben..." @bind-Value="@formField.SelectedValues" Label="" Variant="Variant.Outlined"></MudTextField>
+                            </div>
+                            break;
+
+                        default:
+                            Console.WriteLine("Form field is not implemented");
+                            break;
+                    }
+                }
+            </EditForm>
+        }
+    </div>
+    <div class="footer">
+        <div>
+            <MudButton OnClick="Navigate" Color="Color.Dark" Variant="Variant.Filled">Weiter</MudButton>
         </div>
     </div>
-
-    @code {
-        //TODO
-    }
+</div>
