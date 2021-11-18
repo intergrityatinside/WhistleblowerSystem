@@ -22,7 +22,7 @@ namespace WhistleblowerSystem.Database.Entities
         public ObjectId? Id { get; set; }
         public List<LanguageEntry> Texts { get; set; }
         public ControlType Type { get; set; }
-        public List<SelectionValue> SelectedValues { get; set; } // values which the user selected
+        public List<string> SelectedValues { get; set; } // values which the user selected
         public List<SelectionValue>? SelectionValues { get; set; } // all values which can be selected
     }
 }

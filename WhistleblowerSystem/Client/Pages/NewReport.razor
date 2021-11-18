@@ -1,7 +1,7 @@
 ﻿@page "/newreport"
 @using WhistleblowerSystem.Business.DTOs;
 @using WhistleblowerSystem.Shared.Enums;
-
+@using WhistleblowerSystem.Client.Utils; 
 
 <div class="content-container">
     <div class="content">
@@ -26,19 +26,22 @@
                             break;
 
                         case (ControlType.Dropdown):
-                            <div class="form-group control">
-                                <div class="control-title">@formField.Texts[0].Text</div>
+                <div class="form-group control">
+                    <div class="control-title">@formField.Texts[0].Text</div>
 
-                                @if (formField.SelectionValues != null)
-                                {
-                                    <MudSelect @bind-Value="formField.SelectedValues" T="string" Placeholder="Bitte Auswählen" Strict="true" Variant="Variant.Outlined" Format="F2">
-                                        @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
-                                        {
-                                            <MudSelectItem T="string" Value="@selectionValue.Text[0].Text" />
-                                        }
-                                    </MudSelect>
-                                }
-                            </div>
+                    @if (formField.SelectionValues != null)
+                    {
+
+                        <MudSelect @bind-Value="formField.SelectedValues" T="List<string>" Placeholder="Bitte Auswählen" Strict="true" Variant="Variant.Outlined" Format="F2">
+                            @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
+                            {
+                                var lng = selectionValue.Text.GetLng();
+                                <MudSelectItem T="string" Value="lng.Value">@lng.Text</MudSelectItem>
+                            }
+                        </MudSelect>
+
+                    }
+                </div>
                             break;
 
                         case (ControlType.Radiobutton):
@@ -61,11 +64,10 @@
                         case (ControlType.Textarea):
                             <div class="form-group control">
                                 <div class="control-title">@(formField.Texts[0].Text): </div>
-                                <MudTextField class="control-textarea" T="string" Placeholder="Text eingeben..." Label="" Variant="Variant.Outlined" Text="@formField.SelectedValues" Lines="8" @bind-Value="@formField.SelectedValues" />
+                                <MudTextField class="control-textarea" T="List<string>" Placeholder="Text eingeben..." Label="" Variant="Variant.Outlined" Lines="8" @bind-Value="@formField.SelectedValues" />
                             </div>
                             break;
 
-                        case (ControlType.Text):
                             <div class="form-group control">
                                 <label>@formField.Texts[0].Text</label>
                             </div>
@@ -88,6 +90,7 @@
     </div>
     <div class="footer">
         <div>
+            case (ControlType.Text):
             <MudButton OnClick="Navigate" Color="Color.Dark" Variant="Variant.Filled">Weiter</MudButton>
         </div>
     </div>
