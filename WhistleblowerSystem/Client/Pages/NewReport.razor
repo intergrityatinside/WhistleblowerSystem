@@ -1,7 +1,7 @@
 ﻿@page "/newreport"
 @using WhistleblowerSystem.Business.DTOs;
 @using WhistleblowerSystem.Shared.Enums;
-@using WhistleblowerSystem.Client.Utils; 
+@using WhistleblowerSystem.Client.Utils;
 
 <div class="content-container">
     <div class="content">
@@ -16,32 +16,32 @@
                     {
                         case (ControlType.Checkbox):
                             @*<div class="control-title">@formField.Texts[0].Text</div>
-                            @if (formField.SelectionValues != null)
-                            {
-                                @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
+                                @if (formField.SelectionValues != null)
                                 {
-                                    <MudCheckBox @bind-Checked="@formField.SelectedValues" Label="@selectionValue.Text[0].Text"></MudCheckBox>
-                                }
-                            }*@
+                                    @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
+                                    {
+                                        <MudCheckBox @bind-Checked="@formField.SelectedValues" Label="@selectionValue.Text[0].Text"></MudCheckBox>
+                                    }
+                                }*@
                             break;
 
                         case (ControlType.Dropdown):
-                <div class="form-group control">
-                    <div class="control-title">@formField.Texts[0].Text</div>
+                            <div class="form-group control">
+                                <div class="control-title">@formField.Texts[0].Text</div>
 
-                    @if (formField.SelectionValues != null)
-                    {
+                                @if (formField.SelectionValues != null)
+                                {
 
-                        <MudSelect @bind-Value="formField.SelectedValues" T="List<string>" Placeholder="Bitte Auswählen" Strict="true" Variant="Variant.Outlined" Format="F2">
-                            @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
-                            {
-                                var lng = selectionValue.Text.GetLng();
-                                <MudSelectItem T="string" Value="lng.Value">@lng.Text</MudSelectItem>
-                            }
-                        </MudSelect>
+                                    <MudSelect @bind-Value="formField.SelectedValues" T="List<string>" Placeholder="Bitte Auswählen" Strict="true" Variant="Variant.Outlined" Format="F2">
+                                        @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
+                                        {
+                                            var lng = selectionValue.Text.GetLng();
+                                            <MudSelectItem T="string" Value="lng.Value">@lng.Text</MudSelectItem>
+                                        }
+                                    </MudSelect>
 
-                    }
-                </div>
+                                }
+                            </div>
                             break;
 
                         case (ControlType.Radiobutton):
@@ -67,7 +67,7 @@
                                 <MudTextField class="control-textarea" T="List<string>" Placeholder="Text eingeben..." Label="" Variant="Variant.Outlined" Lines="8" @bind-Value="@formField.SelectedValues" />
                             </div>
                             break;
-
+                        case (ControlType.Text):
                             <div class="form-group control">
                                 <label>@formField.Texts[0].Text</label>
                             </div>
@@ -90,7 +90,7 @@
     </div>
     <div class="footer">
         <div>
-            case (ControlType.Text):
+
             <MudButton OnClick="Navigate" Color="Color.Dark" Variant="Variant.Filled">Weiter</MudButton>
         </div>
     </div>

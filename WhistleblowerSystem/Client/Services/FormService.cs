@@ -42,5 +42,15 @@ namespace WhistleblowerSystem.Client.Services
             }
             return _currentForm;
         }
+
+        public void SetCurrentForm(FormDto? form)
+        {
+            _currentForm = form ?? null;
+        }
+
+        public FormDto? GetCurrentForm()
+        {
+            return _currentForm;
+        }
     }
 }

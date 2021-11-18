@@ -8,8 +8,10 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
+    <PlatformTarget>anycpu</PlatformTarget>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'WhistleblowerSystem' ">
@@ -39,6 +41,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\Upload.razor.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Update="Resources\App.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -59,5 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="MudBlazor" />
+    <None Remove="Pages\NewReport.razor.css" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,8 @@
 ﻿@page "/confirmation"
 @inject NavigationManager NavigationManager
 @inject WhistleblowerService WhistleblowerService
-@inject AppStateService AppStateService
+@inject IFormService FormService
+@implements IDisposable
 @using System.Text.RegularExpressions
 @using WhistleblowerSystem.Business.DTOs;
 @using WhistleblowerSystem.Client.Services;
@@ -51,9 +52,24 @@
     private FormDto? _form;
     private WhistleblowerDto _whistleblower = new WhistleblowerDto("", "", "");
 
+    protected override void OnInitialized()
+    {
+        _form = FormService.GetCurrentForm();
+        NavigationManager.LocationChanged += CheckResetForm;
+
+    }
+
+    private void CheckResetForm(object? sender, LocationChangedEventArgs e)
+    {
+        string relativePath = e.Location.Replace(NavigationManager.BaseUri, "");
+        FormService.SetCurrentForm(null);
+        _form = null;
+        StateHasChanged();
+    }
 
     private IEnumerable<string> PasswordStrength(string pw)
     {
+        //TODO check which checks should be done
         if (string.IsNullOrWhiteSpace(pw))
         {
             yield return "Bitte geben Sie ein Passwort ein!";
@@ -69,7 +85,6 @@
             yield return "Password must contain at least one digit";
     }
 
-
     private string PasswordMatch(string arg)
     {
         if (pwField1?.Value != arg)
@@ -77,20 +92,18 @@
         return "";
     }
 
-    public async Task Close()
+    private async Task Close()
     {
-        // TODO: reset form state AppStateService.SetForm(null);
-
-
+        FormService.SetCurrentForm(null);
         _whistleblower.Id = _form?.Id;
         await WhistleblowerService.Save(_whistleblower);
-
         NavigationManager.NavigateTo("/home");
     }
 
-    protected override void OnInitialized()
+    public void Dispose()
     {
-        _form = AppStateService.CurrentForm;
+        NavigationManager.LocationChanged -= CheckResetForm;
     }
+
 }
 

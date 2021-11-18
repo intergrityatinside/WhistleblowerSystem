@@ -15,12 +15,12 @@ namespace WhistleblowerSystem.Client.Pages
         [Inject] HttpClient Http { get; set; } = null!;
         [Inject] NavigationManager NavigationManager { get; set; } = null!;
 
-    protected override async Task OnInitializedAsync()
-    {
-       _companies = await Http.GetFromJsonAsync<List<CompanyDto>>("company");
-    }
+        protected override async Task OnInitializedAsync()
+        {
+            _companies = await Http.GetFromJsonAsync<List<CompanyDto>>("company");
+        }
 
-    private async Task OnRegister()
+        private async Task OnRegister()
     {
         await Http.PostAsJsonAsync("User", _user);
         NavigationManager.NavigateTo("url to next page");

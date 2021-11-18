@@ -1,10 +1,11 @@
 ﻿@page "/upload"
 @inject ISnackbar Snackbar
-@inject AppStateService AppStateService
-@inject FormService FormService
+@inject IFormService FormService
 @inject NavigationManager NavigationManager
+@implements IDisposable
 @using WhistleblowerSystem.Business.DTOs;
 @using WhistleblowerSystem.Client.Services;
+
 
 <style>
     .drag-drop-zone {
@@ -92,31 +93,34 @@
 </div>
 
 @code {
-    string? _dragEnterStyle;
-    IList<string> fileNames = new List<string>();
+    private string? _dragEnterStyle;
+    private IList<string> fileNames = new List<string>();
     private FormDto? _form;
 
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        _form = AppStateService.CurrentForm;
+        _form = FormService.GetCurrentForm() != null ? FormService.GetCurrentForm() : await FormService.GetForm();
+        NavigationManager.LocationChanged += CheckResetForm;
+
     }
 
-    void OnInputFileChanged(InputFileChangeEventArgs e)
+
+    private void OnInputFileChanged(InputFileChangeEventArgs e)
     {
         var files = e.GetMultipleFiles();
         fileNames = files.Select(f => f.Name).ToList();
     }
 
-    public async Task UploadDocs()
+    private async Task UploadDocs()
     {
-        //TODO check if form is valid after validation is implemented
+        //TODO upload files
         if (_form != null)
         {
             FormDto? savedForm = await FormService.Save(_form);
             if (savedForm != null)
             {
-                AppStateService.SetForm(savedForm);
+                FormService.SetCurrentForm(savedForm);
                 Console.WriteLine("Form saved");
                 NavigationManager.NavigateTo("/confirmation");
 
@@ -124,11 +128,26 @@
         }
     }
 
-
-    void Back()
+    private void CheckResetForm(object? sender, LocationChangedEventArgs e)
     {
-        NavigationManager.NavigateTo("/newReport");
+        string relativePath = e.Location.Replace(NavigationManager.BaseUri, "");
+        if (!relativePath.StartsWith("confirmation") && !relativePath.StartsWith("newreport"))
+        {
+            FormService.SetCurrentForm(null);
+            _form = null;
+            StateHasChanged();
+        }
+    }
 
+    private void Back()
+    {
+        NavigationManager.NavigateTo("/newreport");
+
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= CheckResetForm;
     }
 }
 

@@ -24,8 +24,6 @@ namespace WhistleblowerSystem.Client
             await currentAccountService.InitAsync();
             var whistleblowerService = new WhistleblowerService(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             var formService = new FormService(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            var appStateService = new AppStateService();
-
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddSingleton(sp => currentAccountService);
@@ -37,7 +35,6 @@ namespace WhistleblowerSystem.Client
             builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
             builder.Services.AddScoped<IStringLocalizer<App>, StringLocalizer<App>>();
             builder.Services.AddMudServices();
-            builder.Services.AddSingleton(sp => appStateService);
             var build = builder.Build();
 
             //set the default language
