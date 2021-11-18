@@ -12,14 +12,14 @@ namespace WhistleblowerSystem.Business.DTOs
             Id = id;
             Texts = texts;
             Type = type;
-            SelectedValues = selectedValues;
+            SelectedValues = selectedValues!;
             SelectionValues = selectionValues;
         }
 
         public string? Id { get; set; }
         public List<LanguageEntryDto> Texts { get; set; }
         public ControlType Type { get; set; }
-        public List<string>? SelectedValues { get; set; } // values which the user selected
+        public List<string> SelectedValues { get; set; } = new List<string>(); // values which the user selected
         public List<SelectionValueDto>? SelectionValues { get; set; } // all values which can be selected
     }
 }

@@ -12,77 +12,73 @@
             <EditForm Model="@_formFields">
                 @foreach (FormFieldDto formField in _formFields)
                 {
-                    @switch (formField.Type)
+                    if (formField.SelectionValues != null)
                     {
-                        case (ControlType.Checkbox):
-                            @*<div class="control-title">@formField.Texts[0].Text</div>
-                                @if (formField.SelectionValues != null)
-                                {
-                                    @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
+                        formField.SelectedValues!.Add(string.Empty);
+
+                        @switch (formField.Type)
+                        {
+                            <!--case (ControlType.Checkbox):-->
+                                @*<div class="control-title">@formField.Texts[0].Text</div>
+                                    @if (formField.SelectionValues != null)
                                     {
-                                        <MudCheckBox @bind-Checked="@formField.SelectedValues" Label="@selectionValue.Text[0].Text"></MudCheckBox>
-                                    }
-                                }*@
-                            break;
-
-                        case (ControlType.Dropdown):
-                            <div class="form-group control">
-                                <div class="control-title">@formField.Texts[0].Text</div>
-
-                                @if (formField.SelectionValues != null)
-                                {
-
-                                    <MudSelect @bind-Value="formField.SelectedValues" T="List<string>" Placeholder="Bitte Auswählen" Strict="true" Variant="Variant.Outlined" Format="F2">
                                         @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
                                         {
-                                            var lng = selectionValue.Text.GetLng();
-                                            <MudSelectItem T="string" Value="lng.Value">@lng.Text</MudSelectItem>
+                                            <MudCheckBox @bind-Checked="@formField.SelectedValues" Label="@selectionValue.Text[0].Text"></MudCheckBox>
                                         }
-                                    </MudSelect>
+                                    }*@
+                            <!--break;-->
 
-                                }
-                            </div>
-                            break;
+                            case (ControlType.Dropdown):
+                                <div class="form-group control">
+                                    <div class="control-title">@formField.Texts.GetLng().Text</div>
+                                        <MudSelect @bind-Value="formField.SelectedValues[0]" T="string"
+                                                   Placeholder="Bitte Auswählen" Strict="true" Variant="Variant.Outlined" Format="F2">
+                                            @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
+                                            {
+                                                var lng = selectionValue.Text.GetLng();
+                                                <MudSelectItem T="string" Value="lng.Value">@lng.Text</MudSelectItem>
+                                            }
+                                        </MudSelect>
+                                </div>
+                                break;
 
-                        case (ControlType.Radiobutton):
-                            <div class="form-group control">
-                                <div class="control-title">@formField.Texts[0].Text</div>
+                            case (ControlType.Radiobutton):
+                                <div class="form-group control">
+                                    <div class="control-title">@formField.Texts.GetLng().Text</div>
+                                        <MudRadioGroup @bind-SelectedOption="@formField.SelectedValues[0]">
+                                            @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
+                                            {
+                                                var lng = selectionValue.Text.GetLng();
+                                                <MudRadio Option="@(lng.Value)"> @lng.Value </MudRadio>
+                                            }
+                                        </MudRadioGroup>
+                                </div>
+                                break;
 
-                                @if (formField.SelectionValues != null)
-                                {
-                                    <MudRadioGroup @bind-SelectedOption="@formField.SelectedValues">
-                                        @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
-                                                            {
-                                            <MudRadio Option="@(selectionValue.Text[0].Value)"> @selectionValue.Text[0].Value </MudRadio>
-                                                            }
-                                    </MudRadioGroup>
-                                }
+                            case (ControlType.Textarea):
+                                <div class="form-group control">
+                                    <div class="control-title">@(formField.Texts.GetLng().Text): </div>
+                                    <MudTextField class="control-textarea" Placeholder="Text eingeben..." Label="" Variant="Variant.Outlined" Lines="8" @bind-Value="@formField.SelectedValues[0]" />
+                                </div>
+                                break;
+                            case (ControlType.Text):
+                                <div class="form-group control">
+                                    <label>@formField.Texts.GetLng().Text</label>
+                                </div>
+                                break;
 
-                            </div>
-                            break;
+                            case (ControlType.Textbox):
+                                <div class="form-group control">
+                                    <div class="control-title">@(formField.Texts.GetLng().Text): </div>
+                                    <MudTextField Placeholder="Text eingeben..." @bind-Value="@formField.SelectedValues[0]" Label="" Variant="Variant.Outlined"></MudTextField>
+                                </div>
+                                break;
 
-                        case (ControlType.Textarea):
-                            <div class="form-group control">
-                                <div class="control-title">@(formField.Texts[0].Text): </div>
-                                <MudTextField class="control-textarea" T="List<string>" Placeholder="Text eingeben..." Label="" Variant="Variant.Outlined" Lines="8" @bind-Value="@formField.SelectedValues" />
-                            </div>
-                            break;
-                        case (ControlType.Text):
-                            <div class="form-group control">
-                                <label>@formField.Texts[0].Text</label>
-                            </div>
-                            break;
-
-                        case (ControlType.Textbox):
-                            <div class="form-group control">
-                                <div class="control-title">@(formField.Texts[0].Text): </div>
-                                <MudTextField Placeholder="Text eingeben..." @bind-Value="@formField.SelectedValues" Label="" Variant="Variant.Outlined"></MudTextField>
-                            </div>
-                            break;
-
-                        default:
-                            Console.WriteLine("Form field is not implemented");
-                            break;
+                            default:
+                                Console.WriteLine("Form field is not implemented");
+                                break;
+                        }
                     }
                 }
             </EditForm>
