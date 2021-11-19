@@ -1,21 +1,29 @@
 ﻿@page "/login"
 
-<div class="form-group">
-    <label for="email">Email Adresse</label>
-    <input îd="email" type="email" @bind="_user.Email" class="form-control" />
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+<div class="content-container">
+    <div class="content">
+        <h1>Empfänger Login</h1>
+        <div class="login-container">
+            <div class="form-group control control-login">
+                <MudTextField @bind-Value="_user.Email" Label="E-Mail" Variant="Variant.Outlined"></MudTextField>
+            </div>
+            <div class="form-group control control-login">
+                <MudTextField @bind-Value="_user.Password" Label="Passwort" Variant="Variant.Outlined"></MudTextField>
+            </div>
+        </div>
+        @if (_message != null)
+        {
+            <div style="color:red;">
+                @_message
+            </div>
+        }
+        Beispiel Übsersetzung: @L["hallo"]
+    </div>
+    <div class="footer">
+        <MudButton OnClick="async () => await OnLogin()" Color="Color.Dark" Variant="Variant.Filled">Login</MudButton>
+    </div>
 </div>
-<div class="form-group">
-    <label for="pw">Passwort</label>
-    <input id="pw" type="text" @bind="_user.Password" class="form-control" />
-</div>
-<button @onclick="async () => await OnLogin()" class="btn btn-primary">Login</button>
 
-@if (_message != null)
-{
-    <span style="color:red;">
-        @_message
-    </span>
-}
 
-@L["hallo"]
+
+

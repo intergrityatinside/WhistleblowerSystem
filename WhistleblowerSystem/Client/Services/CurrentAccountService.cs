@@ -26,11 +26,12 @@ namespace WhistleblowerSystem.Client.Services
             }
         }
 
-        public async Task Login(UserDto userDto)
+        public async Task<UserDto?> Login(UserDto userDto)
         {
             var response = await _http.PostAsJsonAsync("Authentication/login", userDto);
             _currentUser = !response.IsSuccessStatusCode ? null : await response.Content.ReadFromJsonAsync<UserDto?>();
             CurrentUserChanged?.Invoke(this, new CurrentUserChangedEventArgs(_currentUser));
+            return _currentUser;
         }
 
         public async Task Logout()
