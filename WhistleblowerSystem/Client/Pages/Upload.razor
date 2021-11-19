@@ -1,6 +1,7 @@
 ﻿@page "/upload"
 @inject ISnackbar Snackbar
 @inject IFormService FormService
+@inject IAttachementService AttachementService
 @inject NavigationManager NavigationManager
 @implements IDisposable
 @using WhistleblowerSystem.Business.DTOs;
@@ -95,8 +96,9 @@
 @code {
     private string? _dragEnterStyle;
     private IList<string> fileNames = new List<string>();
+    private List<AttachementMetaDataDto>? _attachmentMetaData = new List<AttachementMetaDataDto>();
     private FormDto? _form;
-
+    private IReadOnlyList<IBrowserFile>? files;
 
     protected override async Task OnInitializedAsync()
     {
@@ -108,24 +110,32 @@
 
     private void OnInputFileChanged(InputFileChangeEventArgs e)
     {
-        var files = e.GetMultipleFiles();
+        files = e.GetMultipleFiles();
         fileNames = files.Select(f => f.Name).ToList();
     }
 
     private async Task UploadDocs()
     {
-        //TODO upload files
-        if (_form != null)
-        {
-            FormDto? savedForm = await FormService.Save(_form);
-            if (savedForm != null)
-            {
-                FormService.SetCurrentForm(savedForm);
-                Console.WriteLine("Form saved");
-                NavigationManager.NavigateTo("/confirmation");
+        //if (files == null)
+        //    return;
 
-            }
+        //foreach (var file in files) {
+        //    var attachementMetaData = await AttachementService.Save(file);
+        //    if (attachementMetaData != null && _attachmentMetaData != null) {
+        //        _attachmentMetaData.Add(attachementMetaData);
+        //    }
+        //}
+
+        //_form!.Attachements = _attachmentMetaData;
+        FormDto? savedForm = await FormService.Save(_form!);
+        if (savedForm != null)
+        {
+            FormService.SetCurrentForm(savedForm);
+            Console.WriteLine("Form saved");
+            NavigationManager.NavigateTo("/confirmation");
+
         }
+
     }
 
     private void CheckResetForm(object? sender, LocationChangedEventArgs e)

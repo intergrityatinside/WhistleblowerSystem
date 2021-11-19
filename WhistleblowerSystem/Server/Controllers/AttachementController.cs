@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using WhistleblowerSystem.Business.DTOs;
 using WhistleblowerSystem.Business.Services;
@@ -26,14 +29,20 @@ namespace WhistleblowerSystem.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<AttachementMetaDataDto> Post([FromForm] IFormFile file)
+        public async Task<AttachementMetaDataDto> Post(IBrowserFile file)
         {
-            await using MemoryStream stream = new();
-            await file.CopyToAsync(stream);
+            long maxFileSize = 1024 * 1024 * 15;
+            await using MemoryStream stream = (MemoryStream)file.OpenReadStream(maxFileSize);
             stream.Seek(0, SeekOrigin.Begin);
             byte[] data = stream.ToArray();
-            
-            return await _attachementService.SaveAttachementAsync(file.FileName,file.ContentType, data);
+
+
+            //await using MemoryStream stream = new();
+            //await file.CopyToAsync(stream);
+            //stream.Seek(0, SeekOrigin.Begin);
+            //byte[] data = stream.ToArray();
+
+            return await _attachementService.SaveAttachementAsync(file.Name,file.ContentType, data);
         }
 
         [HttpGet]

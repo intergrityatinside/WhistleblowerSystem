@@ -22,6 +22,7 @@ namespace WhistleblowerSystem.Server.DependencyInjection
             ConfigureRepositories(services);
             ConfigureBusinessServices(services);
             services.AddScoped<Authentication.UserManager>();
+            services.AddScoped<Authentication.WhistleblowerManager>();
         }
 
         private static void ConfigureBusinessServices(IServiceCollection services)

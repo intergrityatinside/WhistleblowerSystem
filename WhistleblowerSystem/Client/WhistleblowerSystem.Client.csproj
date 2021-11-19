@@ -21,6 +21,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="5.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.10" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.12" />
     <PackageReference Include="Microsoft.Extensions.Localization" Version="5.0.11" />
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
     <PackageReference Include="MudBlazor" Version="5.1.5" />
@@ -38,10 +39,6 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\images\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Pages\Upload.razor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Resources\App.Designer.cs">
