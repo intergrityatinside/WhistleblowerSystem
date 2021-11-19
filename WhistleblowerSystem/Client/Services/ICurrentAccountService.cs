@@ -6,7 +6,7 @@ namespace WhistleblowerSystem.Client.Services {
     public interface ICurrentAccountService
     {
         event EventHandler<CurrentUserChangedEventArgs>? CurrentUserChanged;
-        public Task Login(UserDto loginDto);
+        public Task <UserDto?> Login(UserDto loginDto);
         public Task Logout();
         public UserDto? GetCurrentUser();
     }

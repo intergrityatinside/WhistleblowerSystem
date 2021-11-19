@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Localization;
 using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using WhistleblowerSystem.Business.DTOs;
@@ -13,6 +14,7 @@ namespace WhistleblowerSystem.Client.Pages
     public partial class Login
     {
         private UserDto _user = new UserDto(null, "", "", "", "", "");
+        private bool _success;
         private string? _message;
         [Inject] HttpClient Http { get; set; } = null!;
         [Inject] private ICurrentAccountService CurrentAccountService { get; set; } = null!;
@@ -22,14 +24,22 @@ namespace WhistleblowerSystem.Client.Pages
         {
             try
             {
-                await CurrentAccountService.Login(_user);
-                NavigationManager.NavigateTo("");
+                var user = await CurrentAccountService.Login(_user);
+                _success = user != null ? true : false;
             }
-            catch
+            catch { }
+
+            if (_success)
+            {
+                NavigationManager.NavigateTo("");
+
+            }
+            else
             {
                 _message = "Falsche E-Mail oder Passwort";
                 StateHasChanged();
             }
+
         }
     }
 }
