@@ -117,10 +117,131 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="hallo" xml:space="preserve">
-    <value></value>
-  </data>
   <data name="index_contact" xml:space="preserve">
     <value>Contact: </value>
+  </data>
+  <data name="index_info_text_1" xml:space="preserve">
+    <value>Trust and credibility play a central role for the FHNW. For this reason, the FHNW as well as its employees always aim for complete compliance with the law. Nevertheless, violations of the law in individual cases cannot be completely ruled out.</value>
+  </data>
+  <data name="index_info_text_2" xml:space="preserve">
+    <value>Do you have a hint of irregularities, acts of corruption or other illegal activities? We offer you the opportunity to report suspected misconduct on this website.</value>
+  </data>
+  <data name="index_info_text_3" xml:space="preserve">
+    <value>This web-based reporting site ensures anonymity and protected handling of the data received. The report can be submitted either completely anonymously or by providing your name. Neither the technical team nor the support team of the website will be able to identify you in any way. </value>
+  </data>
+  <data name="index_info_text_4" xml:space="preserve">
+    <value>In addition, after submitting your report, you will have the opportunity to interact anonymously with our professionals. All information and conversations will be kept confidential. </value>
+  </data>
+  <data name="index_info_text_5" xml:space="preserve">
+    <value>Please ensure that you do not use the infrastructure provided by your organization (such as PC, tablet, mobile device) when submitting anonymous reports. To submit a report, read the FAQs and instructions carefully to ensure the greatest possible protection of your identity.</value>
+  </data>
+  <data name="index_info_text_6" xml:space="preserve">
+    <value>All further details on the use of the reporting system can be found in the instructions. If you have any questions about reporting, please refer to the FAQs. </value>
+  </data>
+  <data name="index_info_text_7" xml:space="preserve">
+    <value>Thank you for submitting such important information! Only if we have this information, we can take actions.</value>
+  </data>
+  <data name="manual_title" xml:space="preserve">
+    <value>Manual</value>
+  </data>
+  <data name="faq_title" xml:space="preserve">
+    <value>FAQs</value>
+  </data>
+  <data name="securitynotice_title" xml:space="preserve">
+    <value>Security notice</value>
+  </data>
+  <data name="securitynotice_subtitle" xml:space="preserve">
+    <value>Our reporting system provides technical protection for your identity and the content you submit. </value>
+  </data>
+  <data name="securitynotice_list_title" xml:space="preserve">
+    <value>To further enhance your security, please note the following points:</value>
+  </data>
+  <data name="securitynotice_list_item_1" xml:space="preserve">
+    <value>Our website is separate from our organization&apos;s IT environment</value>
+  </data>
+  <data name="securitynotice_list_item_2" xml:space="preserve">
+    <value>If you wish to remain anonymous, do not include any personal information in your report. Avoid data that could be used to identify you individually</value>
+  </data>
+  <data name="securitynotice_list_item_3" xml:space="preserve">
+    <value>Do not use a device provided by your organization to report your case</value>
+  </data>
+  <data name="securitynotice_list_item_4" xml:space="preserve">
+    <value>We ensure that reporting metadata is not stored in any way</value>
+  </data>
+  <data name="securitynotice_checkbox_title" xml:space="preserve">
+    <value>To enter your report, you must agree to these security notice.</value>
+  </data>
+  <data name="securitynotice_checkbox_text" xml:space="preserve">
+    <value>To enter your report, you must agree to these security notice.</value>
+  </data>
+  <data name="securitynotice_continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="newreport_title" xml:space="preserve">
+    <value>Describe report</value>
+  </data>
+  <data name="newreport_continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="newreport_placeholder_text" xml:space="preserve">
+    <value>Please enter text...</value>
+  </data>
+  <data name="newreport_placeholder_select" xml:space="preserve">
+    <value>Please select</value>
+  </data>
+  <data name="login_title" xml:space="preserve">
+    <value>Login reciever</value>
+  </data>
+  <data name="login_password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="login_email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="login_continue" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="upload_title" xml:space="preserve">
+    <value>Upload documents</value>
+  </data>
+  <data name="upload_text_1" xml:space="preserve">
+    <value>Evidence is important to accurately understand and analyse the situation in your report. If you would like to upload relevant data, please use the upload section below. This will help us to process your case more effectively and efficiently.</value>
+  </data>
+  <data name="upload_text_2" xml:space="preserve">
+    <value>Note about sending attachments: Files may contain hidden personal data that may compromise your anonymity. Please remove this data before sending.</value>
+    <comment>Fuzzy</comment>
+  </data>
+  <data name="upload_thanks" xml:space="preserve">
+    <value>Thank you for your cooperation!</value>
+  </data>
+  <data name="upload_back" xml:space="preserve">
+    <value>Back </value>
+  </data>
+  <data name="upload_continue" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="upload_hint" xml:space="preserve">
+    <value>Drag and drop your documents here or click</value>
+  </data>
+  <data name="confirmation_title" xml:space="preserve">
+    <value>Completion</value>
+  </data>
+  <data name="confirmation_subtitle" xml:space="preserve">
+    <value>Thank you for your report!</value>
+  </data>
+  <data name="confirmation_caseid" xml:space="preserve">
+    <value>Your CaseID is: </value>
+  </data>
+  <data name="confirmation_text" xml:space="preserve">
+    <value>Note: With the CaseID and your password you can view the status of your report at any time under &quot;View report&quot;. Please make a note of the CaseID and password immediately. As soon as you close this window, the CaseID and the password can no longer be accessed or changed.</value>
+  </data>
+  <data name="confirmation_password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="confirmation_continue" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="viewreports_title" xml:space="preserve">
+    <value>View report</value>
   </data>
 </root>

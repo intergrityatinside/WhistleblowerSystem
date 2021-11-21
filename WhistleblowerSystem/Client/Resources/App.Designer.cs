@@ -47,15 +47,255 @@ namespace WhistleblowerSystem.Client.Resources {
             }
         }
         
-        public static string hallo {
-            get {
-                return ResourceManager.GetString("hallo", resourceCulture);
-            }
-        }
-        
         public static string index_contact {
             get {
                 return ResourceManager.GetString("index_contact", resourceCulture);
+            }
+        }
+        
+        public static string index_info_text_1 {
+            get {
+                return ResourceManager.GetString("index_info_text_1", resourceCulture);
+            }
+        }
+        
+        public static string index_info_text_2 {
+            get {
+                return ResourceManager.GetString("index_info_text_2", resourceCulture);
+            }
+        }
+        
+        public static string index_info_text_3 {
+            get {
+                return ResourceManager.GetString("index_info_text_3", resourceCulture);
+            }
+        }
+        
+        public static string index_info_text_4 {
+            get {
+                return ResourceManager.GetString("index_info_text_4", resourceCulture);
+            }
+        }
+        
+        public static string index_info_text_5 {
+            get {
+                return ResourceManager.GetString("index_info_text_5", resourceCulture);
+            }
+        }
+        
+        public static string index_info_text_6 {
+            get {
+                return ResourceManager.GetString("index_info_text_6", resourceCulture);
+            }
+        }
+        
+        public static string index_info_text_7 {
+            get {
+                return ResourceManager.GetString("index_info_text_7", resourceCulture);
+            }
+        }
+        
+        public static string manual_title {
+            get {
+                return ResourceManager.GetString("manual_title", resourceCulture);
+            }
+        }
+        
+        public static string faq_title {
+            get {
+                return ResourceManager.GetString("faq_title", resourceCulture);
+            }
+        }
+        
+        public static string securitynotice_title {
+            get {
+                return ResourceManager.GetString("securitynotice_title", resourceCulture);
+            }
+        }
+        
+        public static string securitynotice_subtitle {
+            get {
+                return ResourceManager.GetString("securitynotice_subtitle", resourceCulture);
+            }
+        }
+        
+        public static string securitynotice_list_title {
+            get {
+                return ResourceManager.GetString("securitynotice_list_title", resourceCulture);
+            }
+        }
+        
+        public static string securitynotice_list_item_1 {
+            get {
+                return ResourceManager.GetString("securitynotice_list_item_1", resourceCulture);
+            }
+        }
+        
+        public static string securitynotice_list_item_2 {
+            get {
+                return ResourceManager.GetString("securitynotice_list_item_2", resourceCulture);
+            }
+        }
+        
+        public static string securitynotice_list_item_3 {
+            get {
+                return ResourceManager.GetString("securitynotice_list_item_3", resourceCulture);
+            }
+        }
+        
+        public static string securitynotice_list_item_4 {
+            get {
+                return ResourceManager.GetString("securitynotice_list_item_4", resourceCulture);
+            }
+        }
+        
+        public static string securitynotice_checkbox_title {
+            get {
+                return ResourceManager.GetString("securitynotice_checkbox_title", resourceCulture);
+            }
+        }
+        
+        public static string securitynotice_checkbox_text {
+            get {
+                return ResourceManager.GetString("securitynotice_checkbox_text", resourceCulture);
+            }
+        }
+        
+        public static string securitynotice_continue {
+            get {
+                return ResourceManager.GetString("securitynotice_continue", resourceCulture);
+            }
+        }
+        
+        public static string newreport_title {
+            get {
+                return ResourceManager.GetString("newreport_title", resourceCulture);
+            }
+        }
+        
+        public static string newreport_continue {
+            get {
+                return ResourceManager.GetString("newreport_continue", resourceCulture);
+            }
+        }
+        
+        public static string newreport_placeholder_text {
+            get {
+                return ResourceManager.GetString("newreport_placeholder_text", resourceCulture);
+            }
+        }
+        
+        public static string newreport_placeholder_select {
+            get {
+                return ResourceManager.GetString("newreport_placeholder_select", resourceCulture);
+            }
+        }
+        
+        public static string login_title {
+            get {
+                return ResourceManager.GetString("login_title", resourceCulture);
+            }
+        }
+        
+        public static string login_password {
+            get {
+                return ResourceManager.GetString("login_password", resourceCulture);
+            }
+        }
+        
+        public static string login_email {
+            get {
+                return ResourceManager.GetString("login_email", resourceCulture);
+            }
+        }
+        
+        public static string login_continue {
+            get {
+                return ResourceManager.GetString("login_continue", resourceCulture);
+            }
+        }
+        
+        public static string upload_title {
+            get {
+                return ResourceManager.GetString("upload_title", resourceCulture);
+            }
+        }
+        
+        public static string upload_text_1 {
+            get {
+                return ResourceManager.GetString("upload_text_1", resourceCulture);
+            }
+        }
+        
+        public static string upload_text_2 {
+            get {
+                return ResourceManager.GetString("upload_text_2", resourceCulture);
+            }
+        }
+        
+        public static string upload_thanks {
+            get {
+                return ResourceManager.GetString("upload_thanks", resourceCulture);
+            }
+        }
+        
+        public static string upload_back {
+            get {
+                return ResourceManager.GetString("upload_back", resourceCulture);
+            }
+        }
+        
+        public static string upload_continue {
+            get {
+                return ResourceManager.GetString("upload_continue", resourceCulture);
+            }
+        }
+        
+        public static string upload_hint {
+            get {
+                return ResourceManager.GetString("upload_hint", resourceCulture);
+            }
+        }
+        
+        public static string confirmation_title {
+            get {
+                return ResourceManager.GetString("confirmation_title", resourceCulture);
+            }
+        }
+        
+        public static string confirmation_subtitle {
+            get {
+                return ResourceManager.GetString("confirmation_subtitle", resourceCulture);
+            }
+        }
+        
+        public static string confirmation_caseid {
+            get {
+                return ResourceManager.GetString("confirmation_caseid", resourceCulture);
+            }
+        }
+        
+        public static string confirmation_text {
+            get {
+                return ResourceManager.GetString("confirmation_text", resourceCulture);
+            }
+        }
+        
+        public static string confirmation_password {
+            get {
+                return ResourceManager.GetString("confirmation_password", resourceCulture);
+            }
+        }
+        
+        public static string confirmation_continue {
+            get {
+                return ResourceManager.GetString("confirmation_continue", resourceCulture);
+            }
+        }
+        
+        public static string viewreports_title {
+            get {
+                return ResourceManager.GetString("viewreports_title", resourceCulture);
             }
         }
     }

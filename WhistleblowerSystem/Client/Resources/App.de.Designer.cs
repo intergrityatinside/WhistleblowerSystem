@@ -227,9 +227,9 @@ namespace WhistleblowerSystem.Client.Resources {
             }
         }
         
-        public static string upload_text_2_n {
+        public static string upload_text_2 {
             get {
-                return ResourceManager.GetString("upload_text_2\\n", resourceCulture);
+                return ResourceManager.GetString("upload_text_2", resourceCulture);
             }
         }
         

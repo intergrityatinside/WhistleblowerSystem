@@ -119,7 +119,6 @@
   </resheader>
   <data name="index_contact" xml:space="preserve">
     <value>Kontakt: </value>
-    <comment>Fuzzy</comment>
   </data>
   <data name="index_info_text_1" xml:space="preserve">
     <value>Für die FHNW entsprechen Vertrauen und Glaubwürdigkeit eine zentrale Rolle. Aus diesem Grund ist die FHNW sowie auch die Angestellten immer um eine umfassende Einhaltung von Gesetzen bestrebt. Dennoch sind den Gesetzesverstössen in Einzelfällen nicht komplett auszuschliessen. </value>
@@ -150,10 +149,9 @@
   </data>
   <data name="securitynotice_title" xml:space="preserve">
     <value>Sicherheitshinweise</value>
-    <comment>Fuzzy</comment>
   </data>
   <data name="securitynotice_subtitle" xml:space="preserve">
-    <value>Unser Meldesystem bietet technischen Schutz, für die von Ihnen übermittelten Inhalte und Ihre Identität. </value>
+    <value>Unser Meldesystem bietet technischen Schutz, für die von Ihnen übermittelten Inhalte und Ihre Identität.</value>
   </data>
   <data name="securitynotice_list_title" xml:space="preserve">
     <value>Um Ihre Sicherheit weiter zu erhöhen, beachten Sie bitte die folgenden Punkte:</value>
@@ -166,7 +164,6 @@
   </data>
   <data name="securitynotice_list_item_3" xml:space="preserve">
     <value>Verwenden Sie kein von Ihrer Organisation bereitgestelltes Gerät, um Ihren Fall zu melden</value>
-    <comment>Fuzzy</comment>
   </data>
   <data name="securitynotice_list_item_4" xml:space="preserve">
     <value>Wir stellen sicher, dass auch die Metadaten der Melder nicht gespeichert werden</value>
@@ -182,20 +179,18 @@
   </data>
   <data name="newreport_title" xml:space="preserve">
     <value>Meldung erfassen</value>
-    <comment>Fuzzy</comment>
   </data>
   <data name="newreport_continue" xml:space="preserve">
     <value>Weiter</value>
   </data>
   <data name="newreport_placeholder_text" xml:space="preserve">
-    <value>Bitte Text eingeben... </value>
+    <value>Bitte Text eingeben...</value>
   </data>
   <data name="newreport_placeholder_select" xml:space="preserve">
     <value>Bitte auswählen</value>
   </data>
   <data name="login_title" xml:space="preserve">
     <value>Empfänger Login</value>
-    <comment>Fuzzy</comment>
   </data>
   <data name="login_password" xml:space="preserve">
     <value>Passwort</value>
@@ -210,10 +205,11 @@
     <value>Dokumente hochladen</value>
   </data>
   <data name="upload_text_1" xml:space="preserve">
-    <value>Beweise sind wichtig, um die Situation in Ihrem Bericht genau zu verstehen und analysieren. Wenn Sie relevante Dateien  hochladen möchten, nutzen Sie bitte den unten stehenden Upload-Bereich. Dies wird uns helfen, Ihren Fall effektiver und effizienter zu bearbeiten. </value>
+    <value>Beweise sind wichtig, um die Situation in Ihrem Bericht genau zu verstehen und analysieren. Wenn Sie relevante Dateien  hochladen möchten, nutzen Sie bitte den unten stehenden Upload-Bereich. Dies wird uns helfen, Ihren Fall effektiver und effizienter zu bearbeiten.</value>
   </data>
-  <data name="upload_text_2\n" xml:space="preserve">
-    <value>Hinweis zum Versand von Anhängen: Dateien können versteckte personenbezogene Daten enthalten, die Ihre Anonymität gefährden. Bitte entfernen Sie diese Daten vor dem Versenden. </value>
+  <data name="upload_text_2" xml:space="preserve">
+    <value>Hinweis zum Versand von Anhängen: Dateien können versteckte personenbezogene Daten enthalten, die Ihre Anonymität gefährden. Bitte entfernen Sie diese Daten vor dem Versenden.</value>
+    <comment>Fuzzy</comment>
   </data>
   <data name="upload_thanks" xml:space="preserve">
     <value>Besten Dank für Ihre Mitarbeit!</value>
@@ -234,7 +230,7 @@
     <value>Vielen Dank für Ihre Meldung!</value>
   </data>
   <data name="confirmation_caseid" xml:space="preserve">
-    <value> Ihre Case ID lautet: </value>
+    <value>Ihre Case ID lautet: </value>
   </data>
   <data name="confirmation_text" xml:space="preserve">
     <value>Bemerkung: Mit der CaseID und Ihrem Passwort können Sie den Stand Ihrer Meldung jederzeit unter “Meldung anzeigen” aufrufen. Bitte notieren Sie sich die CaseID und das Passwort sofort, sobald Sie dieses Fenster schliessen, können CaseID und Passwort nicht mehr aufgerufen oder verändert werden.</value>
@@ -247,6 +243,5 @@
   </data>
   <data name="viewreports_title" xml:space="preserve">
     <value>Meldung anzeigen</value>
-    <comment>Fuzzy</comment>
   </data>
 </root>
