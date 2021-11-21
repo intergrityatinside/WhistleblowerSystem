@@ -1,28 +1,28 @@
 ﻿@page "/login"
 
-<div class="content-container">
-    <div class="content">
-        <h1>Empfänger Login</h1>
-        <div class="login-container">
-            <div class="form-group control control-login">
-                <MudTextField @bind-Value="_user.Email" Label="E-Mail" Variant="Variant.Outlined"></MudTextField>
+    <div class="content-container">
+        <div class="content">
+            <h1>@L["login_title"]</h1>
+            <div class="login-container">
+                <div class="form-group control control-login">
+                    <MudTextField @bind-Value="_user.Email" Label=@L["login_email"] Variant="Variant.Outlined"></MudTextField>
+                </div>
+                <div class="form-group control control-login">
+                    <MudTextField @bind-Value="_user.Password" Label=@L["login_password"] Variant="Variant.Outlined"></MudTextField>
+                </div>
             </div>
-            <div class="form-group control control-login">
-                <MudTextField @bind-Value="_user.Password" Label="Passwort" Variant="Variant.Outlined"></MudTextField>
-            </div>
+            @if (_message != null)
+            {
+                <div style="color:red;">
+                    @_message
+                </div>
+            }
+
         </div>
-        @if (_message != null)
-        {
-            <div style="color:red;">
-                @_message
-            </div>
-        }
-        Beispiel Übsersetzung: @L["hallo"]
+        <div class="footer">
+            <MudButton OnClick="async () => await OnLogin()" Color="Color.Dark" Variant="Variant.Filled">@L["login_continue"]</MudButton>
+        </div>
     </div>
-    <div class="footer">
-        <MudButton OnClick="async () => await OnLogin()" Color="Color.Dark" Variant="Variant.Filled">Login</MudButton>
-    </div>
-</div>
 
 
 

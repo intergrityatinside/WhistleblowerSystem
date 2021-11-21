@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,7 +117,136 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="hallo" xml:space="preserve">
-    <value>Hallo</value>
+  <data name="index_contact" xml:space="preserve">
+    <value>Kontakt: </value>
+    <comment>Fuzzy</comment>
+  </data>
+  <data name="index_info_text_1" xml:space="preserve">
+    <value>Für die FHNW entsprechen Vertrauen und Glaubwürdigkeit eine zentrale Rolle. Aus diesem Grund ist die FHNW sowie auch die Angestellten immer um eine umfassende Einhaltung von Gesetzen bestrebt. Dennoch sind den Gesetzesverstössen in Einzelfällen nicht komplett auszuschliessen. </value>
+  </data>
+  <data name="index_info_text_2" xml:space="preserve">
+    <value>Haben Sie einen Hinweis auf Unregelmässigkeiten, Korruptionshandlungen oder andere illegale Handlungen? Wir bieten Ihnen die Möglichkeit, auf dieser Webseite Hinweise auf vermutetes Fehlverhalten zu geben. </value>
+  </data>
+  <data name="index_info_text_3" xml:space="preserve">
+    <value>Diese webbasierte Meldeseite gewährleistet die Anonymität und den geschützten Umgang mit den erhaltenen Daten. Die Einreichung der Meldung kann entweder völlig anonym oder unter Angabe des Namens erfolgen. Weder für das Fach- noch für das Betreuungsteam der Webseite ist es in irgendeiner Form möglich, Rückschlüsse auf Ihre Identität zu ziehen.</value>
+  </data>
+  <data name="index_info_text_4" xml:space="preserve">
+    <value>Darüber hinaus haben Sie die Möglichkeit nach der Einreichung Ihrer Meldung in einen anonymen Dialog mit unseren Fachpersonen einzutreten. Alle Informationen und Unterhaltungen werden vertraulich behandelt.</value>
+  </data>
+  <data name="index_info_text_5" xml:space="preserve">
+    <value>Bitte stellen Sie sicher, dass Sie bei anonymen Meldungen nicht die von Ihrer Organisation zur Verfügung gestellte Infrastruktur (wie z.B. PC, Tablet, Mobilgerät) verwenden. Lesen Sie dazu die FAQs und die Anleitung genau durch, um den grösstmöglichen Schutz Ihrer Identität zu gewährleisten.</value>
+  </data>
+  <data name="index_info_text_6" xml:space="preserve">
+    <value>Alle weiteren Details zur Nutzung des Meldesystems finden Sie in der nebenstehenden Anleitung. Für Fragen rundum Meldungen, stehen ihnen die FAQs zur Verfügung.</value>
+  </data>
+  <data name="index_info_text_7" xml:space="preserve">
+    <value>Wir danken Ihnen für die Einreichung solcher wichtigen Informationen! Nur wenn wir über diese verfügen, können wir Massnahmen einleiten. </value>
+  </data>
+  <data name="manual_title" xml:space="preserve">
+    <value>Anleitung</value>
+  </data>
+  <data name="faq_title" xml:space="preserve">
+    <value>FAQs</value>
+  </data>
+  <data name="securitynotice_title" xml:space="preserve">
+    <value>Sicherheitshinweise</value>
+    <comment>Fuzzy</comment>
+  </data>
+  <data name="securitynotice_subtitle" xml:space="preserve">
+    <value>Unser Meldesystem bietet technischen Schutz, für die von Ihnen übermittelten Inhalte und Ihre Identität. </value>
+  </data>
+  <data name="securitynotice_list_title" xml:space="preserve">
+    <value>Um Ihre Sicherheit weiter zu erhöhen, beachten Sie bitte die folgenden Punkte:</value>
+  </data>
+  <data name="securitynotice_list_item_1" xml:space="preserve">
+    <value>Unsere Website ist von der IT-Umgebung unserer Organisation getrennt</value>
+  </data>
+  <data name="securitynotice_list_item_2" xml:space="preserve">
+    <value>Wenn Sie anonym bleiben möchten, geben Sie in Ihrer Meldung keine persönlichen Informationen an. Vermeiden Sie Daten, die Rückschlüsse auf Ihre Person zulassen</value>
+  </data>
+  <data name="securitynotice_list_item_3" xml:space="preserve">
+    <value>Verwenden Sie kein von Ihrer Organisation bereitgestelltes Gerät, um Ihren Fall zu melden</value>
+    <comment>Fuzzy</comment>
+  </data>
+  <data name="securitynotice_list_item_4" xml:space="preserve">
+    <value>Wir stellen sicher, dass auch die Metadaten der Melder nicht gespeichert werden</value>
+  </data>
+  <data name="securitynotice_checkbox_title" xml:space="preserve">
+    <value>Um Ihre Meldung zu erfassen, müssen Sie mit diesen Sicherheitshinweisen einverstanden sein.</value>
+  </data>
+  <data name="securitynotice_checkbox_text" xml:space="preserve">
+    <value>Ich bin mit den Sicherheitshinweisen einverstanden</value>
+  </data>
+  <data name="securitynotice_continue" xml:space="preserve">
+    <value>Weiter</value>
+  </data>
+  <data name="newreport_title" xml:space="preserve">
+    <value>Meldung erfassen</value>
+    <comment>Fuzzy</comment>
+  </data>
+  <data name="newreport_continue" xml:space="preserve">
+    <value>Weiter</value>
+  </data>
+  <data name="newreport_placeholder_text" xml:space="preserve">
+    <value>Bitte Text eingeben... </value>
+  </data>
+  <data name="newreport_placeholder_select" xml:space="preserve">
+    <value>Bitte auswählen</value>
+  </data>
+  <data name="login_title" xml:space="preserve">
+    <value>Empfänger Login</value>
+    <comment>Fuzzy</comment>
+  </data>
+  <data name="login_password" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="login_email" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="login_continue" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="upload_title" xml:space="preserve">
+    <value>Dokumente hochladen</value>
+  </data>
+  <data name="upload_text_1" xml:space="preserve">
+    <value>Beweise sind wichtig, um die Situation in Ihrem Bericht genau zu verstehen und analysieren. Wenn Sie relevante Dateien  hochladen möchten, nutzen Sie bitte den unten stehenden Upload-Bereich. Dies wird uns helfen, Ihren Fall effektiver und effizienter zu bearbeiten. </value>
+  </data>
+  <data name="upload_text_2\n" xml:space="preserve">
+    <value>Hinweis zum Versand von Anhängen: Dateien können versteckte personenbezogene Daten enthalten, die Ihre Anonymität gefährden. Bitte entfernen Sie diese Daten vor dem Versenden. </value>
+  </data>
+  <data name="upload_thanks" xml:space="preserve">
+    <value>Besten Dank für Ihre Mitarbeit!</value>
+  </data>
+  <data name="upload_back" xml:space="preserve">
+    <value>Zurück</value>
+  </data>
+  <data name="upload_continue" xml:space="preserve">
+    <value>Einreichen</value>
+  </data>
+  <data name="upload_hint" xml:space="preserve">
+    <value>Dokumente hierher ziehen oder klicken</value>
+  </data>
+  <data name="confirmation_title" xml:space="preserve">
+    <value>Abschluss</value>
+  </data>
+  <data name="confirmation_subtitle" xml:space="preserve">
+    <value>Vielen Dank für Ihre Meldung!</value>
+  </data>
+  <data name="confirmation_caseid" xml:space="preserve">
+    <value> Ihre Case ID lautet: </value>
+  </data>
+  <data name="confirmation_text" xml:space="preserve">
+    <value>Bemerkung: Mit der CaseID und Ihrem Passwort können Sie den Stand Ihrer Meldung jederzeit unter “Meldung anzeigen” aufrufen. Bitte notieren Sie sich die CaseID und das Passwort sofort, sobald Sie dieses Fenster schliessen, können CaseID und Passwort nicht mehr aufgerufen oder verändert werden.</value>
+  </data>
+  <data name="confirmation_password" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="confirmation_continue" xml:space="preserve">
+    <value>Schliessen</value>
+  </data>
+  <data name="viewreports_title" xml:space="preserve">
+    <value>Meldung anzeigen</value>
+    <comment>Fuzzy</comment>
   </data>
 </root>

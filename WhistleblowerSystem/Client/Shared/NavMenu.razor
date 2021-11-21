@@ -1,32 +1,29 @@
-﻿<div class="@NavMenuCssClass">
+﻿@using Microsoft.Extensions.Localization;
+
+<div class="@NavMenuCssClass">
     @if (roleType != RoleType.Company)
     {
         <ul class="nav-menu">
             <li class="nav-item px-3">
-                <NavLink class="nav-link" href="consent/form">
-                    <span class="oi oi-plus" aria-hidden="true"></span> Meldung erfassen
+                <NavLink class="nav-link" href="securitynotice">
+                    <span class="oi oi-plus" aria-hidden="true"></span> @L["newreport_title"]
                 </NavLink>
             </li>
             <li class="nav-item px-3">
                 <NavLink class="nav-link" href="viewreports">
-                    <span class="oi oi-list-rich" aria-hidden="true"></span> Meldung anzeigen
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> @L["viewreports_title"]
                 </NavLink>
             </li>
             <li class="nav-item px-3">
                 <NavLink class="nav-link" href="manual">
-                    <span class="oi oi-info" aria-hidden="true"></span> Anleitung
+                    <span class="oi oi-info" aria-hidden="true"></span> @L["manual_title"]
                 </NavLink>
             </li>
             <li class="nav-item px-3">
                 <NavLink class="nav-link" href="faq">
-                    <span class="oi oi-magnifying-glass" aria-hidden="true"></span> FAQs
+                    <span class="oi oi-magnifying-glass" aria-hidden="true"></span> @L["faq_title"]
                 </NavLink>
             </li>
-            @*<li class="nav-item px-3">
-                <NavLink class="nav-link" href="login" Match="NavLinkMatch.All">
-                    <span class="oi oi-home" aria-hidden="true"></span> Login
-                </NavLink>
-            </li>*@
         </ul>
         <image class="nav-image" src="/images/integrityAtInside_logo.svg" height="92.8" width="120"></image>
 
@@ -36,6 +33,7 @@
 
 @code {
     [Inject] NavigationManager NavigationManager { get; set; } = null!;
+    [Inject] IStringLocalizer<App> L { get; set; } = null!;
     [Parameter] public bool IsNavMenuCollapsed { get; set; } = false;
 
     private string NavMenuCssClass => IsNavMenuCollapsed ? "menu-collapsed" : "menu";

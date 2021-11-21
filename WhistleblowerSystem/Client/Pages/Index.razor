@@ -1,33 +1,41 @@
 ﻿@page "/"
 @page "/home"
+@inject IStringLocalizer<App> L
+@using Microsoft.Extensions.Localization;
 
 <div class="content-container">
     <div class="content">
         <h1>Integrity@Inside</h1>
-        <h2>Wir bieten Ihnen die Möglichkeit, auf dieser Webseite Hinweise auf Missstände zu geben - auch anonym</h2>
         <p>
-            Auf unserem Whistleblowing-Meldesystem können Sie Informationen über
-            vermutetes Fehlverhalten melden,um dieses frühzeitig aufzudecken und
-            abzustellen. Alle Informationen und Untersuchungen werden vertraulich behandelt.
+            @L["index_info_text_1"]
             <br />
         </p>
         <p>
-            Die webbasierte Meldewebseite, die auf der hochsicheren Integrity@Inside
-            basiert, gewährleistet die Anonymität und den geschützten Umgang mit den erhaltenen Daten.
+            @L["index_info_text_2"]
             <br />
         </p>
         <p>
-            Die Abgabe von Meldungen kann entweder völlig anonym oder unter Angabe
-            des Namens erfolgen. Bitte lesen Sie in den FAQs und in der Anleitung nach,
-            wie Sie Ihre Privatsphäre und Anonymität sicherstellen können. Zudem finden
-            Sie auch Informationen, wie eine Meldung korrekt zu erfassen ist.
+            @L["index_info_text_3"]
             <br />
         </p>
         <p>
-            Bei Fragen dürfen Sie sich jederzeit bei uns melden.
+            @L["index_info_text_4"]
+            <br />
         </p>
         <p>
-            <b>Kontakt:</b> <br />
+            @L["index_info_text_5"]
+            <br />
+        </p>
+        <p>
+            @L["index_info_text_6"]
+            <br />
+        </p>
+        <p>
+            @L["index_info_text_7"]
+            <br />
+        </p>
+        <p>
+            <b>@L["index_contact"]</b> <br />
             Integrity@inside.ch
         </p>
     </div>

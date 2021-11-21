@@ -46,12 +46,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>App.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\App.de.Designer.cs">
+      <DependentUpon>App.de.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Resources\App.de.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <LastGenOutput>App.de.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\App.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

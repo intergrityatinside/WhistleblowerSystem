@@ -6,7 +6,7 @@
 @implements IDisposable
 @using WhistleblowerSystem.Business.DTOs;
 @using WhistleblowerSystem.Client.Services;
-
+@using Microsoft.Extensions.Localization;
 
 <style>
     .drag-drop-zone {
@@ -42,20 +42,18 @@
 <div class="content-container">
     <div class="content">
         <h1>
-            Dokumente hochladen
+            @L["upload_title"]
         </h1>
         <p>
-            Beweise sind wichtig, um die Situation in Ihrem Bericht genau zu verstehen und analysieren. Wenn Sie relevante Dateien hochladen möchten, nutzen Sie bitte den unten stehenden Upload-Bereich.
-            Dies wird uns helfen, Ihren Fall effektiver und effizienter zu bearbeiten.
+            @L["upload_text_1"]
             <br />
         </p>
         <p>
-            Hinweis zum Versand von Anhängen: Dateien können versteckte personenbezogene Daten enthalten, die Ihre Anonymität
-            gefährden. Bitte entfernen Sie diese Daten vor dem Versenden.
+            @L["upload_text_2"]
             <br />
         </p>
         <p>
-            Besten Dank für Ihre Mitarbeit!
+            @L["upload_thanks"]
         </p>
 
         <MudPaper @ondragenter="@(()=>_dragEnterStyle="drag-enter")"
@@ -67,7 +65,7 @@
 
             @if (fileNames.Count() == 0)
             {
-                <MudText Typo="Typo.h5">Dokumente hierher ziehen oder klicken</MudText>
+        <MudText Typo="Typo.h5">@L["upload_hint"]</MudText>
             }
             else
             {
@@ -86,14 +84,15 @@
     </div>
     <div class="footer">
         <div>
-            <MudButton OnClick="Back" Color="Color.Dark" Variant="Variant.Filled">Zurück</MudButton>
-            <MudButton OnClick="UploadDocs" Color="Color.Dark" Variant="Variant.Filled">Einreichen</MudButton>
+            <MudButton OnClick="Back" Color="Color.Dark" Variant="Variant.Filled">@L["upload_back"]</MudButton>
+            <MudButton OnClick="UploadDocs" Color="Color.Dark" Variant="Variant.Filled">@L["upload_continue"]</MudButton>
 
         </div>
     </div>
 </div>
 
 @code {
+    [Inject] IStringLocalizer<App> L { get; set; } = null!;
     private string? _dragEnterStyle;
     private IList<string> fileNames = new List<string>();
     private List<AttachementMetaDataDto>? _attachmentMetaData = new List<AttachementMetaDataDto>();
