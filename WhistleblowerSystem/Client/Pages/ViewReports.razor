@@ -1,10 +1,22 @@
 ﻿@page "/viewreports"
 
     <div class="content-container">
-        <div class="content">
-            <h1>Meldung aufrufen</h1>
-            <p>Hier kann eine gemachte Meldung aufgerufen werden.</p>
-        </div>
+            <div class="content">
+                <h1>@L["viewreports_title"]</h1>
+                <h3>@L["viewreports_text"]</h3>
+                <div class="viewreports-container">
+                    <div class="form-group control">
+                        <MudTextField @bind-Value="_whistleblower.Id" Label=@L["viewreports_id"] Variant="Variant.Outlined"></MudTextField>
+                    </div>
+                    <div class="form-group control">
+                        <MudTextField @bind-Value="_whistleblower.Password" Label=@L["viewreports_password"] Variant="Variant.Outlined"></MudTextField>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer">
+                <MudButton Color="Color.Dark" Variant="Variant.Filled">@L["viewreports_continue"]</MudButton>
+            </div>
     </div>
 
     @code {

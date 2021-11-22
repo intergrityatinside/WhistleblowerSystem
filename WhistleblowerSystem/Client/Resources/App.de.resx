@@ -244,4 +244,16 @@
   <data name="viewreports_title" xml:space="preserve">
     <value>Meldung anzeigen</value>
   </data>
+  <data name="viewreports_text" xml:space="preserve">
+    <value>Bitte geben Sie die CaseID und Ihr Passwort ein:</value>
+  </data>
+  <data name="viewreports_password" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="viewreports_continue" xml:space="preserve">
+    <value>Aufrufen</value>
+  </data>
+  <data name="viewreports_id" xml:space="preserve">
+    <value>CaseId</value>
+  </data>
 </root>

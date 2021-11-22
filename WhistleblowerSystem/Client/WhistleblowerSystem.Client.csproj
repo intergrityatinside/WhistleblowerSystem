@@ -49,6 +49,9 @@
     <Compile Update="Resources\App.de.Designer.cs">
       <DependentUpon>App.de.resx</DependentUpon>
     </Compile>
+    <Compile Update="Pages\ViewReports.razor.cs">
+      <DependentUpon>ViewReport.razor</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -66,5 +69,8 @@
   <ItemGroup>
     <None Remove="MudBlazor" />
     <None Remove="Pages\NewReport.razor.css" />
+    <None Update="Pages\ViewReports.razor.css">
+      <DependentUpon>ViewReport.razor</DependentUpon>
+    </None>
   </ItemGroup>
 </Project>
