@@ -1,9 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Localization;
-using System;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using WhistleblowerSystem.Business.DTOs;
