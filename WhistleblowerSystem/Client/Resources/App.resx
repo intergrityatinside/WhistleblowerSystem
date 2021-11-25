@@ -233,10 +233,10 @@
     <value>Your CaseID is: </value>
   </data>
   <data name="confirmation_text" xml:space="preserve">
-    <value>Note: With the CaseID and your password you can view the status of your report at any time under &quot;View report&quot;. Please make a note of the CaseID and password immediately. As soon as you close this window, the CaseID and the password can no longer be accessed or changed.</value>
+    <value>With the CaseID and your password you can view the status of your report at any time under "View report". Please make a note of the CaseID and password immediately. As soon as you close this window, the CaseID and the password can no longer be accessed or changed.</value>
   </data>
   <data name="confirmation_password" xml:space="preserve">
-    <value>Password</value>
+    <value>Your Password is: </value>
   </data>
   <data name="confirmation_continue" xml:space="preserve">
     <value>Close</value>

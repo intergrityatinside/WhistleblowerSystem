@@ -233,10 +233,10 @@
     <value>Ihre Case ID lautet: </value>
   </data>
   <data name="confirmation_text" xml:space="preserve">
-    <value>Bemerkung: Mit der CaseID und Ihrem Passwort können Sie den Stand Ihrer Meldung jederzeit unter “Meldung anzeigen” aufrufen. Bitte notieren Sie sich die CaseID und das Passwort sofort, sobald Sie dieses Fenster schliessen, können CaseID und Passwort nicht mehr aufgerufen oder verändert werden.</value>
+    <value>Mit der CaseID und Ihrem Passwort können Sie den Stand Ihrer Meldung jederzeit unter “Meldung anzeigen” aufrufen. Bitte notieren Sie sich die CaseID und das Passwort sofort, sobald Sie dieses Fenster schliessen, können CaseID und Passwort nicht mehr aufgerufen oder verändert werden.</value>
   </data>
   <data name="confirmation_password" xml:space="preserve">
-    <value>Passwort</value>
+    <value>Ihr Passwort lautet: </value>
   </data>
   <data name="confirmation_continue" xml:space="preserve">
     <value>Schliessen</value>

@@ -3,7 +3,6 @@
 @inject WhistleblowerService WhistleblowerService
 @inject IFormService FormService
 @implements IDisposable
-@using System.Text.RegularExpressions
 @using WhistleblowerSystem.Business.DTOs;
 @using WhistleblowerSystem.Client.Services;
 @using Microsoft.Extensions.Localization;
@@ -22,28 +21,13 @@
             <br />
         </p>
         <p>
+            <!-- TODO bind value to password which comes from the backend --> 
             @L["confirmation_password"] <span style="color:red;font-weight:bold;"></span>
-            <br />
+            <br/>
         </p>
         <div>
-            Aus Sicherheitsgründen verschlüsseln Sie Ihre CaseID zusätzlich mit einem Passwort:
             <br />
-            <MudForm @ref="form" @bind-IsValid="@success" @bind-Errors="@errors">
-                <MudTextField T="string" Label="Passwort" HelperText="Wählen Sie ein starkes Passwort" @ref="pwField1"
-                              InputType="InputType.Password"
-                              Validation="@(new Func<string, IEnumerable<string>>(PasswordStrength))" Required="true"
-                              RequiredError="Bitte geben Sie ein Passwort ein!"
-                              @bind-Value="_whistleblower.Password" />
-                <MudTextField T="string"
-                              Label="Passwort" HelperText="Wiederholen Sie das Passwort" InputType="InputType.Password"
-                              Validation="@(new Func<string, string>(PasswordMatch))" />
-            </MudForm>
-        </div>
-        <div>
-            <br />
-            <p style="color:red;font-weight:bold;">
-                @L["confirmation_text"]
-            </p>
+            <MudAlert Severity="Severity.Error"  Variant="Variant.Filled">@L["confirmation_text"]</MudAlert>
         </div>
 
     </div>
@@ -56,10 +40,6 @@
 
 @code {
     [Inject] IStringLocalizer<App> L { get; set; } = null!;
-    bool success;
-    string[] errors = { };
-    MudTextField<string>? pwField1;
-    MudForm? form;
     private FormDto? _form;
     private WhistleblowerDto _whistleblower = new WhistleblowerDto("", "", "");
 
@@ -77,31 +57,6 @@
         FormService.SetCurrentForm(null);
         _form = null;
         StateHasChanged();
-    }
-
-    private IEnumerable<string> PasswordStrength(string pw)
-    {
-        //TODO check which checks should be done
-        if (string.IsNullOrWhiteSpace(pw))
-        {
-            yield return "Bitte geben Sie ein Passwort ein!";
-            yield break;
-        }
-        if (pw.Length < 8)
-            yield return "Das Passwort muss mindestens 8 Zeichen lang sein"; //Password must be at least of length 8
-        if (!Regex.IsMatch(pw, @"[A-Z]"))
-            yield return "Das Passwort muss mindestens einen Grossbuchstaben enthalten"; //Password must contain at least one capital letter
-        if (!Regex.IsMatch(pw, @"[a-z]"))
-            yield return "Das Passwort muss mindestens einen Kleinbuchstaben enthalten"; //Password must contain at least one lowercase letter
-        if (!Regex.IsMatch(pw, @"[0-9]"))
-            yield return "Das Passwort muss mindestens eine Ziffer enthalten"; //Password must contain at least one digit
-    }
-
-    private string PasswordMatch(string arg)
-    {
-        if (pwField1?.Value != arg)
-            return "Passwörter stimmen nicht überein";
-        return "";
     }
 
     private async Task Close()
