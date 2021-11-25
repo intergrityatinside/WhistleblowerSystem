@@ -320,5 +320,107 @@ namespace WhistleblowerSystem.Client.Resources {
                 return ResourceManager.GetString("viewreports_continue", resourceCulture);
             }
         }
+        
+        public static string faq_question_1 {
+            get {
+                return ResourceManager.GetString("faq_question_1", resourceCulture);
+            }
+        }
+        
+        public static string faq_question_2 {
+            get {
+                return ResourceManager.GetString("faq_question_2", resourceCulture);
+            }
+        }
+        
+        public static string faq_question_3 {
+            get {
+                return ResourceManager.GetString("faq_question_3", resourceCulture);
+            }
+        }
+        
+        public static string faq_question_4 {
+            get {
+                return ResourceManager.GetString("faq_question_4", resourceCulture);
+            }
+        }
+        
+        public static string faq_question_5 {
+            get {
+                return ResourceManager.GetString("faq_question_5", resourceCulture);
+            }
+        }
+        
+        public static string faq_question_6 {
+            get {
+                return ResourceManager.GetString("faq_question_6", resourceCulture);
+            }
+        }
+        
+        public static string faq_question_7 {
+            get {
+                return ResourceManager.GetString("faq_question_7", resourceCulture);
+            }
+        }
+        
+        public static string faq_answer_1 {
+            get {
+                return ResourceManager.GetString("faq_answer_1", resourceCulture);
+            }
+        }
+        
+        public static string faq_answer_2 {
+            get {
+                return ResourceManager.GetString("faq_answer_2", resourceCulture);
+            }
+        }
+        
+        public static string faq_answer_3 {
+            get {
+                return ResourceManager.GetString("faq_answer_3", resourceCulture);
+            }
+        }
+        
+        public static string faq_answer_4 {
+            get {
+                return ResourceManager.GetString("faq_answer_4", resourceCulture);
+            }
+        }
+        
+        public static string faq_answer_5 {
+            get {
+                return ResourceManager.GetString("faq_answer_5", resourceCulture);
+            }
+        }
+        
+        public static string faq_answer_6 {
+            get {
+                return ResourceManager.GetString("faq_answer_6", resourceCulture);
+            }
+        }
+        
+        public static string faq_answer_7 {
+            get {
+                return ResourceManager.GetString("faq_answer_7", resourceCulture);
+            }
+        }
+        
+        public static string faq_subtitle_1 {
+            get {
+                return ResourceManager.GetString("faq_subtitle_1", resourceCulture);
+            }
+        }
+        
+        public static string faq_subtitle_2 {
+            get {
+                return ResourceManager.GetString("faq_subtitle_2", resourceCulture);
+            }
+        }
+        
+        public static string faq_subtitle_3 {
+            get {
+                return ResourceManager.GetString("faq_subtitle_3", resourceCulture);
+            }
+        }
     }
 }

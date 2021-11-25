@@ -256,4 +256,63 @@
   <data name="viewreports_id" xml:space="preserve">
     <value>CaseId</value>
   </data>
+  <data name="faq_question_1" xml:space="preserve">
+    <value>Was ist ein Whistleblower?</value>
+  </data>
+  <data name="faq_question_2" xml:space="preserve">
+    <value>Was ist die EU-Whistleblower-Richtlinie und wen betrifft sie?</value>
+  </data>
+  <data name="faq_question_3" xml:space="preserve">
+    <value>Welche Fristen gelten für die Bearbeitung der Meldung?</value>
+  </data>
+  <data name="faq_question_4" xml:space="preserve">
+    <value>Für welche konkreten Hinweise/Missstände ist die Whistleblower-Richtlinie gedacht?</value>
+  </data>
+  <data name="faq_question_5" xml:space="preserve">
+    <value>Warum sollte ein Fehlverhalten gemeldet werden?</value>
+  </data>
+  <data name="faq_question_6" xml:space="preserve">
+    <value>Welche Informationen benötige ich, um eine Meldung zu erfassen?</value>
+  </data>
+  <data name="faq_question_7" xml:space="preserve">
+    <value>Wie wird die Anonymität der Whistleblower gewährleitet?</value>
+  </data>
+  <data name="faq_answer_1" xml:space="preserve">
+    <value>Als Whistleblower bezeichnet man eine Person, die Kenntnis von Missständen innerhalb von einer Organisation hat und diese Informationen offenbart. Die Missstände können sich auf Rechtsverstössen oder unethische Verhaltensweisen beziehen. 
+Whistleblower offenbaren diese Informationen typischerweise namentlich oder anonym. 
+</value>
+  </data>
+  <data name="faq_answer_2" xml:space="preserve">
+    <value>Die Hinweisgeberschutzrichtlinie der EU 2019/1937 ist eine EU-Richtlinie, die durch Erarbeitung der EU-Kommission und Annahme des EU-Rats im Jahr 2019 in Kraft getreten ist.
+Sie dient dem Schutz von Whistleblower, die auf Missstände in einer Organisation hinweisen. 
+Alle Organisationen ab 50 Mitarbeitern sind verpflichtet, in ihrer Organisation ein Whistleblower-System einzurichten. Für Organisationen ab 250 Mitarbeitern wird eine Frist zur Umsetzung von 2 Jahren erwartet. Für Organisationen zwischen 50 und 249 Mitarbeitern wird die Umsetzungsfrist um voraussichtlich weitere 2 Jahre verlängert. 
+Auch für die Schweiz steht diese grosse Herausforderung vor. Per Ende 2021 müssen viele Organisationen in der Schweiz mit Geschäftspartnern aus dem EU-Raum ein Whistleblowing-System einzurichten.
+</value>
+  </data>
+  <data name="faq_answer_3" xml:space="preserve">
+    <value>Der Whistleblower muss gemäss der EU-Whistleblowing-Richtlinie innerhalb von sieben Tagen die Bestätigung erhalten, dass seine Meldung eingegangen ist. Nach spätestens weiteren drei Monaten hat eine Meldung an die meldende Person zu erfolgen, inwieweit seine Meldung bearbeitet wurden, welche Massnahmen ergriffen wurden und welches Ergebnis hierzu vorliegt.</value>
+  </data>
+  <data name="faq_answer_4" xml:space="preserve">
+    <value>Die Whistle-Blower Richtlinie unterstützt das Melden gegen jegliche Compliance-Verstösse, wie beispielsweise Bestechung, Korruption, Datenschutz, Diskriminierung, Belästigung, Unterschlagung, Veruntreuung, Diebstahl, Gesundheit, Sicherheit, Umweltschutz, Geldwäsche.</value>
+  </data>
+  <data name="faq_answer_5" xml:space="preserve">
+    <value>Whistleblowing ist wichtig, um hohe ethische Standards zu fördern und somit das Vertrauen der Mitarbeiter und der Öffentlichkeit in einer Organisation zu erhalten. Durch Ihre Meldung können Sie dazu beitragen, eine mögliche Eskalation von Fehlverhalten zu verhindern.</value>
+  </data>
+  <data name="faq_answer_6" xml:space="preserve">
+    <value>Um eine gründliche Untersuchung Ihrer Meldung zu ermöglichen, sollten Sie Ihren Fall detailliert beschreiben (was genau passiert ist und wann und wo es passiert ist). Zusätzliche können Sie über unsere Webseite Dokumente und Bilder für Ihre Meldung hochladen. </value>
+  </data>
+  <data name="faq_answer_7" xml:space="preserve">
+    <value>Die Webseite basiert auf einer unabhängige Dienstleitung, die eine anonyme Kommunikation zwischen Ihnen und den Personen, die die Nachrichten erhalten, herstellt. Unsere Dienstleitung ist von der IT-Umgebung der Organisation getrennt. Wir verfolgen keine IP-Adressen oder andere Daten, die eine Person identifizieren könnten. Nachrichten können nur von bestimmten Personen entschlüsselt und bearbeitet werden. Ihre gesendeten Metadaten werden nicht gespeichert.
+Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugreifen, das nicht mit dem Internet der Organisation verbunden ist.
+</value>
+  </data>
+  <data name="faq_subtitle_1" xml:space="preserve">
+    <value>Was versteht man unter Whistleblowing?</value>
+  </data>
+  <data name="faq_subtitle_2" xml:space="preserve">
+    <value>Welche Themen umfasst Whistleblowing und warum sollte ich diese melden?</value>
+  </data>
+  <data name="faq_subtitle_3" xml:space="preserve">
+    <value>Wie ist die Sicherheit meiner Daten bzw. Angaben gewährleistet?</value>
+  </data>
 </root>

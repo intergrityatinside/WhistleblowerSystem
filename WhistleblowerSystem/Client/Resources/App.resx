@@ -256,4 +256,63 @@
   <data name="viewreports_continue" xml:space="preserve">
     <value>View</value>
   </data>
+  <data name="faq_question_1" xml:space="preserve">
+    <value>What is a whistleblower?</value>
+  </data>
+  <data name="faq_question_2" xml:space="preserve">
+    <value>What is the EU-Whistleblower Policy and who does it impact?</value>
+  </data>
+  <data name="faq_question_3" xml:space="preserve">
+    <value>What are the deadlines for processing the report?</value>
+  </data>
+  <data name="faq_question_4" xml:space="preserve">
+    <value>For which specific cases/misconducts is the whistleblower policy intended?</value>
+  </data>
+  <data name="faq_question_5" xml:space="preserve">
+    <value>Why should a wrongdoing be reported?</value>
+  </data>
+  <data name="faq_question_6" xml:space="preserve">
+    <value>What information do I need to create a report?</value>
+  </data>
+  <data name="faq_question_7" xml:space="preserve">
+    <value>How is the anonymity of whistleblowers maintained?</value>
+  </data>
+  <data name="faq_answer_1" xml:space="preserve">
+    <value>A whistleblower is a person, who has knowledge of wrongdoing within an organization and discloses this information. The wrongdoing may relate to legal violations or unethical behavior. 
+Whistleblowers typically disclose this information by name or anonymously. 
+</value>
+  </data>
+  <data name="faq_answer_2" xml:space="preserve">
+    <value>The EU Whistleblower Protection Policy 2019/1937 is an EU guideline that came into force in 2019 through development by the EU Commission and adoption by the EU Council.
+Its purpose is to protect whistleblowers, who point out wrongdoings in an organization. 
+All organizations with 50 or more employees are required to establish a whistleblower system in their organization. For organizations with 250 or more employees, the expected implementation period is 2 years. For organizations between 50 and 249 employees, the implementation period is extended to an additional 2 years. 
+Switzerland is also facing this major challenge. By the end of 2021, many Swiss organizations in with business partners from the EU region will have to set up a whistleblowing system.
+</value>
+  </data>
+  <data name="faq_answer_3" xml:space="preserve">
+    <value>According to the EU Whistleblowing Guideline, the whistleblower must receive confirmation that his report has been received within seven days. After a further three months at latest, the reporting person must be informed of the status of the its report, what actions have been taken and what the results of these actions are.</value>
+  </data>
+  <data name="faq_answer_4" xml:space="preserve">
+    <value>The Whistle-Blower Policy supports reporting against any compliance violations, such as bribery, corruption, privacy, discrimination, harassment, embezzlement, theft, health, safety, environmental, money laundering.</value>
+  </data>
+  <data name="faq_answer_5" xml:space="preserve">
+    <value>Whistleblowing is important to promote high ethical standards and thus maintain the trust of employees and the public in an organization. By reporting, you can help prevent a possible escalation of misconduct.</value>
+  </data>
+  <data name="faq_answer_6" xml:space="preserve">
+    <value>To enable a thorough investigation of your report, you should describe your case in detail (what exactly happened and when and where it happened). Additionally, you can upload documents and images as evidence for your report via our website.</value>
+  </data>
+  <data name="faq_answer_7" xml:space="preserve">
+    <value>The website is based on an independent service that establishes anonymous communication between you and the people who receive the report. Our service is separate from the organization's IT environment. We do not track IP addresses or other data that could identify an individual. Messages can only be decrypted and handled by specific individuals. Your sent metadata is not stored.
+Advice: We recommend that you access our website from a device that is not connected to the organization's IT environment.
+</value>
+  </data>
+  <data name="faq_subtitle_1" xml:space="preserve">
+    <value>What does whistleblowing mean?</value>
+  </data>
+  <data name="faq_subtitle_2" xml:space="preserve">
+    <value>What topics does whistleblowing cover and why should I report them?</value>
+  </data>
+  <data name="faq_subtitle_3" xml:space="preserve">
+    <value>How is the Security of my data or information assured?</value>
+  </data>
 </root>

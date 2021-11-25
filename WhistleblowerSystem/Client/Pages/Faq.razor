@@ -1,12 +1,58 @@
 ﻿@page "/faq"
+@inject IStringLocalizer<App> L
+@using Microsoft.Extensions.Localization;
 
-    <div class="content-container">
-        <div class="content">
-            <h1>FAQ</h1>
-            <p>Hier kommt der FAQ Abschnitt</p>
-        </div>
+<div class="content-container">
+    <div class="content">
+        <h1 class="page-title">@L["faq_title"]</h1>
+        <MudExpansionPanels Elevation="3">
+            <MudExpansionPanel>
+                <TitleContent>
+                    <div>
+                        <MudText>
+                            <strong>@L["faq_subtitle_1"]</strong>
+                        </MudText>
+                    </div>
+                </TitleContent>
+                <ChildContent>
+                    <label class="question">@L["faq_question_1"] </label>
+                    <p class="answer">@L["faq_answer_1"]</p>
+                    <label class="question">@L["faq_question_2"] </label>
+                    <p class="answer">@L["faq_answer_2"]</p>
+                    <label class="question">@L["faq_question_3"] </label>
+                    <p class="answer">@L["faq_answer_3"]</p>
+                </ChildContent>
+            </MudExpansionPanel>
+            <MudExpansionPanel>
+                <TitleContent>
+                    <div>
+                        <MudText>
+                            <strong>@L["faq_subtitle_2"]</strong>
+                        </MudText>
+                    </div>
+                </TitleContent>
+                <ChildContent>
+                    <label class="question">@L["faq_question_4"] </label>
+                    <p class="answer">@L["faq_answer_4"]</p>
+                    <label class="question">@L["faq_question_5"] </label>
+                    <p class="answer">@L["faq_answer_5"]</p>
+                    <label class="question">@L["faq_question_6"] </label>
+                    <p class="answer">@L["faq_answer_6"]</p>
+                </ChildContent>
+            </MudExpansionPanel>
+            <MudExpansionPanel>
+                <TitleContent>
+                    <div>
+                        <MudText>
+                            <strong>@L["faq_subtitle_3"]</strong>
+                        </MudText>
+                    </div>
+                </TitleContent>
+                <ChildContent>
+                    <label class="question">@L["faq_question_7"] </label>
+                    <p class="answer">@L["faq_answer_7"]</p>
+                </ChildContent>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
     </div>
-
-    @code {
-        //TODO
-    }
+</div>
