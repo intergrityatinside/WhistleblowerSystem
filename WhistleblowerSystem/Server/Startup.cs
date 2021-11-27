@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,10 +37,18 @@ namespace WhistleblowerSystem.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //services
+            //    .AddControllers(opt => opt.OutputFormatters.RemoveType<HttpNoContentOutputFormatter>())
+            //    .AddJsonOptions(options =>
+            //{
+            //    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;                
+            //});
+
             services.AddLocalization(options => options.ResourcesPath = "Resources");
             services.AddRazorPages();
             services.AddHttpContextAccessor();
 
+            services.AddAuthorization();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie((options) =>
             {
@@ -50,6 +59,14 @@ namespace WhistleblowerSystem.Server
                     return Task.CompletedTask;
                 };
             });
+
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("CorsOrigins",
+            //        builder => builder.AllowAnyOrigin()
+            //        .AllowAnyMethod()
+            //        .AllowAnyHeader());
+            //});
 
             DependencyInjection.DependencyInjection.Init(services,
                 GetConfigValue("DBNAME"),
@@ -73,9 +90,11 @@ namespace WhistleblowerSystem.Server
 
             app.UseHttpsRedirection();
             app.UseBlazorFrameworkFiles();
+    
             app.UseStaticFiles();
 
             app.UseRouting();
+            //app.UseCors("CorsOrigins");
             app.UseAuthentication();
             app.UseAuthorization();
 

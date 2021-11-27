@@ -20,24 +20,23 @@ namespace WhistleblowerSystem.Client
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            var currentAccountService = new CurrentAccountService(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            await currentAccountService.InitAsync();
-            var whistleblowerService = new WhistleblowerService(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            var formService = new FormService(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            var attachementService = new AttachementService(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            
+            builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            builder.Services.AddSingleton(sp => currentAccountService);
+            builder.Services.AddSingleton<CurrentAccountService>();
             builder.Services.AddSingleton<ICurrentAccountService>(sp => sp.GetRequiredService<CurrentAccountService>());
-            builder.Services.AddSingleton(sp => whistleblowerService);
+            builder.Services.AddSingleton<WhistleblowerService>();
             builder.Services.AddSingleton<IWhistleblowerService>(sp => sp.GetRequiredService<WhistleblowerService>());
-            builder.Services.AddSingleton(sp => formService);
+            builder.Services.AddSingleton<FormService>();
             builder.Services.AddSingleton<IFormService>(sp => sp.GetRequiredService<FormService>());
-            builder.Services.AddSingleton(sp => attachementService);
+            builder.Services.AddSingleton<AttachementService>();
             builder.Services.AddSingleton<IAttachementService>(sp => sp.GetRequiredService<AttachementService>());
             builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
             builder.Services.AddScoped<IStringLocalizer<App>, StringLocalizer<App>>();
+           
+            //mud
             builder.Services.AddMudServices();
+
             var build = builder.Build();
 
             //set the default language

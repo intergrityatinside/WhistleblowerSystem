@@ -1,0 +1,20 @@
+version: "3"
+services:
+
+  app:
+    container_name: whistleblower
+    build:
+        context: .
+        dockerfile: Dockerfile
+    environment:
+        ASPNETCORE_ENVIRONMENT: production
+        WB_MONGODBCONNECTION: mongodb+srv://wb:fHRhLFu2SevfRuTj@cluster0.r54qi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+        WB_DBNAME: whistleblower
+    ports:
+        - 4000:80
+    networks:
+        - backend
+
+networks:
+  backend:
+    driver: bridge
