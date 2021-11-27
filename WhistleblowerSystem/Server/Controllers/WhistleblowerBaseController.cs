@@ -16,7 +16,7 @@ namespace WhistleblowerSystem.Server.Controllers
         {
             _httpContextAccessor = httpContextAccessor;
             _whistleblowerManager = whistleblowerManager;
-            _currentWhistleblower = whistleblowerManager.GetWhistleblower(httpContextAccessor) ?? throw new Exception("Not Authenticated - please Login");
+            _currentWhistleblower = whistleblowerManager.GetWhistleblower(httpContextAccessor)!; //?? throw new Exception("Not Authenticated - please Login");
         }
     }
 }

@@ -9,8 +9,8 @@ namespace WhistleblowerSystem.Shared.Enums
     public enum ViolationState
     {
         Undefined = 0,
-        Accepted = 1,
-        InProgress = 2,
-        Done = 3
+        Recieved = 1,
+        Processing = 2,
+        Closed = 3
     }
 }
