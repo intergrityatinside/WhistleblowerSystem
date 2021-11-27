@@ -17,6 +17,6 @@ namespace WhistleblowerSystem.Business.DTOs
 
         public string? Id { get; set; }
         public string FormId { get; set; }
-        public string Password { get; set; }
+        public string Password { get; set; } = "";
     }
 }

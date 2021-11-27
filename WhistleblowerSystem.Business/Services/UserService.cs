@@ -16,10 +16,12 @@ namespace WhistleblowerSystem.Business.Services
     {
         readonly UserRepository _userRepository;
         readonly IMapper _mapper;
+        readonly WhistleblowerRepository _whistleblowerRepository;
 
-        public UserService(UserRepository userRepository, IMapper mapper)
+        public UserService(UserRepository userRepository, IMapper mapper, WhistleblowerRepository whistleblowerRepository)
         {
             _userRepository = userRepository;
+            _whistleblowerRepository = whistleblowerRepository;
             _mapper = mapper;
 
         }
@@ -44,6 +46,16 @@ namespace WhistleblowerSystem.Business.Services
             }
 
             return true;
+        }
+
+        public async Task<(bool, WhistleblowerDto?)> AuthenticateWhilsteblower(string formId, string pw)
+        {
+            var whistleBlower = await _whistleblowerRepository.GetByFormId(formId);
+            if (whistleBlower == null || whistleBlower.PasswordHash == null || !PasswordUtils.Verify(pw, whistleBlower.PasswordHash))
+            {
+                return (false, null);
+            }
+            return (true, _mapper.Map<WhistleblowerDto>(whistleBlower)); 
         }
 
         public async Task<UserDto?> FindOneByEmailAsync(string email)

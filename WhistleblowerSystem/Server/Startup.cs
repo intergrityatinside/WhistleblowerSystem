@@ -32,6 +32,7 @@ namespace WhistleblowerSystem.Server
             _configuration = configuration;
         }
 
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -117,6 +118,8 @@ namespace WhistleblowerSystem.Server
            await new Initializer(dbContext, companyService, userService, formTemplateService, mapper)
                 .Init(InitializingMode.DeleteAndCreate);
         }
+
+
 
         private string GetConfigValue(string name, bool isConnectionString = false)
         {

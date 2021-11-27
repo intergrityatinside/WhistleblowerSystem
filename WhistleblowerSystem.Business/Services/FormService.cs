@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
+using Microsoft.VisualBasic.CompilerServices;
+using PasswordGenerator;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WhistleblowerSystem.Business.DTOs;
+using WhistleblowerSystem.Business.Utils;
 using WhistleblowerSystem.Database.Entities;
 using WhistleblowerSystem.Database.Repositories;
 using WhistleblowerSystem.Shared.Enums;
@@ -13,20 +16,35 @@ namespace WhistleblowerSystem.Business.Services
         readonly FormRepository _formRepository;
         readonly FormTemplateRepository _formTemplateRepository;
         readonly IMapper _mapper;
+        readonly WhistleblowerRepository _whistleblowerRepository;
 
-        public FormService(FormRepository formRepository, FormTemplateRepository formTemplateRepository, IMapper mapper)
+        public FormService(FormRepository formRepository, FormTemplateRepository formTemplateRepository,
+           WhistleblowerRepository whistleblowerRepository, IMapper mapper)
         {
             _formRepository = formRepository;
             _formTemplateRepository = formTemplateRepository;
             _mapper = mapper;
-
+            _whistleblowerRepository = whistleblowerRepository;
         }
 
         public async Task<FormDto> CreateFormAsync(FormDto formDto)
         {
             Form form = _mapper.Map<Form>(formDto);
             await _formRepository.InsertOneAsync(form);
-            return _mapper.Map<FormDto>(form);
+
+            var formResult = _mapper.Map<FormDto>(form);
+            var passwordGenerator = new Password()
+                .IncludeLowercase()
+                .IncludeUppercase()
+                .IncludeNumeric()
+                .LengthRequired(10)
+                .IncludeSpecial("[]{}^_=");
+            formResult.Password = passwordGenerator.Next();
+
+            var whistleBlower = new Whistleblower(null, form.Id.ToString(), PasswordUtils.HashPw(formResult.Password));
+            await _whistleblowerRepository.InsertOneAsync(whistleBlower);
+
+            return formResult;
         }
 
         public async Task<FormDto> CreateFormFromTemplateAsync()
@@ -40,7 +58,7 @@ namespace WhistleblowerSystem.Business.Services
                 formFields.Add(formField);
             }
 
-            FormDto formDto = new FormDto(null, null, formTemplateDto.Id!, formFields, null, null, Shared.Enums.ViolationState.Undefined);
+            FormDto formDto = new FormDto(null, null, formTemplateDto.Id!, formFields, null, null, Shared.Enums.ViolationState.Undefined, null);
             return formDto;
         }
         public async Task<List<FormDto>> GetAllAsync()

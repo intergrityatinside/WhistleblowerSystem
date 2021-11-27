@@ -9,10 +9,12 @@ using System.Threading.Tasks;
 using WhistleblowerSystem.Business.DTOs;
 using WhistleblowerSystem.Business.Services;
 using WhistleblowerSystem.Server.Authentication;
+using WhistleblowerSystem.Server.CustomAttributes;
 using WhistleblowerSystem.Shared.Enums;
 
 namespace WhistleblowerSystem.Server.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class FormController : UserBaseController
@@ -25,10 +27,20 @@ namespace WhistleblowerSystem.Server.Controllers
             _formService = formService;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<FormDto> Get()
         {
             return await _formService.CreateFormFromTemplateAsync();
+        }
+
+        [Authorize]
+        [CheckRights(Roles.WhistleBlowerRole, Roles.CompanyUserRole)]
+        [HttpGet("{id}")]
+        public async Task<FormDto> GetById(string id)
+        {
+            CheckRight(id);
+            //return await _formService.GetAllAsync(id);
         }
 
         [HttpPost("save")]
@@ -39,6 +51,7 @@ namespace WhistleblowerSystem.Server.Controllers
             return form;
         }
 
+        [CheckRights(Roles.CompanyUserRole)]
         [HttpGet("getAll")]
         public async Task<List<FormDto>> GetAll()
         {

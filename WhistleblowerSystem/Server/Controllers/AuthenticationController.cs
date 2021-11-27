@@ -34,12 +34,20 @@ namespace WhistleblowerSystem.Server.Controllers
             return await _userService.FindOneByIdAsync(httpUser.Id);
         }
 
-        [HttpPost("login")]
+        [HttpPost("company-user/login")]
         public async Task<UserDto> Login(UserDto userDto)
         {
-            var user = await _userManager.SignInAsync(HttpContext, userDto.Email, userDto.Password);
+            var user = await _userManager.CompanyUserSignInAsync(HttpContext, userDto.Email, userDto.Password);
             if (user == null) throw new Exception("Login failed");
             return user;
+        }
+
+        [HttpPost("whistleblower/login")]
+        public async Task<WhistleblowerDto?> LoginWhistleBlower(WhistleblowerDto whistleblower)
+        {
+            var whistleblowerDto = await _userManager.WhistleBlowerSignInAsync(HttpContext, whistleblower.FormId, whistleblower.Password);
+            if (whistleblowerDto == null) throw new Exception("Login failed");
+            return whistleblowerDto;
         }
 
         [HttpPost("logout")]
