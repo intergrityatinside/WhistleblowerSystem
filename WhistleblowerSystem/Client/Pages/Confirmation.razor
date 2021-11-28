@@ -22,7 +22,7 @@
         </p>
         <p>
             <!-- TODO bind value to password which comes from the backend --> 
-            @L["confirmation_password"] <span style="color:red;font-weight:bold;"></span>
+            @L["confirmation_password"] <span style="color:red;font-weight:bold;">@_form?.Password</span>
             <br/>
         </p>
         <div>
@@ -59,11 +59,9 @@
         StateHasChanged();
     }
 
-    private async Task Close()
+    private void Close()
     {
         FormService.SetCurrentForm(null);
-        _whistleblower.Id = _form?.Id;
-        await WhistleblowerService.Save(_whistleblower);
         NavigationManager.NavigateTo("/home");
     }
 

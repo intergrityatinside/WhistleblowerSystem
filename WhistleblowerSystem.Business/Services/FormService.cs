@@ -9,6 +9,7 @@ using WhistleblowerSystem.Business.Utils;
 using WhistleblowerSystem.Database.Entities;
 using WhistleblowerSystem.Database.Repositories;
 using WhistleblowerSystem.Shared.Enums;
+using System;
 
 namespace WhistleblowerSystem.Business.Services
 {
@@ -59,7 +60,8 @@ namespace WhistleblowerSystem.Business.Services
                 formFields.Add(formField);
             }
 
-            FormDto formDto = new FormDto(null, null, formTemplateDto.Id!, formFields, null, null, Shared.Enums.ViolationState.Undefined, null);
+            FormDto formDto = new FormDto(null, null, formTemplateDto.Id!, formFields, null, null, Shared.Enums.ViolationState.Undefined, 
+                DateTime.Now, null);
             return formDto;
         }
         public async Task<List<FormDto>> GetAllAsync()

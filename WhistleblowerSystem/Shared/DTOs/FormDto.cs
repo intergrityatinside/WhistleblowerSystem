@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using WhistleblowerSystem.Shared.Enums;
 
 namespace WhistleblowerSystem.Shared.DTOs
@@ -7,7 +8,7 @@ namespace WhistleblowerSystem.Shared.DTOs
     {
         public FormDto(string? id, string? topicId, string formTemplateId, List<FormFieldDto> formFields,
             List<AttachementMetaDataDto>? attachements, List<FormMessageDto>? messages, ViolationState state,
-            string? password = null)
+            DateTime datetime, string? password = null)
         {
             Id = id;
             TopicId = topicId;
@@ -16,6 +17,7 @@ namespace WhistleblowerSystem.Shared.DTOs
             Attachements = attachements;
             Messages = messages;
             State = state;
+            Datetime = datetime;
             Password = password;
         }
 
@@ -26,6 +28,7 @@ namespace WhistleblowerSystem.Shared.DTOs
         public List<AttachementMetaDataDto>? Attachements { get; set; }
         public List<FormMessageDto>? Messages { get; set; }
         public ViolationState State { get; set; }
+        public DateTime Datetime { get; set; }
         public string? Password { get; set; }
     }
 }

@@ -116,7 +116,7 @@ namespace WhistleblowerSystem.Server
         private async Task InitializeDb(DbContext dbContext, UserService userService, CompanyService companyService, FormTemplateService formTemplateService, IMapper mapper)
         {
            await new Initializer(dbContext, companyService, userService, formTemplateService, mapper)
-                .Init(InitializingMode.DeleteAndCreate);
+                .Init(InitializingMode.CreateIfNotExists);
         }
 
 
