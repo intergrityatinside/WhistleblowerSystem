@@ -1,5 +1,5 @@
 ﻿using System;
-using WhistleblowerSystem.Business.DTOs;
+using WhistleblowerSystem.Shared.DTOs;
 
 namespace WhistleblowerSystem.Client.Services
 {

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using WhistleblowerSystem.Business.DTOs.Config;
+using WhistleblowerSystem.Shared.DTOs.Config;
 using WhistleblowerSystem.Client.Services;
 using WhistleblowerSystem.Shared.Enums;
 

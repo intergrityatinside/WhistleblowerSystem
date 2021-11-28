@@ -11,8 +11,8 @@ using WhistleblowerSystem.Database.Interfaces;
 using WhistleblowerSystem.Database.Repositories;
 using WhistleblowerSystem.Shared.Exceptions;
 using System.Linq;
-using WhistleblowerSystem.Business.DTOs;
-using WhistleblowerSystem.Business.DTOs.Config;
+using WhistleblowerSystem.Shared.DTOs;
+using WhistleblowerSystem.Shared.DTOs.Config;
 
 namespace WhistleblowerSystem.Initialization
 {

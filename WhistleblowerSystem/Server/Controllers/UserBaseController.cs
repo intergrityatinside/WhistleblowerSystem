@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using WhistleblowerSystem.Business.DTOs;
+using WhistleblowerSystem.Shared.DTOs;
 using WhistleblowerSystem.Server.Authentication;
 using WhistleblowerSystem.Server.Models;
 

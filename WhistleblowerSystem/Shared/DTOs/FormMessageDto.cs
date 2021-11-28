@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WhistleblowerSystem.Database.Entities;
 
-namespace WhistleblowerSystem.Business.DTOs
+namespace WhistleblowerSystem.Shared.DTOs
 {
     public class FormMessageDto
     {

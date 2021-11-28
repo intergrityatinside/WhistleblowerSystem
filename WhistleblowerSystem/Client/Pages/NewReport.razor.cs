@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System.Threading.Tasks;
 using WhistleblowerSystem.Client.Services;
-using WhistleblowerSystem.Business.DTOs;
+using WhistleblowerSystem.Shared.DTOs;
 using System.Collections.Generic;
 using System;
 using Microsoft.AspNetCore.Components.Routing;

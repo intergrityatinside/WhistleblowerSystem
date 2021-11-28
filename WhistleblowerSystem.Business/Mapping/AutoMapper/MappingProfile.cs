@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WhistleblowerSystem.Business.DTOs;
-using WhistleblowerSystem.Business.DTOs.Config;
+using WhistleblowerSystem.Shared.DTOs;
+using WhistleblowerSystem.Shared.DTOs.Config;
 using WhistleblowerSystem.Database.Entities;
 using WhistleblowerSystem.Database.Entities.Config;
 
@@ -81,13 +81,13 @@ namespace WhistleblowerSystem.Business.Mapping.AutoMapper
                  ctx.Mapper.Map<List<FormFieldDto>>(x.FormFields),
                  ctx.Mapper.Map<List<AttachementMetaDataDto>>(x.Attachements),
                  ctx.Mapper.Map<List<FormMessageDto>>(x.Messages),
-                 x.State))
+                 x.State, x.Password))
                 .ForAllMembers(opt => opt.Ignore());
 
             CreateMap<FormDto, Form>()
                 .ConstructUsing((x, ctx) => new Form(x.Id, x.TopicId!, x.FormTemplateId,
                  ctx.Mapper.Map<List<FormField>>(x.FormFields),
-                 ctx.Mapper.Map<List<AttachementMetaData>>(x.Attachements)))
+                 ctx.Mapper.Map<List<AttachementMetaData>>(x.Attachements), x.Password!))
                 .ForAllMembers(opt => opt.Ignore());
         }
 

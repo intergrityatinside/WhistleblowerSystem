@@ -1,12 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using MongoDB.Bson;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using WhistleblowerSystem.Business.DTOs;
+using WhistleblowerSystem.Shared.DTOs;
 using WhistleblowerSystem.Business.Services;
 using WhistleblowerSystem.Server.Authentication;
 

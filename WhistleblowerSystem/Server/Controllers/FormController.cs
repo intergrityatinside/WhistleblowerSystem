@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WhistleblowerSystem.Business.DTOs;
+using WhistleblowerSystem.Shared.DTOs;
 using WhistleblowerSystem.Business.Services;
 using WhistleblowerSystem.Server.Authentication;
 using WhistleblowerSystem.Server.CustomAttributes;
@@ -40,9 +40,10 @@ namespace WhistleblowerSystem.Server.Controllers
         public async Task<FormDto> GetById(string id)
         {
             CheckRight(id);
-            //return await _formService.GetAllAsync(id);
+            return await _formService.GetAsync(id);
         }
 
+        [AllowAnonymous]
         [HttpPost("save")]
         public async Task<FormDto> Save(FormDto formDto)
         {

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using WhistleblowerSystem.Business.DTOs.Config;
+using WhistleblowerSystem.Shared.DTOs.Config;
 using WhistleblowerSystem.Shared.Enums;
 
 
-namespace WhistleblowerSystem.Business.DTOs
+namespace WhistleblowerSystem.Shared.DTOs
 {
     public class FormFieldDto
     {

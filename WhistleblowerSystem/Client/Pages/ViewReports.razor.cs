@@ -1,7 +1,7 @@
 using System.Net.Http;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
-using WhistleblowerSystem.Business.DTOs;
+using WhistleblowerSystem.Shared.DTOs;
 using WhistleblowerSystem.Client.Services;
 
 namespace WhistleblowerSystem.Client.Pages

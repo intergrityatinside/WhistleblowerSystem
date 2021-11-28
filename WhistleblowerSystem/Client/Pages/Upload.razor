@@ -4,7 +4,7 @@
 @inject IAttachementService AttachementService
 @inject NavigationManager NavigationManager
 @implements IDisposable
-@using WhistleblowerSystem.Business.DTOs;
+@using WhistleblowerSystem.Shared.DTOs;
 @using WhistleblowerSystem.Client.Services;
 @using Microsoft.Extensions.Localization;
 
@@ -98,6 +98,7 @@
     private List<AttachementMetaDataDto>? _attachmentMetaData = new List<AttachementMetaDataDto>();
     private FormDto? _form;
     private IReadOnlyList<IBrowserFile>? files;
+    //private List<File> files = new();
 
     protected override async Task OnInitializedAsync()
     {
@@ -115,17 +116,19 @@
 
     private async Task UploadDocs()
     {
-        //if (files == null)
-        //    return;
+        if (files == null)
+            return;
 
-        //foreach (var file in files) {
-        //    var attachementMetaData = await AttachementService.Save(file);
-        //    if (attachementMetaData != null && _attachmentMetaData != null) {
-        //        _attachmentMetaData.Add(attachementMetaData);
-        //    }
-        //}
+        foreach (var file in files)
+        {
+            var attachementMetaData = await AttachementService.Save(file!);
+            if (attachementMetaData != null && _attachmentMetaData != null)
+            {
+                _attachmentMetaData.Add(attachementMetaData);
+            }
+        }
 
-        //_form!.Attachements = _attachmentMetaData;
+        _form!.Attachements = _attachmentMetaData;
         FormDto? savedForm = await FormService.Save(_form!);
         if (savedForm != null)
         {

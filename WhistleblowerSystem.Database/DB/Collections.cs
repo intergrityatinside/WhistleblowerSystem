@@ -18,6 +18,7 @@ namespace WhistleblowerSystem.Database.DB
         private const string FormFieldTemplates = "FormFieldTemplates";
         private const string Topics = "Topics";
         private const string Users = "Users";
+        private const string Whistleblowers = "Whistleblowers";
 
         private static readonly IDictionary<Type, string> CollectionDictonary = new Dictionary<Type, string>()
         {
@@ -29,6 +30,7 @@ namespace WhistleblowerSystem.Database.DB
             { typeof(FormFieldTemplate), FormFieldTemplates },
             { typeof(Topic), Topics },
             { typeof(User), Users },
+            { typeof(Whistleblower), Whistleblowers },
         };
 
         public static string GetCollectionName<T>()

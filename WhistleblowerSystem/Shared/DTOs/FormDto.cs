@@ -1,18 +1,13 @@
-﻿using MongoDB.Bson;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using WhistleblowerSystem.Shared.Enums;
 
-namespace WhistleblowerSystem.Business.DTOs
+namespace WhistleblowerSystem.Shared.DTOs
 {
     public class FormDto
     {
         public FormDto(string? id, string? topicId, string formTemplateId, List<FormFieldDto> formFields,
             List<AttachementMetaDataDto>? attachements, List<FormMessageDto>? messages, ViolationState state,
-            string? pw)
+            string? password = null)
         {
             Id = id;
             TopicId = topicId;
@@ -21,7 +16,7 @@ namespace WhistleblowerSystem.Business.DTOs
             Attachements = attachements;
             Messages = messages;
             State = state;
-            Password = pw;
+            Password = password;
         }
 
         public string? Id { get; set; }

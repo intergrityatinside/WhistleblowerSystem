@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
-using WhistleblowerSystem.Business.DTOs;
 using WhistleblowerSystem.Business.Services;
 using WhistleblowerSystem.Server.Authentication;
+using WhistleblowerSystem.Shared.DTOs;
 
 namespace WhistleblowerSystem.Server.Controllers
 {

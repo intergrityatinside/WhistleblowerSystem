@@ -1,12 +1,7 @@
-﻿using MongoDB.Bson;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WhistleblowerSystem.Business.DTOs.Config;
+﻿using System.Collections.Generic;
+using WhistleblowerSystem.Shared.DTOs.Config;
 
-namespace WhistleblowerSystem.Business.DTOs
+namespace WhistleblowerSystem.Shared.DTOs
 {
     public class SelectionValueDto
     {

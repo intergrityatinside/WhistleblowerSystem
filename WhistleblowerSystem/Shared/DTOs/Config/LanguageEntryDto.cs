@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WhistleblowerSystem.Shared.Enums;
 
-namespace WhistleblowerSystem.Business.DTOs.Config
+namespace WhistleblowerSystem.Shared.DTOs.Config
 {
     public class LanguageEntryDto
     {
