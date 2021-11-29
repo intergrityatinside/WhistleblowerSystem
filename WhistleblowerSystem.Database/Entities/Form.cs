@@ -11,7 +11,7 @@ namespace WhistleblowerSystem.Database.Entities
 {
     public class Form : IIdentifiable
     {
-        public Form(string? id, string topicId, string formTemplateId, List<FormField> formFields, List<AttachementMetaData>? attachements, DateTime datetime, string password)
+        public Form(string? id, string topicId, string formTemplateId, List<FormField> formFields, List<AttachementMetaData>? attachements, DateTime datetime)
         {
             if (!string.IsNullOrEmpty(id))
             {
@@ -29,7 +29,6 @@ namespace WhistleblowerSystem.Database.Entities
             FormFields = formFields;
             Attachements = attachements;
             Datetime = datetime;
-            Password = password;
         }
 
         [BsonId]
@@ -41,7 +40,5 @@ namespace WhistleblowerSystem.Database.Entities
         public List<FormMessage>? Messages { get; set; }
         public ViolationState State { get; set; }
         public DateTime Datetime { get; set; }
-        public string Password { get; set; }
-
     }
 }
