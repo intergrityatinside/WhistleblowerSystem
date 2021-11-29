@@ -1,0 +1,74 @@
+@page "/reportslist"
+@using WhistleblowerSystem.Client.Services;
+@using WhistleblowerSystem.Database.Entities
+@using WhistleblowerSystem.Shared.DTOs;
+
+
+<style>
+    .selected {
+        background-color: #1E88E5 !important;
+    }
+
+        .selected > td {
+            color: white !important;
+        }
+
+            .selected > td .mud-input {
+                color: white !important;
+            }
+</style>
+
+    <div class="content-container">
+        <div class="content">
+            <h1>Meldungen</h1>
+            <MudTable Items="@_allForms" Hover="true" SortLabel="Sort By">
+                <ToolBarContent>
+                    <MudText Typo="Typo.h6">Meldungen</MudText>
+                    <MudSpacer/>
+                    <MudTextField @bind-Value="_searchString" Placeholder="Case ID suchen" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                </ToolBarContent>
+                <HeaderContent>
+                    <MudTh>Thema der Meldung</MudTh>
+                    <MudTh><MudTableSortLabel SortBy="new Func<FormDto, object>(x=>x.Id)">CaseID</MudTableSortLabel></MudTh>
+                    <MudTh>Status</MudTh>
+                    <MudTh>Datum</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="title">@getField(@context.FormFields, "Beschreibung").SelectedValues[0]</MudTd>
+                    <MudTd DataLabel="caseId">@context.Id</MudTd>
+                    <MudTd DataLabel="state"></MudTd>
+                    <MudTd DataLabel="date"></MudTd>
+                </RowTemplate>
+             <PagerContent>
+                     <MudTablePager />
+                 </PagerContent>
+            </MudTable>
+        </div>
+    </div>
+
+@code {
+    private string _searchString = "";
+    private List<FormDto> _allForms = new List<FormDto>();
+    [Inject] private IFormService FormService { get; set; } = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var loadedForms = await FormService.LoadAll();
+        if (loadedForms != null)
+        {
+            _allForms = loadedForms;
+            Console.Write(_allForms);
+        }
+        else
+        {
+            Console.Write("no forms loaded");
+        }
+           
+    }
+
+    private FormFieldDto? getField(List<FormFieldDto> formFields, string searchString)
+    {
+       return formFields.Find((formField) => formField.Texts[0]?.Value == searchString);
+    }
+
+}

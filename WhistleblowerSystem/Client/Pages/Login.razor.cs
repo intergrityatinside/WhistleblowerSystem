@@ -28,7 +28,7 @@ namespace WhistleblowerSystem.Client.Pages
 
             if (_success)
             {
-                NavigationManager.NavigateTo("");
+                NavigationManager.NavigateTo("/reportsList");
 
             }
             else

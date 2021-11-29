@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace WhistleblowerSystem.Client.Services
     {
         private readonly HttpClient _http;
         private FormDto? _currentForm;
+        private List<FormDto>? _allForms;
 
         public FormService(HttpClient http)
         {
@@ -21,7 +23,6 @@ namespace WhistleblowerSystem.Client.Services
             HttpResponseMessage? response = await _http.GetAsync("Form");
             if (!string.IsNullOrEmpty(value: await response.Content.ReadAsStringAsync()))
             {
-                Console.WriteLine(response);
                 _currentForm = await response.Content.ReadFromJsonAsync<FormDto>();
             }
             return _currentForm;
@@ -31,13 +32,22 @@ namespace WhistleblowerSystem.Client.Services
         {
             throw new NotImplementedException();
         }
+        
+        public async Task <List<FormDto>?> LoadAll()
+        {
+            HttpResponseMessage? response = await _http.GetAsync("Form/getAll");
+            if (!string.IsNullOrEmpty(value: await response.Content.ReadAsStringAsync()))
+            { 
+                _allForms = await response.Content.ReadFromJsonAsync<List<FormDto>>();
+            }
+            return _allForms;        
+        }
 
         public async Task<FormDto?> Save(FormDto formDto)
         {
             HttpResponseMessage? response = await _http.PostAsJsonAsync("Form/save", formDto);
             if (!string.IsNullOrEmpty(value: await response.Content.ReadAsStringAsync()))
             {
-                Console.WriteLine(response);
                 _currentForm = await response.Content.ReadFromJsonAsync<FormDto>();
             }
             return _currentForm;
