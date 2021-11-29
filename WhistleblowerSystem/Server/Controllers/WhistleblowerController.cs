@@ -9,13 +9,13 @@ namespace WhistleblowerSystem.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WhistleblowerController : WhistleblowerBaseController
+    public class WhistleblowerController
     {
         private readonly WhistleblowerService _whistleblowerService;
 
         public WhistleblowerController(WhistleblowerManager whistleblowerManager,
             IHttpContextAccessor httpContextAccessor,
-            WhistleblowerService whistleblowerService) : base(httpContextAccessor, whistleblowerManager)
+            WhistleblowerService whistleblowerService)
         {
             _whistleblowerService = whistleblowerService;
         }

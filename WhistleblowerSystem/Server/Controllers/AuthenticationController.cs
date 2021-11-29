@@ -13,27 +13,42 @@ namespace WhistleblowerSystem.Server.Controllers
     public class AuthenticationController : Controller
     {
         readonly UserManager _userManager;
+        readonly WhistleblowerManager _whistleblowerManager;
         readonly IHttpContextAccessor _httpContextAccessor;
         readonly UserService _userService;
+        readonly WhistleblowerService _whistleblowerService;
 
         public AuthenticationController(UserManager userManager,
+                        WhistleblowerManager whistleblowerManager,
                         IHttpContextAccessor httpContextAccessor,
-                        UserService userService)
+                        UserService userService,
+                        WhistleblowerService whistleblowerService)
         {
             _userManager = userManager;
+            _whistleblowerManager = whistleblowerManager;
             _httpContextAccessor = httpContextAccessor;
             _userService = userService;
+            _whistleblowerService = whistleblowerService;
         }
         
-        [HttpGet]
-        public async Task<UserDto?> Get()
+        [HttpGet("user")]
+        public async Task<UserDto?> GetCompanyUser()
         {
             var httpUser = _userManager.GetUser(_httpContextAccessor);
             if (httpUser == null) return null;
             return await _userService.FindOneByIdAsync(httpUser.Id);
         }
 
-        [HttpPost("company-user/login")]
+        [HttpGet("whistleblower")]
+        public async Task<WhistleblowerDto?> GetWhistleblower()
+        {
+            var httpWhistleblower = _whistleblowerManager.GetWhistleblower(_httpContextAccessor);
+            if (httpWhistleblower == null) return null;
+            return await _whistleblowerService.FindOneByFormIdAsync(httpWhistleblower.FormId);
+        }
+
+
+        [HttpPost("user/login")]
         public async Task<UserDto> Login(UserDto userDto)
         {
             var user = await _userManager.CompanyUserSignInAsync(HttpContext, userDto.Email, userDto.Password);
@@ -42,9 +57,9 @@ namespace WhistleblowerSystem.Server.Controllers
         }
 
         [HttpPost("whistleblower/login")]
-        public async Task<WhistleblowerDto?> LoginWhistleBlower(WhistleblowerDto whistleblower)
+        public async Task<WhistleblowerDto?> Login(WhistleblowerDto whistleblower)
         {
-            var whistleblowerDto = await _userManager.WhistleBlowerSignInAsync(HttpContext, whistleblower.FormId, whistleblower.Password);
+            var whistleblowerDto = await _whistleblowerManager.SignInAsync(HttpContext, whistleblower.FormId, whistleblower.Password);
             if (whistleblowerDto == null) throw new Exception("Login failed");
             return whistleblowerDto;
         }
@@ -53,6 +68,7 @@ namespace WhistleblowerSystem.Server.Controllers
         public async Task Logout()
         {
             await _userManager.SignOut(HttpContext);
+            await _whistleblowerManager.SignOut(HttpContext);
         }
     }
 }

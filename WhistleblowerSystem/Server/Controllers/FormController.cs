@@ -17,12 +17,13 @@ namespace WhistleblowerSystem.Server.Controllers
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class FormController : UserBaseController
+    public class FormController : AuthenticationBaseController
     {
         private readonly FormService _formService;
         public FormController(UserManager userManager,
+            WhistleblowerManager whistleblowerManager,
             IHttpContextAccessor httpContextAccessor,
-            FormService formService) : base(httpContextAccessor, userManager)
+            FormService formService) : base(httpContextAccessor, userManager, whistleblowerManager)
         {
             _formService = formService;
         }

@@ -1,10 +1,10 @@
-﻿
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using System.Net.Http;
 using System.Threading.Tasks;
 using WhistleblowerSystem.Shared.DTOs;
 using WhistleblowerSystem.Client.Services;
+using WhistleblowerSystem.Client.Resources;
 
 namespace WhistleblowerSystem.Client.Pages
 {

@@ -1,7 +1,7 @@
 ﻿@page "/login"
 
     <div class="content-container">
-        <div class="content">
+        <qdiv class="content">
             <h1 class="page-title">@L["login_title"]</h1>
             <div class="login-container">
                 <div class="form-group control">
@@ -18,7 +18,7 @@
                 </div>
             }
 
-        </div>
+        </qdiv>
         <div class="footer">
             <MudButton OnClick="async () => await OnLogin()" Color="Color.Dark" Variant="Variant.Filled">@L["login_continue"]</MudButton>
         </div>
