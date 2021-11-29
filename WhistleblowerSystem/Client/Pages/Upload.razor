@@ -92,7 +92,7 @@
 </div>
 
 @code {
-    [Inject] IStringLocalizer<App> L { get; set; } = null!;
+        [Inject] IStringLocalizer<App> L { get; set; } = null!;
     private string? _dragEnterStyle;
     private IList<string> fileNames = new List<string>();
     private List<AttachementMetaDataDto>? _attachmentMetaData = new List<AttachementMetaDataDto>();
@@ -116,19 +116,19 @@
 
     private async Task UploadDocs()
     {
-        if (files == null)
-            return;
-
-        foreach (var file in files)
+        if (files != null)
         {
-            var attachementMetaData = await AttachementService.Save(file!);
-            if (attachementMetaData != null && _attachmentMetaData != null)
+            foreach (var file in files)
             {
-                _attachmentMetaData.Add(attachementMetaData);
+                var attachementMetaData = await AttachementService.Save(file!);
+                if (attachementMetaData != null && _attachmentMetaData != null)
+                {
+                    _attachmentMetaData.Add(attachementMetaData);
+                }
             }
-        }
 
-        _form!.Attachements = _attachmentMetaData;
+            _form!.Attachements = _attachmentMetaData;
+        }
         FormDto? savedForm = await FormService.Save(_form!);
         if (savedForm != null)
         {
