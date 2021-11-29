@@ -29,12 +29,12 @@
                 </ToolBarContent>
                 <HeaderContent>
                     <MudTh>Thema der Meldung</MudTh>
-                    <MudTh><MudTableSortLabel SortBy="new Func<FormDto, object>(x=>x.Id)">CaseID</MudTableSortLabel></MudTh>
+                    <MudTh>CaseID</MudTh>
                     <MudTh>Status</MudTh>
                     <MudTh>Datum</MudTh>
                 </HeaderContent>
                 <RowTemplate>
-                    <MudTd DataLabel="title">@getField(@context.FormFields, "Beschreibung").SelectedValues[0]</MudTd>
+                    <MudTd DataLabel="title">@getField(@context.FormFields, "Beschreibung")?.SelectedValues?[0]</MudTd>
                     <MudTd DataLabel="caseId">@context.Id</MudTd>
                     <MudTd DataLabel="state"></MudTd>
                     <MudTd DataLabel="date"></MudTd>
