@@ -11,7 +11,7 @@ namespace WhistleblowerSystem.Client.Pages
     public partial class ViewReports
     {
         private WhistleblowerDto _whistleblower = new WhistleblowerDto("", "", "");
-        private bool _success;
+        private bool _success = false;
         private string? _message;
         [Inject] HttpClient Http { get; set; } = null!;
         [Inject] private ICurrentAccountService CurrentAccountService { get; set; } = null!;
@@ -25,12 +25,13 @@ namespace WhistleblowerSystem.Client.Pages
                 var whistleblower = await CurrentAccountService.Login(_whistleblower);
                 _success = whistleblower != null ? true : false;
             }
-            catch { }
+            catch {
+                _success = false;
+            }
 
             if (_success)
             {
                 NavigationManager.NavigateTo("");
-
             }
             else
             {
