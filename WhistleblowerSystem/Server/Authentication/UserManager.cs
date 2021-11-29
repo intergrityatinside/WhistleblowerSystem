@@ -15,7 +15,6 @@ namespace WhistleblowerSystem.Server.Authentication
     public class UserManager
     {
         const string ClaimTypeCompanyId = "CompanyId";
-        const string ClaimTypeFormId = "FormId";
 
         private readonly UserService _userService;
         public UserManager(UserService userService)
@@ -49,7 +48,7 @@ namespace WhistleblowerSystem.Server.Authentication
             if (httpContext == null) return null;
             HttpContextUser? user = null;
             if (httpContext.User != null
-                && httpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier) != null)
+                && httpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role)?.Value == Roles.CompanyUserRole)
             {
                 if (httpContext.User.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value == Roles.WhistleBlowerRole) return null;
 

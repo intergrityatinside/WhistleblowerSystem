@@ -48,7 +48,7 @@ namespace WhistleblowerSystem.Server.Authentication
             if (httpContext == null) return null;
             HttpContextWhistleblower? whistleblower = null;
             if (httpContext.User != null
-                && httpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier) != null)
+        && httpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role)?.Value == Roles.WhistleBlowerRole)
             {
                 string id = httpContext.User.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value;
                 string formId = httpContext.User.Claims.First(x => x.Type == ClaimTypeFormId).Value;
@@ -61,6 +61,9 @@ namespace WhistleblowerSystem.Server.Authentication
         {
             List<Claim> claims = new List<Claim>();
             claims.Add(new Claim(ClaimTypes.NameIdentifier, whistleblower.Id ?? throw new ArgumentNullException(nameof(whistleblower.Id))));
+            claims.Add(new Claim(ClaimTypeFormId, whistleblower.FormId ?? throw new ArgumentNullException(nameof(whistleblower.Id))));
+            claims.Add(new Claim(ClaimTypes.Role, Roles.WhistleBlowerRole));
+
             return claims;
         }
     }
