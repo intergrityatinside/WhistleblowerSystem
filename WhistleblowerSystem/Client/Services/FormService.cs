@@ -4,6 +4,8 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using WhistleblowerSystem.Shared.DTOs;
+using WhistleblowerSystem.Shared.Enums;
+using WhistleblowerSystem.Shared.Models;
 
 namespace WhistleblowerSystem.Client.Services
 {
@@ -11,6 +13,7 @@ namespace WhistleblowerSystem.Client.Services
     {
         private readonly HttpClient _http;
         private FormDto? _currentForm;
+        private FormModel? _currentFormModel;
         private List<FormDto>? _allForms;
 
         public FormService(HttpClient http)
@@ -62,5 +65,36 @@ namespace WhistleblowerSystem.Client.Services
         {
             return _currentForm;
         }
+
+        public void SetCurrentFormModel(FormModel? form)
+        {
+            _currentFormModel = form ?? null;
+        }
+        
+        public FormModel? GetCurrentFormModel()
+        {
+            return _currentFormModel;
+        }
+
+        public FormModel MapFormDtoToFormModel(FormDto dto)
+        {
+            var state = getState(dto.State);
+            var title = getField(dto.FormFields, "Beschreibung")?.SelectedValues[0];
+            var description = getField(dto.FormFields, "Vorfall")?.SelectedValues[0];
+            var formModel = new FormModel(dto.Id, dto.TopicId, dto.FormTemplateId, dto.FormFields, dto.Attachements, dto.Messages, dto.State, dto.Datetime, "", title!, description!, state);
+            return formModel;
+        }
+        
+        private FormFieldDto? getField(List<FormFieldDto> formFields, string searchString)
+        {
+            return formFields.Find((formField) => formField.Texts[0]?.Value == searchString);
+        }
+
+        private string getState(ViolationState state)
+        {
+            // ReSharper disable once HeapView.BoxingAllocation
+            return state.ToString();
+        }
+
     }
 }
