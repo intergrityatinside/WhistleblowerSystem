@@ -47,7 +47,7 @@ namespace WhistleblowerSystem.Business.Services
 
         public async Task<WhistleblowerDto?> FindOneByFormIdAsync(string id)
         {
-            var whistleblower = await _whistleblowerRepository.FindOneAsync(id);
+            var whistleblower = await _whistleblowerRepository.GetByFormId(id);
             return _mapper.Map<WhistleblowerDto>(whistleblower);
         }
     }

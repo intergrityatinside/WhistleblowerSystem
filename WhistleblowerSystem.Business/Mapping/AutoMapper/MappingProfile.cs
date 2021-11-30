@@ -81,13 +81,13 @@ namespace WhistleblowerSystem.Business.Mapping.AutoMapper
                  ctx.Mapper.Map<List<FormFieldDto>>(x.FormFields),
                  ctx.Mapper.Map<List<AttachementMetaDataDto>>(x.Attachements),
                  ctx.Mapper.Map<List<FormMessageDto>>(x.Messages),
-                 x.State, x.Datetime, x.Password))
+                 x.State, x.Datetime))
                 .ForAllMembers(opt => opt.Ignore());
 
             CreateMap<FormDto, Form>()
                 .ConstructUsing((x, ctx) => new Form(x.Id, x.TopicId!, x.FormTemplateId,
                  ctx.Mapper.Map<List<FormField>>(x.FormFields),
-                 ctx.Mapper.Map<List<AttachementMetaData>>(x.Attachements), x.Datetime, x.Password!))
+                 ctx.Mapper.Map<List<AttachementMetaData>>(x.Attachements), x.Datetime))
                 .ForAllMembers(opt => opt.Ignore());
         }
 

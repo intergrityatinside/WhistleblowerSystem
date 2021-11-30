@@ -24,7 +24,9 @@ namespace WhistleblowerSystem.Client.Pages
                 var user = await CurrentAccountService.Login(_user);
                 _success = user != null ? true : false;
             }
-            catch { }
+            catch {
+                _success = false;
+            }
 
             if (_success)
             {
