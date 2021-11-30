@@ -9,7 +9,7 @@ namespace WhistleblowerSystem.Shared.Models
     {
         public FormModel(string? id, string? topicId, string formTemplateId, List<FormFieldDto> formFields,
             List<AttachementMetaDataDto>? attachements, List<FormMessageDto>? messages, ViolationState state,
-            DateTime datetime, string? password, string title, string stateString)
+            DateTime datetime, string? password, string title, string description, string stateString)
         {
             Id = id;
             TopicId = topicId;
@@ -21,6 +21,7 @@ namespace WhistleblowerSystem.Shared.Models
             Datetime = datetime;
             Password = password;
             Title = title;
+            Description = description;
             StateString = stateString;
         }
         
@@ -34,6 +35,7 @@ namespace WhistleblowerSystem.Shared.Models
             public DateTime Datetime { get; set; }
             public string? Password { get; set; }
             public string Title { get; set; }
+            public string Description { get; set; }
             public string StateString { get; set; }
         }
     }

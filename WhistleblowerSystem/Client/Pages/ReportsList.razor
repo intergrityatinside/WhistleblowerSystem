@@ -1,46 +1,30 @@
 @page "/reportslist"
 @using WhistleblowerSystem.Client.Services;
 @using WhistleblowerSystem.Shared.DTOs;
-@using WhistleblowerSystem.Shared.Enums
 @using Microsoft.AspNetCore.Components
 @using WhistleblowerSystem.Shared.Models
-
-
-<style>
-    .selected {
-        background-color: #1E88E5 !important;
-    }
-
-        .selected > td {
-            color: white !important;
-        }
-
-            .selected > td .mud-input {
-                color: white !important;
-            }
-</style>
 
 <div class="content-container">
     <div class="content">
         <h1>Meldungen</h1>
-        <MudTable Filter="new Func<FormModel, bool>(FilterFunc1)" FixedHeader="true" Hover="true" Items="@_allFormModels"  SortLabel="Sort By" T="FormModel">
+        <MudTable Filter="new Func<FormModel, bool>(FilterFunc1)" FixedHeader="true" Hover="true" Items="@_allFormModels"  SortLabel="Sort By" T="FormModel" OnRowClick="@FormSelected">
             <ToolBarContent>
                 <MudSpacer/>
                 <MudTextField @bind-Value="_searchString" Placeholder="Case ID suchen" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
             </ToolBarContent>
             <HeaderContent>
                 <MudTh>
-                    <MudTableSortLabel SortBy="new Func<FormModel, object>(x => x.Title)">Thema der Meldung</MudTableSortLabel>
+                    <MudTableSortLabel T="FormModel" SortBy="f => f.Title">Thema der Meldung</MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortBy="new Func<FormModel, object>(x => x.Id!)">CaseID</MudTableSortLabel>
+                    <MudTableSortLabel T="FormModel" SortBy="f => f.Id!">CaseID</MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortBy="new Func<FormModel, object>(x => x.StateString)">Status</MudTableSortLabel>
+                    <MudTableSortLabel T="FormModel" SortBy="f => f.StateString">Status</MudTableSortLabel>
                 </MudTh>
                 <MudTh>
                     @* ReSharper disable once HeapView.BoxingAllocation *@
-                    <MudTableSortLabel SortBy="new Func<FormModel, object>(x => x.Datetime)">Datum</MudTableSortLabel>
+                    <MudTableSortLabel T="FormModel" SortBy="f => f.Datetime">Datum</MudTableSortLabel>
 
                 </MudTh>
             </HeaderContent>
@@ -60,9 +44,10 @@
 
 @code {
     private string? _searchString = "";
-    private List<FormDto> _allForms = new List<FormDto>();
-    private List<FormModel> _allFormModels = new List<FormModel>();
-
+    private List<FormDto> _allForms = new();
+    private List<FormModel> _allFormModels = new();
+    [Inject] 
+    private NavigationManager NavigationManager { get; set; } = null!;
     [Inject]
     private IFormService FormService { get; set; } = null!;
 
@@ -74,9 +59,7 @@
             _allForms = loadedForms;
             foreach (FormDto form in _allForms)
             {
-                var state = getState(form.State);
-                var title = getField(form.FormFields, "Beschreibung")?.SelectedValues[0];
-                var formModel = new FormModel(form.Id, form.TopicId, form.FormTemplateId, form.FormFields, form.Attachements, form.Messages, form.State, form.Datetime, "", title!, state);
+                var formModel = FormService.MapFormDtoToFormModel(form);
                 _allFormModels.Add(formModel);
             }
         }
@@ -85,18 +68,6 @@
             Console.Write("no forms");
         }
     }
-
-    private FormFieldDto? getField(List<FormFieldDto> formFields, string searchString)
-    {
-        return formFields.Find((formField) => formField.Texts[0]?.Value == searchString);
-    }
-
-    private string getState(ViolationState state)
-    {
-        // ReSharper disable once HeapView.BoxingAllocation
-        return state.ToString();
-    }
-
     private bool FilterFunc1(FormModel formModel) => FilterFunc(formModel, _searchString);
 
     private bool FilterFunc(FormModel formModel, string? searchString)
@@ -115,4 +86,11 @@
 
         return false;
     }
+
+    private void FormSelected(TableRowClickEventArgs<FormModel> tableRowClickEventArgs)
+    {
+        FormService.SetCurrentFormModel(tableRowClickEventArgs.Item);
+        //NavigationManager.NavigateTo("/reportdetailview");
+    }
+
 }

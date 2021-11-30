@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using WhistleblowerSystem.Shared.DTOs;
+using WhistleblowerSystem.Shared.Models;
 
 namespace WhistleblowerSystem.Client.Services
 {
@@ -12,5 +13,8 @@ namespace WhistleblowerSystem.Client.Services
         public Task<FormDto?> GetForm();
         public FormDto? GetCurrentForm();
         public void SetCurrentForm(FormDto? form);
+        public FormModel? GetCurrentFormModel();
+        public void SetCurrentFormModel(FormModel? form);
+        public FormModel MapFormDtoToFormModel(FormDto dto);
     }
 }
