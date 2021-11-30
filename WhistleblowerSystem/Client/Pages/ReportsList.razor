@@ -1,7 +1,9 @@
 @page "/reportslist"
 @using WhistleblowerSystem.Client.Services;
-@using WhistleblowerSystem.Database.Entities
 @using WhistleblowerSystem.Shared.DTOs;
+@using WhistleblowerSystem.Shared.Enums
+@using Microsoft.AspNetCore.Components
+@using WhistleblowerSystem.Shared.Models
 
 
 <style>
@@ -18,38 +20,51 @@
             }
 </style>
 
-    <div class="content-container">
-        <div class="content">
-            <h1>Meldungen</h1>
-            <MudTable Items="@_allForms" Hover="true" SortLabel="Sort By">
-                <ToolBarContent>
-                    <MudText Typo="Typo.h6">Meldungen</MudText>
-                    <MudSpacer/>
-                    <MudTextField @bind-Value="_searchString" Placeholder="Case ID suchen" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
-                </ToolBarContent>
-                <HeaderContent>
-                    <MudTh>Thema der Meldung</MudTh>
-                    <MudTh>CaseID</MudTh>
-                    <MudTh>Status</MudTh>
-                    <MudTh>Datum</MudTh>
-                </HeaderContent>
-                <RowTemplate>
-                    <MudTd DataLabel="title">@getField(@context.FormFields, "Beschreibung")?.SelectedValues[0]</MudTd>
-                    <MudTd DataLabel="caseId">@context.Id</MudTd>
-                    <MudTd DataLabel="state"></MudTd>
-                    <MudTd DataLabel="date"></MudTd>
-                </RowTemplate>
-             <PagerContent>
-                     <MudTablePager />
-                 </PagerContent>
-            </MudTable>
-        </div>
+<div class="content-container">
+    <div class="content">
+        <h1>Meldungen</h1>
+        <MudTable Filter="new Func<FormModel, bool>(FilterFunc1)" FixedHeader="true" Hover="true" Items="@_allFormModels"  SortLabel="Sort By" T="FormModel">
+            <ToolBarContent>
+                <MudSpacer/>
+                <MudTextField @bind-Value="_searchString" Placeholder="Case ID suchen" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>
+                    <MudTableSortLabel SortBy="new Func<FormModel, object>(x => x.Title)">Thema der Meldung</MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="new Func<FormModel, object>(x => x.Id)">CaseID</MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    <MudTableSortLabel SortBy="new Func<FormModel, object>(x => x.StateString)">Status</MudTableSortLabel>
+                </MudTh>
+                <MudTh>
+                    @* ReSharper disable once HeapView.BoxingAllocation *@
+                    <MudTableSortLabel SortBy="new Func<FormModel, object>(x => x.Datetime)">Datum</MudTableSortLabel>
+
+                </MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="title">@context.Title</MudTd>
+                <MudTd DataLabel="caseId">@context.Id</MudTd>
+                <MudTd DataLabel="state">@context.StateString</MudTd>
+                @* ReSharper disable once HeapView.BoxingAllocation *@
+                <MudTd DataLabel="date">@context.Datetime</MudTd>
+            </RowTemplate>
+            <PagerContent>
+                <MudTablePager/>
+            </PagerContent>
+        </MudTable>
     </div>
+</div>
 
 @code {
-    private string _searchString = "";
+    private string? _searchString = "";
     private List<FormDto> _allForms = new List<FormDto>();
-    [Inject] private IFormService FormService { get; set; } = null!;
+    private List<FormModel> _allFormModels = new List<FormModel>();
+
+    [Inject]
+    private IFormService FormService { get; set; } = null!;
 
     protected override async Task OnInitializedAsync()
     {
@@ -57,18 +72,39 @@
         if (loadedForms != null)
         {
             _allForms = loadedForms;
-            Console.Write(_allForms);
+            foreach (FormDto form in _allForms)
+            {
+                var state = getState(form.State);
+                var title = getField(form.FormFields, "Beschreibung")?.SelectedValues[0];
+                var formModel = new FormModel(form.Id, form.TopicId, form.FormTemplateId, form.FormFields, form.Attachements, form.Messages, form.State, form.Datetime, "", title, state);
+                _allFormModels.Add(formModel);
+            }
         }
         else
         {
-            Console.Write("no forms loaded");
+            Console.Write("no forms");
         }
-           
     }
 
     private FormFieldDto? getField(List<FormFieldDto> formFields, string searchString)
     {
-       return formFields.Find((formField) => formField.Texts[0]?.Value == searchString);
+        return formFields.Find((formField) => formField.Texts[0]?.Value == searchString);
     }
 
+    private string getState(ViolationState state)
+    {
+    // ReSharper disable once HeapView.BoxingAllocation
+        return state.ToString();
+    }
+
+    private bool FilterFunc1(FormModel formModel) => FilterFunc(formModel, _searchString);
+
+    private bool FilterFunc(FormModel formModel, string? searchString)
+    {
+        if (string.IsNullOrWhiteSpace(searchString))
+            return true;
+        if (formModel.Id.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+        return false;
+    }
 }
