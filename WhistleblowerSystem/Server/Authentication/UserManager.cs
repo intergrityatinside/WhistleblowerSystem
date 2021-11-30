@@ -14,8 +14,6 @@ namespace WhistleblowerSystem.Server.Authentication
 {
     public class UserManager
     {
-        const string ClaimTypeCompanyId = "CompanyId";
-
         private readonly UserService _userService;
         public UserManager(UserService userService)
         {
@@ -53,8 +51,7 @@ namespace WhistleblowerSystem.Server.Authentication
                 if (httpContext.User.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value == Roles.WhistleBlowerRole) return null;
 
                 string id = httpContext.User.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value;
-                string companyId = httpContext.User.Claims.First(x => x.Type == ClaimTypeCompanyId).Value;
-                user = new HttpContextUser(id, companyId);
+                user = new HttpContextUser(id);
             }
             return user;
         }
@@ -62,7 +59,6 @@ namespace WhistleblowerSystem.Server.Authentication
         private IEnumerable<Claim> GetCompanyUserClaims(UserDto user)
         {
             List<Claim> claims = new List<Claim>();
-            claims.Add(new Claim(ClaimTypeCompanyId, user.CompanyId));
             claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id ?? throw new ArgumentNullException(nameof(user.Id))));
             claims.Add(new Claim(ClaimTypes.Role, Roles.CompanyUserRole));
             return claims;

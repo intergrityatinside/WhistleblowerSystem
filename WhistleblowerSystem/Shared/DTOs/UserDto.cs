@@ -2,10 +2,9 @@
 {
     public class UserDto
     {
-        public UserDto(string? id, string companyId, string password, string name, string firstName, string email)
+        public UserDto(string? id, string password, string name, string firstName, string email)
         {
             Id = id;
-            CompanyId = companyId;
             Password = password;
             Name = name;
             FirstName = firstName;
@@ -16,7 +15,6 @@
         public string Name { get; set; }
         public string FirstName { get; set; }
         public string Email { get; set; }
-        public string CompanyId { get; set; }
         public string Password { get; set; }
     }
 }

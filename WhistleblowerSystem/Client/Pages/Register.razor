@@ -1,5 +1,5 @@
 ﻿@page "/register"
-@using WhistleblowerSystem.Shared.DTOs;
+@*@using WhistleblowerSystem.Shared.DTOs;
 <h3>Register</h3>
 
 @if (_companies != null)
@@ -13,4 +13,4 @@
     </select>
     <input type="text" @bind="_user.Password" class="form-control"/>
     <button @onclick="async () => await OnRegister()" class="btn btn-primary"></button>
-}
+}*@

@@ -36,7 +36,7 @@
                     <MudTableSortLabel SortBy="new Func<FormModel, object>(x => x.Id!)">CaseID</MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortBy="new Func<FormModel, object>(x => x.StateString)">Status</MudTableSortLabel>
+                    <MudTableSortLabel T="FormModel" SortBy="f => f.StateString">Status</MudTableSortLabel>
                 </MudTh>
                 <MudTh>
                     @* ReSharper disable once HeapView.BoxingAllocation *@

@@ -19,21 +19,17 @@ namespace WhistleblowerSystem.Initialization
     public class Initializer
     {
         private const string UsersFileName = "users.json";
-        private const string CompaniesFileName = "companies.json";
 
-        CompanyService _companyService;
         UserService _userService;
         FormTemplateService _formTemplateService;
         IDbContext _dbContext;
         IMapper _mapper;
 
         public Initializer(IDbContext unitOfWork,
-            CompanyService companyService,
             UserService userService,
             FormTemplateService formTemplateService,
             IMapper mapper)
         {
-            _companyService = companyService;
             _userService = userService;
             _formTemplateService = formTemplateService;
             _dbContext = unitOfWork;
@@ -46,7 +42,6 @@ namespace WhistleblowerSystem.Initialization
             if (executingPath == null) throw new NullException("execuingPath null");
 
             string usersFile = Path.Combine(executingPath, UsersFileName);
-            string companiesFile = Path.Combine(executingPath, CompaniesFileName);
 
             if (initializingMode == InitializingMode.DeleteAndCreate)
             {
@@ -60,25 +55,12 @@ namespace WhistleblowerSystem.Initialization
                 await Task.WhenAll(deletionTasks);
             }
 
-            //init the database with initial companies and users
-            List<CompanyDto> companies = new();
-            if (File.Exists(companiesFile))
-            {
-                if (!await _dbContext.CheckCollectionExistsAsync<Company>())
-                {
-                    companies = JsonConvert.DeserializeObject<List<CompanyDto>>(File.ReadAllText(companiesFile))!;
-                    List<Task<CompanyDto>> tasks = companies.Select(c => _companyService.CreateCompanyAsync(c)).ToList();
-                    await Task.WhenAll(tasks);
-                    companies = tasks.Select(t => t.Result).ToList(); // get the result
-                }
-            }
-
+            //init the database with initial users
             if (File.Exists(usersFile))
             {
                 if (!await _dbContext.CheckCollectionExistsAsync<User>())
                 {
                     List<UserDto> userDtos = JsonConvert.DeserializeObject<List<UserDto>>(File.ReadAllText(usersFile))!;
-                    userDtos.ForEach(u => u.CompanyId = companies[0].Id!);
 
                     List<Task<UserDto>> tasks = userDtos.Select(u => _userService.CreateUserAsync(u)).ToList();
                     await Task.WhenAll(tasks);

@@ -23,12 +23,10 @@ namespace WhistleblowerSystem.Database.DB
         private static readonly IDictionary<Type, string> CollectionDictonary = new Dictionary<Type, string>()
         {
             { typeof(Attachement), Attachements },
-            { typeof(Company), Companies },
             { typeof(Form), Forms },
             { typeof(FormField), FormFields },
             { typeof(FormTemplate), FormTemplates },
             { typeof(FormFieldTemplate), FormFieldTemplates },
-            { typeof(Topic), Topics },
             { typeof(User), Users },
             { typeof(Whistleblower), Whistleblowers },
         };
