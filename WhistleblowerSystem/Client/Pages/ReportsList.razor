@@ -33,7 +33,7 @@
                     <MudTableSortLabel SortBy="new Func<FormModel, object>(x => x.Title)">Thema der Meldung</MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel SortBy="new Func<FormModel, object>(x => x.Id)">CaseID</MudTableSortLabel>
+                    <MudTableSortLabel SortBy="new Func<FormModel, object>(x => x.Id!)">CaseID</MudTableSortLabel>
                 </MudTh>
                 <MudTh>
                     <MudTableSortLabel SortBy="new Func<FormModel, object>(x => x.StateString)">Status</MudTableSortLabel>
@@ -76,7 +76,7 @@
             {
                 var state = getState(form.State);
                 var title = getField(form.FormFields, "Beschreibung")?.SelectedValues[0];
-                var formModel = new FormModel(form.Id, form.TopicId, form.FormTemplateId, form.FormFields, form.Attachements, form.Messages, form.State, form.Datetime, "", title, state);
+                var formModel = new FormModel(form.Id, form.TopicId, form.FormTemplateId, form.FormFields, form.Attachements, form.Messages, form.State, form.Datetime, "", title!, state);
                 _allFormModels.Add(formModel);
             }
         }
@@ -93,7 +93,7 @@
 
     private string getState(ViolationState state)
     {
-    // ReSharper disable once HeapView.BoxingAllocation
+        // ReSharper disable once HeapView.BoxingAllocation
         return state.ToString();
     }
 
@@ -102,9 +102,17 @@
     private bool FilterFunc(FormModel formModel, string? searchString)
     {
         if (string.IsNullOrWhiteSpace(searchString))
+        {
             return true;
-        if (formModel.Id.Contains(searchString, StringComparison.OrdinalIgnoreCase))
-            return true;
+        }
+
+        if (formModel.Id != null) {
+            if (formModel.Id.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+        }
+
         return false;
     }
 }
