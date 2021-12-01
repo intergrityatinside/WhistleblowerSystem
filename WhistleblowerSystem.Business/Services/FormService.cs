@@ -86,5 +86,11 @@ namespace WhistleblowerSystem.Business.Services
         {
             await _formRepository.ChangeState(id, state);
         }
+
+        public async Task AddFile(string id, AttachementMetaDataDto attachementMetaDataDto)
+        {
+            var attachementMetaData = _mapper.Map<AttachementMetaData>(attachementMetaDataDto);
+            await _formRepository.AddFile(id, attachementMetaData);
+        }
     }
 }
