@@ -38,7 +38,7 @@ namespace WhistleblowerSystem.Client.Pages
                 var loadedForm = await FormService.LoadById(_loadedWhistleblower.FormId!);
                 var loadedFormModel = FormService.MapFormDtoToFormModel(loadedForm!);
                 FormService.SetCurrentFormModel(loadedFormModel);
-                NavigationManager.NavigateTo("/reportsList");
+                NavigationManager.NavigateTo("/reportdetailview");
             }
             else
             {
