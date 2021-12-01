@@ -315,4 +315,34 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
   <data name="faq_subtitle_3" xml:space="preserve">
     <value>Wie ist die Sicherheit meiner Daten bzw. Angaben gewährleistet?</value>
   </data>
+  <data name="reportslist_table_caseid" xml:space="preserve">
+    <value>CaseID</value>
+  </data>
+  <data name="reportslist_table_date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="reportslist_table_search" xml:space="preserve">
+    <value>Suche nach CaseID</value>
+  </data>
+  <data name="reportslist_table_state" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="reportslist_table_subject" xml:space="preserve">
+    <value>Thema der Meldung</value>
+  </data>
+  <data name="reportslist_title" xml:space="preserve">
+    <value>Meldungen</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Abgeschlossen</value>
+  </data>
+  <data name="Undefined" xml:space="preserve">
+    <value>Undefiniert</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>In Bearbeitung</value>
+  </data>
+  <data name="Accepted" xml:space="preserve">
+    <value>Angenommen</value>
+  </data>
 </root>

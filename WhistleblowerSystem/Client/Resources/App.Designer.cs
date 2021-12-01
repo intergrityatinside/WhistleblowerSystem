@@ -422,5 +422,65 @@ namespace WhistleblowerSystem.Client.Resources {
                 return ResourceManager.GetString("faq_subtitle_3", resourceCulture);
             }
         }
+        
+        public static string reportslist_table_subject {
+            get {
+                return ResourceManager.GetString("reportslist_table_subject", resourceCulture);
+            }
+        }
+        
+        public static string reportslist_table_caseid {
+            get {
+                return ResourceManager.GetString("reportslist_table_caseid", resourceCulture);
+            }
+        }
+        
+        public static string reportslist_table_state {
+            get {
+                return ResourceManager.GetString("reportslist_table_state", resourceCulture);
+            }
+        }
+        
+        public static string reportslist_table_date {
+            get {
+                return ResourceManager.GetString("reportslist_table_date", resourceCulture);
+            }
+        }
+        
+        public static string reportslist_title {
+            get {
+                return ResourceManager.GetString("reportslist_title", resourceCulture);
+            }
+        }
+        
+        public static string reportslist_table_search {
+            get {
+                return ResourceManager.GetString("reportslist_table_search", resourceCulture);
+            }
+        }
+        
+        public static string Undefined {
+            get {
+                return ResourceManager.GetString("Undefined", resourceCulture);
+            }
+        }
+        
+        public static string Accepted {
+            get {
+                return ResourceManager.GetString("Accepted", resourceCulture);
+            }
+        }
+        
+        public static string InProgress {
+            get {
+                return ResourceManager.GetString("InProgress", resourceCulture);
+            }
+        }
+        
+        public static string Done {
+            get {
+                return ResourceManager.GetString("Done", resourceCulture);
+            }
+        }
     }
 }

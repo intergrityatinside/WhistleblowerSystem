@@ -31,9 +31,13 @@ namespace WhistleblowerSystem.Client.Services
             return _currentForm;
         }
 
-        public Task Load(FormDto formDto)
-        {
-            throw new NotImplementedException();
+        public async Task<FormDto?> LoadById(string id)        {
+            HttpResponseMessage? response = await _http.GetAsync("Form/{id}");
+            if (!string.IsNullOrEmpty(value: await response.Content.ReadAsStringAsync()))
+            {
+                _currentForm = await response.Content.ReadFromJsonAsync<FormDto>();
+            }
+            return _currentForm;
         }
         
         public async Task <List<FormDto>?> LoadAll()

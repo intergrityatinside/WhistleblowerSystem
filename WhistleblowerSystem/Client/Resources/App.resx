@@ -315,4 +315,34 @@ Advice: We recommend that you access our website from a device that is not conne
   <data name="faq_subtitle_3" xml:space="preserve">
     <value>How is the Security of my data or information assured?</value>
   </data>
+  <data name="reportslist_table_subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="reportslist_table_caseid" xml:space="preserve">
+    <value>CaseID</value>
+  </data>
+  <data name="reportslist_table_state" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="reportslist_table_date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="reportslist_title" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="reportslist_table_search" xml:space="preserve">
+    <value>Search By CaseID</value>
+  </data>
+  <data name="Undefined" xml:space="preserve">
+    <value>Undefined</value>
+  </data>
+  <data name="Accepted" xml:space="preserve">
+    <value>Accepted</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>In progress</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Closed</value>
+  </data>
 </root>

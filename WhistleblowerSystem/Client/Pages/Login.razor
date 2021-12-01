@@ -8,7 +8,7 @@
                     <MudTextField @bind-Value="_user.Email" Label=@L["login_email"] Variant="Variant.Outlined"></MudTextField>
                 </div>
                 <div class="form-group control">
-                    <MudTextField @bind-Value="_user.Password" Label=@L["login_password"] Variant="Variant.Outlined"></MudTextField>
+                    <MudTextField @bind-Value="_user.Password" Label=@L["login_password"] InputType="InputType.Password"  Variant="Variant.Outlined"></MudTextField>
                 </div>
             </div>
             @if (_message != null)

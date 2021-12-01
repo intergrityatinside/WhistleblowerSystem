@@ -1,0 +1,59 @@
+@page "/reportdetailview"
+@using WhistleblowerSystem.Shared.Enums
+
+<div class="content-container">
+    <div class="content">
+        <div class="row">
+            <h1 class="page-title">Case: </h1>
+            <h4>@_form.Id</h4>
+        </div> 
+
+        <MudIcon Icon="@Icons.Material.Filled.ArrowBackIos"Style="font-size: 4rem;"/>
+        <MudCard>
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">@_form.Title</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudIconButton Icon="@Icons.Material.Filled.AttachFile" Color="Color.Default"/>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText Typo="Typo.body2">@_form.Description</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudGrid>
+                    <MudItem xs="12" sm="6" md="5">
+                        <MudSpacer></MudSpacer>
+                    </MudItem>
+
+                    @if (_isCompany)
+                    {
+                        <MudItem xs="12" sm="6" md="2">
+                            <MudText Typo="Typo.body1">Status: </MudText>
+                        </MudItem>
+                        <MudItem xs="12" sm="6" md="2">
+                            <MudSelect @bind-Value="_enumValue" AdornmentColor="Color.Secondary">
+                                @foreach (ViolationState item in Enum.GetValues(typeof(ViolationState)))
+                                {
+                                    <MudSelectItem Value="@item">@item.ToString()</MudSelectItem>
+                                }
+                            </MudSelect>
+                        </MudItem>
+                        <MudItem xs="12" sm="6" md="3">
+                            <MudButton OnClick="SaveState" Color="Color.Dark" Variant="Variant.Filled" Size="Size.Small">Status Speichern</MudButton>
+                        </MudItem>
+                    }
+                    @if (!_isCompany)
+                    {
+                        <MudItem xs="12" sm="6" md="4">
+                            <MudText Typo="Typo.body1">Status: </MudText>
+                            <MudText Typo="Typo.body1">@_form.State.ToString() </MudText>
+                        </MudItem>
+                    }
+                </MudGrid>
+            </MudCardActions>
+        </MudCard>
+        <h6>Nachrichten</h6>
+    </div>
+</div>

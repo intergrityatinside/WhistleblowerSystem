@@ -1,37 +1,39 @@
 @page "/reportslist"
+@inject IStringLocalizer<App> L
 @using WhistleblowerSystem.Client.Services;
 @using WhistleblowerSystem.Shared.DTOs;
 @using Microsoft.AspNetCore.Components
+@using Microsoft.Extensions.Localization
 @using WhistleblowerSystem.Shared.Models
 
 <div class="content-container">
     <div class="content">
-        <h1>Meldungen</h1>
+        <h1>@L["reportslist_title"]</h1>
         <MudTable Filter="new Func<FormModel, bool>(FilterFunc1)" FixedHeader="true" Hover="true" Items="@_allFormModels"  SortLabel="Sort By" T="FormModel" OnRowClick="@FormSelected">
             <ToolBarContent>
                 <MudSpacer/>
-                <MudTextField @bind-Value="_searchString" Placeholder="Case ID suchen" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                <MudTextField @bind-Value="_searchString" Placeholder=@L["reportslist_table_search"] Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
             </ToolBarContent>
             <HeaderContent>
                 <MudTh>
-                    <MudTableSortLabel T="FormModel" SortBy="f => f.Title">Thema der Meldung</MudTableSortLabel>
+                    <MudTableSortLabel T="FormModel" SortBy="f => f.Title">@L["reportslist_table_subject"]</MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel T="FormModel" SortBy="f => f.Id!">CaseID</MudTableSortLabel>
+                    <MudTableSortLabel T="FormModel" SortBy="f => f.Id!">@L["reportslist_table_caseid"]</MudTableSortLabel>
                 </MudTh>
                 <MudTh>
-                    <MudTableSortLabel T="FormModel" SortBy="f => f.StateString">Status</MudTableSortLabel>
+                    <MudTableSortLabel T="FormModel" SortBy="f => f.StateString">@L["reportslist_table_state"]</MudTableSortLabel>
                 </MudTh>
                 <MudTh>
                     @* ReSharper disable once HeapView.BoxingAllocation *@
-                    <MudTableSortLabel T="FormModel" SortBy="f => f.Datetime">Datum</MudTableSortLabel>
+                    <MudTableSortLabel T="FormModel" SortBy="f => f.Datetime">@L["reportslist_table_date"]</MudTableSortLabel>
 
                 </MudTh>
             </HeaderContent>
             <RowTemplate>
                 <MudTd DataLabel="title">@context.Title</MudTd>
                 <MudTd DataLabel="caseId">@context.Id</MudTd>
-                <MudTd DataLabel="state">@context.StateString</MudTd>
+                <MudTd DataLabel="state">@L[context.StateString]</MudTd>
                 @* ReSharper disable once HeapView.BoxingAllocation *@
                 <MudTd DataLabel="date">@context.Datetime</MudTd>
             </RowTemplate>
@@ -90,7 +92,7 @@
     private void FormSelected(TableRowClickEventArgs<FormModel> tableRowClickEventArgs)
     {
         FormService.SetCurrentFormModel(tableRowClickEventArgs.Item);
-        //NavigationManager.NavigateTo("/reportdetailview");
+        NavigationManager.NavigateTo("/reportdetailview");
     }
 
 }
