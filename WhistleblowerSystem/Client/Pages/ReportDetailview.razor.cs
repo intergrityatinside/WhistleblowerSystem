@@ -15,8 +15,8 @@ namespace WhistleblowerSystem.Client.Pages
 
         [Inject] private ICurrentAccountService CurrentAccountService { get; set; } = null!;
         [Inject] private IFormService FormService { get; set; } = null!;
+        [Inject] private NavigationManager NavigationManager { get; set; } = null!;
 
-    
         protected override void OnInitialized()
         {
         _form = FormService.GetCurrentFormModel();
@@ -34,6 +34,12 @@ namespace WhistleblowerSystem.Client.Pages
 
         private void SaveState()
         {
+        }
+
+        private void NavigateBack()
+        {
+            FormService.SetCurrentFormModel(null);
+            NavigationManager.NavigateTo("/reportsList");
         }
     }
 }
