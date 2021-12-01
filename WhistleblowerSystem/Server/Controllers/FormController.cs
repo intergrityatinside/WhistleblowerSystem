@@ -68,11 +68,11 @@ namespace WhistleblowerSystem.Server.Controllers
             await _formService.AddMessage(user.Id!, formMessageDto);
         }
 
-        [HttpPost("changeState")]
-        public async Task ChangeState(UserDto user, ViolationState state)
+        [HttpPost("{formId}/changeState")]
+        public async Task ChangeState(string formId, ViolationState state)
         {
-            if (user != null) {
-                await _formService.ChangeState(user.Id!, state);
+            if (formId != null) {
+                await _formService.ChangeState(formId, state);
             }
         }
     }
