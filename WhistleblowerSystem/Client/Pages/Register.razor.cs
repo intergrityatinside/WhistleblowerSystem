@@ -9,16 +9,11 @@ namespace WhistleblowerSystem.Client.Pages
 {
     public partial class Register
     {
-        private UserDto _user = new UserDto(null, "", "", "","","");
-        private List<CompanyDto>? _companies;
+        private UserDto _user = new UserDto(null, "", "","","");
 
         [Inject] HttpClient Http { get; set; } = null!;
         [Inject] NavigationManager NavigationManager { get; set; } = null!;
 
-        protected override async Task OnInitializedAsync()
-        {
-            _companies = await Http.GetFromJsonAsync<List<CompanyDto>>("company");
-        }
 
         private async Task OnRegister()
     {

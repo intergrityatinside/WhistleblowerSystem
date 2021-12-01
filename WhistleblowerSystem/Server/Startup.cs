@@ -108,14 +108,13 @@ namespace WhistleblowerSystem.Server
 
             InitializeDb(serviceProvider.GetRequiredService<DbContext>(),
                 serviceProvider.GetRequiredService<UserService>(),
-                serviceProvider.GetRequiredService<CompanyService>(),
                 serviceProvider.GetRequiredService<FormTemplateService>(),
                 serviceProvider.GetRequiredService<IMapper>()).GetAwaiter().GetResult();
         }
 
-        private async Task InitializeDb(DbContext dbContext, UserService userService, CompanyService companyService, FormTemplateService formTemplateService, IMapper mapper)
+        private async Task InitializeDb(DbContext dbContext, UserService userService, FormTemplateService formTemplateService, IMapper mapper)
         {
-           await new Initializer(dbContext, companyService, userService, formTemplateService, mapper)
+           await new Initializer(dbContext, userService, formTemplateService, mapper)
                 .Init(InitializingMode.CreateIfNotExists);
         }
 
@@ -124,7 +123,7 @@ namespace WhistleblowerSystem.Server
         private string GetConfigValue(string name, bool isConnectionString = false)
         {
             string? value = Environment.GetEnvironmentVariable(EnvPrefix + name);
-            if (value == null && !_env.IsProduction())
+            if (value == null)
             {
                 if (isConnectionString)
                 {

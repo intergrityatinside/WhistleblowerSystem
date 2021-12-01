@@ -10,7 +10,7 @@ namespace WhistleblowerSystem.Client.Pages
 {
     public partial class Login
     {
-        private UserDto _user = new UserDto(null, "", "", "", "", "");
+        private UserDto _user = new UserDto(null, "", "", "", "");
         private bool _success;
         private string? _message;
         [Inject] HttpClient Http { get; set; } = null!;

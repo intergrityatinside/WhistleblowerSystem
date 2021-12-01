@@ -18,14 +18,12 @@ namespace WhistleblowerSystem.Business.Mapping.AutoMapper
             CreateLanguageEntryMap();
             CreateAttachementMap();
             CreateAttachementMetaDataMap();
-            CreateCompanyMap();
             CreateFormMap();
             CreateFormFieldMap();
             CreateFormFieldTemplateMap();
             CreateFormMessageMap();
             CreateFormTemplateMap();
             CreateSelectionValueMap();
-            CreateTopicMap();
             CreateUserMap();
             CreateWhistleblowerMap();
         }
@@ -60,17 +58,6 @@ namespace WhistleblowerSystem.Business.Mapping.AutoMapper
 
             CreateMap<AttachementMetaDataDto, AttachementMetaData>()
                 .ConstructUsing((x, _) => new AttachementMetaData(x.Filename, x.Filetype, x.AttachementId))
-                .ForAllMembers(opt => opt.Ignore());
-        }
-
-        private void CreateCompanyMap()
-        {
-            CreateMap<Company, CompanyDto>()
-                .ConstructUsing((x, _) => new CompanyDto(x.Id.ToString(), x.Name, x.Address, x.Zipcode))
-                .ForAllMembers(opt => opt.Ignore());
-
-            CreateMap<CompanyDto, Company>()
-                .ConstructUsing((x, _) => new Company(x.Id, x.Name, x.Address, x.Zipcode))
                 .ForAllMembers(opt => opt.Ignore());
         }
 
@@ -146,22 +133,10 @@ namespace WhistleblowerSystem.Business.Mapping.AutoMapper
                 .ForAllMembers(opt => opt.Ignore());
         }
 
-        private void CreateTopicMap()
-        {
-            CreateMap<Topic, TopicDto>()
-                .ConstructUsing((x, _) => new TopicDto(x.Id.ToString(), x.CompanyId.ToString(), x.Name))
-                .ForAllMembers(opt => opt.Ignore());
-
-            CreateMap<TopicDto, Topic>()
-                .ConstructUsing((x, ctx) => new Topic(x.Id, x.CompanyId, x.Name))
-                .ForAllMembers(opt => opt.Ignore());
-        }
-
         private void CreateUserMap()
         {
             CreateMap<User, UserDto>()
                 .ConstructUsing((x, _) => new UserDto(x.Id.ToString(),
-                x.CompanyId.ToString(),
                 string.Empty, //do not map the (hashed) pw
                 x.Name,
                 x.FirstName,
@@ -170,7 +145,6 @@ namespace WhistleblowerSystem.Business.Mapping.AutoMapper
 
             CreateMap<UserDto, User>()
                 .ConstructUsing((x, ctx) => new User(x.Id,
-                x.CompanyId,
                 x.Password ?? throw new Exception($"{nameof(x.Password)} can not be null"),
                  x.Name,
                 x.FirstName,

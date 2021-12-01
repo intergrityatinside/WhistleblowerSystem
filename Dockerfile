@@ -22,4 +22,6 @@ RUN dotnet publish "WhistleblowerSystem.Server.csproj" -c Release -o /app/publis
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "WhistleblowerSystem.Server.dll"]
+#ENTRYPOINT ["dotnet", "WhistleblowerSystem.Server.dll"]
+#Heroku
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet WhistleblowerSystem.Server.dll
