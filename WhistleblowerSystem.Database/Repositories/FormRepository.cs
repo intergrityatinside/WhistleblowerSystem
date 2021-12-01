@@ -24,5 +24,11 @@ namespace WhistleblowerSystem.Database.Repositories
             var update = Builders<Form>.Update.Set(x => x.State, state);
             await _dbContext.GetCollection<Form>().UpdateOneAsync(x => x.Id == ObjectId.Parse(id), update);
         }
+
+        public async Task AddFile(string id, AttachementMetaData attachementMetaData)
+        {
+            var update = Builders<Form>.Update.AddToSet(x => x.Attachements, attachementMetaData);
+            await _dbContext.GetCollection<Form>().UpdateOneAsync(x => x.Id == ObjectId.Parse(id), update);
+        }
     }
 }

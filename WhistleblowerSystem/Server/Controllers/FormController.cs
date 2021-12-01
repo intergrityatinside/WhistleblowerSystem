@@ -61,11 +61,11 @@ namespace WhistleblowerSystem.Server.Controllers
         }
 
         [HttpPost("addMessage")]
-        public async Task AddMessage(UserDto user, string message)
+        public async Task AddMessage(string formId, UserDto user, string message)
         {
             var timeStamp = DateTime.Now;
             FormMessageDto formMessageDto = new FormMessageDto(null, message, user, timeStamp);
-            await _formService.AddMessage(user.Id!, formMessageDto);
+            await _formService.AddMessage(formId, formMessageDto);
         }
 
         [HttpPost("{formId}/changeState")]
@@ -73,6 +73,15 @@ namespace WhistleblowerSystem.Server.Controllers
         {
             if (formId != null) {
                 await _formService.ChangeState(formId, state);
+            }
+        }
+
+        [HttpPost("{formId}/addFile")]
+        public async Task AddFile(string formId, AttachementMetaDataDto attachementMetaData)
+        {
+            if (formId != null)
+            {
+                await _formService.AddFile(formId, attachementMetaData);
             }
         }
     }
