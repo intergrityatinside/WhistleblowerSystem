@@ -26,17 +26,17 @@ namespace WhistleblowerSystem.Client.Pages
         {
             try
             {
-                _loadedWhistleblower = await CurrentAccountService.Login(_whistleblower);
-                _success = _loadedWhistleblower != null ? true : false;
+                    _loadedWhistleblower = (await CurrentAccountService.Login(_whistleblower))!;
+                    _success = _loadedWhistleblower != null ? true : false;
             }
             catch {
                 _success = false;
             }
 
-            if (_success)
+            if (_success && _loadedWhistleblower != null)
             {
-                var loadedForm = await FormService.LoadById(_loadedWhistleblower.Id);
-                var loadedFormModel = FormService.MapFormDtoToFormModel(loadedForm);
+                var loadedForm = await FormService.LoadById(_loadedWhistleblower.FormId!);
+                var loadedFormModel = FormService.MapFormDtoToFormModel(loadedForm!);
                 FormService.SetCurrentFormModel(loadedFormModel);
                 NavigationManager.NavigateTo("/reportsList");
             }

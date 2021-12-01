@@ -19,7 +19,7 @@ namespace WhistleblowerSystem.Client.Pages
     
         protected override void OnInitialized()
         {
-        _form = FormService.GetCurrentFormModel();
+        _form = FormService.GetCurrentFormModel()!;
         _enumValue = _form.State;
         if (CurrentAccountService.GetCurrentUser() != null)
         {

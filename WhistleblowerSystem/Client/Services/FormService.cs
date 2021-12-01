@@ -31,8 +31,8 @@ namespace WhistleblowerSystem.Client.Services
             return _currentForm;
         }
 
-        public async Task<FormDto?> LoadById(string id)        {
-            HttpResponseMessage? response = await _http.GetAsync("Form/{id}");
+        public async Task<FormDto?> LoadById(string id) {
+            HttpResponseMessage? response = await _http.GetAsync(string.Format("Form/{0}", id));
             if (!string.IsNullOrEmpty(value: await response.Content.ReadAsStringAsync()))
             {
                 _currentForm = await response.Content.ReadFromJsonAsync<FormDto>();
