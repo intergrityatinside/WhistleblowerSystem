@@ -23,9 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="companies.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="users.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

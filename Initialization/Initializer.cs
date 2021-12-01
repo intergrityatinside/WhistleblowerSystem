@@ -43,7 +43,7 @@ namespace WhistleblowerSystem.Initialization
 
             string usersFile = Path.Combine(executingPath, UsersFileName);
 
-            if (initializingMode == InitializingMode.DeleteAndCreate)
+            if (initializingMode == InitializingMode.CreateIfNotExists)
             {
                 //delete all collections
                 List<Task> deletionTasks = _dbContext.GetCollectionTypes().Select(t =>
