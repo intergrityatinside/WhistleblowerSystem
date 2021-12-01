@@ -6,56 +6,53 @@
 <div class="content-container">
     <div class="content">
         <h1 style="display: inline;" class="page-title">Case: </h1>
-        <h3 style="display: inline;">@_form!.Id!</h3>
-        <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
-            <MudIconButton OnClick="NavigateBack" Icon="@Icons.Material.Filled.ArrowBackIos" Style="font-size: 3rem;"/>
-        </div>
- 
-            <MudCard Elevation="5">
-                <MudCardHeader>
-                    <CardHeaderContent>
-                        <MudText Typo="Typo.h5">Meldung: @_form.Title</MudText>
-                    </CardHeaderContent>
-                    <CardHeaderActions>
-                        <MudIconButton Icon="@Icons.Material.Filled.AttachFile" Color="Color.Default"/>
-                    </CardHeaderActions>
-                </MudCardHeader>
-                <MudCardContent>
-                    <MudText Typo="Typo.body2">@_form.Description</MudText>
-                </MudCardContent>
-                <MudCardActions>
-                <MudGrid>
-                    <MudItem xs="12" sm="6" md="7">
-                        <MudSpacer></MudSpacer>
-                    </MudItem>
-                      @if (_isCompany)
-                            {
-                                @*<MudItem xs="12" sm="6" md="2">
-                                    <MudText Typo="Typo.body1">Status: </MudText>
-                                </MudItem>*@
-                                <MudItem xs="12" sm="6" md="2">
-                                    <MudSelect @bind-Value="_enumValue" Label="Status">
-                                        @foreach (ViolationState item in Enum.GetValues(typeof(ViolationState)))
-                                        {
-                                            <MudSelectItem Value="@item">@L[item.ToString()]</MudSelectItem>
-                                        }
-                                    </MudSelect>
-                                </MudItem>
-                                <MudItem xs="12" sm="6" md="3">
-                                    <MudButton OnClick="SaveState" Color="Color.Dark" Variant="Variant.Filled" Size="Size.Small" Disabled="_enumValue == _form.State">Status Speichern</MudButton>
-                                </MudItem>
-                            }
-                            @if (!_isCompany)
-                            {
-                                <MudItem xs="12" sm="6" md="4">
-                                    <MudText Typo="Typo.body1">Status: </MudText>
-                                    <MudText Typo="Typo.body1">@_form.State.ToString() </MudText>
-                                </MudItem>
-                            }
-                    </MudGrid>
-                </MudCardActions>
-            </MudCard>
+        <h3 style="display: inline; padding-bottom: 1.5rem;">@_form!.Id</h3>
+        @if (_isCompany)
+        {
+            <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
+                <MudIconButton OnClick="NavigateBack" Icon="@Icons.Material.Filled.ArrowBackIos" Style="font-size: 3rem;"/>
+            </div>
+        }
+        <MudCard Elevation="5">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h5">Meldung: @_form.Title</MudText>
+                </CardHeaderContent>
+                <CardHeaderActions>
+                    <MudIconButton Icon="@Icons.Material.Filled.AttachFile" Color="Color.Default"/>
+                </CardHeaderActions>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText Typo="Typo.body2">@_form.Description</MudText>
+                <MudDivider/>
+            </MudCardContent>
+            <MudCardActions Style="padding-right: 16px; padding-left: 16px;">
+                @if (_isCompany)
+                {
+                    <MudSelect @bind-Value="_enumValue" Label="Status">
+                        @foreach (ViolationState item in Enum.GetValues(typeof(ViolationState)))
+                        {
+                            <MudSelectItem Value="@item">@L[item.ToString()]</MudSelectItem>
+                        }
+                    </MudSelect>
+                    <MudButton OnClick="async () => await SaveState()" Color="Color.Dark" Variant="Variant.Filled" Size="Size.Small" Disabled="_enumValue == _form.State">Status Speichern</MudButton>
+                }
+                @if (!_isCompany)
+                {
+                    <MudText> Status: @_form.State.ToString()</MudText>
+                }
+            </MudCardActions>
+        </MudCard>
 
         <h5 style="padding-top:15px;">Nachrichten</h5>
+        <div style="height: 50px;"></div>
+        <MudSpacer></MudSpacer>
+        
+        @if (!_isCompany)
+       {
+           <div class="footer">
+                   <MudButton OnClick="Close" Color="Color.Dark" Variant="Variant.Filled">Meldung schliessen</MudButton>
+           </div>
+       }
     </div>
 </div>

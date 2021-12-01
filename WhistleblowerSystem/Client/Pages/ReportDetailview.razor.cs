@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using WhistleblowerSystem.Client.Services;
 using WhistleblowerSystem.Shared.Enums;
@@ -32,14 +33,21 @@ namespace WhistleblowerSystem.Client.Pages
         }
         }
 
-        private void SaveState()
+        private async Task SaveState()
         {
+            _form.State = _enumValue;
+           await FormService.UpdateState(_form.Id, _enumValue);
         }
 
         private void NavigateBack()
         {
             FormService.SetCurrentFormModel(null);
             NavigationManager.NavigateTo("/reportsList");
+        }
+        private void Close()
+        {
+            FormService.SetCurrentFormModel(null);
+            NavigationManager.NavigateTo("");
         }
     }
 }

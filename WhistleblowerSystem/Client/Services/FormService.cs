@@ -59,6 +59,11 @@ namespace WhistleblowerSystem.Client.Services
             }
             return _currentForm;
         }
+        
+        public async Task UpdateState(string id, ViolationState state)
+        {
+            await _http.PostAsJsonAsync("Form/"+id+"/changeState",state);
+        }
 
         public void SetCurrentForm(FormDto? form)
         {
@@ -82,7 +87,7 @@ namespace WhistleblowerSystem.Client.Services
 
         public FormModel MapFormDtoToFormModel(FormDto dto)
         {
-            var state = getState(dto.State);
+            var state = getStateString(dto.State);
             var title = getField(dto.FormFields, "Beschreibung")?.SelectedValues[0];
             var description = getField(dto.FormFields, "Vorfall")?.SelectedValues[0];
             var formModel = new FormModel(dto.Id, dto.TopicId, dto.FormTemplateId, dto.FormFields, dto.Attachements, dto.Messages, dto.State, dto.Datetime, "", title!, description!, state);
@@ -94,7 +99,7 @@ namespace WhistleblowerSystem.Client.Services
             return formFields.Find((formField) => formField.Texts[0]?.Value == searchString);
         }
 
-        private string getState(ViolationState state)
+        private string getStateString(ViolationState state)
         {
             // ReSharper disable once HeapView.BoxingAllocation
             return state.ToString();
