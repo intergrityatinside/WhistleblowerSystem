@@ -26,6 +26,7 @@ namespace WhistleblowerSystem.Server.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<AttachementMetaDataDto> Post()
         {
             var file = Request.Form.Files[0];
