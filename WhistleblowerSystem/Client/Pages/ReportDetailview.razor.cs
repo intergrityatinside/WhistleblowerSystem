@@ -35,8 +35,10 @@ namespace WhistleblowerSystem.Client.Pages
 
         private async Task SaveState()
         {
-            _form.State = _enumValue;
-           await FormService.UpdateState(_form.Id, _enumValue);
+            if (_form != null) {
+                _form.State = _enumValue;
+                await FormService.UpdateState(_form.Id!, _enumValue);
+            }
         }
 
         private void NavigateBack()

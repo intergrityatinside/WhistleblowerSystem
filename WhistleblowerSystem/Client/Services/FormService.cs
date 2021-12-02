@@ -62,7 +62,7 @@ namespace WhistleblowerSystem.Client.Services
         
         public async Task UpdateState(string id, ViolationState state)
         {
-            await _http.PostAsJsonAsync("Form/"+id+"/changeState",state);
+            await _http.PostAsJsonAsync($"Form/{id}/changeState/{state}", state);
         }
 
         public void SetCurrentForm(FormDto? form)
@@ -88,8 +88,10 @@ namespace WhistleblowerSystem.Client.Services
         public FormModel MapFormDtoToFormModel(FormDto dto)
         {
             var state = getStateString(dto.State);
-            var title = getField(dto.FormFields, "Beschreibung")?.SelectedValues[0];
-            var description = getField(dto.FormFields, "Vorfall")?.SelectedValues[0];
+            var titleField = getField(dto.FormFields, "Beschreibung");
+            var title = (titleField != null && titleField.SelectedValues.Count > 0) ? titleField.SelectedValues[0] : string.Empty;
+            var descriptionField = getField(dto.FormFields, "Vorfall");
+            var description = (descriptionField != null && descriptionField.SelectedValues.Count > 0) ? descriptionField.SelectedValues[0] : string.Empty;
             var formModel = new FormModel(dto.Id, dto.TopicId, dto.FormTemplateId, dto.FormFields, dto.Attachements, dto.Messages, dto.State, dto.Datetime, "", title!, description!, state);
             return formModel;
         }
