@@ -68,7 +68,7 @@ namespace WhistleblowerSystem.Server.Controllers
             await _formService.AddMessage(formId, formMessageDto);
         }
 
-        [HttpPost("{formId}/changeState")]
+        [HttpPost("{formId}/changeState/{state}")]
         public async Task ChangeState(string formId, ViolationState state)
         {
             if (formId != null) {
@@ -76,6 +76,7 @@ namespace WhistleblowerSystem.Server.Controllers
             }
         }
 
+        [CheckRights(Roles.WhistleBlowerRole)]
         [HttpPost("{formId}/addFile")]
         public async Task AddFile(string formId, AttachementMetaDataDto attachementMetaData)
         {

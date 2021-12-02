@@ -62,7 +62,7 @@ namespace WhistleblowerSystem.Client.Services
         
         public async Task UpdateState(string id, ViolationState state)
         {
-            await _http.PostAsJsonAsync($"Form/{id}/changeState/{state}", state);
+            await _http.PostAsJsonAsync($"Form/{id}/changeState/{state}", new object());
         }
 
         public void SetCurrentForm(FormDto? form)
