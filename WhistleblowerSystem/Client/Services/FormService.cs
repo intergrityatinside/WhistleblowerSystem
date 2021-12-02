@@ -60,6 +60,11 @@ namespace WhistleblowerSystem.Client.Services
             return _currentForm;
         }
         
+        public async Task AddMessage(string formId, FormMessageDto messageDto)
+        { 
+            await _http.PostAsJsonAsync($"Form/{formId}/addMessage", messageDto);
+        }
+        
         public async Task UpdateState(string id, ViolationState state)
         {
             await _http.PostAsJsonAsync($"Form/{id}/changeState/{state}", new object());

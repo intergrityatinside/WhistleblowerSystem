@@ -60,11 +60,9 @@ namespace WhistleblowerSystem.Server.Controllers
             return await _formService.GetAllAsync();
         }
 
-        [HttpPost("addMessage")]
-        public async Task AddMessage(string formId, UserDto user, string message)
+        [HttpPost("{formId}/addMessage")]
+        public async Task AddMessage(string formId, FormMessageDto formMessageDto)
         {
-            var timeStamp = DateTime.Now;
-            FormMessageDto formMessageDto = new FormMessageDto(null, message, user, timeStamp);
             await _formService.AddMessage(formId, formMessageDto);
         }
 
