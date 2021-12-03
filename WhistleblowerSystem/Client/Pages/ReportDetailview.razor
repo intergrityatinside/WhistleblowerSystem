@@ -2,6 +2,7 @@
 @inject IStringLocalizer<App> L
 @using WhistleblowerSystem.Shared.Enums
 @using Microsoft.Extensions.Localization
+@using WhistleblowerSystem.Client.Utils
 
 <div class="content-container">
     <div class="content">
@@ -26,7 +27,19 @@
                 </CardHeaderActions>
             </MudCardHeader>
             <MudCardContent>
-                <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">@_form.Description</MudText>
+                <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">
+                    <strong>Beschreibung:</strong> <br> @_form.Description
+                </MudText>
+                @foreach (var formField in _form!.OptionalFormFields!)
+                {
+                    <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">
+                        <strong>Zusätzliche Informationen: </strong>
+                    </MudText>
+                    @if (formField.SelectedValues[0].Length != 0 && formField.Type != ControlType.Text)
+                    {
+                        <div class="control-title">@formField.Texts.GetLng().Text: @formField.SelectedValues[0]</div>
+                    }
+                }
                 <MudDivider/>
             </MudCardContent>
             <MudCardActions Style="justify-content: flex-end; padding: 16px;">
@@ -50,32 +63,34 @@
         </MudCard>
 
         <h5 style="padding-top:15px;">Nachrichten</h5>
-        <div class="messaging-container" style="max-width: 50%">
+        <div class="messaging-container">
             @foreach (var formMessageDto in _form!.Messages!)
             {
-                <MudCard Outlined="true">
-                    <MudCardContent Style="@GetMessageStyle(formMessageDto)">
-                        <MudText>Sachbearbeiter, @formMessageDto.Timestamp</MudText>
-                        <MudText Typo="Typo.body2">@formMessageDto.Text</MudText>
-                    </MudCardContent>
-                </MudCard>
+                <div class="message" style="@GetPosition(formMessageDto)">
+                    <MudCard Outlined="true" Style="@GetMessageStyle(formMessageDto)">
+                        <MudCardContent>
+                            <MudText Typo="Typo.body2">@GetSender(formMessageDto), @formMessageDto.Timestamp.ToString("dd/MM/yyyy")</MudText>
+                            <MudText Typo="Typo.body2">@formMessageDto.Text</MudText>
+                            <MudDivider/>
+                        </MudCardContent>
+                    </MudCard>
+                    <MudSpacer/>
+                </div>
             }
             @if (_form.Messages.Count == 0)
             {
                 <MudText>Noch keine Nachrichten vorhanden</MudText>
             }
             <EditForm Model="@_formMessageDto">
-                <MudCard Outlined="true">
+                <MudCard Outlined="true" Style="padding: 2px">
                     <MudCardContent>
-                        <MudText>Ich, @DateTime.Now</MudText>
                         <MudTextField @bind-Value="_formMessageDto!.Text" Placeholder="Neue Nachricht eingeben"></MudTextField>
                     </MudCardContent>
                     <MudCardActions>
-                        <MudButton OnClick="async () => await SendMessage()" Color="Color.Dark" Variant="Variant.Outlined" Size="Size.Small" Class="ma-2">senden</MudButton>
+                        <MudButton OnClick="async () => await SendMessage()" Color="Color.Dark" Variant="Variant.Outlined" Disabled="_formMessageDto!.Text.Length == 0">senden</MudButton>
                     </MudCardActions>
                 </MudCard>
             </EditForm>
-
         </div>
 
     </div>

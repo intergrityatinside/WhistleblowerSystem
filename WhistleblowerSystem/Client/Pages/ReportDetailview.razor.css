@@ -3,3 +3,12 @@
     flex-direction: row;
     justify-content: flex-end;
 }
+.messaging-container{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.message{
+    display: flex;
+    margin: 5px;
+}

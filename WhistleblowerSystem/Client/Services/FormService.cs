@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -97,7 +96,8 @@ namespace WhistleblowerSystem.Client.Services
             var title = (titleField != null && titleField.SelectedValues.Count > 0) ? titleField.SelectedValues[0] : string.Empty;
             var descriptionField = getField(dto.FormFields, "Vorfall");
             var description = (descriptionField != null && descriptionField.SelectedValues.Count > 0) ? descriptionField.SelectedValues[0] : string.Empty;
-            var formModel = new FormModel(dto.Id, dto.TopicId, dto.FormTemplateId, dto.FormFields, dto.Attachements, dto.Messages, dto.State, dto.Datetime, "", title!, description!, state);
+            var optionalFields = getOptionalFields(dto.FormFields);
+            var formModel = new FormModel(dto.Id, dto.TopicId, dto.FormTemplateId, optionalFields, dto.Attachements, dto.Messages, dto.State, dto.Datetime, "", title!, description!, state);
             return formModel;
         }
         
@@ -108,8 +108,21 @@ namespace WhistleblowerSystem.Client.Services
 
         private string getStateString(ViolationState state)
         {
-            // ReSharper disable once HeapView.BoxingAllocation
             return state.ToString();
+        }
+
+        //todo later check isoptional bool on fielddto
+        private List<FormFieldDto> getOptionalFields(List<FormFieldDto> formFields)
+        {
+            List<FormFieldDto> optionalFields = new List<FormFieldDto>();
+            foreach (var field in formFields)
+            {
+                if (field != getField(formFields, "Vorfall") && field != getField(formFields, "Beschreibung"))
+                {
+                    optionalFields.Add(field);
+                }
+            }
+            return optionalFields;
         }
 
     }

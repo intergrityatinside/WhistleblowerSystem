@@ -38,10 +38,12 @@ namespace WhistleblowerSystem.Client.Pages
 
         private async Task SaveState()
         {
-            if (_form != null) {
+            if (_form != null)
+            {
                 _form.State = _enumValue;
                 await FormService.UpdateState(_form.Id!, _enumValue);
             }
+
             _form!.State = _enumValue;
             await FormService.UpdateState(_form.Id!, _enumValue);
         }
@@ -61,14 +63,33 @@ namespace WhistleblowerSystem.Client.Pages
         private async Task SendMessage()
         {
             _form!.Messages!.Add(_formMessageDto!);
-            _formMessageDto = new FormMessageDto(null, _formMessageDto!.Text, CurrentAccountService.GetCurrentUser()!, DateTime.Now);
+            await FormService.AddMessage(_form.Id!, _formMessageDto!);
+            _formMessageDto = new FormMessageDto(null, "", CurrentAccountService.GetCurrentUser()!, DateTime.Now);
             StateHasChanged();
-            await FormService.AddMessage(_form.Id!, _formMessageDto);
         }
 
         private string GetMessageStyle(FormMessageDto messageDto)
         {
-            return (_isCompany && messageDto.User != null) ? "align-text: right;" : "";
+            //check if message is from current user
+            bool myMessage = _isCompany && messageDto.User != null || !_isCompany && messageDto.User == null;
+
+            string messageStyle = "width: 70%;";
+            return myMessage
+                ? messageStyle + "text-align: right;background-color: #555455; color: white;"
+                : messageStyle;
+        }
+
+        private string GetSender(FormMessageDto messageDto)
+        {
+            var sender = (messageDto.User != null) ? "Sachbearbeiter" : "Melder";
+            bool myMessage = _isCompany && messageDto.User != null || !_isCompany && messageDto.User == null;
+            return myMessage ? "Ich" : sender;
+        }
+
+        private string GetPosition(FormMessageDto messageDto)
+        {
+            bool myMessage = _isCompany && messageDto.User != null || !_isCompany && messageDto.User == null;
+            return myMessage ? "flex-direction: row-reverse;" : "flex-direction: row;";
         }
 
         void IDisposable.Dispose()
