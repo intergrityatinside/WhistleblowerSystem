@@ -68,7 +68,7 @@
                 <MudCard Outlined="true">
                     <MudCardContent>
                         <MudText>Ich, @DateTime.Now</MudText>
-                        <MudTextField @bind-Value="_formMessageDto.Text" Placeholder="Neue Nachricht eingeben"></MudTextField>
+                        <MudTextField @bind-Value="_formMessageDto!.Text" Placeholder="Neue Nachricht eingeben"></MudTextField>
                     </MudCardContent>
                     <MudCardActions>
                         <MudButton OnClick="async () => await SendMessage()" Color="Color.Dark" Variant="Variant.Outlined" Size="Size.Small" Class="ma-2">senden</MudButton>

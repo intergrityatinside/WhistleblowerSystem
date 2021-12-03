@@ -12,7 +12,7 @@ namespace WhistleblowerSystem.Client.Pages
     public partial class ReportDetailview : IDisposable
     {
         private FormModel? _form;
-        private FormMessageDto _formMessageDto;
+        private FormMessageDto? _formMessageDto;
         private bool _isCompany;
         private ViolationState _enumValue { get; set; }
 
@@ -60,10 +60,10 @@ namespace WhistleblowerSystem.Client.Pages
 
         private async Task SendMessage()
         {
-            _form!.Messages!.Add(_formMessageDto);
-            _formMessageDto = new FormMessageDto(null, "", CurrentAccountService.GetCurrentUser()!, DateTime.Now);
+            _form!.Messages!.Add(_formMessageDto!);
+            _formMessageDto = new FormMessageDto(null, _formMessageDto!.Text, CurrentAccountService.GetCurrentUser()!, DateTime.Now);
             StateHasChanged();
-            //await FormService.AddMessage(_form.Id, _formMessageDto);
+            await FormService.AddMessage(_form.Id!, _formMessageDto);
         }
 
         private string GetMessageStyle(FormMessageDto messageDto)

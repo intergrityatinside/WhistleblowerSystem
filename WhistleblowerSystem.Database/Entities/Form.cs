@@ -37,7 +37,7 @@ namespace WhistleblowerSystem.Database.Entities
         public ObjectId FormTemplateId { get; set; }
         public List<FormField> FormFields { get; set; }
         public List<AttachementMetaData>? Attachements { get; set; }
-        public List<FormMessage>? Messages { get; set; }
+        public List<FormMessage> Messages { get; set; } = new List<FormMessage>();
         public ViolationState State { get; set; }
         public DateTime Datetime { get; set; }
     }
