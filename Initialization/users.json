@@ -5,6 +5,13 @@
     "FirstName": "Sara",
     "Email": "sara.zarubica@students.fhnw.ch",
     "Password": "1234"
+  },
+  {
+    "Id": null,
+    "Name": "Asprion",
+    "FirstName": "Petra",
+    "Email": "integrity@inside.ch",
+    "Password": "fhnw2021"
   }
 ]
        
