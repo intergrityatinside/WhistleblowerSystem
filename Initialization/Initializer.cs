@@ -86,17 +86,17 @@ namespace WhistleblowerSystem.Initialization
             
             List<LanguageEntryDto> languageEntries2 = new() 
             {
-                new("", Shared.Enums.Language.German, "Hier können Sie Ihren Name angeben, wenn Sie möchten.", "name"),
-                new("", Shared.Enums.Language.English, "Here you can enter your name if you wish.", "name")
+                new("", Shared.Enums.Language.German, "Wenn Sie möchten, können Sie hier Ihren Name angeben", "name"),
+                new("", Shared.Enums.Language.English, "If you wish, you can enter your name here", "name")
             };
-            FormFieldTemplateDto formField3 = new FormFieldTemplateDto("", languageEntries2, Shared.Enums.ControlType.Textbox, null);
+            FormFieldTemplateDto formField2 = new FormFieldTemplateDto("", languageEntries2, Shared.Enums.ControlType.Textbox, null);
            
             List<LanguageEntryDto> languageEntries3 = new()
             {
                 new("", Shared.Enums.Language.German, "Bitte beschreiben Sie den Vorfall so detailliert wie möglich", "Vorfall"),
                 new("", Shared.Enums.Language.English, "Please describe the incident as detailed as possible", "Vorfall")
             };
-            FormFieldTemplateDto formField2 = new FormFieldTemplateDto("", languageEntries3, Shared.Enums.ControlType.Textarea, null);
+            FormFieldTemplateDto formField3 = new FormFieldTemplateDto("", languageEntries3, Shared.Enums.ControlType.Textarea, null);
             
             List<FormFieldTemplateDto> formFields = new()
             {
