@@ -19,12 +19,7 @@
                 <CardHeaderContent>
                     <MudText Typo="Typo.h5">Meldung: @_form.Title</MudText>
                 </CardHeaderContent>
-                <CardHeaderActions>
-                    @if (_form.Attachements!.Count != 0)
-                    {
-                        <MudIconButton Icon="@Icons.Material.Filled.AttachFile" Color="Color.Default"/>
-                    }
-                </CardHeaderActions>
+         
             </MudCardHeader>
             <MudCardContent>
                 <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">
@@ -60,6 +55,22 @@
                     <MudText> Status: @_form.State.ToString()</MudText>
                 }
             </MudCardActions>
+        </MudCard>
+
+        <div style="padding-top:15px"></div>
+        <MudCard>
+            @if (_form.Attachements != null)
+            {
+                @foreach (var file in _form.Attachements)
+                {
+                    <a href="/attachement/@file.AttachementId" target="_blank">
+                        <MudIconButton Icon="@Icons.Material.Filled.FileDownload" Color="Color.Default" />
+                        <span>@file.Filename</span>
+                    </a>
+                    <br/>
+                }
+
+            }
         </MudCard>
 
         <h5 style="padding-top:15px;">Nachrichten</h5>

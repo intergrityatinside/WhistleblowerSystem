@@ -43,5 +43,14 @@ namespace WhistleblowerSystem.Client.Services
             }
             return _currentAttachementMetaData;
         }
+
+        public async Task Delete(string id) {
+            HttpResponseMessage? response = await _http.DeleteAsync($"Attachement/{id}");
+
+            if (!string.IsNullOrEmpty(value: await response.Content.ReadAsStringAsync()))
+            {
+                Console.WriteLine(response);
+            }
+        }
     }
 }

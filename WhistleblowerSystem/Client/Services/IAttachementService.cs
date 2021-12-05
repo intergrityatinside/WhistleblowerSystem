@@ -9,5 +9,6 @@ namespace WhistleblowerSystem.Client.Services
     public interface IAttachementService
     {
         public Task<AttachementMetaDataDto?> Save(IBrowserFile file);
+        public Task Delete(string id);
     }
 }

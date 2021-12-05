@@ -38,13 +38,20 @@ namespace WhistleblowerSystem.Server.Controllers
             return await _attachementService.SaveAttachementAsync(file.FileName, file.ContentType, data);
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> Get(string id)
         {
             //TODO prüfen ob Rechte File aufzumachen
             var attachementDto = await _attachementService.GetAttachementsByIdAsync(id);
             if (attachementDto == null) throw new Exception("File not found");
             return File(attachementDto.Bytes, attachementDto.Name.ToString());
+        }
+
+        [HttpDelete("{id}")]
+        [AllowAnonymous]
+        public async Task Delete(string id)
+        {
+            await _attachementService.DeleteAttachementAsync(id);
         }
     }
 }

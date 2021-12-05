@@ -62,22 +62,23 @@
                   Class=@("drag-drop-zone "+ _dragEnterStyle)>
 
             <InputFile OnChange="OnInputFileChanged" multiple class="drag-drop-input" />
-
-            @if (fileNames.Count() == 0)
+            @if (_form == null || _form!.Attachements == null || _form!.Attachements!.Count() == 0)
             {
-        <MudText Typo="Typo.h5">@L["upload_hint"]</MudText>
+                <MudText Typo="Typo.h5">@L["upload_hint"]</MudText>
             }
             else
             {
                 <MudList Style="padding:2em;width:100%;" Dense="true">
-                    @foreach (var file in fileNames)
+                    @foreach (var file in _form!.Attachements!)
                     {
-                        <MudListItem @key="@file">
+                        <MudListItem @key="file.Filename">
                             <MudChip Color="Color.Dark"
-                                     Style="width:60px; overflow:hidden;"
-                                     Text="@(file.Split(".").Last())" />
-                            @file
-                        </MudListItem>}
+                                        Style="width:60px; overflow:hidden;"
+                                        Text="@(file.Filename.Split(".").Last())" />
+                            @file <MudIconButton OnClick="() => DeleteDocument(file.AttachementId, file.Filename)" Icon="@Icons.Material.Filled.Delete" Color="Color.Default" />
+
+                        </MudListItem>
+                    }
                 </MudList>
             }
         </MudPaper>
@@ -85,20 +86,19 @@
     <div class="footer">
         <div>
             <MudButton OnClick="Back" Color="Color.Dark" Variant="Variant.Filled">@L["upload_back"]</MudButton>
-            <MudButton OnClick="UploadDocs" Color="Color.Dark" Variant="Variant.Filled">@L["upload_continue"]</MudButton>
+            <MudButton OnClick="async () => await UploadDocs()" Color="Color.Dark" Disabled=@IsTaskRunning Variant="Variant.Filled">@L["upload_continue"]</MudButton>
 
         </div>
     </div>
 </div>
 
 @code {
-        [Inject] IStringLocalizer<App> L { get; set; } = null!;
+    [Inject] IStringLocalizer<App> L { get; set; } = null!;
+    [Inject] private IDialogService? DialogService { get; set; }
     private string? _dragEnterStyle;
-    private IList<string> fileNames = new List<string>();
-    private List<AttachementMetaDataDto>? _attachmentMetaData = new List<AttachementMetaDataDto>();
     private FormDto? _form;
-    private IReadOnlyList<IBrowserFile>? files;
-    //private List<File> files = new();
+    bool IsTaskRunning = false;
+    bool rerender = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -107,28 +107,58 @@
 
     }
 
-
-    private void OnInputFileChanged(InputFileChangeEventArgs e)
+    protected override bool ShouldRender()
     {
-        files = e.GetMultipleFiles();
-        fileNames = files.Select(f => f.Name).ToList();
+        var render = base.ShouldRender() || rerender;
+        rerender = false;
+        return render;
+    }
+
+
+    private async Task OnInputFileChanged(InputFileChangeEventArgs e)
+    {
+        var addedFiles = e.GetMultipleFiles().ToList();
+        bool fileExistsWithSameName = false;
+        if (addedFiles != null)
+        {
+            foreach (var addedFile in addedFiles) {
+                if (_form != null && _form.Attachements != null)
+                {
+                    foreach (var file in _form!.Attachements!)
+                    {
+                        if (file.Filename == addedFile.Name)
+                        {
+                            //TODO: Mehrsprachig
+                            await DialogService!.ShowMessageBox(
+                                "Warnung",
+                                "Es wurde bereits ein File mit dem selben Namen hinzugefügt",
+                                yesText: "Schliessen");
+                            fileExistsWithSameName = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (fileExistsWithSameName)
+                {
+                    continue;
+                }
+
+                var attachementMetaData = await AttachementService.Save(addedFile);
+                if (attachementMetaData != null)
+                {
+                    _form!.Attachements = _form!.Attachements ?? new List<AttachementMetaDataDto>();
+                    _form!.Attachements.Add(attachementMetaData);
+                }
+                rerender = true;
+            }
+        }
     }
 
     private async Task UploadDocs()
     {
-        if (files != null)
-        {
-            foreach (var file in files)
-            {
-                var attachementMetaData = await AttachementService.Save(file!);
-                if (attachementMetaData != null && _attachmentMetaData != null)
-                {
-                    _attachmentMetaData.Add(attachementMetaData);
-                }
-            }
+        IsTaskRunning = true;
 
-            _form!.Attachements = _attachmentMetaData;
-        }
         FormDto? savedForm = await FormService.Save(_form!);
         if (savedForm != null)
         {
@@ -138,6 +168,11 @@
 
         }
 
+    }
+
+    private async Task DeleteDocument(string id, string filename) {
+        await AttachementService.Delete(id);
+        _form!.Attachements!.Remove(_form!.Attachements.First(a => a.AttachementId == id));
     }
 
     private void CheckResetForm(object? sender, LocationChangedEventArgs e)
