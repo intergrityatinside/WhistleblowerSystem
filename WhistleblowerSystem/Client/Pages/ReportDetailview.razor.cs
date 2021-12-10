@@ -81,9 +81,9 @@ namespace WhistleblowerSystem.Client.Pages
 
         private string GetSender(FormMessageDto messageDto)
         {
-            var sender = (messageDto.User != null) ? "Sachbearbeiter" : "Melder";
+            var sender = (messageDto.User != null) ? "reportdetailview_sender_clerk" : "reportdetailview_sender_reporter";
             bool myMessage = _isCompany && messageDto.User != null || !_isCompany && messageDto.User == null;
-            return myMessage ? "Ich" : sender;
+            return myMessage ? "reportdetailview_sender_you" : sender;
         }
 
         private string GetPosition(FormMessageDto messageDto)

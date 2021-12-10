@@ -482,5 +482,83 @@ namespace WhistleblowerSystem.Client.Resources {
                 return ResourceManager.GetString("Accepted", resourceCulture);
             }
         }
+        
+        public static string reportdetailview_title {
+            get {
+                return ResourceManager.GetString("reportdetailview_title", resourceCulture);
+            }
+        }
+        
+        public static string reportdetailview_report {
+            get {
+                return ResourceManager.GetString("reportdetailview_report", resourceCulture);
+            }
+        }
+        
+        public static string reportdetailview_additionalinfo {
+            get {
+                return ResourceManager.GetString("reportdetailview_additionalinfo", resourceCulture);
+            }
+        }
+        
+        public static string reportdetailview_entermessage {
+            get {
+                return ResourceManager.GetString("reportdetailview_entermessage", resourceCulture);
+            }
+        }
+        
+        public static string reportdetailview_nomessages {
+            get {
+                return ResourceManager.GetString("reportdetailview_nomessages", resourceCulture);
+            }
+        }
+        
+        public static string reportdetailview_send {
+            get {
+                return ResourceManager.GetString("reportdetailview_send", resourceCulture);
+            }
+        }
+        
+        public static string reportdetailview_close {
+            get {
+                return ResourceManager.GetString("reportdetailview_close", resourceCulture);
+            }
+        }
+        
+        public static string reportdetailview_savestate {
+            get {
+                return ResourceManager.GetString("reportdetailview_savestate", resourceCulture);
+            }
+        }
+        
+        public static string reportdetailview_state {
+            get {
+                return ResourceManager.GetString("reportdetailview_state", resourceCulture);
+            }
+        }
+        
+        public static string reportdetailview_messages {
+            get {
+                return ResourceManager.GetString("reportdetailview_messages", resourceCulture);
+            }
+        }
+        
+        public static string reportdetailview_sender_you {
+            get {
+                return ResourceManager.GetString("reportdetailview_sender_you", resourceCulture);
+            }
+        }
+        
+        public static string reportdetailview_sender_clerk {
+            get {
+                return ResourceManager.GetString("reportdetailview_sender_clerk", resourceCulture);
+            }
+        }
+        
+        public static string reportdetailview_sender_reporter {
+            get {
+                return ResourceManager.GetString("reportdetailview_sender_reporter", resourceCulture);
+            }
+        }
     }
 }

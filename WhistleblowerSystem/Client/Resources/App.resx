@@ -345,4 +345,43 @@ Advice: We recommend that you access our website from a device that is not conne
   <data name="Done" xml:space="preserve">
     <value>Closed</value>
   </data>
+  <data name="reportdetailview_title" xml:space="preserve">
+    <value>Case:</value>
+  </data>
+  <data name="reportdetailview_report" xml:space="preserve">
+    <value>Report: </value>
+  </data>
+  <data name="reportdetailview_additionalinfo" xml:space="preserve">
+    <value>Additional information: </value>
+  </data>
+  <data name="reportdetailview_entermessage" xml:space="preserve">
+    <value>Enter new message</value>
+  </data>
+  <data name="reportdetailview_nomessages" xml:space="preserve">
+    <value>No messages sent yet</value>
+  </data>
+  <data name="reportdetailview_send" xml:space="preserve">
+    <value>send</value>
+  </data>
+  <data name="reportdetailview_close" xml:space="preserve">
+    <value>Close report</value>
+  </data>
+  <data name="reportdetailview_savestate" xml:space="preserve">
+    <value>save state</value>
+  </data>
+  <data name="reportdetailview_state" xml:space="preserve">
+    <value>State:</value>
+  </data>
+  <data name="reportdetailview_messages" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="reportdetailview_sender_you" xml:space="preserve">
+    <value>You</value>
+  </data>
+  <data name="reportdetailview_sender_reporter" xml:space="preserve">
+    <value>Reporter</value>
+  </data>
+  <data name="reportdetailview_sender_clerk" xml:space="preserve">
+    <value>Clerk</value>
+  </data>
 </root>
