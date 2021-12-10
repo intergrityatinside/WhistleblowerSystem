@@ -21,7 +21,6 @@
             <br />
         </p>
         <p>
-            <!-- TODO bind value to password which comes from the backend --> 
             @L["confirmation_password"] <span style="color:red;font-weight:bold;">@_form?.Password</span>
             <br/>
         </p>
@@ -41,9 +40,7 @@
 @code {
     [Inject] IStringLocalizer<App> L { get; set; } = null!;
     private FormDto? _form;
-    private WhistleblowerDto _whistleblower = new WhistleblowerDto("", "", "");
-
-
+    
     protected override void OnInitialized()
     {
         _form = FormService.GetCurrentForm();
