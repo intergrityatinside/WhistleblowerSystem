@@ -560,5 +560,23 @@ namespace WhistleblowerSystem.Client.Resources {
                 return ResourceManager.GetString("reportdetailview_sender_clerk", resourceCulture);
             }
         }
+        
+        public static string reportdetailview_description {
+            get {
+                return ResourceManager.GetString("reportdetailview_description", resourceCulture);
+            }
+        }
+        
+        public static string reportdetailview_documents {
+            get {
+                return ResourceManager.GetString("reportdetailview_documents", resourceCulture);
+            }
+        }
+        
+        public static string reportdetailview_add_documents {
+            get {
+                return ResourceManager.GetString("reportdetailview_add_documents", resourceCulture);
+            }
+        }
     }
 }

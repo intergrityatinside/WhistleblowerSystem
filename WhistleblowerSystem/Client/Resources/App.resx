@@ -384,4 +384,13 @@ Advice: We recommend that you access our website from a device that is not conne
   <data name="reportdetailview_sender_clerk" xml:space="preserve">
     <value>Clerk</value>
   </data>
+  <data name="reportdetailview_description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="reportdetailview_documents" xml:space="preserve">
+    <value>Documents:</value>
+  </data>
+  <data name="reportdetailview_add_documents" xml:space="preserve">
+    <value>Upload additional documents</value>
+  </data>
 </root>

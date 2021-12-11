@@ -384,4 +384,13 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
   <data name="Received" xml:space="preserve">
     <value>Erhalten</value>
   </data>
+  <data name="reportdetailview_description" xml:space="preserve">
+    <value>Beschreibung:</value>
+  </data>
+  <data name="reportdetailview_add_documents" xml:space="preserve">
+    <value>Zusätzliche Dokumente hochladen</value>
+  </data>
+  <data name="reportdetailview_documents" xml:space="preserve">
+    <value>Dokumente:</value>
+  </data>
 </root>
