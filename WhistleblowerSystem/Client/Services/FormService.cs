@@ -12,7 +12,6 @@ namespace WhistleblowerSystem.Client.Services
     {
         private readonly HttpClient _http;
         private FormDto? _currentForm;
-        private FormModel? _currentFormModel;
         private List<FormDto>? _allForms;
 
         public FormService(HttpClient http)
@@ -78,17 +77,7 @@ namespace WhistleblowerSystem.Client.Services
         {
             return _currentForm;
         }
-
-        public void SetCurrentFormModel(FormModel? form)
-        {
-            _currentFormModel = form ?? null;
-        }
         
-        public FormModel? GetCurrentFormModel()
-        {
-            return _currentFormModel;
-        }
-
         public FormModel MapFormDtoToFormModel(FormDto dto)
         {
             var state = getStateString(dto.State);

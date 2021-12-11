@@ -57,8 +57,7 @@ namespace WhistleblowerSystem.Client.Pages
 
         private void FormSelected(TableRowClickEventArgs<FormModel> tableRowClickEventArgs)
         {
-            FormService.SetCurrentFormModel(tableRowClickEventArgs.Item);
-            NavigationManager.NavigateTo("/reportdetailview");
+            NavigationManager.NavigateTo($"/reportdetailview/{@tableRowClickEventArgs.Item.Id}");
         }
     }
 }
