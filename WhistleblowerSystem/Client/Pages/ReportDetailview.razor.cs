@@ -15,7 +15,7 @@ namespace WhistleblowerSystem.Client.Pages
 {
     public partial class ReportDetailview : IDisposable
     {
-        [Parameter] public string CaseId { get; set; } = null;
+        [Parameter] public string CaseId { get; set; } = string.Empty;
         private FormModel? _form;
         private FormMessageDto? _formMessageDto;
         private bool _isCompany;
