@@ -13,6 +13,7 @@ namespace WhistleblowerSystem.Client.Services
         public Task<FormDto?> Save(FormDto _form);
         public Task<FormDto?> GetForm();
         public Task AddMessage(string formId, FormMessageDto messageDto);
+        public Task AddFile(string formId, AttachementMetaDataDto attachementMetaDataDto);
         public Task UpdateState(string id, ViolationState state);
         public FormDto? GetCurrentForm();
         public void SetCurrentForm(FormDto? form);

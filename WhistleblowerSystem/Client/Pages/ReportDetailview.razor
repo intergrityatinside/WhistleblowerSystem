@@ -11,7 +11,7 @@
         @if (_isCompany)
         {
             <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
-                <MudIconButton OnClick="NavigateBack" Icon="@Icons.Material.Filled.ArrowBackIos" Style="font-size: 3rem;"/>
+                <MudIconButton OnClick="NavigateBack" Icon="@Icons.Material.Filled.ArrowBackIos" Style="font-size: 3rem;" />
             </div>
         }
         <MudCard Elevation="5">
@@ -19,7 +19,13 @@
                 <CardHeaderContent>
                     <MudText Typo="Typo.h5">Meldung: @_form.Title</MudText>
                 </CardHeaderContent>
-         
+                <CardHeaderActions>
+                    <InputFile id="fileInput" OnChange="@UploadFiles" hidden multiple />
+                    <MudFab HtmlTag="label"
+                            Color="Color.Success"
+                            Icon="@Icons.Filled.AttachFile"
+                            for="fileInput" />
+                </CardHeaderActions>
             </MudCardHeader>
             <MudCardContent>
                 <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">
@@ -35,7 +41,7 @@
                         <div class="control-title">@formField.Texts.GetLng().Text: @formField.SelectedValues[0]</div>
                     }
                 }
-                <MudDivider/>
+                <MudDivider />
             </MudCardContent>
             <MudCardActions Style="justify-content: flex-end; padding: 16px;">
                 @if (_isCompany)
@@ -43,9 +49,9 @@
                     <div class="state-container">
                         <MudSelect @bind-Value="_enumValue" Label="Status" OffsetY="true" Margin="Margin.None" Style="max-width: 200px;">
                             @foreach (ViolationState item in Enum.GetValues(typeof(ViolationState)))
-                            {
+                                {
                                 <MudSelectItem Value="@item">@L[item.ToString()]</MudSelectItem>
-                            }
+                                }
                         </MudSelect>
                         <MudButton OnClick="async () => await SaveState()" Color="Color.Dark" Variant="Variant.Outlined" Size="Size.Small" Class="ma-2" Disabled="_enumValue == _form.State">Status Speichern</MudButton>
                     </div>
@@ -56,7 +62,6 @@
                 }
             </MudCardActions>
         </MudCard>
-
         <div style="padding-top:15px"></div>
         <MudCard>
             @if (_form.Attachements != null)
@@ -67,7 +72,7 @@
                         <MudIconButton Icon="@Icons.Material.Filled.FileDownload" Color="Color.Default" />
                         <span>@file.Filename</span>
                     </a>
-                    <br/>
+                    <br />
                 }
 
             }
@@ -82,10 +87,10 @@
                         <MudCardContent>
                             <MudText Typo="Typo.body2">@GetSender(formMessageDto), @formMessageDto.Timestamp.ToString("dd/MM/yyyy")</MudText>
                             <MudText Typo="Typo.body2">@formMessageDto.Text</MudText>
-                            <MudDivider/>
+                            <MudDivider />
                         </MudCardContent>
                     </MudCard>
-                    <MudSpacer/>
+                    <MudSpacer />
                 </div>
             }
             @if (_form.Messages.Count == 0)
