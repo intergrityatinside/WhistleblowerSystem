@@ -17,8 +17,6 @@ namespace WhistleblowerSystem.Client.Services
         public Task UpdateState(string id, ViolationState state);
         public FormDto? GetCurrentForm();
         public void SetCurrentForm(FormDto? form);
-        public FormModel? GetCurrentFormModel();
-        public void SetCurrentFormModel(FormModel? form);
         public FormModel MapFormDtoToFormModel(FormDto dto);
     }
 }

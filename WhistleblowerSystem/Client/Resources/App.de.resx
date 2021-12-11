@@ -345,4 +345,43 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
   <data name="Accepted" xml:space="preserve">
     <value>Angenommen</value>
   </data>
+  <data name="reportdetailview_title" xml:space="preserve">
+    <value>Case: </value>
+  </data>
+  <data name="reportdetailview_report" xml:space="preserve">
+    <value>Meldung: </value>
+  </data>
+  <data name="reportdetailview_additionalinfo" xml:space="preserve">
+    <value>Zusätzliche Informationen: </value>
+  </data>
+  <data name="reportdetailview_entermessage" xml:space="preserve">
+    <value>Neue Nachricht eingeben</value>
+  </data>
+  <data name="reportdetailview_nomessages" xml:space="preserve">
+    <value>Noch keine Nachrichten vorhanden</value>
+  </data>
+  <data name="reportdetailview_send" xml:space="preserve">
+    <value>senden</value>
+  </data>
+  <data name="reportdetailview_close" xml:space="preserve">
+    <value>Meldung schliessen</value>
+  </data>
+  <data name="reportdetailview_savestate" xml:space="preserve">
+    <value>Status speichern</value>
+  </data>
+  <data name="reportdetailview_state" xml:space="preserve">
+    <value>Status:</value>
+  </data>
+  <data name="reportdetailview_messages" xml:space="preserve">
+    <value>Nachrichten</value>
+  </data>
+  <data name="reportdetailview_sender_you" xml:space="preserve">
+    <value>Du</value>
+  </data>
+  <data name="reportdetailview_sender_clerk" xml:space="preserve">
+    <value>Sachbearbeiter</value>
+  </data>
+  <data name="reportdetailview_sender_reporter" xml:space="preserve">
+    <value>Melder</value>
+  </data>
 </root>

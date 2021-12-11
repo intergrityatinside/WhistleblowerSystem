@@ -1,4 +1,4 @@
-@page "/reportdetailview"
+@page "/reportdetailview/{CaseId}"
 @inject IStringLocalizer<App> L
 @using WhistleblowerSystem.Shared.Enums
 @using Microsoft.Extensions.Localization
@@ -34,7 +34,7 @@
                 @foreach (var formField in _form!.OptionalFormFields!)
                 {
                     <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">
-                        <strong>Zus√§tzliche Informationen: </strong>
+                        <strong>Zus‰tzliche Informationen: </strong>
                     </MudText>
                     @if (formField.SelectedValues[0].Length != 0 && formField.Type != ControlType.Text)
                     {
@@ -109,11 +109,12 @@
             </EditForm>
         </div>
 
-    </div>
-    @if (!_isCompany)
-    {
-        <div class="footer">
-            <MudButton OnClick="Close" Color="Color.Dark" Variant="Variant.Filled">Meldung schliessen</MudButton>
         </div>
+        @if (!_isCompany)
+        {
+            <div class="footer">
+                <MudButton OnClick="Close" Color="Color.Dark" Variant="Variant.Filled">@L["reportdetailview_close"]</MudButton>
+            </div>
+        }
     }
 </div>

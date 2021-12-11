@@ -33,7 +33,7 @@
                 <MudTd DataLabel="caseId">@context.Id</MudTd>
                 <MudTd DataLabel="state">@L[context.StateString]</MudTd>
                 @* ReSharper disable once HeapView.BoxingAllocation *@
-                <MudTd DataLabel="date">@context.Datetime</MudTd>
+                <MudTd DataLabel="date">@context.Datetime.ToString("dd/MM/yyyy")</MudTd>
             </RowTemplate>
             <PagerContent>
                 <MudTablePager/>

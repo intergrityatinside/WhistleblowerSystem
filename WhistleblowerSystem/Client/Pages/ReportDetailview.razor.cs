@@ -15,6 +15,7 @@ namespace WhistleblowerSystem.Client.Pages
 {
     public partial class ReportDetailview : IDisposable
     {
+        [Parameter] public string CaseId { get; set; } = null;
         private FormModel? _form;
         private FormMessageDto? _formMessageDto;
         private bool _isCompany;
@@ -27,18 +28,20 @@ namespace WhistleblowerSystem.Client.Pages
         [Inject] private NavigationManager NavigationManager { get; set; } = null!;
         [Inject] private IAttachementService AttachementService { get; set; } = null!;
 
-        protected override void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
+            _isCompany = CurrentAccountService.GetCurrentUser() != null ? true : false;
             _formMessageDto = new FormMessageDto(null, "", CurrentAccountService.GetCurrentUser()!, DateTime.Now);
-            _form = FormService.GetCurrentFormModel()!;
-            _enumValue = _form.State;
-            if (CurrentAccountService.GetCurrentUser() != null)
-            {
-                _isCompany = true;
+            var result = await FormService.LoadById(CaseId!);
+            if (result != null){
+                _form = FormService.MapFormDtoToFormModel(result!);
+                _enumValue = _form!.State;
             }
             else
             {
-                _isCompany = false;
+                // can't find report, returns to viewreport page or reportlist
+                var link = _isCompany ? "/reportslist" : "/viewreports";
+                NavigationManager.NavigateTo(link);
             }
         }
 
@@ -56,13 +59,11 @@ namespace WhistleblowerSystem.Client.Pages
 
         private void NavigateBack()
         {
-            FormService.SetCurrentFormModel(null);
             NavigationManager.NavigateTo("/reportsList");
         }
 
         private void Close()
         {
-            FormService.SetCurrentFormModel(null);
             NavigationManager.NavigateTo("");
         }
 
@@ -137,9 +138,11 @@ namespace WhistleblowerSystem.Client.Pages
 
         private string GetSender(FormMessageDto messageDto)
         {
-            var sender = (messageDto.User != null) ? "Sachbearbeiter" : "Melder";
+            var sender = (messageDto.User != null)
+                ? "reportdetailview_sender_clerk"
+                : "reportdetailview_sender_reporter";
             bool myMessage = _isCompany && messageDto.User != null || !_isCompany && messageDto.User == null;
-            return myMessage ? "Ich" : sender;
+            return myMessage ? "reportdetailview_sender_you" : sender;
         }
 
         private string GetPosition(FormMessageDto messageDto)
@@ -150,7 +153,7 @@ namespace WhistleblowerSystem.Client.Pages
 
         void IDisposable.Dispose()
         {
-            FormService.SetCurrentFormModel(null);
+            // TODO
         }
         protected override bool ShouldRender()
         {
