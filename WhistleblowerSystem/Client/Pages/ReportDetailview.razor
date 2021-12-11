@@ -9,7 +9,7 @@
     {
         <div class="content">
             <h1 style="display: inline;" class="page-title">@L["reportdetailview_title"]</h1>
-            <h1 style="display: inline; padding-bottom: 1.5rem;">@_form.Id</h1>
+            <h1 style="display:inline;padding-bottom: 1.5rem;">@_form.Id</h1>
             @if (_isCompany)
             {
                 <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
@@ -21,13 +21,18 @@
                     <CardHeaderContent>
                         <MudText Typo="Typo.h5">@L["reportdetailview_report"] @_form.Title</MudText>
                     </CardHeaderContent>
-                <CardHeaderActions>
-                    <InputFile id="fileInput" OnChange="@UploadFiles" hidden multiple />
-                    <MudFab HtmlTag="label"
-                            Color="Color.Success"
-                            Icon="@Icons.Filled.AttachFile"
-                            for="fileInput" />
-                </CardHeaderActions>
+                  
+                    <CardHeaderActions>
+                        @if(!_isCompany)
+                        {
+                        <InputFile id="fileInput" OnChange="@UploadFiles" hidden multiple />
+                        <MudFab HtmlTag="label"
+                                Color="Color.Success"
+                                Icon="@Icons.Filled.AttachFile"
+                                for="fileInput" />
+                        }
+                    </CardHeaderActions>
+                    
                 </MudCardHeader>
                 <MudCardContent>
                     <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">

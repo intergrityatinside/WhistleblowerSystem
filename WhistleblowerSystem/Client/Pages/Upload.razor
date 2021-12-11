@@ -75,7 +75,8 @@
                             <MudChip Color="Color.Dark"
                                         Style="width:60px; overflow:hidden;"
                                         Text="@(file.Filename.Split(".").Last())" />
-                            @file <MudIconButton OnClick="() => DeleteDocument(file.AttachementId, file.Filename)" Icon="@Icons.Material.Filled.Delete" Color="Color.Default" />
+                            @file.Filename
+                            <MudIconButton OnClick="() => DeleteDocument(file.AttachementId, file.Filename)" Icon="@Icons.Material.Filled.Delete" Color="Color.Default" />
 
                         </MudListItem>
                     }

@@ -27,6 +27,7 @@ namespace WhistleblowerSystem.Client.Pages
         [Inject] private IFormService FormService { get; set; } = null!;
         [Inject] private NavigationManager NavigationManager { get; set; } = null!;
         [Inject] private IAttachementService AttachementService { get; set; } = null!;
+        [Inject] private IDialogService? DialogService { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -108,10 +109,10 @@ namespace WhistleblowerSystem.Client.Pages
                             if (file.Filename == addedFile.Name)
                             {
                                 ////TODO: Mehrsprachig
-                                //await DialogService.ShowMessageBox(
-                                //    "Warnung",
-                                //    "Es wurde bereits ein File mit dem selben Namen hinzugef�gt",
-                                //    yesText: "Schliessen");
+                                await DialogService!.ShowMessageBox(
+                                    "Warnung",
+                                    "Es wurde bereits ein File mit dem selben Namen hinzugef�gt",
+                                    yesText: "Schliessen");
                                 fileExistsWithSameName = true;
                                 break;
                             }

@@ -36,7 +36,8 @@ namespace WhistleblowerSystem.Business.Services
             var contentType = new ContentType(filetype);
             Attachement attachement = new Attachement(null, contentType, bytes);
             await _attachementRepository.InsertOneAsync(attachement);
-            return new AttachementMetaDataDto(filename, filetype, attachement.Id.ToString());
+            var attachementMetaData = new AttachementMetaDataDto(filename, filetype, attachement.Id.ToString());
+            return attachementMetaData;
         }
 
         public async Task DeleteAttachementAsync(string id)
