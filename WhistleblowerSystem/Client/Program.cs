@@ -38,6 +38,7 @@ namespace WhistleblowerSystem.Client
             builder.Services.AddMudServices();
 
             var build = builder.Build();
+            await build.Services.GetRequiredService<CurrentAccountService>().InitAsync();
 
             //set the default language
             LanguageService.Language = Language.English;
