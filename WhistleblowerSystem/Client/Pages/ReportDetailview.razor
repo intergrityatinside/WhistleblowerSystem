@@ -5,20 +5,22 @@
 @using WhistleblowerSystem.Client.Utils
 
 <div class="content-container">
-    <div class="content">
-        <h1 style="display: inline;" class="page-title">Case: </h1>
-        <h1 style="display: inline; padding-bottom: 1.5rem;">@_form!.Id</h1>
-        @if (_isCompany)
-        {
-            <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
-                <MudIconButton OnClick="NavigateBack" Icon="@Icons.Material.Filled.ArrowBackIos" Style="font-size: 3rem;" />
-            </div>
-        }
-        <MudCard Elevation="5">
-            <MudCardHeader>
-                <CardHeaderContent>
-                    <MudText Typo="Typo.h5">Meldung: @_form.Title</MudText>
-                </CardHeaderContent>
+    @if (_form != null)
+    {
+        <div class="content">
+            <h1 style="display: inline;" class="page-title">@L["reportdetailview_title"]</h1>
+            <h1 style="display: inline; padding-bottom: 1.5rem;">@_form.Id</h1>
+            @if (_isCompany)
+            {
+                <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
+                    <MudIconButton OnClick="NavigateBack" Icon="@Icons.Material.Filled.ArrowBackIos" Style="font-size: 3rem;"/>
+                </div>
+            }
+            <MudCard Elevation="5">
+                <MudCardHeader>
+                    <CardHeaderContent>
+                        <MudText Typo="Typo.h5">@L["reportdetailview_report"] @_form.Title</MudText>
+                    </CardHeaderContent>
                 <CardHeaderActions>
                     <InputFile id="fileInput" OnChange="@UploadFiles" hidden multiple />
                     <MudFab HtmlTag="label"
@@ -26,57 +28,60 @@
                             Icon="@Icons.Filled.AttachFile"
                             for="fileInput" />
                 </CardHeaderActions>
-            </MudCardHeader>
-            <MudCardContent>
-                <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">
-                    <strong>Beschreibung:</strong> <br> @_form.Description
-                </MudText>
-                @foreach (var formField in _form!.OptionalFormFields!)
-                {
+                </MudCardHeader>
+                <MudCardContent>
                     <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">
-                        <strong>Zusätzliche Informationen: </strong>
+                        <strong>Beschreibung:</strong> <br> @_form.Description
                     </MudText>
-                    @if (formField.SelectedValues[0].Length != 0 && formField.Type != ControlType.Text)
+                    @if (_form!.OptionalFormFields!.Count != 0)
                     {
-                        <div class="control-title">@formField.Texts.GetLng().Text: @formField.SelectedValues[0]</div>
+                        <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">
+                            <strong>@L["reportdetailview_additionalinfo"] </strong>
+                        </MudText>
+                        @foreach (var formField in _form!.OptionalFormFields!)
+                        {
+                            @if (formField.SelectedValues[0].Length != 0 && formField.Type != ControlType.Text)
+                            {
+                                <div class="control-title">@formField.Texts.GetLng().Text: @formField.SelectedValues[0]</div>
+                            }
+                        }
+                    }
+                    <MudDivider />
+                </MudCardContent>
+                <MudCardActions Style="justify-content: flex-end; padding: 16px;">
+                    @if (_isCompany)
+                    {
+                        <div class="state-container">
+                            <MudSelect @bind-Value="_enumValue" Label="@L["reportdetailview_state"]" OffsetY="true" Margin="Margin.None" Style="max-width: 200px;">
+                                @foreach (ViolationState item in Enum.GetValues(typeof(ViolationState)))
+                                {
+                                    <MudSelectItem Value="@item">@L[item.ToString()]</MudSelectItem>
+                                }
+                            </MudSelect>
+                            <MudButton OnClick="async () => await SaveState()" Color="Color.Dark" Variant="Variant.Outlined" Size="Size.Small" Class="ma-2" Disabled="_enumValue == _form.State">@L["reportdetailview_savestate"]</MudButton>
+                        </div>
+                    }
+                    @if (!_isCompany)
+                    {
+                        <MudText> @L["reportdetailview_state"] @L[@_form.State.ToString()]</MudText>
+                    }
+                </MudCardActions>
+            </MudCard>
+
+            <div style="padding-top:15px"></div>
+            <MudCard>
+                @if (_form.Attachements != null)
+                {
+                    @foreach (var file in _form.Attachements)
+                    {
+                        <a href="/attachement/@file.AttachementId" target="_blank">
+                            <MudIconButton Icon="@Icons.Material.Filled.FileDownload" Color="Color.Default"/>
+                            <span>@file.Filename</span>
+                        </a>
+                        <br/>
                     }
                 }
-                <MudDivider />
-            </MudCardContent>
-            <MudCardActions Style="justify-content: flex-end; padding: 16px;">
-                @if (_isCompany)
-                {
-                    <div class="state-container">
-                        <MudSelect @bind-Value="_enumValue" Label="Status" OffsetY="true" Margin="Margin.None" Style="max-width: 200px;">
-                            @foreach (ViolationState item in Enum.GetValues(typeof(ViolationState)))
-                                {
-                                <MudSelectItem Value="@item">@L[item.ToString()]</MudSelectItem>
-                                }
-                        </MudSelect>
-                        <MudButton OnClick="async () => await SaveState()" Color="Color.Dark" Variant="Variant.Outlined" Size="Size.Small" Class="ma-2" Disabled="_enumValue == _form.State">Status Speichern</MudButton>
-                    </div>
-                }
-                @if (!_isCompany)
-                {
-                    <MudText> Status: @_form.State.ToString()</MudText>
-                }
-            </MudCardActions>
-        </MudCard>
-        <div style="padding-top:15px"></div>
-        <MudCard>
-            @if (_form.Attachements != null)
-            {
-                @foreach (var file in _form.Attachements)
-                {
-                    <a href="/attachement/@file.AttachementId" target="_blank">
-                        <MudIconButton Icon="@Icons.Material.Filled.FileDownload" Color="Color.Default" />
-                        <span>@file.Filename</span>
-                    </a>
-                    <br />
-                }
-
-            }
-        </MudCard>
+            </MudCard>
 
         <h5 style="padding-top:15px;">Nachrichten</h5>
         <div class="messaging-container">

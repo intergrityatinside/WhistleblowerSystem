@@ -35,6 +35,9 @@ namespace WhistleblowerSystem.Client.Pages
             var result = await FormService.LoadById(CaseId!);
             if (result != null){
                 _form = FormService.MapFormDtoToFormModel(result!);
+                //check if states needs to be updated
+                await CheckUpdateState();
+                //set dropdown value of current state
                 _enumValue = _form!.State;
             }
             else
@@ -45,6 +48,16 @@ namespace WhistleblowerSystem.Client.Pages
             }
         }
 
+        private async Task  CheckUpdateState()
+        {
+            if (_isCompany && _form!.State.Equals(ViolationState.Undefined))
+            {
+                _form.State = ViolationState.Received;
+                await FormService.UpdateState(_form.Id!, _form.State);
+                StateHasChanged();
+            }
+        }
+
         private async Task SaveState()
         {
             if (_form != null)
@@ -52,9 +65,6 @@ namespace WhistleblowerSystem.Client.Pages
                 _form.State = _enumValue;
                 await FormService.UpdateState(_form.Id!, _enumValue);
             }
-
-            _form!.State = _enumValue;
-            await FormService.UpdateState(_form.Id!, _enumValue);
         }
 
         private void NavigateBack()
@@ -100,7 +110,7 @@ namespace WhistleblowerSystem.Client.Pages
                                 ////TODO: Mehrsprachig
                                 //await DialogService.ShowMessageBox(
                                 //    "Warnung",
-                                //    "Es wurde bereits ein File mit dem selben Namen hinzugefügt",
+                                //    "Es wurde bereits ein File mit dem selben Namen hinzugefï¿½gt",
                                 //    yesText: "Schliessen");
                                 fileExistsWithSameName = true;
                                 break;

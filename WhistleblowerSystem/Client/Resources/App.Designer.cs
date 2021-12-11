@@ -465,21 +465,21 @@ namespace WhistleblowerSystem.Client.Resources {
             }
         }
         
-        public static string Accepted {
+        public static string Received {
             get {
-                return ResourceManager.GetString("Accepted", resourceCulture);
+                return ResourceManager.GetString("Received", resourceCulture);
             }
         }
         
-        public static string InProgress {
+        public static string Processing {
             get {
-                return ResourceManager.GetString("InProgress", resourceCulture);
+                return ResourceManager.GetString("Processing", resourceCulture);
             }
         }
         
-        public static string Done {
+        public static string Closed {
             get {
-                return ResourceManager.GetString("Done", resourceCulture);
+                return ResourceManager.GetString("Closed", resourceCulture);
             }
         }
         

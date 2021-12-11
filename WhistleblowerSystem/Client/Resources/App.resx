@@ -334,15 +334,15 @@ Advice: We recommend that you access our website from a device that is not conne
     <value>Search By CaseID</value>
   </data>
   <data name="Undefined" xml:space="preserve">
-    <value>Undefined</value>
+    <value>New</value>
   </data>
-  <data name="Accepted" xml:space="preserve">
-    <value>Accepted</value>
+  <data name="Received" xml:space="preserve">
+    <value>Received</value>
   </data>
-  <data name="InProgress" xml:space="preserve">
+  <data name="Processing" xml:space="preserve">
     <value>In progress</value>
   </data>
-  <data name="Done" xml:space="preserve">
+  <data name="Closed" xml:space="preserve">
     <value>Closed</value>
   </data>
   <data name="reportdetailview_title" xml:space="preserve">

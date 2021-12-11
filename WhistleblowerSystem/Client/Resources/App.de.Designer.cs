@@ -459,27 +459,15 @@ namespace WhistleblowerSystem.Client.Resources {
             }
         }
         
-        public static string Done {
+        public static string Closed {
             get {
-                return ResourceManager.GetString("Done", resourceCulture);
+                return ResourceManager.GetString("Closed", resourceCulture);
             }
         }
         
         public static string Undefined {
             get {
                 return ResourceManager.GetString("Undefined", resourceCulture);
-            }
-        }
-        
-        public static string InProgress {
-            get {
-                return ResourceManager.GetString("InProgress", resourceCulture);
-            }
-        }
-        
-        public static string Accepted {
-            get {
-                return ResourceManager.GetString("Accepted", resourceCulture);
             }
         }
         
@@ -558,6 +546,18 @@ namespace WhistleblowerSystem.Client.Resources {
         public static string reportdetailview_sender_reporter {
             get {
                 return ResourceManager.GetString("reportdetailview_sender_reporter", resourceCulture);
+            }
+        }
+        
+        public static string Processing {
+            get {
+                return ResourceManager.GetString("Processing", resourceCulture);
+            }
+        }
+        
+        public static string Received {
+            get {
+                return ResourceManager.GetString("Received", resourceCulture);
             }
         }
     }

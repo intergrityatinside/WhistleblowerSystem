@@ -333,17 +333,11 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
   <data name="reportslist_title" xml:space="preserve">
     <value>Meldungen</value>
   </data>
-  <data name="Done" xml:space="preserve">
+  <data name="Closed" xml:space="preserve">
     <value>Abgeschlossen</value>
   </data>
   <data name="Undefined" xml:space="preserve">
-    <value>Undefiniert</value>
-  </data>
-  <data name="InProgress" xml:space="preserve">
-    <value>In Bearbeitung</value>
-  </data>
-  <data name="Accepted" xml:space="preserve">
-    <value>Angenommen</value>
+    <value>Neu</value>
   </data>
   <data name="reportdetailview_title" xml:space="preserve">
     <value>Case: </value>
@@ -383,5 +377,11 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
   </data>
   <data name="reportdetailview_sender_reporter" xml:space="preserve">
     <value>Melder</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>In Bearbeitung</value>
+  </data>
+  <data name="Received" xml:space="preserve">
+    <value>Erhalten</value>
   </data>
 </root>
