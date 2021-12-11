@@ -16,29 +16,23 @@
                     <MudIconButton OnClick="NavigateBack" Icon="@Icons.Material.Filled.ArrowBackIos" Style="font-size: 3rem;"/>
                 </div>
             }
+
             <MudCard Elevation="5">
                 <MudCardHeader>
                     <CardHeaderContent>
                         <MudText Typo="Typo.h5">@L["reportdetailview_report"] @_form.Title</MudText>
                     </CardHeaderContent>
-                <CardHeaderActions>
-                    <InputFile id="fileInput" OnChange="@UploadFiles" hidden multiple />
-                    <MudFab HtmlTag="label"
-                            Color="Color.Success"
-                            Icon="@Icons.Filled.AttachFile"
-                            for="fileInput" />
-                </CardHeaderActions>
                 </MudCardHeader>
                 <MudCardContent>
                     <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">
-                        <strong>Beschreibung:</strong> <br> @_form.Description
+                        <strong>@L["reportdetailview_description"]</strong> <br> @_form.Description
                     </MudText>
-                    @if (_form!.OptionalFormFields!.Count != 0)
+                    @if (!_form.OptionalFormFields.Any())
                     {
                         <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">
                             <strong>@L["reportdetailview_additionalinfo"] </strong>
                         </MudText>
-                        @foreach (var formField in _form!.OptionalFormFields!)
+                        @foreach (var formField in _form!.OptionalFormFields)
                         {
                             @if (formField.SelectedValues[0].Length != 0 && formField.Type != ControlType.Text)
                             {
@@ -46,8 +40,23 @@
                             }
                         }
                     }
-                    <MudDivider />
+                    @if (_form.Attachements != null && _form.Attachements.Count > 0)
+                    {
+                        <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">
+                            <strong>@L["reportdetailview_documents"]:</strong>
+                        </MudText>
+                        @foreach (var file in _form!.Attachements)
+                        {
+                            <a href="/attachement/@file.AttachementId" target="_blank">
+                                <MudIconButton Icon="@Icons.Material.Filled.FileDownload" Color="Color.Default"/>
+                                <span>@file.Filename</span>
+                            </a>
+                            <br/>
+                        }
+                    }
+                    <MudDivider/>
                 </MudCardContent>
+
                 <MudCardActions Style="justify-content: flex-end; padding: 16px;">
                     @if (_isCompany)
                     {
@@ -63,56 +72,50 @@
                     }
                     @if (!_isCompany)
                     {
-                        <MudText> @L["reportdetailview_state"] @L[@_form.State.ToString()]</MudText>
+                        <MudText Typo="Typo.body2">@L["reportdetailview_add_documents"] </MudText>
+                        <InputFile id="fileInput" OnChange="@UploadFiles" hidden multiple/>
+                        <MudFab HtmlTag="label"
+                                Size="Size.Small"
+                                Icon="@Icons.Filled.AttachFile"
+                                for="fileInput"/>
+                        <MudSpacer></MudSpacer>
+                        <MudText Typo="Typo.body2"> @L["reportdetailview_state"] @L[@_form.State.ToString()]</MudText>
                     }
                 </MudCardActions>
             </MudCard>
 
             <div style="padding-top:15px"></div>
-            <MudCard>
-                @if (_form.Attachements != null)
-                {
-                    @foreach (var file in _form.Attachements)
-                    {
-                        <a href="/attachement/@file.AttachementId" target="_blank">
-                            <MudIconButton Icon="@Icons.Material.Filled.FileDownload" Color="Color.Default"/>
-                            <span>@file.Filename</span>
-                        </a>
-                        <br/>
-                    }
-                }
-            </MudCard>
 
-        <h5 style="padding-top:15px;">Nachrichten</h5>
-        <div class="messaging-container">
-            @foreach (var formMessageDto in _form!.Messages!)
-            {
-                <div class="message" style="@GetPosition(formMessageDto)">
-                    <MudCard Outlined="true" Style="@GetMessageStyle(formMessageDto)">
+            <h5 style="padding-top:15px;">@L["reportdetailview_messages"]</h5>
+            <div class="messaging-container">
+                @foreach (var formMessageDto in _form!.Messages!)
+                {
+                    <div class="message" style="@GetPosition(formMessageDto)">
+                        <MudCard Outlined="true" Style="@GetMessageStyle(formMessageDto)">
+                            <MudCardContent>
+                                <MudText Typo="Typo.body2">@L[GetSender(formMessageDto)], @formMessageDto.Timestamp.ToString("dd/MM/yyyy")</MudText>
+                                <MudText Typo="Typo.body2">@formMessageDto.Text</MudText>
+                                <MudDivider/>
+                            </MudCardContent>
+                        </MudCard>
+                        <MudSpacer/>
+                    </div>
+                }
+                @if (_form.Messages.Count == 0)
+                {
+                    <MudText>@L["reportdetailview_nomessages"]</MudText>
+                }
+                <EditForm Model="@_formMessageDto">
+                    <MudCard Outlined="true" Style="padding: 2px">
                         <MudCardContent>
-                            <MudText Typo="Typo.body2">@GetSender(formMessageDto), @formMessageDto.Timestamp.ToString("dd/MM/yyyy")</MudText>
-                            <MudText Typo="Typo.body2">@formMessageDto.Text</MudText>
-                            <MudDivider />
+                            <MudTextField @bind-Value="_formMessageDto!.Text" Placeholder="@L["reportdetailview_entermessage"]"></MudTextField>
                         </MudCardContent>
+                        <MudCardActions>
+                            <MudButton OnClick="async () => await SendMessage()" Color="Color.Dark" Variant="Variant.Outlined" Disabled="_formMessageDto!.Text.Length == 0">@L["reportdetailview_send"]</MudButton>
+                        </MudCardActions>
                     </MudCard>
-                    <MudSpacer />
-                </div>
-            }
-            @if (_form.Messages.Count == 0)
-            {
-                <MudText>Noch keine Nachrichten vorhanden</MudText>
-            }
-            <EditForm Model="@_formMessageDto">
-                <MudCard Outlined="true" Style="padding: 2px">
-                    <MudCardContent>
-                        <MudTextField @bind-Value="_formMessageDto!.Text" Placeholder="Neue Nachricht eingeben"></MudTextField>
-                    </MudCardContent>
-                    <MudCardActions>
-                        <MudButton OnClick="async () => await SendMessage()" Color="Color.Dark" Variant="Variant.Outlined" Disabled="_formMessageDto!.Text.Length == 0">senden</MudButton>
-                    </MudCardActions>
-                </MudCard>
-            </EditForm>
-        </div>
+                </EditForm>
+            </div>
 
         </div>
         @if (!_isCompany)
