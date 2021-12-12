@@ -394,7 +394,7 @@ Advice: We recommend that you access our website from a device that is not conne
     <value>Upload additional documents</value>
   </data>
   <data name="whistleblowing_title" xml:space="preserve">
-    <value>We offer you the opportunity to submit whistleblowing reports via this channel, even anonymously if necessary</value>
+    <value>We offer you the opportunity to submit whistleblowing reports via this channel, even anonymously if necessary.</value>
   </data>
   <data name="newreport_required_error" xml:space="preserve">
     <value>This field must be filled in.</value>
