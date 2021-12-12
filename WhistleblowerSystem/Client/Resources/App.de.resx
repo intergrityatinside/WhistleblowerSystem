@@ -396,4 +396,7 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
   <data name="whistleblowing_title" xml:space="preserve">
     <value>Sicheres System zur Meldung von mutmasslichem Fehlverhalten, bei Bedarf auch anonym.</value>
   </data>
+  <data name="newreport_required_error" xml:space="preserve">
+    <value>Dieses Feld muss ausgefüllt sein.</value>
+  </data>
 </root>

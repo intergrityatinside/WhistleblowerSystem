@@ -578,5 +578,17 @@ namespace WhistleblowerSystem.Client.Resources {
                 return ResourceManager.GetString("reportdetailview_documents", resourceCulture);
             }
         }
+        
+        public static string whistleblowing_title {
+            get {
+                return ResourceManager.GetString("whistleblowing_title", resourceCulture);
+            }
+        }
+        
+        public static string newreport_required_error {
+            get {
+                return ResourceManager.GetString("newreport_required_error", resourceCulture);
+            }
+        }
     }
 }

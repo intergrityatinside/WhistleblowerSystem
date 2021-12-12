@@ -79,24 +79,24 @@ namespace WhistleblowerSystem.Initialization
         private FormTemplateDto InitalizeFormFields() {
             List<LanguageEntryDto> languageEntries1 = new() 
             {
-                new("", Shared.Enums.Language.German, "Betreff", "Beschreibung"),
-                new("", Shared.Enums.Language.English, "Subject", "Beschreibung")
+                new("", Shared.Enums.Language.German, "Betreff:", "Beschreibung"),
+                new("", Shared.Enums.Language.English, "Subject:", "Beschreibung")
             };
-            FormFieldTemplateDto formField1 = new FormFieldTemplateDto("", languageEntries1, Shared.Enums.ControlType.Textbox, null);
+            FormFieldTemplateDto formField1 = new FormFieldTemplateDto("", languageEntries1, Shared.Enums.ControlType.Textbox, null, true);
             
             List<LanguageEntryDto> languageEntries2 = new() 
             {
-                new("", Shared.Enums.Language.German, "Wenn Sie möchten, können Sie hier Ihren Name angeben", "name"),
-                new("", Shared.Enums.Language.English, "If you wish, you can enter your name here", "name")
+                new("", Shared.Enums.Language.German, "Wenn Sie möchten, können Sie hier Ihren Name angeben:", "name"),
+                new("", Shared.Enums.Language.English, "If you wish, you can enter your name here:", "name")
             };
-            FormFieldTemplateDto formField2 = new FormFieldTemplateDto("", languageEntries2, Shared.Enums.ControlType.Textbox, null);
+            FormFieldTemplateDto formField2 = new FormFieldTemplateDto("", languageEntries2, Shared.Enums.ControlType.Textbox, null, false);
            
             List<LanguageEntryDto> languageEntries3 = new()
             {
-                new("", Shared.Enums.Language.German, "Bitte beschreiben Sie den Vorfall so detailliert wie möglich", "Vorfall"),
-                new("", Shared.Enums.Language.English, "Please describe the incident as detailed as possible", "Vorfall")
+                new("", Shared.Enums.Language.German, "Bitte beschreiben Sie den Vorfall so detailliert wie möglich:", "Vorfall"),
+                new("", Shared.Enums.Language.English, "Please describe the incident as detailed as possible:", "Vorfall")
             };
-            FormFieldTemplateDto formField3 = new FormFieldTemplateDto("", languageEntries3, Shared.Enums.ControlType.Textarea, null);
+            FormFieldTemplateDto formField3 = new FormFieldTemplateDto("", languageEntries3, Shared.Enums.ControlType.Textarea, null, true);
             
             List<FormFieldTemplateDto> formFields = new()
             {

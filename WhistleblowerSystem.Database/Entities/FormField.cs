@@ -7,7 +7,7 @@ namespace WhistleblowerSystem.Database.Entities
 {
     public class FormField
     {
-        public FormField(string? id, List<LanguageEntry> texts, ControlType type, List<string> selectedValues, List<SelectionValue>? selectionValues)
+        public FormField(string? id, List<LanguageEntry> texts, ControlType type, List<string> selectedValues, List<SelectionValue>? selectionValues, bool mandatory)
         {
             if (!string.IsNullOrEmpty(id))
             {
@@ -17,6 +17,7 @@ namespace WhistleblowerSystem.Database.Entities
             Type = type;
             SelectedValues = selectedValues;
             SelectionValues = selectionValues;
+            Mandatory = mandatory;
         }
 
         public ObjectId? Id { get; set; }
@@ -24,5 +25,7 @@ namespace WhistleblowerSystem.Database.Entities
         public ControlType Type { get; set; }
         public List<string> SelectedValues { get; set; } // values which the user selected
         public List<SelectionValue>? SelectionValues { get; set; } // all values which can be selected
+        public bool Mandatory { get; set; }
+
     }
 }

@@ -13,85 +13,75 @@
 
         @if (_formFields != null)
         {
-            <EditForm Model="@_formFields">
+            <MudForm Model="@_form" @ref="@_mudForm">
                 @foreach (FormFieldDto formField in _formFields)
                 {
                     if (formField.SelectionValues != null)
                     {
                         formField.SelectedValues!.Add(string.Empty);
-
-                        @switch (formField.Type)
-                        {
-                            <!--case (ControlType.Checkbox):-->
-                            @*<div class="control-title">@formField.Texts[0].Text</div>
-                                @if (formField.SelectionValues != null)
+                        <div class="form-group control">
+                            <div style="display: flex; flex-direction: row">
+                                @if (formField.Mandatory)
                                 {
-                                    @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
-                                    {
-                                        <MudCheckBox @bind-Checked="@formField.SelectedValues" Label="@selectionValue.Text[0].Text"></MudCheckBox>
-                                    }
-                                }*@
-                            <!--break;-->
+                                    <MudText Color="Color.Error">
+                                        <sup>
+                                            <strong>*</strong>
+                                        </sup>
+                                    </MudText>
+                                }
+                                @formField.Texts.GetLng().Text
+                            </div>
 
-                            case (ControlType.Dropdown):
-                                <div class="form-group control">
-                                    <div class="control-title">@formField.Texts.GetLng().Text</div>
+                            @switch (formField.Type)
+                            {
+                                case (ControlType.Dropdown):
                                     <MudSelect @bind-Value="formField.SelectedValues[0]" T="string"
-                                               Placeholder=@L["newreport_placeholder_select"] Strict="true" Variant="Variant.Outlined" Format="F2">
+                                               Placeholder=@L["newreport_placeholder_select"] Strict="true" Variant="Variant.Outlined" Format="F2" Required="@formField.Mandatory" RequiredError="@L["newreport_required_error"]">
                                         @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
                                         {
                                             var lng = selectionValue.Text.GetLng();
                                             <MudSelectItem T="string" Value="lng.Value">@lng.Text</MudSelectItem>
                                         }
                                     </MudSelect>
-                                </div>
-                                break;
-
-                            case (ControlType.Radiobutton):
-                                <div class="form-group control">
-                                    <div class="control-title">@formField.Texts.GetLng().Text</div>
-                                    <MudRadioGroup @bind-SelectedOption="@formField.SelectedValues[0]">
+                                    break;
+                                case (ControlType.Radiobutton):
+                                    <MudRadioGroup @bind-SelectedOption="@formField.SelectedValues[0]" Required="@formField.Mandatory" RequiredError="@L["newreport_required_error"]">
                                         @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
-                                                            {
-                                                                var lng = selectionValue.Text.GetLng();
-                                            <MudRadio Option="@(lng.Value)"> @lng.Value </MudRadio>
-                                                            }
+                                        {
+                                            var lng = selectionValue.Text.GetLng();
+                                            <MudRadio Option="@(lng.Value)">@lng.Value </MudRadio>
+                                        }
                                     </MudRadioGroup>
-                                </div>
-                                break;
-
-                            case (ControlType.Textarea):
-                                <div class="form-group control">
-                                    <div class="control-title">@(formField.Texts.GetLng().Text): </div>
-                                    <MudTextField class="control-textarea" Placeholder=@L["newreport_placeholder_text"] Label="" Variant="Variant.Outlined" Lines="8" @bind-Value="@formField.SelectedValues[0]" />
-                                </div>
-                                break;
-                            case (ControlType.Text):
-                                <div class="form-group control">
-                                    <label>@formField.Texts.GetLng().Text</label>
-                                </div>
-                                break;
-
-                            case (ControlType.Textbox):
-                                <div class="form-group control">
-                                    <div class="control-title">@(formField.Texts.GetLng().Text): </div>
-                                    <MudTextField Placeholder=@L["newreport_placeholder_text"] @bind-Value="@formField.SelectedValues[0]" Label="" Variant="Variant.Outlined"></MudTextField>
-                                </div>
-                                break;
-
-                            default:
-                                Console.WriteLine("Form field is not implemented");
-                                break;
-                        }
+                                    break;
+                                case (ControlType.Textarea):
+                                    <MudTextField class="control-textarea" Placeholder=@L["newreport_placeholder_text"] Label="" Variant="Variant.Outlined" Lines="8" @bind-Value="@formField.SelectedValues[0]" Required="@formField.Mandatory" RequiredError="@L["newreport_required_error"]"/>
+                                    break;
+                                case (ControlType.Textbox):
+                                    <MudTextField Placeholder=@L["newreport_placeholder_text"] @bind-Value="@formField.SelectedValues[0]" Label="" Variant="Variant.Outlined" Required="@formField.Mandatory" RequiredError="@L["newreport_required_error"]"></MudTextField>
+                                    break;
+                                case (ControlType.Checkbox):
+                                   @*<div class="control-title">@formField.Texts[0].Text</div>
+                                    @if (formField.SelectionValues != null)
+                                    {
+                                        @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
+                                        {
+                                            <MudCheckBox @bind-Checked="@formField.SelectedValues" Label="@selectionValue.Text[0].Text"></MudCheckBox>
+                                        }
+                                    }*@
+                                    break;
+                                default:
+                                    Console.WriteLine("Form field is not implemented");
+                                    break;
+                            }
+                        </div>
                     }
                 }
-            </EditForm>
+            </MudForm>
         }
     </div>
     <div class="footer">
         <div>
-
-            <MudButton OnClick="Navigate" Color="Color.Dark" Variant="Variant.Filled">@L["newreport_continue"]</MudButton>
+            <MudButton Color="Color.Dark" Variant="Variant.Filled" OnClick="@(async () => await Submit())">@L["newreport_continue"]</MudButton>
         </div>
     </div>
 </div>

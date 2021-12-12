@@ -7,13 +7,14 @@ namespace WhistleblowerSystem.Shared.DTOs
 {
     public class FormFieldDto
     {
-        public FormFieldDto(string? id, List<LanguageEntryDto> texts, ControlType type, List<string>? selectedValues, List<SelectionValueDto>? selectionValues)
+        public FormFieldDto(string? id, List<LanguageEntryDto> texts, ControlType type, List<string>? selectedValues, List<SelectionValueDto>? selectionValues, bool mandatory)
         {
             Id = id;
             Texts = texts;
             Type = type;
             SelectedValues = selectedValues!;
             SelectionValues = selectionValues;
+            Mandatory = mandatory;
         }
 
         public string? Id { get; set; }
@@ -21,5 +22,6 @@ namespace WhistleblowerSystem.Shared.DTOs
         public ControlType Type { get; set; }
         public List<string> SelectedValues { get; set; } = new List<string>(); // values which the user selected
         public List<SelectionValueDto>? SelectionValues { get; set; } // all values which can be selected
+        public bool Mandatory { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace WhistleblowerSystem.Database.Entities
 {
     public class FormFieldTemplate
     {
-        public FormFieldTemplate(string? id, List<LanguageEntry> text, ControlType type, List<SelectionValue>? selectionValues)
+        public FormFieldTemplate(string? id, List<LanguageEntry> text, ControlType type, List<SelectionValue>? selectionValues, bool mandatory)
         {
             if (!string.IsNullOrEmpty(id))
             {
@@ -20,12 +20,15 @@ namespace WhistleblowerSystem.Database.Entities
             Text = text;
             Type = type;
             SelectionValues = selectionValues;
+            Mandatory = mandatory;
         }
 
         public ObjectId? Id { get; set; }
         public List<LanguageEntry> Text { get; set; }
         public ControlType Type { get; set; }
         public List<SelectionValue>? SelectionValues { get; set; }
+        public bool Mandatory { get; set; }
+
 
     }
 }

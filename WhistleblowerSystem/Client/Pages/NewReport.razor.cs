@@ -5,6 +5,7 @@ using WhistleblowerSystem.Shared.DTOs;
 using System.Collections.Generic;
 using System;
 using Microsoft.AspNetCore.Components.Routing;
+using MudBlazor;
 
 namespace WhistleblowerSystem.Client.Pages
 
@@ -13,6 +14,7 @@ namespace WhistleblowerSystem.Client.Pages
     {
         private FormDto? _form;
         private List<FormFieldDto>? _formFields;
+        private MudForm _mudForm = new MudForm();
         [Inject] private IFormService FormService { get; set; } = null!;
         [Inject] NavigationManager NavigationManager { get; set; } = null!;
 
@@ -37,19 +39,20 @@ namespace WhistleblowerSystem.Client.Pages
                 StateHasChanged();
             }
         }
-
-        void Navigate()
+        
+        void IDisposable.Dispose()
         {
-            if (_form != null)
+            NavigationManager.LocationChanged -= CheckResetForm;
+        }
+
+        private async Task Submit()
+        {
+            await _mudForm.Validate();
+            if (_mudForm.IsValid)
             {
                 FormService.SetCurrentForm(_form);
                 NavigationManager.NavigateTo("/upload");
             }
-        }
-
-        void IDisposable.Dispose()
-        {
-            NavigationManager.LocationChanged -= CheckResetForm;
         }
     }
 }

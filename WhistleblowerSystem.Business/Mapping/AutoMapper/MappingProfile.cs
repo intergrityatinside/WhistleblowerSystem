@@ -81,22 +81,22 @@ namespace WhistleblowerSystem.Business.Mapping.AutoMapper
         private void CreateFormFieldMap()
         {
             CreateMap<FormField, FormFieldDto>()
-                .ConstructUsing((x, ctx) => new FormFieldDto(x.Id.ToString(), ctx.Mapper.Map<List<LanguageEntryDto>>(x.Texts), x.Type, x.SelectedValues, ctx.Mapper.Map<List<SelectionValueDto>>(x.SelectionValues)))
+                .ConstructUsing((x, ctx) => new FormFieldDto(x.Id.ToString(), ctx.Mapper.Map<List<LanguageEntryDto>>(x.Texts), x.Type, x.SelectedValues, ctx.Mapper.Map<List<SelectionValueDto>>(x.SelectionValues), x.Mandatory))
                 .ForAllMembers(opt => opt.Ignore());
 
             CreateMap<FormFieldDto, FormField>()
-                .ConstructUsing((x, ctx) => new FormField(x.Id, ctx.Mapper.Map<List<LanguageEntry>>(x.Texts), x.Type, x.SelectedValues!, ctx.Mapper.Map<List<SelectionValue>>(x.SelectionValues)))
+                .ConstructUsing((x, ctx) => new FormField(x.Id, ctx.Mapper.Map<List<LanguageEntry>>(x.Texts), x.Type, x.SelectedValues!, ctx.Mapper.Map<List<SelectionValue>>(x.SelectionValues), x.Mandatory))
                 .ForAllMembers(opt => opt.Ignore());
         }
 
         private void CreateFormFieldTemplateMap()
         {
             CreateMap<FormFieldTemplate, FormFieldTemplateDto>()
-                .ConstructUsing((x, ctx) => new FormFieldTemplateDto(x.Id.ToString(), ctx.Mapper.Map<List<LanguageEntryDto>>(x.Text), x.Type, ctx.Mapper.Map<List<SelectionValueDto>>(x.SelectionValues)))
+                .ConstructUsing((x, ctx) => new FormFieldTemplateDto(x.Id.ToString(), ctx.Mapper.Map<List<LanguageEntryDto>>(x.Text), x.Type, ctx.Mapper.Map<List<SelectionValueDto>>(x.SelectionValues), x.Mandatory))
                 .ForAllMembers(opt => opt.Ignore());
 
             CreateMap<FormFieldTemplateDto, FormFieldTemplate>()
-                .ConstructUsing((x, ctx) => new FormFieldTemplate(x.Id, ctx.Mapper.Map<List<LanguageEntry>>(x.Text), x.Type, ctx.Mapper.Map<List<SelectionValue>>(x.SelectionValues)))
+                .ConstructUsing((x, ctx) => new FormFieldTemplate(x.Id, ctx.Mapper.Map<List<LanguageEntry>>(x.Text), x.Type, ctx.Mapper.Map<List<SelectionValue>>(x.SelectionValues), x.Mandatory))
                 .ForAllMembers(opt => opt.Ignore());
         }
 

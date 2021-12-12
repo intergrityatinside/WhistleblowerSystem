@@ -56,7 +56,7 @@ namespace WhistleblowerSystem.Business.Services
             List<FormFieldDto> formFields = new List<FormFieldDto>();
             foreach (FormFieldTemplateDto field in formTemplateDto.Fields) {
                 var selected = new List<string>();
-                FormFieldDto formField = new FormFieldDto(null, field.Text, field.Type, selected, field.SelectionValues);
+                FormFieldDto formField = new FormFieldDto(null, field.Text, field.Type, selected, field.SelectionValues, field.Mandatory);
                 formFields.Add(formField);
             }
 
