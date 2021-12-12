@@ -399,4 +399,13 @@ Advice: We recommend that you access our website from a device that is not conne
   <data name="newreport_required_error" xml:space="preserve">
     <value>This field must be filled in.</value>
   </data>
+  <data name="reportdetailview_upload_warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="reportdetailview_upload_warning_text" xml:space="preserve">
+    <value>A file with the same name has already been added.</value>
+  </data>
+  <data name="reportdetailview_upload_warning_close" xml:space="preserve">
+    <value>Close</value>
+  </data>
 </root>

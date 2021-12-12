@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.Extensions.Localization;
 using MudBlazor;
 using WhistleblowerSystem.Client.Services;
 using WhistleblowerSystem.Shared.DTOs;
@@ -29,12 +30,15 @@ namespace WhistleblowerSystem.Client.Pages
         [Inject] private IAttachementService AttachementService { get; set; } = null!;
         [Inject] private IDialogService? DialogService { get; set; }
 
+        [Inject] IStringLocalizer<App> L { get; set; } = null!;
+
         protected override async Task OnInitializedAsync()
         {
             _isCompany = CurrentAccountService.GetCurrentUser() != null ? true : false;
             _formMessageDto = new FormMessageDto(null, "", CurrentAccountService.GetCurrentUser()!, DateTime.Now);
             var result = await FormService.LoadById(CaseId!);
-            if (result != null){
+            if (result != null)
+            {
                 _form = FormService.MapFormDtoToFormModel(result!);
                 //check if states needs to be updated
                 await CheckUpdateState();
@@ -49,7 +53,7 @@ namespace WhistleblowerSystem.Client.Pages
             }
         }
 
-        private async Task  CheckUpdateState()
+        private async Task CheckUpdateState()
         {
             if (_isCompany && _form!.State.Equals(ViolationState.Undefined))
             {
@@ -108,11 +112,10 @@ namespace WhistleblowerSystem.Client.Pages
                         {
                             if (file.Filename == addedFile.Name)
                             {
-                                ////TODO: Mehrsprachig
                                 await DialogService!.ShowMessageBox(
-                                    "Warnung",
-                                    "Es wurde bereits ein File mit dem selben Namen hinzugef�gt",
-                                    yesText: "Schliessen");
+                                    L["reportdetailview_upload_warning"],
+                                    L["reportdetailview_upload_warning_text"],
+                                    yesText: L["reportdetailview_upload_warning_close"]);
                                 fileExistsWithSameName = true;
                                 break;
                             }
@@ -166,6 +169,7 @@ namespace WhistleblowerSystem.Client.Pages
         {
             // TODO
         }
+
         protected override bool ShouldRender()
         {
             var render = base.ShouldRender() || rerender;

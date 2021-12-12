@@ -1,5 +1,4 @@
 @page "/reportdetailview/{CaseId}"
-@inject IStringLocalizer<App> L
 @using WhistleblowerSystem.Shared.Enums
 @using Microsoft.Extensions.Localization
 @using WhistleblowerSystem.Client.Utils
@@ -22,18 +21,6 @@
                     <CardHeaderContent>
                         <MudText Typo="Typo.h5">@L["reportdetailview_report"] @_form.Title</MudText>
                     </CardHeaderContent>
-                  
-                    <CardHeaderActions>
-                        @if(!_isCompany)
-                        {
-                        <InputFile id="fileInput" OnChange="@UploadFiles" hidden multiple />
-                        <MudFab HtmlTag="label"
-                                Color="Color.Success"
-                                Icon="@Icons.Filled.AttachFile"
-                                for="fileInput" />
-                        }
-                    </CardHeaderActions>
-                    
                 </MudCardHeader>
                 <MudCardContent>
                     <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">

@@ -399,4 +399,13 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
   <data name="newreport_required_error" xml:space="preserve">
     <value>Dieses Feld muss ausgefüllt sein.</value>
   </data>
+  <data name="reportdetailview_upload_warning" xml:space="preserve">
+    <value>Warnung</value>
+  </data>
+  <data name="reportdetailview_upload_warning_close" xml:space="preserve">
+    <value>Schliessen</value>
+  </data>
+  <data name="reportdetailview_upload_warning_text" xml:space="preserve">
+    <value>Es wurde bereits ein File mit dem selben Namen hinzugefügt.</value>
+  </data>
 </root>

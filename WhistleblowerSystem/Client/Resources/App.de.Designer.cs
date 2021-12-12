@@ -590,5 +590,23 @@ namespace WhistleblowerSystem.Client.Resources {
                 return ResourceManager.GetString("newreport_required_error", resourceCulture);
             }
         }
+        
+        public static string reportdetailview_upload_warning {
+            get {
+                return ResourceManager.GetString("reportdetailview_upload_warning", resourceCulture);
+            }
+        }
+        
+        public static string reportdetailview_upload_warning_close {
+            get {
+                return ResourceManager.GetString("reportdetailview_upload_warning_close", resourceCulture);
+            }
+        }
+        
+        public static string reportdetailview_upload_warning_text {
+            get {
+                return ResourceManager.GetString("reportdetailview_upload_warning_text", resourceCulture);
+            }
+        }
     }
 }
