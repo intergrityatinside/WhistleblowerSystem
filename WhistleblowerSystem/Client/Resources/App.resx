@@ -408,4 +408,16 @@ Advice: We recommend that you access our website from a device that is not conne
   <data name="reportdetailview_upload_warning_close" xml:space="preserve">
     <value>Close</value>
   </data>
+  <data name="disclaimer_infotext" xml:space="preserve">
+    <value>This page is part of a research project in the field of whistleblowing and blockchain at FHNW. Please do not report real cases here. These will not be processed or forwarded. For real cases, please contact the official "Whistleblower contact of FHNW":</value>
+  </data>
+  <data name="disclaimer_whistleblower_contact" xml:space="preserve">
+    <value>Whistleblower contact of FHNW</value>
+  </data>
+  <data name="disclaimer_mr" xml:space="preserve">
+    <value>Mr.</value>
+  </data>
+  <data name="disclaimer_project_contact" xml:space="preserve">
+    <value>If you have any questions regarding this project, please contact Dr. Petra Maria Asprion at. </value>
+  </data>
 </root>

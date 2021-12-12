@@ -45,3 +45,38 @@
     </div>
 </div>
 
+
+<MudOverlay Visible="_isOpen" DarkBackground="true" Absolute="true">
+    <div class="d-flex flex-column">
+        <MudAlert Severity="Severity.Warning" Variant="Variant.Filled" ShowCloseIcon="true" CloseIconClicked="(ToggleOpen)">
+            @L["disclaimer_infotext"]
+            <br><br>
+            @L["disclaimer_whistleblower_contact"]
+            <br>
+            @L["disclaimer_mr"] Stephan Bolliger
+            <br>
+            c/o BDO AG
+            <br>
+            Schiffbaustrasse 2
+            <br>
+            8005 Zürich
+            <br>
+            +41 62 834 92 22
+            <br>
+            <a href="mailto:stephan.bolliger@bdo.ch">stephan.bolliger@bdo.ch</a>
+            <br> <br>
+            @L["disclaimer_project_contact"] <a href="mailto:petra.asprion@fhnw.ch">petra.asprion@fhnw.ch</a>.
+        </MudAlert>
+    </div>
+</MudOverlay>
+
+@code {
+    private bool _isOpen = true;
+
+
+    private void ToggleOpen()
+    {
+        _isOpen = !_isOpen;
+    }
+
+}

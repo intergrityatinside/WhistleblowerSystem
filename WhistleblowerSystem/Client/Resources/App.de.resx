@@ -408,4 +408,16 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
   <data name="reportdetailview_upload_warning_text" xml:space="preserve">
     <value>Es wurde bereits ein File mit dem selben Namen hinzugefügt.</value>
   </data>
+  <data name="disclaimer_infotext" xml:space="preserve">
+    <value>Diese Seite ist Teil eines Forschungsprojektes im Bereich Whistleblowing und Blockchain an der FHNW. Bitte melden Sie hier keine echten Fälle. Diese werden nicht bearbeitet oder weitergeleitet. Bei echten Fällen wenden Sie sich bitte an die offizielle «Whistleblower Stelle FHNW»:</value>
+  </data>
+  <data name="disclaimer_whistleblower_contact" xml:space="preserve">
+    <value>Whistleblowerstelle FHNW</value>
+  </data>
+  <data name="disclaimer_mr" xml:space="preserve">
+    <value>Herr</value>
+  </data>
+  <data name="disclaimer_project_contact" xml:space="preserve">
+    <value>Bei Fragen bezüglich diesem Projektes kontaktieren Sie bitte Frau Dr. Petra Maria Asprion unter </value>
+  </data>
 </root>

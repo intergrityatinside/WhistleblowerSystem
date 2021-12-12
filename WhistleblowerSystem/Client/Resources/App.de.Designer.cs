@@ -608,5 +608,29 @@ namespace WhistleblowerSystem.Client.Resources {
                 return ResourceManager.GetString("reportdetailview_upload_warning_text", resourceCulture);
             }
         }
+        
+        public static string disclaimer_infotext {
+            get {
+                return ResourceManager.GetString("disclaimer_infotext", resourceCulture);
+            }
+        }
+        
+        public static string disclaimer_whistleblower_contact {
+            get {
+                return ResourceManager.GetString("disclaimer_whistleblower_contact", resourceCulture);
+            }
+        }
+        
+        public static string disclaimer_mr {
+            get {
+                return ResourceManager.GetString("disclaimer_mr", resourceCulture);
+            }
+        }
+        
+        public static string disclaimer_project_contact {
+            get {
+                return ResourceManager.GetString("disclaimer_project_contact", resourceCulture);
+            }
+        }
     }
 }
