@@ -393,4 +393,7 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
   <data name="reportdetailview_documents" xml:space="preserve">
     <value>Dokumente:</value>
   </data>
+  <data name="whistleblowing_title" xml:space="preserve">
+    <value>Sicheres System zur Meldung von mutmasslichem Fehlverhalten, bei Bedarf auch anonym.</value>
+  </data>
 </root>

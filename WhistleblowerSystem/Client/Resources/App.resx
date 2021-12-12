@@ -157,7 +157,7 @@
     <value>To further enhance your security, please note the following points:</value>
   </data>
   <data name="securitynotice_list_item_1" xml:space="preserve">
-    <value>Our website is separate from our organization&apos;s IT environment</value>
+    <value>Our website is separate from our organization's IT environment</value>
   </data>
   <data name="securitynotice_list_item_2" xml:space="preserve">
     <value>If you wish to remain anonymous, do not include any personal information in your report. Avoid data that could be used to identify you individually</value>
@@ -392,5 +392,8 @@ Advice: We recommend that you access our website from a device that is not conne
   </data>
   <data name="reportdetailview_add_documents" xml:space="preserve">
     <value>Upload additional documents</value>
+  </data>
+  <data name="whistleblowing_title" xml:space="preserve">
+    <value>We offer you the opportunity to submit whistleblowing reports via this channel, even anonymously if necessary</value>
   </data>
 </root>
