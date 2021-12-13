@@ -230,7 +230,7 @@
     <value>Vielen Dank für Ihre Meldung!</value>
   </data>
   <data name="confirmation_caseid" xml:space="preserve">
-    <value>Ihre Case ID lautet: </value>
+    <value>Ihre CaseID lautet: </value>
   </data>
   <data name="confirmation_text" xml:space="preserve">
     <value>Mit der CaseID und Ihrem Passwort können Sie den Stand Ihrer Meldung jederzeit unter “Meldung anzeigen” aufrufen. Bitte notieren Sie sich die CaseID und das Passwort sofort, sobald Sie dieses Fenster schliessen, können CaseID und Passwort nicht mehr aufgerufen oder verändert werden.</value>
@@ -254,7 +254,7 @@
     <value>Aufrufen</value>
   </data>
   <data name="viewreports_id" xml:space="preserve">
-    <value>CaseId</value>
+    <value>CaseID</value>
   </data>
   <data name="faq_question_1" xml:space="preserve">
     <value>Was ist ein Whistleblower?</value>
@@ -343,10 +343,10 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
     <value>Case: </value>
   </data>
   <data name="reportdetailview_report" xml:space="preserve">
-    <value>Meldung: </value>
+    <value>Meldung</value>
   </data>
   <data name="reportdetailview_additionalinfo" xml:space="preserve">
-    <value>Zusätzliche Informationen: </value>
+    <value>Zusätzliche Informationen</value>
   </data>
   <data name="reportdetailview_entermessage" xml:space="preserve">
     <value>Neue Nachricht eingeben</value>
@@ -385,13 +385,13 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
     <value>Erhalten</value>
   </data>
   <data name="reportdetailview_description" xml:space="preserve">
-    <value>Beschreibung:</value>
+    <value>Beschreibung</value>
   </data>
   <data name="reportdetailview_add_documents" xml:space="preserve">
     <value>Zusätzliche Dokumente hochladen</value>
   </data>
   <data name="reportdetailview_documents" xml:space="preserve">
-    <value>Dokumente:</value>
+    <value>Dokumente</value>
   </data>
   <data name="whistleblowing_title" xml:space="preserve">
     <value>Sicheres System zur Meldung von mutmasslichem Fehlverhalten, bei Bedarf auch anonym.</value>
@@ -425,5 +425,8 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
   </data>
   <data name="already_logged_in" xml:space="preserve">
     <value>Sie sind bereits eingeloggt.</value>
+  </data>
+  <data name="viewreports_login_error" xml:space="preserve">
+    <value>Falsche CaseID oder Passwort</value>
   </data>
 </root>

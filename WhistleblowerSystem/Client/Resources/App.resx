@@ -172,7 +172,7 @@
     <value>To enter your report, you must agree to these security notice.</value>
   </data>
   <data name="securitynotice_checkbox_text" xml:space="preserve">
-    <value>To enter your report, you must agree to these security notice.</value>
+    <value>I agree with the security instructions</value>
   </data>
   <data name="securitynotice_continue" xml:space="preserve">
     <value>Continue</value>
@@ -251,7 +251,7 @@
     <value>Password</value>
   </data>
   <data name="viewreports_id" xml:space="preserve">
-    <value>CaseId</value>
+    <value>CaseID</value>
   </data>
   <data name="viewreports_continue" xml:space="preserve">
     <value>View</value>
@@ -349,10 +349,10 @@ Advice: We recommend that you access our website from a device that is not conne
     <value>Case:</value>
   </data>
   <data name="reportdetailview_report" xml:space="preserve">
-    <value>Report: </value>
+    <value>Report</value>
   </data>
   <data name="reportdetailview_additionalinfo" xml:space="preserve">
-    <value>Additional information: </value>
+    <value>Additional information</value>
   </data>
   <data name="reportdetailview_entermessage" xml:space="preserve">
     <value>Enter new message</value>
@@ -388,7 +388,7 @@ Advice: We recommend that you access our website from a device that is not conne
     <value>Description</value>
   </data>
   <data name="reportdetailview_documents" xml:space="preserve">
-    <value>Documents:</value>
+    <value>Documents</value>
   </data>
   <data name="reportdetailview_add_documents" xml:space="preserve">
     <value>Upload additional documents</value>
@@ -418,7 +418,10 @@ Advice: We recommend that you access our website from a device that is not conne
     <value>Mr.</value>
   </data>
   <data name="disclaimer_project_contact" xml:space="preserve">
-    <value>If you have any questions regarding this project, please contact Dr. Petra Maria Asprion at. </value>
+    <value>If you have any questions regarding this project, please contact Dr. Petra Maria Asprion at: </value>
+  </data>
+  <data name="viewreports_login_error" xml:space="preserve">
+    <value>Incorrect CaseID or password</value>
   </data>
   <data name="show_reports" xml:space="preserve">
     <value>Show reports</value>

@@ -19,17 +19,17 @@
             <MudCard Elevation="5">
                 <MudCardHeader>
                     <CardHeaderContent>
-                        <MudText Typo="Typo.h5">@L["reportdetailview_report"] @_form.Title</MudText>
+                        <MudText Typo="Typo.h5">@L["reportdetailview_report"]: @_form.Title</MudText>
                     </CardHeaderContent>
                 </MudCardHeader>
                 <MudCardContent>
                     <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">
-                        <strong>@L["reportdetailview_description"]</strong> <br> @_form.Description
+                        <strong>@L["reportdetailview_description"]:</strong> <br> @_form.Description
                     </MudText>
                     @if (!_form.OptionalFormFields.Any())
                     {
                         <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">
-                            <strong>@L["reportdetailview_additionalinfo"] </strong>
+                            <strong>@L["reportdetailview_additionalinfo"]:</strong>
                         </MudText>
                         @foreach (var formField in _form!.OptionalFormFields)
                         {

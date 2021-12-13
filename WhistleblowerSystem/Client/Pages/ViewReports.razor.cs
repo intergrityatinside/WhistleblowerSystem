@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using WhistleblowerSystem.Shared.DTOs;
 using WhistleblowerSystem.Client.Services;
-using WhistleblowerSystem.Client.Resources;
 using System.Threading.Tasks;
-using WhistleblowerSystem.Database.Entities;
 
 namespace WhistleblowerSystem.Client.Pages
 {
@@ -26,6 +24,8 @@ namespace WhistleblowerSystem.Client.Pages
         {
             try
             {
+                    // deletes blanks in the FormId
+                    _whistleblower.FormId = _whistleblower.FormId.Trim();
                     _loadedWhistleblower = (await CurrentAccountService.Login(_whistleblower))!;
                     _success = _loadedWhistleblower != null ? true : false;
             }
@@ -33,13 +33,13 @@ namespace WhistleblowerSystem.Client.Pages
                 _success = false;
             }
 
-            if (_success && _loadedWhistleblower != null)
+            if (_success && _loadedWhistleblower?.FormId != null)
             {
                 NavigationManager.NavigateTo($"/reportdetailview/{_loadedWhistleblower.FormId}");
             }
             else
             {
-                _message = "Falsche E-Mail oder Passwort";
+                _message = L["viewreports_login_error"];
                 StateHasChanged();
             }
 

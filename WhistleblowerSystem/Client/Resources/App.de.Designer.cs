@@ -632,5 +632,23 @@ namespace WhistleblowerSystem.Client.Resources {
                 return ResourceManager.GetString("disclaimer_project_contact", resourceCulture);
             }
         }
+        
+        public static string show_reports {
+            get {
+                return ResourceManager.GetString("show_reports", resourceCulture);
+            }
+        }
+        
+        public static string already_logged_in {
+            get {
+                return ResourceManager.GetString("already_logged_in", resourceCulture);
+            }
+        }
+        
+        public static string viewreports_login_error {
+            get {
+                return ResourceManager.GetString("viewreports_login_error", resourceCulture);
+            }
+        }
     }
 }

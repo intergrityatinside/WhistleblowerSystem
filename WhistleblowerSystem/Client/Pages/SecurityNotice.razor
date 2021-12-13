@@ -7,12 +7,13 @@
         <h1 class="page-title"> @L["securitynotice_title"] </h1>
         <h3>
             @L["securitynotice_subtitle"]
-            <br />
+            <br/>
         </h3>
         <p>
             @L["securitynotice_list_title"]
-            <br />
+            <br/>
         </p>
+
         <ul>
             <li>@L["securitynotice_list_item_1"]</li>
             <li>@L["securitynotice_list_item_2"]</li>
@@ -22,24 +23,28 @@
 
         <p>
             @L["securitynotice_checkbox_title"]
-            <br />
+            <br/>
         </p>
         <div class="checkbox-container">
             <MudCheckBox @bind-Checked="CheckedValue" Label=@L["securitynotice_checkbox_title"]></MudCheckBox>
         </div>
     </div>
     <div class="footer">
-        <MudButton OnClick="Navigate" Disabled="@(CheckedValue? false: true)" Color="Color.Dark" Variant="Variant.Filled">@L["securitynotice_continue"]</MudButton>
+        <MudButton OnClick="Navigate" Disabled="@(CheckedValue ? false : true)" Color="Color.Dark" Variant="Variant.Filled">@L["securitynotice_continue"]</MudButton>
     </div>
 </div>
 
 
 @code {
-    [Inject] IStringLocalizer<App> L { get; set; } = null!;
+
+    [Inject]
+    IStringLocalizer<App> L { get; set; } = null!;
+
     private bool CheckedValue { get; set; } = false;
 
     private void Navigate()
     {
         NavigationManager.NavigateTo("newreport");
     }
+
 }
