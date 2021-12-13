@@ -420,4 +420,10 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
   <data name="disclaimer_project_contact" xml:space="preserve">
     <value>Bei Fragen bezüglich diesem Projektes kontaktieren Sie bitte Frau Dr. Petra Maria Asprion unter </value>
   </data>
+  <data name="show_reports" xml:space="preserve">
+    <value>Meldungen anzeigen</value>
+  </data>
+  <data name="already_logged_in" xml:space="preserve">
+    <value>Sie sind bereits eingeloggt.</value>
+  </data>
 </root>

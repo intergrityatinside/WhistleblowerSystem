@@ -3,6 +3,12 @@
     <div class="content-container">
         <qdiv class="content">
             <h1 class="page-title">@L["login_title"]</h1>
+            @if (CurrentAccountService.GetCurrentUser() != null || CurrentAccountService.GetCurrentWhistleblower() != null)
+            {
+                <h3>@L["already_logged_in"]</h3>
+            }
+            else
+            {
             <div class="login-container">
                 <div class="form-group control">
                     <MudTextField @bind-Value="_user.Email" Label=@L["login_email"] Variant="Variant.Outlined"></MudTextField>
@@ -11,6 +17,7 @@
                     <MudTextField @bind-Value="_user.Password" Label=@L["login_password"] InputType="InputType.Password"  Variant="Variant.Outlined"></MudTextField>
                 </div>
             </div>
+            }
             @if (_message != null)
             {
                 <div style="color:red;">

@@ -18,6 +18,7 @@ namespace WhistleblowerSystem.Client.Shared
 
         private string _userName = "";
         private UserDto? _currentUser;
+        private WhistleblowerDto? _currentWhistleblower;
         List<(int, string)> languages = new() { 
             ((int)Language.German , "Deutsch"), 
             ((int)Language.English, "English")
@@ -43,14 +44,18 @@ namespace WhistleblowerSystem.Client.Shared
 
         public void DisposeAsync()
         {
-            CurrentAccountService.CurrentUserChanged -= AccountService_CurrentUserChanged;
+
+            CurrentAccountService.CurrentUserChanged -= AccountService_CurrentUserChanged; 
+            CurrentAccountService.CurrentWhistleblowerChanged -= AccountService_CurrentWhistleblowerChanged;
         }
 
         protected override void OnInitialized()
         {
             CurrentAccountService.CurrentUserChanged += AccountService_CurrentUserChanged;
+            CurrentAccountService.CurrentWhistleblowerChanged += AccountService_CurrentWhistleblowerChanged;
             _currentUser = CurrentAccountService.GetCurrentUser();
-            SetUsername(_currentUser);
+            if (_currentUser != null) { SetUsername(_currentUser); }
+            _currentWhistleblower = CurrentAccountService.GetCurrentWhistleblower();
             StateHasChanged();
         }
 
@@ -61,11 +66,10 @@ namespace WhistleblowerSystem.Client.Shared
             StateHasChanged();
         }
 
-        private async Task LogoutClicked()
+        private void AccountService_CurrentWhistleblowerChanged(object? sender, CurrentWhistleblowerChangedEventArgs e)
         {
-            await CurrentAccountService.Logout();
-            _currentUser = null;
-            NavigationManager.NavigateTo("login");
+            _currentWhistleblower = CurrentAccountService.GetCurrentWhistleblower();
+            StateHasChanged();
         }
 
         private void SetUsername(UserDto? userDto)

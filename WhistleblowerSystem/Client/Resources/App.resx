@@ -420,4 +420,10 @@ Advice: We recommend that you access our website from a device that is not conne
   <data name="disclaimer_project_contact" xml:space="preserve">
     <value>If you have any questions regarding this project, please contact Dr. Petra Maria Asprion at. </value>
   </data>
+  <data name="show_reports" xml:space="preserve">
+    <value>Show reports</value>
+  </data>
+  <data name="already_logged_in" xml:space="preserve">
+    <value>You are already logged in.</value>
+  </data>
 </root>

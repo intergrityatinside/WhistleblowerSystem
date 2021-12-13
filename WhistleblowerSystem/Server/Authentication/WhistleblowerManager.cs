@@ -32,7 +32,14 @@ namespace WhistleblowerSystem.Server.Authentication
                 ClaimsIdentity identity = new ClaimsIdentity(GetWhistleblowerClaims(whistleblowerDto), CookieAuthenticationDefaults.AuthenticationScheme);
                 ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 
-                await httpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+                await httpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, 
+                    principal, 
+                    new AuthenticationProperties { 
+                        IsPersistent = false,
+                        AllowRefresh = true,
+                        ExpiresUtc = DateTime.UtcNow.AddMinutes(30),
+                    });
             }
             return whistleblowerDto;
         }

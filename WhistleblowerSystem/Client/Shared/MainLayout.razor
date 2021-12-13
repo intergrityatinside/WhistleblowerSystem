@@ -8,15 +8,14 @@
                 <span class="oi oi-menu"></span>
             </button>
             <a href="">
-                 <image class="navbar-brand" src="/images/integrityAtInside_logo.svg" height="60" width="77.60"></image>
-             </a> 
+                <image class="navbar-brand" src="/images/integrityAtInside_logo.svg" height="60" width="77.60"></image>
+            </a>
         </div>
 
         @if (_currentUser != null)
         {
             <div class="top-row px-4">
                 <spam>  Hi, @_userName</spam>
-                <a @onclick="LogoutClicked" target="_blank" class="ml-md-auto">Logout</a>
             </div>
         }
         <div class="language-container">
@@ -28,7 +27,7 @@
                 }
             </select>
         </div>
-    </div>
+        </div>
     <div class="main-container">
         <div class="@SidebarClass">
             <NavMenu IsNavMenuCollapsed=@IsNavMenuCollapsed />

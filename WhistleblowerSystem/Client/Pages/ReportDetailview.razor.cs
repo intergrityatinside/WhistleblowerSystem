@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.Extensions.Localization;
 using MudBlazor;
 using WhistleblowerSystem.Client.Services;
@@ -34,6 +35,7 @@ namespace WhistleblowerSystem.Client.Pages
 
         protected override async Task OnInitializedAsync()
         {
+            NavigationManager.LocationChanged += UrlChanged;
             _isCompany = CurrentAccountService.GetCurrentUser() != null ? true : false;
             _formMessageDto = new FormMessageDto(null, "", CurrentAccountService.GetCurrentUser()!, DateTime.Now);
             var result = await FormService.LoadById(CaseId!);
@@ -50,6 +52,19 @@ namespace WhistleblowerSystem.Client.Pages
                 // can't find report, returns to viewreport page or reportlist
                 var link = _isCompany ? "/reportslist" : "/viewreports";
                 NavigationManager.NavigateTo(link);
+            }
+        }
+
+        private async void UrlChanged(object? sender, LocationChangedEventArgs e)
+        {
+            string relativePath = e.Location.Replace(NavigationManager.BaseUri, "");
+            if (!relativePath.StartsWith("reportdetailview"))
+            {
+                if (CurrentAccountService.GetCurrentWhistleblower() != null)
+                {
+                    await LogoutClicked();
+                    NavigationManager.NavigateTo("");
+                }
             }
         }
 
@@ -175,6 +190,15 @@ namespace WhistleblowerSystem.Client.Pages
             var render = base.ShouldRender() || rerender;
             rerender = false;
             return render;
+        }
+
+        private async Task LogoutClicked()
+        {
+            if (CurrentAccountService.GetCurrentWhistleblower() != null)
+            {
+                await CurrentAccountService.Logout();
+                NavigationManager.NavigateTo("");
+            }
         }
     }
 }

@@ -25,12 +25,19 @@ namespace WhistleblowerSystem.Client.Services
             if(!string.IsNullOrEmpty(await responseUser.Content.ReadAsStringAsync()))
             {
                 _currentUser = await responseUser.Content.ReadFromJsonAsync<UserDto>();
+                if (_currentUser != null) {
+                    CurrentUserChanged?.Invoke(this, new CurrentUserChangedEventArgs(_currentUser));
+                }
             }
 
             var responseWhistleblower = await _http.GetAsync("Authentication/whistleblower");
             if (!string.IsNullOrEmpty(await responseWhistleblower.Content.ReadAsStringAsync()))
             {
                 _currentWhistleblower = await responseWhistleblower.Content.ReadFromJsonAsync<WhistleblowerDto>();
+                if (_currentWhistleblower != null)
+                {
+                    CurrentWhistleblowerChanged?.Invoke(this, new CurrentWhistleblowerChangedEventArgs(_currentWhistleblower));
+                }
             }
         }
 
@@ -56,6 +63,10 @@ namespace WhistleblowerSystem.Client.Services
                 await _http.PostAsJsonAsync("Authentication/logout", _currentUser);
                 _currentUser = null;
                 CurrentUserChanged?.Invoke(this, new CurrentUserChangedEventArgs(null));
+            }
+            else if (_currentWhistleblower != null)
+            {
+                await _http.PostAsJsonAsync("Authentication/logout", _currentWhistleblower);
                 _currentWhistleblower = null;
                 CurrentWhistleblowerChanged?.Invoke(this, new CurrentWhistleblowerChangedEventArgs(null));
             }

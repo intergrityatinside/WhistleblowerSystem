@@ -1,7 +1,7 @@
 ﻿@using Microsoft.Extensions.Localization;
 
 <div class="@NavMenuCssClass">
-    @if (roleType != RoleType.Company)
+    @if (roleType == RoleType.Undefined)
     {
         <ul class="nav-menu">
             <li class="nav-item px-3">
@@ -26,43 +26,61 @@
             </li>
         </ul>
         <image class="nav-image" src="/images/fhnw_logo.svg" height="32" width="140"></image>
+    }
+    @if (roleType == RoleType.Whistleblower)
+    {
+        <ul class="nav-menu">
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="securitynotice">
+                    <span class="oi oi-plus" aria-hidden="true"></span> @L["newreport_title"]
+                </NavLink>
+            </li>
+            @if (CurrentAccountService != null && CurrentAccountService.GetCurrentWhistleblower() != null && CurrentAccountService!.GetCurrentWhistleblower()!.FormId != null)
+            {
+                <li class="nav-item px-3">
+                    <NavLink class="nav-link" href="@($"reportdetailview/{CurrentAccountService!.GetCurrentWhistleblower()!.FormId!}")">
+                        <span class="oi oi-list-rich" aria-hidden="true"></span> @L["viewreports_title"]
+                    </NavLink>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item px-3">
+                    <NavLink class="nav-link" href="viewreports">
+                        <span class="oi oi-list-rich" aria-hidden="true"></span> @L["viewreports_title"]
+                    </NavLink>
+                </li>
+            }
+
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="manual">
+                    <span class="oi oi-info" aria-hidden="true"></span> @L["manual_title"]
+                </NavLink>
+            </li>
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="faq">
+                    <span class="oi oi-magnifying-glass" aria-hidden="true"></span> @L["faq_title"]
+                </NavLink>
+            </li>
+        </ul>
+        <image class="nav-image" src="/images/fhnw_logo.svg" height="32" width="140"></image>
+
+    }
+    @if (roleType == RoleType.Company)
+    {
+        <ul class="nav-menu">
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="reportslist">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> @L["show_reports"]
+                </NavLink>
+            </li>
+            <li class="nav-item px-3">
+                <NavLink @onclick="LogoutClicked" class="nav-link" href="/">
+                    <span class="oi oi-lock-locked" aria-hidden="true"></span>Logout
+                </NavLink>
+            </li>
+        </ul>
+        <image class="nav-image" src="/images/fhnw_logo.svg" height="32" width="140"></image>
 
     }
 </div>
-
-
-@code {
-    [Inject] NavigationManager NavigationManager { get; set; } = null!;
-    [Inject] IStringLocalizer<App> L { get; set; } = null!;
-    [Parameter] public bool IsNavMenuCollapsed { get; set; } = false;
-
-    private string NavMenuCssClass => IsNavMenuCollapsed ? "menu-collapsed" : "menu";
-    private RoleType roleType = RoleType.Undefined;
-
-
-    protected override void OnInitialized()
-    {
-        SetRoleType(NavigationManager.Uri);
-        NavigationManager.LocationChanged += (e, args) =>
-        {
-            SetRoleType(args.Location);
-        };
-
-    }
-
-    private void SetRoleType(string uri)
-    {
-        string relativePath = uri.Replace(NavigationManager.BaseUri, "");
-        roleType = string.IsNullOrEmpty(relativePath) ? RoleType.Undefined :
-            relativePath.StartsWith("company") || relativePath.StartsWith("/company") ? RoleType.Company :
-            RoleType.Whistleblower;
-        StateHasChanged();
-    }
-
-    private enum RoleType
-    {
-        Undefined = 0,
-        Whistleblower = 1,
-        Company = 2
-    }
-}
