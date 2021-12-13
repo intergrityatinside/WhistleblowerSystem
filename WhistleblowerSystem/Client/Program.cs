@@ -42,17 +42,15 @@ namespace WhistleblowerSystem.Client
 
             //set the default language
             LanguageService.Language = Language.English;
-            CultureInfo.CurrentCulture = CultureInfo.GetCultures(CultureTypes.AllCultures)
-           .First(c => CultureInfo.CreateSpecificCulture(c.Name).Name == "en-US");
+            CultureInfo.CurrentCulture = new CultureInfo("en-US");  
 
             // try read the actual language from the local storage
             try
             {
                 var jsRuntime = build.Services.GetRequiredService<IJSRuntime>();
                 string cultureCode = await jsRuntime.InvokeAsync<string>("app.getFromLocalStorage", "culture_code");
-                cultureCode = string.IsNullOrEmpty(cultureCode) ? "de-DE" : cultureCode;
-                CultureInfo.CurrentCulture = CultureInfo.GetCultures(CultureTypes.AllCultures)
-                           .First(c => CultureInfo.CreateSpecificCulture(c.Name).Name == cultureCode);
+                cultureCode = string.IsNullOrEmpty(cultureCode) ? "en-US" : cultureCode;
+                CultureInfo.CurrentCulture = new CultureInfo(cultureCode);
 
                 LanguageService.Language = cultureCode switch
                 {
@@ -64,6 +62,7 @@ namespace WhistleblowerSystem.Client
 
             catch (Exception ex)
             {
+                Console.WriteLine($"Error: {ex.Message}");
                 Console.WriteLine($"Language setting error {ex.Message}, set the default language (en-US)");
             }
 
