@@ -63,7 +63,7 @@ namespace WhistleblowerSystem.Client.Pages
                 if (CurrentAccountService.GetCurrentWhistleblower() != null)
                 {
                     await LogoutClicked();
-                    NavigationManager.NavigateTo("");
+                    NavigationManager.NavigateTo(relativePath);
                 }
             }
         }
