@@ -92,16 +92,6 @@ namespace WhistleblowerSystem.Client.Services
             //_reportApi.ReportsUpdateStatusByReportId(id, GetStatusModelByState(state));
             await _http.PostAsJsonAsync($"Form/{id}/changeState/{state}", new object());
         }
-
-        public void SetCurrentForm(FormDto? form)
-        {
-            _currentForm = form ?? null;
-        }
-
-        public FormDto? GetCurrentForm()
-        {
-            return _currentForm;
-        }
         
         public FormModel MapFormDtoToFormModel(FormDto dto)
         {
@@ -124,14 +114,13 @@ namespace WhistleblowerSystem.Client.Services
         {
             return state.ToString();
         }
-
-        //todo later check isoptional bool on fielddto
+        
         private List<FormFieldDto> getOptionalFields(List<FormFieldDto> formFields)
         {
             List<FormFieldDto> optionalFields = new List<FormFieldDto>();
             foreach (var field in formFields)
             {
-                if (field != getField(formFields, "Vorfall") && field != getField(formFields, "Beschreibung"))
+                if (field.Mandatory == false)
                 {
                     optionalFields.Add(field);
                 }
