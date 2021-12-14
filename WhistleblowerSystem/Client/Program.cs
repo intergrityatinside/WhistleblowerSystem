@@ -31,6 +31,8 @@ namespace WhistleblowerSystem.Client
             builder.Services.AddSingleton<IFormService>(sp => sp.GetRequiredService<FormService>());
             builder.Services.AddSingleton<AttachementService>();
             builder.Services.AddSingleton<IAttachementService>(sp => sp.GetRequiredService<AttachementService>());
+            builder.Services.AddSingleton<OverlayService>();
+            builder.Services.AddSingleton<IOverlayService>(sp => sp.GetRequiredService<OverlayService>());
             builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
             builder.Services.AddScoped<IStringLocalizer<App>, StringLocalizer<App>>();
            

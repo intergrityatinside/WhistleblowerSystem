@@ -2,6 +2,7 @@
 @page "/home"
 @inject IStringLocalizer<App> L
 @using Microsoft.Extensions.Localization;
+@using WhistleblowerSystem.Client.Services
 
 <div class="content-container">
     <div class="content">
@@ -46,7 +47,7 @@
 </div>
 
 
-<MudOverlay Visible="_isOpen" DarkBackground="true" Absolute="true">
+<MudOverlay Visible="_showDisclaimer" DarkBackground="true" Absolute="true">
     <div class="d-flex flex-column">
         <MudAlert Severity="Severity.Warning" Variant="Variant.Filled" ShowCloseIcon="true" CloseIconClicked="(ToggleOpen)">
             @L["disclaimer_infotext"]
@@ -71,12 +72,20 @@
 </MudOverlay>
 
 @code {
-    private bool _isOpen = true;
+    [Inject] IOverlayService OverlayService { get; set; } = null!;
+    private bool _showDisclaimer;
+    
 
+    protected override void OnInitialized()
+    {
+        _showDisclaimer = OverlayService.GetShowDisclaimer();
+        StateHasChanged();
+    }
 
     private void ToggleOpen()
     {
-        _isOpen = !_isOpen;
+        _showDisclaimer = false;
+        OverlayService.SetShowDisclaimer(_showDisclaimer);
     }
 
 }
