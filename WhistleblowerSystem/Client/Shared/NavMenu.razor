@@ -1,7 +1,7 @@
 ﻿@using Microsoft.Extensions.Localization;
 
 <div class="@NavMenuCssClass">
-    @if (roleType == RoleType.Undefined)
+    @if (roleType is RoleType.Undefined or RoleType.Whistleblower)
     {
         <ul class="nav-menu">
             <li class="nav-item px-3">
@@ -25,46 +25,6 @@
                 </NavLink>
             </li>
         </ul>
-        <image class="nav-image" src="/images/fhnw_logo.svg" height="32" width="140"></image>
-    }
-    @if (roleType == RoleType.Whistleblower)
-    {
-        <ul class="nav-menu">
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="securitynotice">
-                    <span class="oi oi-plus" aria-hidden="true"></span> @L["newreport_title"]
-                </NavLink>
-            </li>
-            @if (CurrentAccountService != null && CurrentAccountService.GetCurrentWhistleblower() != null && CurrentAccountService!.GetCurrentWhistleblower()!.FormId != null)
-            {
-                <li class="nav-item px-3">
-                    <NavLink class="nav-link" href="@($"reportdetailview/{CurrentAccountService!.GetCurrentWhistleblower()!.FormId!}")">
-                        <span class="oi oi-list-rich" aria-hidden="true"></span> @L["viewreports_title"]
-                    </NavLink>
-                </li>
-            }
-            else
-            {
-                <li class="nav-item px-3">
-                    <NavLink class="nav-link" href="viewreports">
-                        <span class="oi oi-list-rich" aria-hidden="true"></span> @L["viewreports_title"]
-                    </NavLink>
-                </li>
-            }
-
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="manual">
-                    <span class="oi oi-info" aria-hidden="true"></span> @L["manual_title"]
-                </NavLink>
-            </li>
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="faq">
-                    <span class="oi oi-magnifying-glass" aria-hidden="true"></span> @L["faq_title"]
-                </NavLink>
-            </li>
-        </ul>
-        <image class="nav-image" src="/images/fhnw_logo.svg" height="32" width="140"></image>
-
     }
     @if (roleType == RoleType.Company)
     {
@@ -75,12 +35,11 @@
                 </NavLink>
             </li>
             <li class="nav-item px-3">
-                <NavLink @onclick="LogoutClicked" class="nav-link" href="/">
+                <NavLink @onclick="LogoutClicked" class="nav-link">
                     <span class="oi oi-lock-locked" aria-hidden="true"></span>Logout
                 </NavLink>
             </li>
         </ul>
-        <image class="nav-image" src="/images/fhnw_logo.svg" height="32" width="140"></image>
-
     }
+        <image class="nav-image" src="/images/fhnw_logo.svg" height="32" width="140"></image>
 </div>
