@@ -161,7 +161,7 @@ namespace WhistleblowerSystem.Client.Pages
 
             string messageStyle = "width: 70%;";
             return myMessage
-                ? messageStyle + "text-align: right;background-color: #555455; color: white;"
+                ? messageStyle + "text-align: right;background-color: #ffffff; color: black;"
                 : messageStyle;
         }
 
