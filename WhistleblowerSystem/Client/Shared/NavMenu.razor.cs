@@ -53,7 +53,7 @@ namespace WhistleblowerSystem.Client.Shared
             if (CurrentAccountService.GetCurrentUser() != null)
             {
                 await CurrentAccountService.Logout();
-                NavigationManager.NavigateTo("");
+                NavigationManager.NavigateTo("/login");
             }
         }
     }
