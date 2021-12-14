@@ -49,7 +49,7 @@
 
 <MudOverlay Visible="_showDisclaimer" DarkBackground="true" Absolute="true">
     <div class="d-flex flex-column">
-        <MudAlert Severity="Severity.Warning" Variant="Variant.Filled" ShowCloseIcon="true" CloseIconClicked="(ToggleOpen)">
+        <MudAlert Style="max-width: 500px; align-items: baseline; background-color: rgba(113, 113, 113, 0.91);" NoIcon="true" Severity="Severity.Normal" Variant="Variant.Filled" ShowCloseIcon="true" CloseIconClicked="(ToggleOpen)">
             @L["disclaimer_infotext"]
             <br><br>
             @L["disclaimer_whistleblower_contact"]
@@ -64,9 +64,9 @@
             <br>
             +41 62 834 92 22
             <br>
-            <a href="mailto:stephan.bolliger@bdo.ch">stephan.bolliger@bdo.ch</a>
+            <a class="link"  href="mailto:stephan.bolliger@bdo.ch">stephan.bolliger@bdo.ch</a>
             <br> <br>
-            @L["disclaimer_project_contact"] <a href="mailto:petra.asprion@fhnw.ch">petra.asprion@fhnw.ch</a>.
+            @L["disclaimer_project_contact"] <a class="link"  href="mailto:petra.asprion@fhnw.ch">petra.asprion@fhnw.ch</a>.
         </MudAlert>
     </div>
 </MudOverlay>
