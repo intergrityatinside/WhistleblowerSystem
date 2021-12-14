@@ -20,7 +20,7 @@ namespace WhistleblowerSystem.Client
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            
+            builder.Services.AddLocalization();
             builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
             builder.Services.AddSingleton<CurrentAccountService>();
@@ -53,6 +53,9 @@ namespace WhistleblowerSystem.Client
                 string cultureCode = await jsRuntime.InvokeAsync<string>("app.getFromLocalStorage", "culture_code");
                 cultureCode = string.IsNullOrEmpty(cultureCode) ? "en-US" : cultureCode;
                 CultureInfo.CurrentCulture = new CultureInfo(cultureCode);
+                CultureInfo.DefaultThreadCurrentCulture = CultureInfo.CurrentCulture;
+                CultureInfo.CurrentUICulture = CultureInfo.CurrentCulture;
+                CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.CurrentCulture;
 
                 LanguageService.Language = cultureCode switch
                 {
