@@ -1,0 +1,245 @@
+@page "/newform"
+@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Components
+@using WhistleblowerSystem.Client.Utils
+@using WhistleblowerSystem.Shared.DTOs
+@using WhistleblowerSystem.Shared.Enums
+@inject IStringLocalizer<App> L
+
+@if (_step == 0)
+{
+    <div class="content-container">
+        <div class="content">
+            <h1 class="page-title"> @L["securitynotice_title"] </h1>
+            <h3>
+                @L["securitynotice_subtitle"]
+                <br/>
+            </h3>
+            <p>
+                @L["securitynotice_list_title"]
+                <br/>
+            </p>
+
+            <ul>
+                <li>@L["securitynotice_list_item_1"]</li>
+                <li>@L["securitynotice_list_item_2"]</li>
+                <li>@L["securitynotice_list_item_3"]</li>
+                <li>@L["securitynotice_list_item_4"]</li>
+            </ul>
+
+            <p>
+                @L["securitynotice_checkbox_title"]
+                <br/>
+            </p>
+            <div class="checkbox-container">
+                <MudCheckBox @bind-Checked="CheckedValue" Label=@L["securitynotice_checkbox_title"]></MudCheckBox>
+            </div>
+        </div>
+        <div class="footer">
+            <MudButton OnClick="OpenForm" Disabled="@(CheckedValue ? false : true)" Color="Color.Dark" Variant="Variant.Filled">@L["securitynotice_continue"]</MudButton>
+        </div>
+    </div>
+}
+
+@if (_step == 1)
+{
+    <div class="content-container">
+        <div class="content">
+            <h1>@L["newreport_title"]</h1>
+
+            @if (_formFields != null)
+            {
+                <MudForm Model="@_form" @ref="@_mudForm">
+                    @foreach (FormFieldDto formField in _formFields)
+                    {
+                        if (formField.SelectionValues != null)
+                        {
+                            formField.SelectedValues!.Add(string.Empty);
+                            <div class="form-group control">
+                                <div style="display: flex; flex-direction: row">
+                                    @if (formField.Mandatory)
+                                    {
+                                        <MudText Color="Color.Error">
+                                            <sup>
+                                                <strong>*</strong>
+                                            </sup>
+                                        </MudText>
+                                    }
+                                    @formField.Texts.GetLng().Text
+                                </div>
+
+                                @switch (formField.Type)
+                                {
+                                    case (ControlType.Dropdown):
+                                        <MudSelect @bind-Value="formField.SelectedValues[0]" T="string"
+                                                   Placeholder=@L["newreport_placeholder_select"] Strict="true" Variant="Variant.Outlined" Format="F2" Required="@formField.Mandatory" RequiredError="@L["newreport_required_error"]">
+                                            @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
+                                            {
+                                                var lng = selectionValue.Text.GetLng();
+                                                <MudSelectItem T="string" Value="lng.Value">@lng.Text</MudSelectItem>
+                                            }
+                                        </MudSelect>
+                                        break;
+                                    case (ControlType.Radiobutton):
+                                        <MudRadioGroup @bind-SelectedOption="@formField.SelectedValues[0]" Required="@formField.Mandatory" RequiredError="@L["newreport_required_error"]">
+                                            @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
+                                            {
+                                                var lng = selectionValue.Text.GetLng();
+                                                <MudRadio Option="@(lng.Value)">@lng.Value </MudRadio>
+                                            }
+                                        </MudRadioGroup>
+                                        break;
+                                    case (ControlType.Textarea):
+                                        <MudTextField class="control-textarea" Placeholder=@L["newreport_placeholder_text"] Label="" Variant="Variant.Outlined" Lines="8" @bind-Value="@formField.SelectedValues[0]" Required="@formField.Mandatory" RequiredError="@L["newreport_required_error"]"/>
+                                        break;
+                                    case (ControlType.Textbox):
+                                        <MudTextField Placeholder=@L["newreport_placeholder_text"] @bind-Value="@formField.SelectedValues[0]" Label="" Variant="Variant.Outlined" Required="@formField.Mandatory" RequiredError="@L["newreport_required_error"]"></MudTextField>
+                                        break;
+                                    case (ControlType.Checkbox):
+                                   @*<div class="control-title">@formField.Texts[0].Text</div>
+                                    @if (formField.SelectionValues != null)
+                                    {
+                                        @foreach (SelectionValueDto selectionValue in formField.SelectionValues)
+                                        {
+                                            <MudCheckBox @bind-Checked="@formField.SelectedValues" Label="@selectionValue.Text[0].Text"></MudCheckBox>
+                                        }
+                                    }*@
+                                        break;
+                                    default:
+                                        Console.WriteLine("Form field is not implemented");
+                                        break;
+                                }
+                            </div>
+                        }
+                    }
+                </MudForm>
+            }
+        </div>
+        <div class="footer">
+            <div>
+                <MudButton Color="Color.Dark" Variant="Variant.Filled" OnClick="@(async () => await SubmitForm())">@L["newreport_continue"]</MudButton>
+            </div>
+        </div>
+    </div>
+}
+
+@if (_step == 2)
+{
+    <style>
+      .drag-drop-zone {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all .4s;
+          min-height: 300px;
+          border: dotted;
+          margin-bottom: 10px;
+          border-color: #FDE70E;
+      }
+      
+      .drag-drop-input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          z-index: 2;
+          width: inherit;
+          height: 300px;
+      }
+      
+      .drag-enter {
+          box-shadow: var(--mud-elevation-10);
+      }
+      
+      .list {
+          padding: 2em;
+          min-width: 100%;
+      }
+    </style>
+
+    <div class="content-container">
+        <div class="content">
+            <h1 class="page-title">
+                @L["upload_title"]
+            </h1>
+            <p>
+                @L["upload_text_1"]
+                <br/>
+            </p>
+            <p>
+                @L["upload_text_2"]
+                <br/>
+            </p>
+            <p>
+                @L["upload_thanks"]
+            </p>
+
+            <MudPaper @ondragenter="@(() => _dragEnterStyle = "drag-enter")"
+                      @ondragleave="@(() => _dragEnterStyle = null)"
+                      @ondragend="@(() => _dragEnterStyle = null)"
+                      Class=@("drag-drop-zone " + _dragEnterStyle)>
+
+                <InputFile OnChange="OnInputFileChanged" multiple class="drag-drop-input"/>
+                @if (_form == null || _form!.Attachements == null || _form!.Attachements!.Count() == 0)
+                {
+                    <MudText Typo="Typo.h5">@L["upload_hint"]</MudText>
+                }
+                else
+                {
+                    <MudList Style="padding:2em;width:100%;" Dense="true">
+                        @foreach (var file in _form!.Attachements!)
+                        {
+                            <MudListItem @key="file.Filename">
+                                <MudChip Color="Color.Dark"
+                                         Style="width:60px; overflow:hidden;"
+                                         Text="@(file.Filename.Split(".").Last())"/>
+                                @file.Filename
+                                <MudIconButton OnClick="() => DeleteDocument(file.AttachementId, file.Filename)" Icon="@Icons.Material.Filled.Delete" Color="Color.Default"/>
+
+                            </MudListItem>
+                        }
+                    </MudList>
+                }
+            </MudPaper>
+        </div>
+        <div class="footer">
+            <div>
+                <MudButton OnClick="BackToForm" Color="Color.Dark" Variant="Variant.Filled">@L["upload_back"]</MudButton>
+                <MudButton OnClick="async () => await UploadDocs()" Color="Color.Dark" Disabled=@IsTaskRunning Variant="Variant.Filled">@L["upload_continue"]</MudButton>
+
+            </div>
+        </div>
+    </div>
+}
+
+@if (_step == 3)
+{
+    <div class="content-container">
+        <div class="content">
+            <h1 class="page-title">
+                @L["confirmation_title"]
+            </h1>
+            <p>
+                @L["confirmation_subtitle"]
+                <br/>
+            </p>
+            <p>
+                @L["confirmation_caseid"] <span style="color:red;font-weight:bold;"> @_form?.Id</span>
+                <br/>
+            </p>
+            <p>
+                @L["confirmation_password"] <span style="color:red;font-weight:bold;">@_form?.Password</span>
+                <br/>
+            </p>
+            <div>
+                <br/>
+                <MudAlert Severity="Severity.Error" Variant="Variant.Filled">@L["confirmation_text"]</MudAlert>
+            </div>
+
+        </div>
+        <div class="footer">
+            <div>
+                <MudButton OnClick="CloseForm" Color="Color.Dark" Variant="Variant.Filled">@L["confirmation_continue"]</MudButton>
+            </div>
+        </div>
+    </div>
+}

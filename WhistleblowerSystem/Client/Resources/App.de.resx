@@ -429,4 +429,13 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
   <data name="viewreports_login_error" xml:space="preserve">
     <value>Falsche CaseID oder Passwort</value>
   </data>
+  <data name="upload_error_title" xml:space="preserve">
+    <value>Warnung</value>
+  </data>
+  <data name="upload_error_message" xml:space="preserve">
+    <value>Es wurde bereits ein File mit dem selben Namen hinzugefügt.</value>
+  </data>
+  <data name="upload_error_yestext" xml:space="preserve">
+    <value>Schliessen</value>
+  </data>
 </root>

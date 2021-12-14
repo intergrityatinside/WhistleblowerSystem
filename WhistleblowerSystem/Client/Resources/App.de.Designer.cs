@@ -650,5 +650,23 @@ namespace WhistleblowerSystem.Client.Resources {
                 return ResourceManager.GetString("viewreports_login_error", resourceCulture);
             }
         }
+        
+        public static string upload_error_title {
+            get {
+                return ResourceManager.GetString("upload_error_title", resourceCulture);
+            }
+        }
+        
+        public static string upload_error_message {
+            get {
+                return ResourceManager.GetString("upload_error_message", resourceCulture);
+            }
+        }
+        
+        public static string upload_error_yestext {
+            get {
+                return ResourceManager.GetString("upload_error_yestext", resourceCulture);
+            }
+        }
     }
 }
