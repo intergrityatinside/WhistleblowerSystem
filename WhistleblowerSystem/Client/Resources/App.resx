@@ -178,7 +178,7 @@
     <value>Continue</value>
   </data>
   <data name="newreport_title" xml:space="preserve">
-    <value>Describe report</value>
+    <value>Create report</value>
   </data>
   <data name="newreport_continue" xml:space="preserve">
     <value>Continue</value>
@@ -437,5 +437,8 @@ Advice: We recommend that you access our website from a device that is not conne
   </data>
   <data name="upload_error_yestext" xml:space="preserve">
     <value>Close</value>
+  </data>
+  <data name="mainlayout_hello" xml:space="preserve">
+    <value>Hi, </value>
   </data>
 </root>

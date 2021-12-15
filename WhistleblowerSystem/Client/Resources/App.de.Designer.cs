@@ -668,5 +668,11 @@ namespace WhistleblowerSystem.Client.Resources {
                 return ResourceManager.GetString("upload_error_yestext", resourceCulture);
             }
         }
+        
+        public static string mainlayout_hello {
+            get {
+                return ResourceManager.GetString("mainlayout_hello", resourceCulture);
+            }
+        }
     }
 }

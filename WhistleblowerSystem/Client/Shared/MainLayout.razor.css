@@ -59,6 +59,10 @@
         align-self: center;
     }
 
+    .top-row .hello-container {
+        align-self: center;
+    }
+
 @media (max-width: 640.98px) {
     .top-row.auth {
         justify-content: space-between;

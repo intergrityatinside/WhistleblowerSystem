@@ -438,4 +438,7 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
   <data name="upload_error_yestext" xml:space="preserve">
     <value>Schliessen</value>
   </data>
+  <data name="mainlayout_hello" xml:space="preserve">
+    <value>Hallo, </value>
+  </data>
 </root>

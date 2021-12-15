@@ -2,9 +2,8 @@
 using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Localization;
 using WhistleblowerSystem.Shared.DTOs;
 using WhistleblowerSystem.Client.Services;
 using WhistleblowerSystem.Shared.Enums;
@@ -15,6 +14,7 @@ namespace WhistleblowerSystem.Client.Shared
     {
         [Inject] IJSRuntime JSRuntime { get; set; } = null!;
         [Inject] NavigationManager Navigation { get; set; } = null!;
+        [Inject] IStringLocalizer<App> L { get; set; } = null!;
 
         private string _userName = "";
         private UserDto? _currentUser;

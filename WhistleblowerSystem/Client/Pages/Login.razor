@@ -1,6 +1,6 @@
 ﻿@page "/login"
 
-    <div class="content-container">
+    <div class="login-content-container">
         <qdiv class="content">
             <h1 class="page-title">@L["login_title"]</h1>
             @if (CurrentAccountService.GetCurrentUser() != null || CurrentAccountService.GetCurrentWhistleblower() != null)
@@ -9,7 +9,7 @@
             }
             else
             {
-            <div class="login-container">
+            <div class="login-inputs-container">
                 <div class="form-group control">
                     <MudTextField @bind-Value="_user.Email" Label=@L["login_email"] Variant="Variant.Outlined"></MudTextField>
                 </div>

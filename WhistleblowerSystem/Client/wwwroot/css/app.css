@@ -75,6 +75,19 @@ a, .btn-link {
     padding-bottom: 1.5rem;
 }
 
+.login-inputs-container {
+    display:flex;
+    flex-direction:column;
+    align-content:center;
+    justify-content:center;
+}
+
+.login-content-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .page-title {
     padding-bottom: 1.5rem;
 }
