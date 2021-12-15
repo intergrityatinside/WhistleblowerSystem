@@ -108,11 +108,7 @@
                 }
                 @if (_form.Messages.Count == 0)
                 {
-                    <div style="align-items: center">
-                                            <MudText Style="padding: 10px">@L["reportdetailview_nomessages"]</MudText>
-
-                    </div>
-                    <br/>
+                    <MudText Style="padding: 20px">@L["reportdetailview_nomessages"]</MudText>
                 }
                 @if (_form.State != ViolationState.Closed)
                 {
