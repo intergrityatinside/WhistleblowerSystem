@@ -441,6 +441,172 @@ Advice: We recommend that you access our website from a device that is not conne
   <data name="mainlayout_hello" xml:space="preserve">
     <value>Hi, </value>
   </data>
+  <data name="manual_1_subtitle" xml:space="preserve">
+    <value>The most important in a nutshell</value>
+  </data>
+  <data name="manual_2_subtitle" xml:space="preserve">
+    <value>Step by step</value>
+  </data>
+  <data name="manual_3_subtitle" xml:space="preserve">
+    <value>Create a report</value>
+  </data>
+  <data name="manual_4_subtitle" xml:space="preserve">
+    <value>Submit report</value>
+  </data>
+  <data name="manual_5_subtitle" xml:space="preserve">
+    <value>Create a report</value>
+  </data>
+  <data name="manual_6_subtitle" xml:space="preserve">
+    <value>FAQs</value>
+  </data>
+  <data name="manual_1_listitem_1" xml:space="preserve">
+    <value>After submitting your report, it is important that you regularly check the submitted report for new messages so that the company can communicate with you. We will ensure that we respond to the report within a week. You can access it with the CaseID and password under "View report". </value>
+  </data>
+  <data name="manual_1_listitem_2" xml:space="preserve">
+    <value>If you wish to remain anonymous, do not include any personal information in your report. Avoid data that allows to draw conclusions about your identity. </value>
+  </data>
+  <data name="manual_1_listitem_3" xml:space="preserve">
+    <value>Do not use a device provided by your organisation to report your case.</value>
+  </data>
+  <data name="manual_2_listitem_1" xml:space="preserve">
+    <value>You can navigate through this menu with your mouse and select the corresponding option by clicking on it with your mouse. </value>
+  </data>
+  <data name="manual_2_listitem_2" xml:space="preserve">
+    <value>If you want to hide the menu, you only have to click once on the symbol. To show the menu again, click on the same symbol again. </value>
+  </data>
+  <data name="manual_2_listitem_3" xml:space="preserve">
+    <value>You can change the language by clicking on the flag in the top right-hand corner.  </value>
+  </data>
+  <data name="manual_2_listitem_4" xml:space="preserve">
+    <value>You may contact us at any time to clarify any questions or queries you may have regarding whistleblowing. You can contact us at our e-mail address. </value>
+  </data>
+  <data name="manual_2_text_1" xml:space="preserve">
+    <value>On our main page "www.integrityatinside.ch" you will see the main menu with four different options on the left side. </value>
+  </data>
+  <data name="manual_3_text_1" xml:space="preserve">
+    <value>To create a report, click on "Submit report". Afterwards, the first thing you will see is the security notice. Please read the security notice carefully. This explains how our team protects your data and how the submitted information will be processed. 
+</value>
+  </data>
+  <data name="manual_3_text_2" xml:space="preserve">
+    <value>Please take note of the following: </value>
+  </data>
+  <data name="manual_3_listitem_1" xml:space="preserve">
+    <value>You must specifically agree to the security notice to start creating your report.</value>
+  </data>
+  <data name="manual_3_listitem_2" xml:space="preserve">
+    <value>If you wish to return to the main page, click on the logo</value>
+  </data>
+  <data name="manual_3_listitem_3" xml:space="preserve">
+    <value>To continue your report, click on "Continue" at the bottom right. </value>
+  </data>
+  <data name="manual_4_text_1" xml:space="preserve">
+    <value>Please provide the following information:</value>
+  </data>
+  <data name="manual_4_listtitle_1" xml:space="preserve">
+    <value>Subject:</value>
+  </data>
+  <data name="manual_4_listtitle_2" xml:space="preserve">
+    <value>Describe your case:</value>
+  </data>
+  <data name="manual_4_listtitle_3" xml:space="preserve">
+    <value>Provide name:</value>
+  </data>
+  <data name="manual_4_listitem_1" xml:space="preserve">
+    <value>In order to assign your report to a specific topic, the first thing you need to do is enter a topic. This field is mandatory and cannot be omitted. </value>
+  </data>
+  <data name="manual_4_listitem_2" xml:space="preserve">
+    <value>In order for our team to have as much information as possible about your case, please make sure that you provide us with all relevant information. This field is also considered mandatory. </value>
+  </data>
+  <data name="manual_4_listitem_3" xml:space="preserve">
+    <value>We give you the choice of whether or not to include your name. This is optional.</value>
+  </data>
+  <data name="manual_4_text_2" xml:space="preserve">
+    <value>To protect your personal information and grant you anonymity, our website is separate from the organisation's IT environment. When entering your report, please make sure that your details do not allow any connections to be drawn to your identity. We also ensure that no metadata of individuals is stored in our database. </value>
+  </data>
+  <data name="manual_4_text_3" xml:space="preserve">
+    <value>When you are describing your case, it is helpful to consider the following questions: </value>
+  </data>
+  <data name="manual_4_text_4" xml:space="preserve">
+    <value>Once you have filled in all the fields, click on "Continue" at the bottom right. </value>
+  </data>
+  <data name="manual_4_text_5" xml:space="preserve">
+    <value>Note:</value>
+  </data>
+  <data name="manual_4_text_6" xml:space="preserve">
+    <value>The report cannot be saved temporarily. If a report is filled in, it must also be sent, otherwise the report is not valid. </value>
+  </data>
+  <data name="manual_4_listitem_4" xml:space="preserve">
+    <value>Who committed a violation?  </value>
+  </data>
+  <data name="manual_4_listitem_5" xml:space="preserve">
+    <value>When did it happen? </value>
+  </data>
+  <data name="manual_4_listitem_6" xml:space="preserve">
+    <value>Where did it happen?  </value>
+  </data>
+  <data name="manual_4_listitem_7" xml:space="preserve">
+    <value>How can the incident be substantiated?  </value>
+  </data>
+  <data name="manual_4_listitem_8" xml:space="preserve">
+    <value>How long have you been aware of the case?</value>
+  </data>
+  <data name="manual_4_listitem_9" xml:space="preserve">
+    <value>Are you personally affected by this case?</value>
+  </data>
+  <data name="manual_4_listitem_10" xml:space="preserve">
+    <value>Are you already aware of any damage / effects caused by this case?  </value>
+  </data>
+  <data name="manual_4_listitem_11" xml:space="preserve">
+    <value>Have you reported the case to anyone in the company? If yes, to whom?  </value>
+  </data>
+  <data name="manual_4_text_7" xml:space="preserve">
+    <value>Next, you have the option to upload documents. Our website supports all file types such as PDF, Docx, CSV and XLSX. </value>
+  </data>
+  <data name="manual_4_text_8" xml:space="preserve">
+    <value>The uploaded documents are considered as evidence of your submitted report. The evidence is important in order to understand and analyse the situation in your report in detail. This will help us to process your case more effectively and efficiently.</value>
+  </data>
+  <data name="manual_4_text_9" xml:space="preserve">
+    <value>To upload the document, drag the document to the upload area. It is also possible to upload multiple documents. Finally, click on "Submit" to submit the report to us. If you want to look at your report again, you can go back to the report form at this point by clicking on "Back".</value>
+  </data>
+  <data name="manual_4_text_10" xml:space="preserve">
+    <value>To complete your message, you will receive a CaseID and a defined password from us. The two keys prevent only authorized persons from accessing the message.</value>
+  </data>
+  <data name="manual_4_text_11" xml:space="preserve">
+    <value>Please make a note of the CaseID and password immediately. As soon as you close this window, the CaseID and password can no longer be called up or changed.</value>
+  </data>
+  <data name="manual_5_text_1" xml:space="preserve">
+    <value>With your CaseID and password, you can call up the current status of your report at any time under "View report".</value>
+  </data>
+  <data name="manual_5_text_2" xml:space="preserve">
+    <value>Please enter your CaseID and your password in the two fields and click on " Open" in the bottom right-hand corner. </value>
+  </data>
+  <data name="manual_5_text_3" xml:space="preserve">
+    <value>If you forget the CaseID or password, they cannot be recovered for security reasons. Alternatively, you can enter a new report and refer to your original report. </value>
+  </data>
+  <data name="manual_5_text_4" xml:space="preserve">
+    <value>As soon as you click on " Open", your entered message, the current status and all messages are displayed. </value>
+  </data>
+  <data name="manual_5_listtitle_1" xml:space="preserve">
+    <value>The possible statuses of the report are:</value>
+  </data>
+  <data name="manual_5_text_5" xml:space="preserve">
+    <value>Below your report you will find a message function. This function allows you to contact us anonymously.  </value>
+  </data>
+  <data name="manual_5_text_6" xml:space="preserve">
+    <value>You do not have to enter any additional data to send us a message. Just enter your message in the text field and click on "Send". You will then receive a reply from our team of experts. </value>
+  </data>
+  <data name="manual_5_text_7" xml:space="preserve">
+    <value>To view the reply, you must log in again by clicking on "View report". You will not receive a notification from us if there is a new message. This ensures that we cannot draw any conclusions about your identity and that anonymity is guaranteed at all times. </value>
+  </data>
+  <data name="manual_5_text_8" xml:space="preserve">
+    <value>Once you have viewed your report, you can click on "Close report" at the bottom right and close the window.</value>
+  </data>
+  <data name="manual_6_text_1" xml:space="preserve">
+    <value>FAQ is the abbreviation for Frequently Asked Questions. Under FAQs you will find the compilation of frequently asked questions.</value>
+  </data>
+  <data name="manual_3_text_3" xml:space="preserve">
+    <value>To continue your report, click on "Continue" at the bottom right. </value>
+  </data>
   <data name="upload_error_message_size" xml:space="preserve">
     <value>The file exceeds the maximum size of 20 megabytes. You can zip the file to reduce the size.</value>
   </data>
