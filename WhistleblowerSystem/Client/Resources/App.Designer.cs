@@ -674,5 +674,335 @@ namespace WhistleblowerSystem.Client.Resources {
                 return ResourceManager.GetString("mainlayout_hello", resourceCulture);
             }
         }
+        
+        public static string manual_1_subtitle {
+            get {
+                return ResourceManager.GetString("manual_1_subtitle", resourceCulture);
+            }
+        }
+        
+        public static string manual_2_subtitle {
+            get {
+                return ResourceManager.GetString("manual_2_subtitle", resourceCulture);
+            }
+        }
+        
+        public static string manual_3_subtitle {
+            get {
+                return ResourceManager.GetString("manual_3_subtitle", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_subtitle {
+            get {
+                return ResourceManager.GetString("manual_4_subtitle", resourceCulture);
+            }
+        }
+        
+        public static string manual_5_subtitle {
+            get {
+                return ResourceManager.GetString("manual_5_subtitle", resourceCulture);
+            }
+        }
+        
+        public static string manual_6_subtitle {
+            get {
+                return ResourceManager.GetString("manual_6_subtitle", resourceCulture);
+            }
+        }
+        
+        public static string manual_1_listitem_1 {
+            get {
+                return ResourceManager.GetString("manual_1_listitem_1", resourceCulture);
+            }
+        }
+        
+        public static string manual_1_listitem_2 {
+            get {
+                return ResourceManager.GetString("manual_1_listitem_2", resourceCulture);
+            }
+        }
+        
+        public static string manual_1_listitem_3 {
+            get {
+                return ResourceManager.GetString("manual_1_listitem_3", resourceCulture);
+            }
+        }
+        
+        public static string manual_2_listitem_1 {
+            get {
+                return ResourceManager.GetString("manual_2_listitem_1", resourceCulture);
+            }
+        }
+        
+        public static string manual_2_listitem_2 {
+            get {
+                return ResourceManager.GetString("manual_2_listitem_2", resourceCulture);
+            }
+        }
+        
+        public static string manual_2_listitem_3 {
+            get {
+                return ResourceManager.GetString("manual_2_listitem_3", resourceCulture);
+            }
+        }
+        
+        public static string manual_2_listitem_4 {
+            get {
+                return ResourceManager.GetString("manual_2_listitem_4", resourceCulture);
+            }
+        }
+        
+        public static string manual_2_text_1 {
+            get {
+                return ResourceManager.GetString("manual_2_text_1", resourceCulture);
+            }
+        }
+        
+        public static string manual_3_text_1 {
+            get {
+                return ResourceManager.GetString("manual_3_text_1", resourceCulture);
+            }
+        }
+        
+        public static string manual_3_text_2 {
+            get {
+                return ResourceManager.GetString("manual_3_text_2", resourceCulture);
+            }
+        }
+        
+        public static string manual_3_listitem_1 {
+            get {
+                return ResourceManager.GetString("manual_3_listitem_1", resourceCulture);
+            }
+        }
+        
+        public static string manual_3_listitem_2 {
+            get {
+                return ResourceManager.GetString("manual_3_listitem_2", resourceCulture);
+            }
+        }
+        
+        public static string manual_3_listitem_3 {
+            get {
+                return ResourceManager.GetString("manual_3_listitem_3", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_text_1 {
+            get {
+                return ResourceManager.GetString("manual_4_text_1", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_listtitle_1 {
+            get {
+                return ResourceManager.GetString("manual_4_listtitle_1", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_listtitle_2 {
+            get {
+                return ResourceManager.GetString("manual_4_listtitle_2", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_listtitle_3 {
+            get {
+                return ResourceManager.GetString("manual_4_listtitle_3", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_listitem_1 {
+            get {
+                return ResourceManager.GetString("manual_4_listitem_1", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_listitem_2 {
+            get {
+                return ResourceManager.GetString("manual_4_listitem_2", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_listitem_3 {
+            get {
+                return ResourceManager.GetString("manual_4_listitem_3", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_text_2 {
+            get {
+                return ResourceManager.GetString("manual_4_text_2", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_text_3 {
+            get {
+                return ResourceManager.GetString("manual_4_text_3", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_text_4 {
+            get {
+                return ResourceManager.GetString("manual_4_text_4", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_text_5 {
+            get {
+                return ResourceManager.GetString("manual_4_text_5", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_text_6 {
+            get {
+                return ResourceManager.GetString("manual_4_text_6", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_listitem_4 {
+            get {
+                return ResourceManager.GetString("manual_4_listitem_4", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_listitem_5 {
+            get {
+                return ResourceManager.GetString("manual_4_listitem_5", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_listitem_6 {
+            get {
+                return ResourceManager.GetString("manual_4_listitem_6", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_listitem_7 {
+            get {
+                return ResourceManager.GetString("manual_4_listitem_7", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_listitem_8 {
+            get {
+                return ResourceManager.GetString("manual_4_listitem_8", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_listitem_9 {
+            get {
+                return ResourceManager.GetString("manual_4_listitem_9", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_listitem_10 {
+            get {
+                return ResourceManager.GetString("manual_4_listitem_10", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_listitem_11 {
+            get {
+                return ResourceManager.GetString("manual_4_listitem_11", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_text_7 {
+            get {
+                return ResourceManager.GetString("manual_4_text_7", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_text_8 {
+            get {
+                return ResourceManager.GetString("manual_4_text_8", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_text_9 {
+            get {
+                return ResourceManager.GetString("manual_4_text_9", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_text_10 {
+            get {
+                return ResourceManager.GetString("manual_4_text_10", resourceCulture);
+            }
+        }
+        
+        public static string manual_4_text_11 {
+            get {
+                return ResourceManager.GetString("manual_4_text_11", resourceCulture);
+            }
+        }
+        
+        public static string manual_5_text_1 {
+            get {
+                return ResourceManager.GetString("manual_5_text_1", resourceCulture);
+            }
+        }
+        
+        public static string manual_5_text_2 {
+            get {
+                return ResourceManager.GetString("manual_5_text_2", resourceCulture);
+            }
+        }
+        
+        public static string manual_5_text_3 {
+            get {
+                return ResourceManager.GetString("manual_5_text_3", resourceCulture);
+            }
+        }
+        
+        public static string manual_5_text_4 {
+            get {
+                return ResourceManager.GetString("manual_5_text_4", resourceCulture);
+            }
+        }
+        
+        public static string manual_5_listtitle_1 {
+            get {
+                return ResourceManager.GetString("manual_5_listtitle_1", resourceCulture);
+            }
+        }
+        
+        public static string manual_5_text_5 {
+            get {
+                return ResourceManager.GetString("manual_5_text_5", resourceCulture);
+            }
+        }
+        
+        public static string manual_5_text_6 {
+            get {
+                return ResourceManager.GetString("manual_5_text_6", resourceCulture);
+            }
+        }
+        
+        public static string manual_5_text_7 {
+            get {
+                return ResourceManager.GetString("manual_5_text_7", resourceCulture);
+            }
+        }
+        
+        public static string manual_5_text_8 {
+            get {
+                return ResourceManager.GetString("manual_5_text_8", resourceCulture);
+            }
+        }
+        
+        public static string manual_6_text_1 {
+            get {
+                return ResourceManager.GetString("manual_6_text_1", resourceCulture);
+            }
+        }
+        
+        public static string manual_3_text_3 {
+            get {
+                return ResourceManager.GetString("manual_3_text_3", resourceCulture);
+            }
+        }
     }
 }

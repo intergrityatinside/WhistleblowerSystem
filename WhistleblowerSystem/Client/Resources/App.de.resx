@@ -441,4 +441,183 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
   <data name="mainlayout_hello" xml:space="preserve">
     <value>Hallo, </value>
   </data>
+  <data name="manual_1_subtitle" xml:space="preserve">
+    <value>Das Wichtigste in Kürze</value>
+  </data>
+  <data name="manual_2_subtitle" xml:space="preserve">
+    <value>Schritt für Schritt</value>
+  </data>
+  <data name="manual_3_subtitle" xml:space="preserve">
+    <value>Meldung einreichen</value>
+  </data>
+  <data name="manual_4_subtitle" xml:space="preserve">
+    <value>Meldung erfassen</value>
+  </data>
+  <data name="manual_5_subtitle" xml:space="preserve">
+    <value>Meldung anzeigen</value>
+  </data>
+  <data name="manual_6_subtitle" xml:space="preserve">
+    <value>FAQs</value>
+  </data>
+  <data name="manual_1_listitem_1" xml:space="preserve">
+    <value>Damit die Firma nach Ihrer Meldung mit Ihnen kommunizieren kann, ist es wichtig, dass Sie die eingereichte Meldung regelmässig auf neue Nachrichten prüfen. Wir sind bestrebt innert Wochenfrist auf die Meldung zu reagieren. Mit der CaseID und dem Passwort können Sie unter «Meldung anzeigen» darauf zugreifen.</value>
+  </data>
+  <data name="manual_1_listitem_2" xml:space="preserve">
+    <value>Wenn Sie anonym bleiben möchten, geben Sie in Ihrer Meldung keine persönlichen Informationen an. Vermeiden Sie Daten, die Rückschlüsse auf Ihre Person zulassen.</value>
+  </data>
+  <data name="manual_1_listitem_3" xml:space="preserve">
+    <value>Verwenden Sie kein von Ihrer Organisation bereitgestelltes Gerät, um Ihren Fall zu melden.</value>
+  </data>
+  <data name="manual_2_listitem_1" xml:space="preserve">
+    <value>Durch dieses Menü können Sie mit Ihrer Maus navigieren und die entsprechende Option auswählen, in dem Sie die Option mit Ihrer Maus anklicken.</value>
+  </data>
+  <data name="manual_2_listitem_2" xml:space="preserve">
+    <value>Falls Sie das Menü ausblenden möchten, müssen Sie nur einmal auf das Menü Symbol klicken. Um das Menü wieder anzuzeigen, klicken Sie wieder auf das gleiche Symbol.</value>
+  </data>
+  <data name="manual_2_listitem_3" xml:space="preserve">
+    <value>Sie können über die Flagge oben rechts die Sprache ändern.</value>
+  </data>
+  <data name="manual_2_listitem_4" xml:space="preserve">
+    <value>Um allfällige Fragen oder Unklarheiten bezüglich Whistleblowing zu klären, dürfen Sie sich jederzeit bei uns melden. Dafür steht Ihnen unsere E-Mailadresse zur Verfügung.</value>
+  </data>
+  <data name="manual_2_text_1" xml:space="preserve">
+    <value>Auf unsere Hauptseite «www.integrityatinside.ch» sehen Sie auf der linken Seite das Hauptmenü mit vier verschiedenen Optionen.</value>
+  </data>
+  <data name="manual_3_text_1" xml:space="preserve">
+    <value>Um eine Meldung zu erfassen, klicken Sie auf «Meldung einreichen». Danach sehen Sie als erstes die Sicherheitshinweise. Bitte lesen Sie die Sicherheitshinweise sorgfältig durch. Hier wird Ihnen erklärt, wie unser Team Ihre Daten schützt und wie Ihre eingegebenen Informationen bearbeitet werden.</value>
+  </data>
+  <data name="manual_3_text_2" xml:space="preserve">
+    <value>Folgendes ist zu beachten:</value>
+  </data>
+  <data name="manual_3_listitem_1" xml:space="preserve">
+    <value>Um die Erfassung der Meldung zu starten, müssen Sie mit den Sicherheitshinweisen ausdrücklich einverstanden sein.</value>
+  </data>
+  <data name="manual_3_listitem_2" xml:space="preserve">
+    <value>Falls Sie wieder auf die Hauptseite zurückkehren möchten, klicken Sie auf das Logo.</value>
+  </data>
+  <data name="manual_3_listitem_3" xml:space="preserve">
+    <value>Um Ihre Meldung fortzusetzen, klicken Sie unten rechts auf «Weiter».</value>
+  </data>
+  <data name="manual_4_text_1" xml:space="preserve">
+    <value>Bitte geben Sie folgende Angaben an:</value>
+  </data>
+  <data name="manual_4_listtitle_1" xml:space="preserve">
+    <value>Betreff:</value>
+  </data>
+  <data name="manual_4_listtitle_2" xml:space="preserve">
+    <value>Beschreiben Sie Ihren Fall:</value>
+  </data>
+  <data name="manual_4_listtitle_3" xml:space="preserve">
+    <value>Name angeben:</value>
+  </data>
+  <data name="manual_4_listitem_1" xml:space="preserve">
+    <value>Damit wir Ihre Meldung einem bestimmten Thema zuweisen können, müssen Sie als erstes einen Betreff eingeben. Dieses Feld ist ein Pflichtfeld und kann nicht ausgelassen werden.</value>
+  </data>
+  <data name="manual_4_listitem_2" xml:space="preserve">
+    <value>Damit unser Team möglichst viele Informationen über Ihren Fall hat, stellen Sie bitte sicher, dass Sie uns alle relevanten Informationen angeben. Auch dieses Feld gilt als Pflichtfeld.</value>
+  </data>
+  <data name="manual_4_listitem_3" xml:space="preserve">
+    <value>Wir stellen Ihnen frei, ob Sie Ihren Namen angeben möchten oder nicht. Dies ist optional.</value>
+  </data>
+  <data name="manual_4_text_2" xml:space="preserve">
+    <value>Um Ihre persönlichen Daten zu schützen und Ihnen die Anonymität zu gewähren, ist unsere Webseite von der IT-Umgebung der Organisation getrennt. Achten Sie bei der Erfassung Ihrer Meldung darauf, dass Ihre Angaben keine Rückschlüsse auf Ihre Person zulassen. Wir stellen sicher, dass auch keine Metadaten der Personen in unserer Datenbank gespeichert werden.
+</value>
+  </data>
+  <data name="manual_4_text_3" xml:space="preserve">
+    <value>Bei der Beschreibung Ihrer Meldung ist die Berücksichtigung folgender Fragen hilfreich:</value>
+  </data>
+  <data name="manual_4_text_4" xml:space="preserve">
+    <value>Sobald Sie alle Felder ausgefüllt haben, klicken Sie unten rechts auf «Weiter».</value>
+  </data>
+  <data name="manual_4_text_5" xml:space="preserve">
+    <value>Hinweis:</value>
+  </data>
+  <data name="manual_4_text_6" xml:space="preserve">
+    <value>Die Erfassung kann nicht zwischengespeichert werden. Wenn eine Meldung ausgefüllt wird, muss diese auch abgeschickt werden, ansonsten entfällt die Meldung.</value>
+  </data>
+  <data name="manual_4_listitem_4" xml:space="preserve">
+    <value>Wer hat einen Verstoss begangen?</value>
+  </data>
+  <data name="manual_4_listitem_5" xml:space="preserve">
+    <value>Wann ist es passiert?</value>
+  </data>
+  <data name="manual_4_listitem_6" xml:space="preserve">
+    <value>Wo ist es passiert?</value>
+  </data>
+  <data name="manual_4_listitem_7" xml:space="preserve">
+    <value>Wie lässt sich der Vorfall belegen?</value>
+  </data>
+  <data name="manual_4_listitem_8" xml:space="preserve">
+    <value>Seit wann ist Ihnen der Fall bekannt? </value>
+  </data>
+  <data name="manual_4_listitem_9" xml:space="preserve">
+    <value>Sind Sie persönlich in diesem Fall betroffen?</value>
+  </data>
+  <data name="manual_4_listitem_10" xml:space="preserve">
+    <value>Sind Ihnen bereits Schaden / Auswirkungen durch diesen Fall bekannt?</value>
+  </data>
+  <data name="manual_4_listitem_11" xml:space="preserve">
+    <value>Haben Sie den Fall jemandem im Unternehmen gemeldet? Falls ja, an wen?</value>
+  </data>
+  <data name="manual_4_text_7" xml:space="preserve">
+    <value>Als nächstes haben Sie die Möglichkeit Dokumente hochzuladen. Unsere Webseite unterstützt alle Dateitypen wie zum Beispiel PDF, Docx, CSV und XLSX.
+</value>
+  </data>
+  <data name="manual_4_text_8" xml:space="preserve">
+    <value>Die hochgeladenen Dokumente gelten als Beweis für Ihre erfasste Meldung. Die Beweise sind wichtig, um die Situation in Ihrer Meldung genau zu verstehen und zu analysieren. Dies wird uns helfen, Ihren Fall effektiver und effizienter zu bearbeiten.
+</value>
+  </data>
+  <data name="manual_4_text_9" xml:space="preserve">
+    <value>Um das Dokument hochzuladen, ziehen Sie das Dokument in den Upload-Bereich. Es ist auch möglich mehrere Dokumente hochzuladen. Am Schluss klicken Sie auf «Einreichen», um die Meldung bei uns einzureichen. Falls Sie Ihre Meldung nochmals anschauen möchten, können Sie zu diesem Zeitpunkt mit «Zurück» auf das Meldeformular zurückgreifen.
+</value>
+  </data>
+  <data name="manual_4_text_10" xml:space="preserve">
+    <value>Zum Abschluss Ihrer Meldung erhalten Sie von uns eine CaseID und ein definiertes Passwort. Mit den beiden Schlüsseln wird verhindert, dass nur authorizierte Personen auf die Meldung Zugriff haben.
+</value>
+  </data>
+  <data name="manual_4_text_11" xml:space="preserve">
+    <value>Bitte notieren Sie sich die CaseID und das Passwort sofort. Sobald Sie dieses Fenster schliessen, können CaseID und Passwort nicht mehr aufgerufen oder verändert werden.
+</value>
+  </data>
+  <data name="manual_5_text_1" xml:space="preserve">
+    <value>Mit Ihrer CaseID und dem Passwort können Sie den aktuellen Stand Ihrer Meldung jederzeit unter “Meldung anzeigen” aufrufen.
+</value>
+  </data>
+  <data name="manual_5_text_2" xml:space="preserve">
+    <value>Bitte geben Sie Ihre CaseID und Ihr Passwort in die beiden Felder ein und klicken Sie unten rechts auf «Aufrufen».
+</value>
+  </data>
+  <data name="manual_5_text_3" xml:space="preserve">
+    <value>Wenn Sie die CaseID oder das Passwort vergessen, können diese aus Sicherheitsgründen nicht wiederhergestellt werden. Alternativ können Sie eine neue Meldung erfassen und auf Ihre ursprüngliche Meldung verweisen.
+</value>
+  </data>
+  <data name="manual_5_text_4" xml:space="preserve">
+    <value>Sobald Sie auf «Aufrufen» klicken, wird Ihnen Ihre erfasste Meldung, der aktuelle Status, sowie alle Nachrichten angezeigt.
+</value>
+  </data>
+  <data name="manual_5_listtitle_1" xml:space="preserve">
+    <value>Die möglichen Status der Meldung sind:</value>
+  </data>
+  <data name="manual_5_text_5" xml:space="preserve">
+    <value>Unterhalb Ihrer Meldung wird Ihnen eine Nachrichtenfunktion zur Verfügung gestellt. Durch diese Funktion haben Sie die Möglichkeit uns anonym zu kontaktieren.
+</value>
+  </data>
+  <data name="manual_5_text_6" xml:space="preserve">
+    <value>Um eine Nachricht an uns zu senden, müssen Sie keine zusätzlichen Daten eingeben. Sie erfassen Ihre Nachricht in dem vorhandenen Textfeld und klicken auf «Senden». Im Anschluss erhalten Sie von unserem Fachteam eine Antwort.
+</value>
+  </data>
+  <data name="manual_5_text_7" xml:space="preserve">
+    <value>Um die Antwort anzusehen, müssen Sie sich wieder durch «Meldung anzeigen» einloggen. Sie erhalten keine Benachrichtigung von uns, wenn eine Nachricht von uns vorliegt. Somit wird sichergestellt, dass wir keine Rückschlüsse auf Ihrer Identität ziehen können und die Anonymität jederzeit gewährleistet wird.
+</value>
+  </data>
+  <data name="manual_5_text_8" xml:space="preserve">
+    <value>Sobald Sie Ihre Meldung angesehen haben, können Sie unten rechts auf «Meldung schliessen» klicken und das Fenster schliessen.</value>
+  </data>
+  <data name="manual_6_text_1" xml:space="preserve">
+    <value>FAQ ist die Abkürzung für Frequently Asked Questions. Unter FAQs finden Sie die Zusammenstellung der häufig gestellten Fragen.
+</value>
+  </data>
+  <data name="manual_3_text_3" xml:space="preserve">
+    <value>Sobald Sie auf «Weiter» klicken, gelangen Sie auf die Formularseite zur Erfassung.</value>
+  </data>
 </root>
