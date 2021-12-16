@@ -441,4 +441,7 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
   <data name="mainlayout_hello" xml:space="preserve">
     <value>Hallo, </value>
   </data>
+  <data name="upload_error_message_size" xml:space="preserve">
+    <value>Die Datei überschreitet die Maximalgrösse von 20 Megabyte. Sie können die Datei zippen um die Grösse zu reduzieren.</value>
+  </data>
 </root>

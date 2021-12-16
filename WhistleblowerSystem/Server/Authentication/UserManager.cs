@@ -30,7 +30,15 @@ namespace WhistleblowerSystem.Server.Authentication
                 ClaimsIdentity identity = new ClaimsIdentity(GetCompanyUserClaims(userDto), CookieAuthenticationDefaults.AuthenticationScheme);
                 ClaimsPrincipal principal = new ClaimsPrincipal(identity);
 
-                await httpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                await httpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal,
+                 new AuthenticationProperties
+                 {
+                     IsPersistent = false,
+                     AllowRefresh = true,
+                     ExpiresUtc = DateTime.UtcNow.AddMinutes(30),
+                 });
+
+
             }
             return userDto;
         }

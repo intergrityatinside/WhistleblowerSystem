@@ -441,4 +441,7 @@ Advice: We recommend that you access our website from a device that is not conne
   <data name="mainlayout_hello" xml:space="preserve">
     <value>Hi, </value>
   </data>
+  <data name="upload_error_message_size" xml:space="preserve">
+    <value>The file exceeds the maximum size of 20 megabytes. You can zip the file to reduce the size.</value>
+  </data>
 </root>
