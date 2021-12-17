@@ -132,7 +132,9 @@ namespace WhistleblowerSystem.Client.Services
             {
                 if (field.Mandatory == false)
                 {
-                    optionalFields.Add(field);
+                    if (field.SelectedValues.Count > 0) {
+                        optionalFields.Add(field);
+                    }
                 }
             }
             return optionalFields;

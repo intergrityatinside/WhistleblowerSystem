@@ -28,7 +28,7 @@
                         <strong>@L["reportdetailview_description"]:</strong> <br> @_form.Description
                     </MudText>
                     <br/>
-                    @if (!_form.OptionalFormFields.Any())
+                    @if (_form.OptionalFormFields.Count > 0)
                     {
                         <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">
                             <strong>@L["reportdetailview_additionalinfo"]:</strong>
@@ -40,6 +40,7 @@
                                 <div class="control-title">@formField.Texts.GetLng().Text: @formField.SelectedValues[0]</div>
                             }
                         }
+                        <br />
                     }
                     @if (_form.Attachements != null && _form.Attachements.Count > 0)
                     {
