@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -6,6 +7,7 @@ using WhistleblowerSystem.Client.Utils;
 using WhistleblowerSystem.Shared.DTOs;
 using WhistleblowerSystem.Shared.Enums;
 using WhistleblowerSystem.Shared.Models;
+using WhistleblowerSystem.Shared.Provider;
 
 namespace WhistleblowerSystem.Client.Services
 {
@@ -14,12 +16,13 @@ namespace WhistleblowerSystem.Client.Services
         private readonly HttpClient _http;
         private FormDto? _currentForm;
         private List<FormDto>? _allForms;
+        private BlockchainApiProvider _blockchainApiProvider;
         //private ReportApi _reportApi;
-
-        public FormService(HttpClient http)
+        public FormService(HttpClient http, BlockchainApiProvider blockchainApiProvider)
         {
             _http = http;
-            //_reportApi = new ReportApi();
+            _blockchainApiProvider = blockchainApiProvider;
+            //_reportApi = new ReportApi(...,..., { BasePath = blockchainApiProvider.BaseUri! });
         }
 
         public async Task<FormDto?> GetForm()
@@ -33,7 +36,6 @@ namespace WhistleblowerSystem.Client.Services
         }
 
         public async Task<FormDto?> LoadById(string id) {
-            //_reportApi.ReportsgetReportbyId(id);
             HttpResponseMessage? response = await _http.GetAsync($"Form/{id}");
             if (!string.IsNullOrEmpty(value: await response.Content.ReadAsStringAsync()))
             {
@@ -63,7 +65,15 @@ namespace WhistleblowerSystem.Client.Services
             //reportModel.Title = title;
             //reportModel.Description = description;
 
+            //Variante 1: Generierte API:
+
             //_reportApi.ReportspostReport(reportModel);
+
+            //Variante 2: manuell Whistleblower Blockchain Api Call
+            //var blockChainHttpClient = new HttpClient { BaseAddress = new Uri(_blockchainApiProvider.BaseUri!) };
+            //await blockChainHttpClient.PostAsJsonAsync("Report", reportModel);
+
+            //Whistleblower Api Call
             HttpResponseMessage? response = await _http.PostAsJsonAsync("Form/save", formDto);
             if (!string.IsNullOrEmpty(value: await response.Content.ReadAsStringAsync()))
             {

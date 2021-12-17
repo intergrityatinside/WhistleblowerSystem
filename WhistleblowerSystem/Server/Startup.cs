@@ -25,7 +25,7 @@ namespace WhistleblowerSystem.Server
     {
         private readonly IWebHostEnvironment _env;
         public IConfiguration _configuration;
-        private const string EnvPrefix = "WB_";
+
         public Startup(IWebHostEnvironment env, IConfiguration configuration)
         {
             _env = env;
@@ -70,8 +70,9 @@ namespace WhistleblowerSystem.Server
             //});
 
             DependencyInjection.DependencyInjection.Init(services,
-                GetConfigValue("DBNAME"),
-                GetConfigValue("MONGODBCONNECTION", true));
+                GetConfigValue("DBNAME")!,
+                GetConfigValue("MONGODBCONNECTION", true)!,
+                GetConfigValue("BLOCKCHAIN_API"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -120,9 +121,9 @@ namespace WhistleblowerSystem.Server
 
 
 
-        private string GetConfigValue(string name, bool isConnectionString = false)
+        private string? GetConfigValue(string name, bool isConnectionString = false)
         {
-            string? value = Environment.GetEnvironmentVariable(EnvPrefix + name);
+            string? value = Environment.GetEnvironmentVariable(name);
             if (value == null)
             {
                 if (isConnectionString)
@@ -133,12 +134,6 @@ namespace WhistleblowerSystem.Server
                 {
                     value = _configuration.GetValue<string?>(name);
                 }
-            }
-
-            if (value == null)
-            {
-                throw new NullException(
-                    $"Couldn't find '{EnvPrefix}{name}' in env or '{name}' in appsettings.{_env.EnvironmentName}.json. In Production there is no appsettings.json fallback.");
             }
 
             return value;

@@ -1,19 +1,16 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using WhistleblowerSystem.Database.DB;
 using WhistleblowerSystem.Database.Interfaces;
 using WhistleblowerSystem.Business.Mapping.AutoMapper;
 using WhistleblowerSystem.Business.Services;
 using WhistleblowerSystem.Database.Repositories;
+using WhistleblowerSystem.Shared.Provider;
 
 namespace WhistleblowerSystem.Server.DependencyInjection
 {
     public static class DependencyInjection
     {
-        public static void Init(IServiceCollection services, string dbName, string dbConnection)
+        public static void Init(IServiceCollection services, string dbName, string dbConnection, string? blockchainApiBaseUri)
         {
             ConfigureDbContext(services, dbName, dbConnection);
             services.AddSingleton<IDbContext>((serviceProvider) => serviceProvider.GetService<DbContext>()!);
@@ -23,6 +20,7 @@ namespace WhistleblowerSystem.Server.DependencyInjection
             ConfigureBusinessServices(services);
             services.AddScoped<Authentication.UserManager>();
             services.AddScoped<Authentication.WhistleblowerManager>();
+            services.AddSingleton(_ => new BlockchainApiProvider(blockchainApiBaseUri));
         }
 
         private static void ConfigureBusinessServices(IServiceCollection services)

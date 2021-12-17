@@ -18,16 +18,20 @@
                 <spam>  @L["mainlayout_hello"]@_userName</spam>
             </div>
         }
+
         <div class="language-container">
-            <!-- TODO ersetzen durch Flaggen-->
-            <select class="btn btn-secondary dropdown-toggle" value="@((int)LanguageService.Language)" @onchange="OnLanguageChanged" style="width:150px">
-                @foreach ((int, string) language in languages)
-                {
-                    <option value=@language.Item1>@language.Item2</option>
-                }
-            </select>
+            <MudItem xs="120" sm="60" md="40">
+                <MudSelect @bind-Value="CurrentLanguage" SelectedValuesChanged="OnLanguageChanged" T="WhistleblowerSystem.Shared.Enums.Language" Variant="Variant.Outlined" OffsetY="true">
+                    <MudSelectItem Value=@WhistleblowerSystem.Shared.Enums.Language.English>
+                        <img src=@GetLanguageIconUrl(WhistleblowerSystem.Shared.Enums.Language.English) height="14" class="mr-1" /> English
+                    </MudSelectItem>
+                    <MudSelectItem Value=@WhistleblowerSystem.Shared.Enums.Language.German>
+                        <img src=@GetLanguageIconUrl(WhistleblowerSystem.Shared.Enums.Language.German) height="14" class="mr-1" /> Deutsch
+                    </MudSelectItem>
+                </MudSelect>
+            </MudItem>
         </div>
-        </div>
+    </div>
     <div class="main-container">
         <div class="@SidebarClass">
             <NavMenu IsNavMenuCollapsed=@IsNavMenuCollapsed />
@@ -43,6 +47,7 @@
 @code {
     private string SidebarClass => IsNavMenuCollapsed ? "sidebar-menu-collapsed" : "sidebar sidebar-menu";
     private bool IsNavMenuCollapsed { get; set; } = false;
+    public string country = "";
 
     private void ToggleMenu(bool value)
     {

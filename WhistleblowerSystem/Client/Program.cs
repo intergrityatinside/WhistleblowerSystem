@@ -10,6 +10,7 @@ using WhistleblowerSystem.Shared.Enums;
 using System.Linq;
 using Microsoft.JSInterop;
 using MudBlazor.Services;
+using WhistleblowerSystem.Shared.Provider;
 
 namespace WhistleblowerSystem.Client
 {
@@ -36,6 +37,11 @@ namespace WhistleblowerSystem.Client
            
             //mud
             builder.Services.AddMudServices();
+
+            //get blockchain api uri from server
+            string? blockchainApiUri = await new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) }.GetStringAsync("BlockChainApiUri");
+            builder.Services.AddSingleton(new BlockchainApiProvider(blockchainApiUri));
+            Console.WriteLine($"Blockchain api: {blockchainApiUri}");
 
             var build = builder.Build();
             await build.Services.GetRequiredService<CurrentAccountService>().InitAsync();

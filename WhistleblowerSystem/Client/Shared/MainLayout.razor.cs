@@ -7,6 +7,7 @@ using Microsoft.Extensions.Localization;
 using WhistleblowerSystem.Shared.DTOs;
 using WhistleblowerSystem.Client.Services;
 using WhistleblowerSystem.Shared.Enums;
+using System.Linq;
 
 namespace WhistleblowerSystem.Client.Shared
 {
@@ -24,9 +25,18 @@ namespace WhistleblowerSystem.Client.Shared
             ((int)Language.English, "English")
         };
 
-        async Task OnLanguageChanged(ChangeEventArgs e)
+        private Language CurrentLanguage
         {
-            var language = (Language)Convert.ToInt32(e.Value);
+            get => LanguageService.Language;
+            set
+            {
+                LanguageService.Language = value;
+            }
+        }
+
+        async Task OnLanguageChanged(HashSet<Language> languages)
+        {
+            var language = languages.First();
             string cultureCode = language switch
             {
                 Language.English => "en-US",
@@ -75,6 +85,10 @@ namespace WhistleblowerSystem.Client.Shared
         private void SetUsername(UserDto? userDto)
         {
             _userName = userDto != null ? userDto.FirstName + " " + userDto.Name : "";
+        }
+
+        private string GetLanguageIconUrl(Language language) {
+            return language == Language.German ? "https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg" : "https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg";
         }
 
     }
