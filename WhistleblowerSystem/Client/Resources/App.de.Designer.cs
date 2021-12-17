@@ -1004,5 +1004,11 @@ namespace WhistleblowerSystem.Client.Resources {
                 return ResourceManager.GetString("manual_3_text_3", resourceCulture);
             }
         }
+        
+        public static string upload_error_message_size {
+            get {
+                return ResourceManager.GetString("upload_error_message_size", resourceCulture);
+            }
+        }
     }
 }
