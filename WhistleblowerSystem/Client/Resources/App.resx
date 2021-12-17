@@ -352,7 +352,7 @@ Advice: We recommend that you access our website from a device that is not conne
     <value>Report</value>
   </data>
   <data name="reportdetailview_additionalinfo" xml:space="preserve">
-    <value>Additional information</value>
+    <value>Additional information:</value>
   </data>
   <data name="reportdetailview_entermessage" xml:space="preserve">
     <value>Enter new message</value>
