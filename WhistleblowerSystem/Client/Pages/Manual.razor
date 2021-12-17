@@ -28,42 +28,40 @@
                         <li>@L["manual_2_listitem_3"]</li>
                         <li>@L["manual_2_listitem_4"]</li>
                     </ul>
-                    <br />
-                    <MudCard>
-                        @if (LanguageService.Language == Language.German)
-                        {
-                            <MudCardMedia Image="/images/manual_de/manual_1_de.png"> </MudCardMedia>
-                        }
-                        @if (LanguageService.Language == Language.English)
-                        {
-                            <MudCardMedia Image="/images/manual_en/manual_1_en.png"> </MudCardMedia>
-                        }
-                    </MudCard>
+                    <br/>
+
+
+                    @if (LanguageService.Language == Language.German)
+                    {
+                        <img class="screenshot" alt="Anleitung Bildschirmfoto 1" src="/images/manual_de/manual_1_de.png"/>
+                    }
+                    @if (LanguageService.Language == Language.English)
+                    {
+                        <img class="screenshot" alt="Manual Screenshot 1" src="/images/manual_en/manual_1_en.png"/>
+                    }
                 </MudText>
             </MudTabPanel>
             <MudTabPanel Text=@L["manual_3_subtitle"]>
                 <div style="display: flex; flex-direction: column">
                     <MudText>
                         @L["manual_3_text_1"]
-                        <br /> <br />
+                        <br/> <br/>
                         <strong>@L["manual_3_text_2"]</strong>
                         <ol>
                             <li>@L["manual_3_listitem_1"]</li>
                             <li>@L["manual_3_listitem_2"]</li>
                             <li>@L["manual_3_listitem_3"]</li>
                         </ol>
-                        <br />
-                        <MudCard>
-                            @if (LanguageService.Language == Language.German)
-                            {
-                                <MudCardMedia Image="/images/manual_de/manual_2_de.png"> </MudCardMedia>
-                            }
-                            @if (LanguageService.Language == Language.English)
-                            {
-                                <MudCardMedia Image="/images/manual_en/manual_2_en.png"> </MudCardMedia>
-                            }
-                        </MudCard>
-                        <br /> <br />
+                        <br/>
+                        @if (LanguageService.Language == Language.German)
+                        {
+                            <img class="screenshot" alt="Anleitung Bildschirmfoto 2" src="/images/manual_de/manual_2_de.png"/>
+                        }
+                        @if (LanguageService.Language == Language.English)
+                        {
+                            <img class="screenshot" alt="Manual Screenshot 2" src="/images/manual_en/manual_2_en.png"/>
+                        }
+                        <br/> <br/>
                         @L["manual_3_text_3"]
                     </MudText>
                 </div>
@@ -80,9 +78,9 @@
                             <strong>@L["manual_4_listtitle_3"]</strong> @L["manual_4_listitem_3"]
                         </li>
                     </ul>
-                    <br />
+                    <br/>
                     @L["manual_4_text_2"]
-                    <br /> <br />
+                    <br/> <br/>
                     @L["manual_4_text_3"]
                     <ul>
                         <li>@L["manual_4_listitem_4"]</li>
@@ -94,65 +92,61 @@
                         <li>@L["manual_4_listitem_10"]</li>
                         <li>@L["manual_4_listitem_11"]</li>
                     </ul>
-                    <br />
+                    <br/>
                     @L["manual_4_text_4"]
-                    <br /> <br />
+                    <br/> <br/>
                     <strong>@L["manual_4_text_5"]</strong> @L["manual_4_text_6"]
-                    <br /> <br />
-                    <MudCard>
-                        @if (LanguageService.Language == Language.German)
-                        {
-                            <MudCardMedia Image="/images/manual_de/manual_3_de.png"> </MudCardMedia>
-                        }
-                        @if (LanguageService.Language == Language.English)
-                        {
-                            <MudCardMedia Image="/images/manual_en/manual_3_en.png"> </MudCardMedia>
-                        }
-                           </MudCard>
-                    <br /> <br />
+                    <br/> <br/>
+                    @if (LanguageService.Language == Language.German)
+                    {
+                        <img class="screenshot" alt="Anleitung Bildschirmfoto 3" src="/images/manual_de/manual_3_de.png"/>
+                    }
+                    @if (LanguageService.Language == Language.English)
+                    {
+                        <img class="screenshot" alt="Manual Screenshot 3" src="/images/manual_en/manual_3_en.png"/>
+                    }
+                    <br/> <br/>
                     @L["manual_4_text_7"]
-                    <br /> <br />
+                    <br/> <br/>
                     @L["manual_4_text_8"]
-                    <br /> <br />
+                    <br/> <br/>
                     @L["manual_4_text_9"]
-                    <br /> <br />
+                    <br/> <br/>
                     <MudCard>
                         @if (LanguageService.Language == Language.German)
                         {
-                            <MudCardMedia Image="/images/manual_de/manual_4_de.png"> </MudCardMedia>
+                            <img class="screenshot" alt="Anleitung Bildschirmfoto 4" src="/images/manual_de/manual_4_de.png"/>
                         }
                         @if (LanguageService.Language == Language.English)
                         {
-                            <MudCardMedia Image="/images/manual_en/manual_4_en.png"> </MudCardMedia>
+                            <img class="screenshot" alt="Manual Screenshot 4" src="/images/manual_en/manual_4_en.png"/>
                         }
                     </MudCard>
-                    <br /> <br />
+                    <br/> <br/>
                     @L["manual_4_text_10"]
-                    <br />
+                    <br/>
                     @L["manual_4_text_11"]
                 </MudText>
             </MudTabPanel>
             <MudTabPanel Text=@L["manual_5_subtitle"]>
                 <MudText>
                     @L["manual_5_text_1"]
-                    <br /> <br />
+                    <br/> <br/>
                     @L["manual_5_text_2"]
-                    <br /> <br />
-                    <MudCard>
-                        @if (LanguageService.Language == Language.German)
-                        {
-                            <MudCardMedia Image="/images/manual_de/manual_5_de.png"> </MudCardMedia>
-                        }
-                        @if (LanguageService.Language == Language.English)
-                        {
-                            <MudCardMedia Image="/images/manual_en/manual_5_en.png"> </MudCardMedia>
-                        }
-                    </MudCard>
-                    <br /> <br />
+                    <br/> <br/>
+                    @if (LanguageService.Language == Language.German)
+                    {
+                        <img class="screenshot" alt="Anleitung Bildschirmfoto 5" src="/images/manual_de/manual_5_de.png"/>
+                    }
+                    @if (LanguageService.Language == Language.English)
+                    {
+                        <img class="screenshot" alt="Manual Screenshot 5" src="/images/manual_en/manual_5_en.png"/>
+                    }
+                    <br/> <br/>
                     @L["manual_5_text_3"]
-                    <br /> <br />
+                    <br/> <br/>
                     @L["manual_5_text_4"]
-                    <br /> <br />
+                    <br/> <br/>
                     @L["manual_5_listtitle_1"]
                     <ul>
                         <li>@L["Undefined"]</li>
@@ -160,26 +154,26 @@
                         <li>@L["Processing"]</li>
                         <li>@L["Closed"]</li>
                     </ul>
-                    <br />
+                    <br/>
                     @L["manual_5_text_5"]
-                    <br /> <br />
+                    <br/> <br/>
                     @L["manual_5_text_6"]
-                    <br /> <br />
+                    <br/> <br/>
                     @L["manual_5_text_7"]
-                    <br /> <br />
+                    <br/> <br/>
                     @L["manual_5_text_8"]
-                    <br /> <br />
-                    <MudCard>
-                        @if (LanguageService.Language == Language.German)
-                        {
-                            <MudCardMedia Image="/images/manual_de/manual_6_de.png"> </MudCardMedia>
-                        }
-                        @if (LanguageService.Language == Language.English)
-                        {
-                            <MudCardMedia Image="/images/manual_en/manual_6_en.png"> </MudCardMedia>
-                        }
-                    </MudCard>
-                    <br /> <br />
+                    <br/> <br/>
+
+                    @if (LanguageService.Language == Language.German)
+                    {
+                        <img class="screenshot" alt="Anleitung Bildschirmfoto 6" src="/images/manual_de/manual_6_de.png"/>
+                    }
+                    @if (LanguageService.Language == Language.English)
+                    {
+                        <img class="screenshot" alt="Manual Screenshot 6" src="/images/manual_en/manual_6_en.png"/>
+                    }
+
+                    <br/> <br/>
                 </MudText>
             </MudTabPanel>
             <MudTabPanel Text=@L["manual_6_subtitle"]>
