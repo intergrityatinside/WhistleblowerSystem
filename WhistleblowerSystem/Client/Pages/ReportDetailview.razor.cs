@@ -142,6 +142,14 @@ namespace WhistleblowerSystem.Client.Pages
                         continue;
                     }
 
+                    if (addedFile.Size > 20971520)
+                    {
+                        await DialogService!.ShowMessageBox(
+                                    L["upload_error_title"],
+                                    L["upload_error_message_size"],
+                                    yesText: L["upload_error_yestext"]);
+                    }
+
                     var attachementMetaData = await AttachementService.Save(addedFile);
                     if (attachementMetaData != null)
                     {
