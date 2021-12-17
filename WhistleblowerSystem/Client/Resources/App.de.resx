@@ -178,7 +178,7 @@
     <value>Weiter</value>
   </data>
   <data name="newreport_title" xml:space="preserve">
-    <value>Meldung erfassen</value>
+    <value>Meldung einreichen</value>
   </data>
   <data name="newreport_continue" xml:space="preserve">
     <value>Weiter</value>
@@ -233,7 +233,7 @@
     <value>Ihre CaseID lautet: </value>
   </data>
   <data name="confirmation_text" xml:space="preserve">
-    <value>Mit der CaseID und Ihrem Passwort können Sie den Stand Ihrer Meldung jederzeit unter “Meldung anzeigen” aufrufen. Bitte notieren Sie sich die CaseID und das Passwort sofort, sobald Sie dieses Fenster schliessen, können CaseID und Passwort nicht mehr aufgerufen oder verändert werden.</value>
+    <value>Mit der CaseID und Ihrem Passwort können Sie den Stand Ihrer Meldung jederzeit unter «Meldung anzeigen» aufrufen. Bitte notieren Sie sich die CaseID und das Passwort sofort, sobald Sie dieses Fenster schliessen, können CaseID und Passwort nicht mehr aufgerufen oder verändert werden.</value>
   </data>
   <data name="confirmation_password" xml:space="preserve">
     <value>Ihr Passwort lautet: </value>
@@ -272,7 +272,7 @@
     <value>Warum sollte ein Fehlverhalten gemeldet werden?</value>
   </data>
   <data name="faq_question_6" xml:space="preserve">
-    <value>Welche Informationen benötige ich, um eine Meldung zu erfassen?</value>
+    <value>Welche Informationen benötige ich, um eine Meldung zu einzureichen?</value>
   </data>
   <data name="faq_question_7" xml:space="preserve">
     <value>Wie wird die Anonymität der Whistleblower gewährleitet?</value>
@@ -460,7 +460,7 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
     <value>FAQs</value>
   </data>
   <data name="manual_1_listitem_1" xml:space="preserve">
-    <value>Damit die Firma nach Ihrer Meldung mit Ihnen kommunizieren kann, ist es wichtig, dass Sie die eingereichte Meldung regelmässig auf neue Nachrichten prüfen. Wir sind bestrebt innert Wochenfrist auf die Meldung zu reagieren. Mit der CaseID und dem Passwort können Sie unter «Meldung anzeigen» darauf zugreifen.</value>
+    <value>Damit die Unternehmung nach Ihrer Meldung mit Ihnen kommunizieren kann, ist es wichtig, dass Sie die eingereichte Meldung regelmässig auf neue Nachrichten prüfen. Wir sind bestrebt innert Wochenfrist auf die Meldung zu reagieren. Mit der CaseID und dem Passwort können Sie unter «Meldung anzeigen» darauf zugreifen.</value>
   </data>
   <data name="manual_1_listitem_2" xml:space="preserve">
     <value>Wenn Sie anonym bleiben möchten, geben Sie in Ihrer Meldung keine persönlichen Informationen an. Vermeiden Sie Daten, die Rückschlüsse auf Ihre Person zulassen.</value>
@@ -469,16 +469,16 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
     <value>Verwenden Sie kein von Ihrer Organisation bereitgestelltes Gerät, um Ihren Fall zu melden.</value>
   </data>
   <data name="manual_2_listitem_1" xml:space="preserve">
-    <value>Durch dieses Menü können Sie mit Ihrer Maus navigieren und die entsprechende Option auswählen, in dem Sie die Option mit Ihrer Maus anklicken.</value>
+    <value>Durch dieses Menü können Sie navigieren und die entsprechende Option auswählen.</value>
   </data>
   <data name="manual_2_listitem_2" xml:space="preserve">
-    <value>Falls Sie das Menü ausblenden möchten, müssen Sie nur einmal auf das Menü Symbol klicken. Um das Menü wieder anzuzeigen, klicken Sie wieder auf das gleiche Symbol.</value>
+    <value>Falls Sie das gelbe Menübandausblenden möchten, müssen Sie nur einmal auf das Menü Symbol klicken. Um das Menü wieder anzuzeigen, klicken Sie wieder auf das gleiche Symbol.</value>
   </data>
   <data name="manual_2_listitem_3" xml:space="preserve">
     <value>Sie können über die Flagge oben rechts die Sprache ändern.</value>
   </data>
   <data name="manual_2_listitem_4" xml:space="preserve">
-    <value>Um allfällige Fragen oder Unklarheiten bezüglich Whistleblowing zu klären, dürfen Sie sich jederzeit bei uns melden. Dafür steht Ihnen unsere E-Mailadresse zur Verfügung.</value>
+    <value>Um allfällige Fragen oder Unklarheiten bezüglich Whistleblowing zu klären, dürfen Sie sich jederzeit bei uns melden. Dafür steht Ihnen unsere E-Mailadresse (integrity@inside.ch) zur Verfügung.</value>
   </data>
   <data name="manual_2_text_1" xml:space="preserve">
     <value>Auf unsere Hauptseite «www.integrityatinside.ch» sehen Sie auf der linken Seite das Hauptmenü mit vier verschiedenen Optionen.</value>
@@ -551,7 +551,7 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
     <value>Seit wann ist Ihnen der Fall bekannt? </value>
   </data>
   <data name="manual_4_listitem_9" xml:space="preserve">
-    <value>Sind Sie persönlich in diesem Fall betroffen?</value>
+    <value>Sind Sie persönlich von diesem Fall betroffen?</value>
   </data>
   <data name="manual_4_listitem_10" xml:space="preserve">
     <value>Sind Ihnen bereits Schaden / Auswirkungen durch diesen Fall bekannt?</value>
@@ -560,7 +560,7 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
     <value>Haben Sie den Fall jemandem im Unternehmen gemeldet? Falls ja, an wen?</value>
   </data>
   <data name="manual_4_text_7" xml:space="preserve">
-    <value>Als nächstes haben Sie die Möglichkeit Dokumente hochzuladen. Unsere Webseite unterstützt alle Dateitypen wie zum Beispiel PDF, Docx, CSV und XLSX.
+    <value>Als nächstes haben Sie die Möglichkeit Dokumente hochzuladen. Unsere Webseite unterstützt alle Dateitypen wie zum Beispiel PDF, Docx, CSV und XLSX. Die maximale Dateigrösse beträgt 20 Mb.
 </value>
   </data>
   <data name="manual_4_text_8" xml:space="preserve">
@@ -580,7 +580,7 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
 </value>
   </data>
   <data name="manual_5_text_1" xml:space="preserve">
-    <value>Mit Ihrer CaseID und dem Passwort können Sie den aktuellen Stand Ihrer Meldung jederzeit unter “Meldung anzeigen” aufrufen.
+    <value>Mit Ihrer CaseID und dem Passwort können Sie den aktuellen Stand Ihrer Meldung jederzeit unter “Meldung anzeigen» aufrufen.
 </value>
   </data>
   <data name="manual_5_text_2" xml:space="preserve">

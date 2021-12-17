@@ -178,7 +178,7 @@
     <value>Continue</value>
   </data>
   <data name="newreport_title" xml:space="preserve">
-    <value>Create report</value>
+    <value>Submit report</value>
   </data>
   <data name="newreport_continue" xml:space="preserve">
     <value>Continue</value>
@@ -233,7 +233,7 @@
     <value>Your CaseID is: </value>
   </data>
   <data name="confirmation_text" xml:space="preserve">
-    <value>With the CaseID and your password you can view the status of your report at any time under "View report". Please make a note of the CaseID and password immediately. As soon as you close this window, the CaseID and the password can no longer be accessed or changed.</value>
+    <value>With the CaseID and your password you can view the status of your report at any time under «View report». Please make a note of the CaseID and password immediately. As soon as you close this window, the CaseID and the password can no longer be accessed or changed.</value>
   </data>
   <data name="confirmation_password" xml:space="preserve">
     <value>Your Password is: </value>
@@ -272,7 +272,7 @@
     <value>Why should a wrongdoing be reported?</value>
   </data>
   <data name="faq_question_6" xml:space="preserve">
-    <value>What information do I need to create a report?</value>
+    <value>What information do I need to submit a report?</value>
   </data>
   <data name="faq_question_7" xml:space="preserve">
     <value>How is the anonymity of whistleblowers maintained?</value>
@@ -409,7 +409,7 @@ Advice: We recommend that you access our website from a device that is not conne
     <value>Close</value>
   </data>
   <data name="disclaimer_infotext" xml:space="preserve">
-    <value>This page is part of a research project in the field of whistleblowing and blockchain at FHNW. Please do not report real cases here. These will not be processed or forwarded. For real cases, please contact the official "Whistleblower contact of FHNW":</value>
+    <value>This page is part of a research project in the field of whistleblowing and blockchain at FHNW. Please do not report real cases here. These will not be processed or forwarded. For real cases, please contact the official «Whistleblower contact of FHNW»:</value>
   </data>
   <data name="disclaimer_whistleblower_contact" xml:space="preserve">
     <value>Whistleblower contact of FHNW</value>
@@ -448,19 +448,19 @@ Advice: We recommend that you access our website from a device that is not conne
     <value>Step by step</value>
   </data>
   <data name="manual_3_subtitle" xml:space="preserve">
-    <value>Create a report</value>
+    <value>Submit a report</value>
   </data>
   <data name="manual_4_subtitle" xml:space="preserve">
     <value>Submit report</value>
   </data>
   <data name="manual_5_subtitle" xml:space="preserve">
-    <value>Create a report</value>
+    <value>View report</value>
   </data>
   <data name="manual_6_subtitle" xml:space="preserve">
     <value>FAQs</value>
   </data>
   <data name="manual_1_listitem_1" xml:space="preserve">
-    <value>After submitting your report, it is important that you regularly check the submitted report for new messages so that the company can communicate with you. We will ensure that we respond to the report within a week. You can access it with the CaseID and password under "View report". </value>
+    <value>After submitting your report, it is important that you regularly check the submitted report for new messages so that the enterprise can communicate with you. We will ensure that we respond to the report within a week. You can access it with the CaseID and password under «View report». </value>
   </data>
   <data name="manual_1_listitem_2" xml:space="preserve">
     <value>If you wish to remain anonymous, do not include any personal information in your report. Avoid data that allows to draw conclusions about your identity. </value>
@@ -469,22 +469,22 @@ Advice: We recommend that you access our website from a device that is not conne
     <value>Do not use a device provided by your organisation to report your case.</value>
   </data>
   <data name="manual_2_listitem_1" xml:space="preserve">
-    <value>You can navigate through this menu with your mouse and select the corresponding option by clicking on it with your mouse. </value>
+    <value>You can navigate through this menu and select the appropriate option.</value>
   </data>
   <data name="manual_2_listitem_2" xml:space="preserve">
-    <value>If you want to hide the menu, you only have to click once on the symbol. To show the menu again, click on the same symbol again. </value>
+    <value>If you want to hide the menubar, you only have to click once on the menu symbol. To show the menu again, click on the same symbol again. </value>
   </data>
   <data name="manual_2_listitem_3" xml:space="preserve">
     <value>You can change the language by clicking on the flag in the top right-hand corner.  </value>
   </data>
   <data name="manual_2_listitem_4" xml:space="preserve">
-    <value>You may contact us at any time to clarify any questions or queries you may have regarding whistleblowing. You can contact us at our e-mail address. </value>
+    <value>You may contact us at any time to clarify any questions or queries you may have regarding whistleblowing. You can contact us at our e-mail address (integrity@inside.ch). </value>
   </data>
   <data name="manual_2_text_1" xml:space="preserve">
-    <value>On our main page "www.integrityatinside.ch" you will see the main menu with four different options on the left side. </value>
+    <value>On our main page «www.integrityatinside.ch» you will see the main menu with four different options on the left side. </value>
   </data>
   <data name="manual_3_text_1" xml:space="preserve">
-    <value>To create a report, click on "Submit report". Afterwards, the first thing you will see is the security notice. Please read the security notice carefully. This explains how our team protects your data and how the submitted information will be processed. 
+    <value>To submit a report, click on «Submit report». Afterwards, the first thing you will see is the security notice. Please read the security notice carefully. This explains how our team protects your data and how the submitted information will be processed. 
 </value>
   </data>
   <data name="manual_3_text_2" xml:space="preserve">
@@ -497,7 +497,7 @@ Advice: We recommend that you access our website from a device that is not conne
     <value>If you wish to return to the main page, click on the logo</value>
   </data>
   <data name="manual_3_listitem_3" xml:space="preserve">
-    <value>To continue your report, click on "Continue" at the bottom right. </value>
+    <value>To continue your report, click on «Continue» at the bottom right. </value>
   </data>
   <data name="manual_4_text_1" xml:space="preserve">
     <value>Please provide the following information:</value>
@@ -527,7 +527,7 @@ Advice: We recommend that you access our website from a device that is not conne
     <value>When you are describing your case, it is helpful to consider the following questions: </value>
   </data>
   <data name="manual_4_text_4" xml:space="preserve">
-    <value>Once you have filled in all the fields, click on "Continue" at the bottom right. </value>
+    <value>Once you have filled in all the fields, click on «Continue» at the bottom right. </value>
   </data>
   <data name="manual_4_text_5" xml:space="preserve">
     <value>Note:</value>
@@ -560,52 +560,52 @@ Advice: We recommend that you access our website from a device that is not conne
     <value>Have you reported the case to anyone in the company? If yes, to whom?  </value>
   </data>
   <data name="manual_4_text_7" xml:space="preserve">
-    <value>Next, you have the option to upload documents. Our website supports all file types such as PDF, Docx, CSV and XLSX. </value>
+    <value>Next, you have the option to upload documents. Our website supports all file types such as PDF, Docx, CSV and XLSX. The maximum file size is 20 Mb.</value>
   </data>
   <data name="manual_4_text_8" xml:space="preserve">
     <value>The uploaded documents are considered as evidence of your submitted report. The evidence is important in order to understand and analyse the situation in your report in detail. This will help us to process your case more effectively and efficiently.</value>
   </data>
   <data name="manual_4_text_9" xml:space="preserve">
-    <value>To upload the document, drag the document to the upload area. It is also possible to upload multiple documents. Finally, click on "Submit" to submit the report to us. If you want to look at your report again, you can go back to the report form at this point by clicking on "Back".</value>
+    <value>To upload the document, drag the document to the upload area. It is also possible to upload multiple documents. Finally, click on «Submit» to submit the report to us. If you want to look at your report again, you can go back to the report form at this point by clicking on «Back».</value>
   </data>
   <data name="manual_4_text_10" xml:space="preserve">
-    <value>To complete your message, you will receive a CaseID and a defined password from us. The two keys prevent only authorized persons from accessing the message.</value>
+    <value>To complete your report, you will receive a CaseID and a defined password from us. The two keys prevent only authorized persons from accessing the report.</value>
   </data>
   <data name="manual_4_text_11" xml:space="preserve">
-    <value>Please make a note of the CaseID and password immediately. As soon as you close this window, the CaseID and password can no longer be called up or changed.</value>
+    <value>Please note your CaseID and password immediately. As soon as you close this window, the CaseID and password can no longer be called up or changed.</value>
   </data>
   <data name="manual_5_text_1" xml:space="preserve">
-    <value>With your CaseID and password, you can call up the current status of your report at any time under "View report".</value>
+    <value>With your CaseID and password, you can call up the current status of your report at any time under «View report».</value>
   </data>
   <data name="manual_5_text_2" xml:space="preserve">
-    <value>Please enter your CaseID and your password in the two fields and click on " Open" in the bottom right-hand corner. </value>
+    <value>Please enter your CaseID and your password in the two fields and click on «Open» in the bottom right-hand corner. </value>
   </data>
   <data name="manual_5_text_3" xml:space="preserve">
     <value>If you forget the CaseID or password, they cannot be recovered for security reasons. Alternatively, you can enter a new report and refer to your original report. </value>
   </data>
   <data name="manual_5_text_4" xml:space="preserve">
-    <value>As soon as you click on " Open", your entered message, the current status and all messages are displayed. </value>
+    <value>As soon as you click on «Open», your entered message, the current status and all messages are displayed. </value>
   </data>
   <data name="manual_5_listtitle_1" xml:space="preserve">
-    <value>The possible statuses of the report are:</value>
+    <value>The possible states of the report are:</value>
   </data>
   <data name="manual_5_text_5" xml:space="preserve">
     <value>Below your report you will find a message function. This function allows you to contact us anonymously.  </value>
   </data>
   <data name="manual_5_text_6" xml:space="preserve">
-    <value>You do not have to enter any additional data to send us a message. Just enter your message in the text field and click on "Send". You will then receive a reply from our team of experts. </value>
+    <value>You do not have to enter any additional data to send us a message. Just enter your message in the text field and click on «Send». You will then receive a reply from our team of experts. </value>
   </data>
   <data name="manual_5_text_7" xml:space="preserve">
-    <value>To view the reply, you must log in again by clicking on "View report". You will not receive a notification from us if there is a new message. This ensures that we cannot draw any conclusions about your identity and that anonymity is guaranteed at all times. </value>
+    <value>To view the reply, you must log in again by clicking on «View report». You will not receive a notification from us if there is a new message. This ensures that we cannot draw any conclusions about your identity and that anonymity is guaranteed at all times. </value>
   </data>
   <data name="manual_5_text_8" xml:space="preserve">
-    <value>Once you have viewed your report, you can click on "Close report" at the bottom right and close the window.</value>
+    <value>Once you have viewed your report, you can click on «Close report» at the bottom right and close the window.</value>
   </data>
   <data name="manual_6_text_1" xml:space="preserve">
     <value>FAQ is the abbreviation for Frequently Asked Questions. Under FAQs you will find the compilation of frequently asked questions.</value>
   </data>
   <data name="manual_3_text_3" xml:space="preserve">
-    <value>To continue your report, click on "Continue" at the bottom right. </value>
+    <value>To continue your report, click on «Continue» at the bottom right. </value>
   </data>
   <data name="upload_error_message_size" xml:space="preserve">
     <value>The file exceeds the maximum size of 20 megabytes. You can zip the file to reduce the size.</value>
