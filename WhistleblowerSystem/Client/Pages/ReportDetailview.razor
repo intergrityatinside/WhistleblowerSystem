@@ -66,7 +66,10 @@
                             <MudSelect @bind-Value="_enumValue" Label="@L["reportdetailview_state"]" OffsetY="true" Margin="Margin.None" Style="min-width: 200px;">
                                 @foreach (ViolationState item in Enum.GetValues(typeof(ViolationState)))
                                 {
-                                    <MudSelectItem Value="@item">@L[item.ToString()]</MudSelectItem>
+                                    if (item != ViolationState.Undefined)
+                                    {
+                                        <MudSelectItem Value="@item">@L[item.ToString()]</MudSelectItem>
+                                    }
                                 }
                             </MudSelect>
                             <MudButton OnClick="async () => await SaveState()" Color="Color.Dark" Variant="Variant.Outlined" Size="Size.Small" Class="ma-2" Disabled="_enumValue == _form.State">@L["reportdetailview_savestate"]</MudButton>

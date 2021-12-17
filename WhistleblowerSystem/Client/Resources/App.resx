@@ -391,7 +391,7 @@ Advice: We recommend that you access our website from a device that is not conne
     <value>Documents</value>
   </data>
   <data name="reportdetailview_add_documents" xml:space="preserve">
-    <value>Upload additional documents</value>
+    <value>Upload </value>
   </data>
   <data name="whistleblowing_title" xml:space="preserve">
     <value>We offer you the opportunity to submit whistleblowing reports via this channel, even anonymously if necessary.</value>
