@@ -1022,7 +1022,7 @@ namespace WhistleblowerSystem.Client.Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Additional information: ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Additional information ähnelt.
         /// </summary>
         public static string reportdetailview_additionalinfo {
             get {
