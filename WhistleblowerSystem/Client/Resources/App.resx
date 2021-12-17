@@ -578,7 +578,7 @@ Advice: We recommend that you access our website from a device that is not conne
     <value>With your CaseID and password, you can call up the current status of your report at any time under «View report».</value>
   </data>
   <data name="manual_5_text_2" xml:space="preserve">
-    <value>Please enter your CaseID and your password in the two fields and click on «Open» in the bottom right-hand corner. </value>
+    <value>Please enter your CaseID and your password in the two fields and click on «View» in the bottom right-hand corner. </value>
   </data>
   <data name="manual_5_text_3" xml:space="preserve">
     <value>If you forget the CaseID or password, they cannot be recovered for security reasons. Alternatively, you can enter a new report and refer to your original report. </value>
@@ -603,9 +603,6 @@ Advice: We recommend that you access our website from a device that is not conne
   </data>
   <data name="manual_6_text_1" xml:space="preserve">
     <value>FAQ is the abbreviation for Frequently Asked Questions. Under FAQs you will find the compilation of frequently asked questions.</value>
-  </data>
-  <data name="manual_3_text_3" xml:space="preserve">
-    <value>To continue your report, click on «Continue» at the bottom right. </value>
   </data>
   <data name="upload_error_message_size" xml:space="preserve">
     <value>The file exceeds the maximum size of 20 megabytes. You can zip the file to reduce the size.</value>

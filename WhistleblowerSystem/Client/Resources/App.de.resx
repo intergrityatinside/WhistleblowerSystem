@@ -617,9 +617,6 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
     <value>FAQ ist die Abkürzung für Frequently Asked Questions. Unter FAQs finden Sie die Zusammenstellung der häufig gestellten Fragen.
 </value>
   </data>
-  <data name="manual_3_text_3" xml:space="preserve">
-    <value>Sobald Sie auf «Weiter» klicken, gelangen Sie auf die Formularseite zur Erfassung.</value>
-  </data>
   <data name="upload_error_message_size" xml:space="preserve">
     <value>Die Datei überschreitet die Maximalgrösse von 20 Megabyte. Sie können die Datei zippen um die Grösse zu reduzieren.</value>
   </data>

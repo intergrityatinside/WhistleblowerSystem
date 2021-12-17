@@ -999,12 +999,6 @@ namespace WhistleblowerSystem.Client.Resources {
             }
         }
         
-        public static string manual_3_text_3 {
-            get {
-                return ResourceManager.GetString("manual_3_text_3", resourceCulture);
-            }
-        }
-        
         public static string upload_error_message_size {
             get {
                 return ResourceManager.GetString("upload_error_message_size", resourceCulture);
