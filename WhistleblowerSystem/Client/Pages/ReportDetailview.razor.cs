@@ -15,7 +15,7 @@ using WhistleblowerSystem.Shared.Models;
 namespace WhistleblowerSystem.Client.Pages
 
 {
-    public partial class ReportDetailview : IDisposable
+    public partial class ReportDetailview
     {
         [Parameter] public string CaseId { get; set; } = string.Empty;
         private FormModel? _form;
@@ -178,11 +178,6 @@ namespace WhistleblowerSystem.Client.Pages
         {
             bool myMessage = _isCompany && messageDto.User != null || !_isCompany && messageDto.User == null;
             return myMessage ? "flex-direction: row-reverse;" : "flex-direction: row;";
-        }
-
-        void IDisposable.Dispose()
-        {
-            // TODO
         }
 
         protected override bool ShouldRender()
