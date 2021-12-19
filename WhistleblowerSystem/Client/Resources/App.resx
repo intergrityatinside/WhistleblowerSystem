@@ -157,7 +157,7 @@
     <value>To further enhance your security, please note the following points:</value>
   </data>
   <data name="securitynotice_list_item_1" xml:space="preserve">
-    <value>Our website is separate from our organization's IT environment</value>
+    <value>Our website is separate from our organizations IT environment</value>
   </data>
   <data name="securitynotice_list_item_2" xml:space="preserve">
     <value>If you wish to remain anonymous, do not include any personal information in your report. Avoid data that could be used to identify you individually</value>
@@ -169,7 +169,7 @@
     <value>We ensure that reporting metadata is not stored in any way</value>
   </data>
   <data name="securitynotice_checkbox_title" xml:space="preserve">
-    <value>To enter your report, you must agree to these security notice.</value>
+    <value>To enter your report, you must agree to these security notices.</value>
   </data>
   <data name="securitynotice_checkbox_text" xml:space="preserve">
     <value>I agree with the security instructions</value>
@@ -481,7 +481,7 @@ Advice: We recommend that you access our website from a device that is not conne
     <value>You may contact us at any time to clarify any questions or queries you may have regarding whistleblowing. You can contact us at our e-mail address (integrity@inside.ch). </value>
   </data>
   <data name="manual_2_text_1" xml:space="preserve">
-    <value>On our main page «www.integrityatinside.ch» you will see the main menu with four different options on the left side. </value>
+    <value>On our main page you will see the main menu with four different options on the left side. </value>
   </data>
   <data name="manual_3_text_1" xml:space="preserve">
     <value>To submit a report, click on «Submit report». Afterwards, the first thing you will see is the security notice. Please read the security notice carefully. This explains how our team protects your data and how the submitted information will be processed. 

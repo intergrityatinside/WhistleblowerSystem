@@ -166,7 +166,7 @@
     <value>Verwenden Sie kein von Ihrer Organisation bereitgestelltes Gerät, um Ihren Fall zu melden</value>
   </data>
   <data name="securitynotice_list_item_4" xml:space="preserve">
-    <value>Wir stellen sicher, dass auch die Metadaten der Melder nicht gespeichert werden</value>
+    <value>Wir stellen sicher, dass auch die Metadaten der Meldenden nicht gespeichert werden</value>
   </data>
   <data name="securitynotice_checkbox_title" xml:space="preserve">
     <value>Um Ihre Meldung zu erfassen, müssen Sie mit diesen Sicherheitshinweisen einverstanden sein.</value>
@@ -388,7 +388,7 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
     <value>Beschreibung</value>
   </data>
   <data name="reportdetailview_add_documents" xml:space="preserve">
-    <value>Zusätzliche </value>
+    <value>Upload</value>
   </data>
   <data name="reportdetailview_documents" xml:space="preserve">
     <value>Dokumente</value>
@@ -472,7 +472,7 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
     <value>Durch dieses Menü können Sie navigieren und die entsprechende Option auswählen.</value>
   </data>
   <data name="manual_2_listitem_2" xml:space="preserve">
-    <value>Falls Sie das gelbe Menübandausblenden möchten, müssen Sie nur einmal auf das Menü Symbol klicken. Um das Menü wieder anzuzeigen, klicken Sie wieder auf das gleiche Symbol.</value>
+    <value>Falls Sie das gelbe Menüband ausblenden möchten, müssen Sie nur einmal auf das Menü Symbol klicken. Um das Menü wieder anzuzeigen, klicken Sie wieder auf das gleiche Symbol.</value>
   </data>
   <data name="manual_2_listitem_3" xml:space="preserve">
     <value>Sie können über die Flagge oben rechts die Sprache ändern.</value>
@@ -481,7 +481,7 @@ Ratschlag: Wir empfehlen Ihnen, von einem Gerät aus auf unsere Webseite zuzugre
     <value>Um allfällige Fragen oder Unklarheiten bezüglich Whistleblowing zu klären, dürfen Sie sich jederzeit bei uns melden. Dafür steht Ihnen unsere E-Mailadresse (integrity@inside.ch) zur Verfügung.</value>
   </data>
   <data name="manual_2_text_1" xml:space="preserve">
-    <value>Auf unsere Hauptseite «www.integrityatinside.ch» sehen Sie auf der linken Seite das Hauptmenü mit vier verschiedenen Optionen.</value>
+    <value>Auf unsere Hauptseite sehen Sie auf der linken Seite das Hauptmenü mit vier verschiedenen Optionen.</value>
   </data>
   <data name="manual_3_text_1" xml:space="preserve">
     <value>Um eine Meldung zu erfassen, klicken Sie auf «Meldung einreichen». Danach sehen Sie als erstes die Sicherheitshinweise. Bitte lesen Sie die Sicherheitshinweise sorgfältig durch. Hier wird Ihnen erklärt, wie unser Team Ihre Daten schützt und wie Ihre eingegebenen Informationen bearbeitet werden.</value>

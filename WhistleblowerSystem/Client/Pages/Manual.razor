@@ -22,14 +22,13 @@
             <MudTabPanel Text=@L["manual_2_subtitle"]>
                 <MudText>
                     @L["manual_2_text_1"]
-                    <ul>
+                    <ol>
                         <li>@L["manual_2_listitem_1"]</li>
                         <li>@L["manual_2_listitem_2"] </li>
                         <li>@L["manual_2_listitem_3"]</li>
                         <li>@L["manual_2_listitem_4"]</li>
-                    </ul>
+                    </ol>
                     <br/>
-
 
                     @if (LanguageService.Language == Language.German)
                     {
@@ -61,7 +60,9 @@
                         {
                             <img class="screenshot" alt="Manual Screenshot 2" src="/images/manual_en/manual_2_en.png"/>
                         }
-                           <br/>   <br/>
+                        <br/><br/>
+                        <MudDivider Style="height: 2px"/>
+                        <br/><br/>
                     </MudText>
                 </div>
                 <MudText>
@@ -104,24 +105,26 @@
                     {
                         <img class="screenshot" alt="Manual Screenshot 3" src="/images/manual_en/manual_3_en.png"/>
                     }
-                    <br/> <br/>
+                    <br/><br/>
+                    <MudDivider Style="height: 2px"/>
+                    <br/><br/>
                     @L["manual_4_text_7"]
                     <br/> <br/>
                     @L["manual_4_text_8"]
                     <br/> <br/>
                     @L["manual_4_text_9"]
                     <br/> <br/>
-                    <MudCard>
-                        @if (LanguageService.Language == Language.German)
-                        {
-                            <img class="screenshot" alt="Anleitung Bildschirmfoto 4" src="/images/manual_de/manual_4_de.png"/>
-                        }
-                        @if (LanguageService.Language == Language.English)
-                        {
-                            <img class="screenshot" alt="Manual Screenshot 4" src="/images/manual_en/manual_4_en.png"/>
-                        }
-                    </MudCard>
-                    <br/> <br/>
+                    @if (LanguageService.Language == Language.German)
+                    {
+                        <img class="screenshot" alt="Anleitung Bildschirmfoto 4" src="/images/manual_de/manual_4_de.png"/>
+                    }
+                    @if (LanguageService.Language == Language.English)
+                    {
+                        <img class="screenshot" alt="Manual Screenshot 4" src="/images/manual_en/manual_4_en.png"/>
+                    }
+                    <br/><br/>
+                    <MudDivider Style="height: 2px"/>
+                    <br/><br/>
                     @L["manual_4_text_10"]
                     <br/>
                     @L["manual_4_text_11"]
@@ -141,7 +144,9 @@
                     {
                         <img class="screenshot" alt="Manual Screenshot 5" src="/images/manual_en/manual_5_en.png"/>
                     }
-                    <br/> <br/>
+                    <br/><br/>
+                    <MudDivider Style="height: 2px"/>
+                    <br/><br/>
                     @L["manual_5_text_3"]
                     <br/> <br/>
                     @L["manual_5_text_4"]
@@ -171,8 +176,7 @@
                     {
                         <img class="screenshot" alt="Manual Screenshot 6" src="/images/manual_en/manual_6_en.png"/>
                     }
-
-                    <br/> <br/>
+             <br/><br/>
                 </MudText>
             </MudTabPanel>
             <MudTabPanel Text=@L["manual_6_subtitle"]>

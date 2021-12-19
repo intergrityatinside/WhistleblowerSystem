@@ -12,4 +12,12 @@ ol li {
 .screenshot {
     width: 100%;
     height: auto;
+    display: block;
+    margin: auto;
+}
+
+@media (max-width: 1500px) {
+    .screenshot {
+        width: 80%;
+    }
 }
