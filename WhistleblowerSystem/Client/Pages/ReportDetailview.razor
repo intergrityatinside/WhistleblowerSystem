@@ -24,29 +24,29 @@
                     </CardHeaderContent>
                 </MudCardHeader>
                 <MudCardContent>
-                    <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">
+                    <div style="padding-bottom: 8px;">
                         <strong>@L["reportdetailview_description"]:</strong> <br> @_form.Description
-                    </MudText>
+                    </div>
                     <br/>
                     @if (_form.OptionalFormFields.Count > 0)
                     {
-                        <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">
+                        <div style="padding-bottom: 8px;">
                             <strong>@L["reportdetailview_additionalinfo"]:</strong>
-                        </MudText>
+                        </div>
                         @foreach (var formField in _form!.OptionalFormFields)
                         {
                             @if (formField.SelectedValues[0].Length != 0 && formField.Type != ControlType.Text)
                             {
-                                <div class="control-title">@formField.Texts.GetLng().Text: @formField.SelectedValues[0]</div>
+                                <div class="control-title">@formField.Texts.GetLng().Text @formField.SelectedValues[0]</div>
                             }
                         }
                         <br />
                     }
                     @if (_form.Attachements != null && _form.Attachements.Count > 0)
                     {
-                        <MudText Style="padding-bottom: 8px;" Typo="Typo.body2">
+                        <div style="padding-bottom: 8px;">
                             <strong>@L["reportdetailview_documents"]:</strong>
-                        </MudText>
+                        </div>
                         @foreach (var file in _form!.Attachements)
                         {
                             <a href="/attachement/@file.AttachementId" target="_blank">
@@ -88,7 +88,7 @@
                                     for="fileInput"/>
                         }
                         <MudSpacer></MudSpacer>
-                        <MudText Typo="Typo.body2"> @L["reportdetailview_state"] @L[@_form.State.ToString()]</MudText>
+                        <div> @L["reportdetailview_state"] @L[@_form.State.ToString()]</div>
                     }
                 </MudCardActions>
             </MudCard>
@@ -102,9 +102,9 @@
                     <div class="message" style="@GetPosition(formMessageDto)">
                         <MudCard Outlined="true" Style="@GetMessageStyle(formMessageDto)">
                             <MudCardContent>
-                                <MudText Typo="Typo.body2">@L[GetSender(formMessageDto)], @formMessageDto.Timestamp.ToString("dd/MM/yyyy")</MudText>
+                                <div>@L[GetSender(formMessageDto)], @formMessageDto.Timestamp.ToString("dd/MM/yyyy")</div>
                                 <MudDivider/>
-                                <MudText Typo="Typo.body2">@formMessageDto.Text</MudText>
+                                <div>@formMessageDto.Text</div>
                             </MudCardContent>
                         </MudCard>
                         <MudSpacer/>
@@ -112,7 +112,7 @@
                 }
                 @if (_form.Messages.Count == 0)
                 {
-                    <MudText Style="padding: 20px">@L["reportdetailview_nomessages"]</MudText>
+                    <div style="padding: 20px">@L["reportdetailview_nomessages"]</div>
                 }
                 @if (_form.State != ViolationState.Closed)
                 {
